@@ -1,0 +1,515 @@
+[
+  {
+    "subject": "mathematics",
+    "grade": 7,
+    "quarter": 1,
+    "title": "Рациональные числа",
+    "description": "Действия с рациональными числами, модуль числа",
+    "order": 1,
+    "id": "1787000119688-mcxlf9vd0"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 7,
+    "quarter": 1,
+    "title": "Степень с натуральным показателем",
+    "description": "Свойства степеней, действия со степенями",
+    "order": 2,
+    "id": "1787000119688-0zp11sdz7"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 7,
+    "quarter": 2,
+    "title": "Одночлены и многочлены",
+    "description": "Действия с одночленами и многочленами",
+    "order": 3,
+    "id": "1787000119688-1a9r5cpmv"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 7,
+    "quarter": 3,
+    "title": "Формулы сокращённого умножения",
+    "description": "Квадрат суммы, разность квадратов",
+    "order": 4,
+    "id": "1787000119688-vp2tqezpm"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 7,
+    "quarter": 4,
+    "title": "Линейные уравнения",
+    "description": "Решение линейных уравнений и систем",
+    "order": 5,
+    "id": "1787000119688-70oxqkn6j"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 8,
+    "quarter": 1,
+    "title": "Квадратные корни",
+    "description": "Арифметический квадратный корень, свойства",
+    "order": 1,
+    "id": "1787000119688-7nrrvt0au"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 8,
+    "quarter": 2,
+    "title": "Квадратные уравнения",
+    "description": "Решение квадратных уравнений, теорема Виета",
+    "order": 2,
+    "id": "1787000119688-6g5yzvi61"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 8,
+    "quarter": 3,
+    "title": "Неравенства",
+    "description": "Линейные и квадратные неравенства",
+    "order": 3,
+    "id": "1787000119688-f9w534vdi"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 8,
+    "quarter": 4,
+    "title": "Функции и графики",
+    "description": "Линейная и квадратичная функции",
+    "order": 4,
+    "id": "1787000119688-7zwq5190j"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 9,
+    "quarter": 1,
+    "title": "Уравнения и неравенства",
+    "description": "Решение уравнений высших степеней",
+    "order": 1,
+    "id": "1787000119688-91nbtopzz"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 9,
+    "quarter": 2,
+    "title": "Последовательности",
+    "description": "Арифметическая и геометрическая прогрессии",
+    "order": 2,
+    "id": "1787000119688-k9pl0qo6q"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 9,
+    "quarter": 3,
+    "title": "Элементы статистики",
+    "description": "Статистические характеристики",
+    "order": 3,
+    "id": "1787000119688-ve9mk0d14"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 9,
+    "quarter": 4,
+    "title": "Тригонометрия",
+    "description": "Основы тригонометрии",
+    "order": 4,
+    "id": "1787000119688-6annl7a5s"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 10,
+    "quarter": 1,
+    "title": "Тригонометрические функции",
+    "description": "Свойства и графики тригонометрических функций",
+    "order": 1,
+    "id": "1787000119688-rkzrbvnr9"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 10,
+    "quarter": 2,
+    "title": "Тригонометрические уравнения",
+    "description": "Решение тригонометрических уравнений",
+    "order": 2,
+    "id": "1787000119688-5bi9hpn7f"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 10,
+    "quarter": 3,
+    "title": "Производная",
+    "description": "Определение производной, правила дифференцирования",
+    "order": 3,
+    "id": "1787000119688-161gu1vwt"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 10,
+    "quarter": 4,
+    "title": "Применение производной",
+    "description": "Исследование функций с помощью производной",
+    "order": 4,
+    "id": "1787000119688-vf181ydv0"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 11,
+    "quarter": 1,
+    "title": "Первообразная и интеграл",
+    "description": "Неопределённый и определённый интеграл",
+    "order": 1,
+    "id": "1787000119688-nyqx00vrd"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 11,
+    "quarter": 2,
+    "title": "Показательная функция",
+    "description": "Свойства и графики, показательные уравнения",
+    "order": 2,
+    "id": "1787000119688-fo0xo8rew"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 11,
+    "quarter": 3,
+    "title": "Логарифмическая функция",
+    "description": "Логарифмы, логарифмические уравнения",
+    "order": 3,
+    "id": "1787000119688-r0p7mli1k"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 11,
+    "quarter": 4,
+    "title": "Степенная функция",
+    "description": "Свойства, иррациональные уравнения",
+    "order": 4,
+    "id": "1787000119688-asno37xdq"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 12,
+    "quarter": 1,
+    "title": "Комплексные числа",
+    "description": "Действия с комплексными числами",
+    "order": 1,
+    "id": "1787000119688-lit1695gp"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 12,
+    "quarter": 2,
+    "title": "Элементы комбинаторики",
+    "description": "Перестановки, размещения, сочетания",
+    "order": 2,
+    "id": "1787000119688-4ceb63jxi"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 12,
+    "quarter": 3,
+    "title": "Теория вероятностей",
+    "description": "Классическая вероятность, теоремы",
+    "order": 3,
+    "id": "1787000119688-wy8xuwrqx"
+  },
+  {
+    "subject": "mathematics",
+    "grade": 12,
+    "quarter": 4,
+    "title": "Математическая статистика",
+    "description": "Статистические методы обработки данных",
+    "order": 4,
+    "id": "1787000119688-igm6dqwva"
+  },
+  {
+    "subject": "physics",
+    "grade": 7,
+    "quarter": 1,
+    "title": "Физические величины и измерения",
+    "description": "Введение в физику, измерительные приборы",
+    "order": 1,
+    "id": "1787000119688-f1crpssdg"
+  },
+  {
+    "subject": "physics",
+    "grade": 7,
+    "quarter": 2,
+    "title": "Механическое движение",
+    "description": "Скорость, путь, время",
+    "order": 2,
+    "id": "1787000119688-pcvzgv2gs"
+  },
+  {
+    "subject": "physics",
+    "grade": 7,
+    "quarter": 3,
+    "title": "Плотность вещества",
+    "description": "Масса, объём, плотность",
+    "order": 3,
+    "id": "1787000119688-f6724r3vr"
+  },
+  {
+    "subject": "physics",
+    "grade": 7,
+    "quarter": 4,
+    "title": "Давление",
+    "description": "Давление твёрдых тел, жидкостей и газов",
+    "order": 4,
+    "id": "1787000119688-hr4gr2juj"
+  },
+  {
+    "subject": "physics",
+    "grade": 8,
+    "quarter": 1,
+    "title": "Тепловые явления",
+    "description": "Внутренняя энергия, теплопередача",
+    "order": 1,
+    "id": "1787000119688-4evd197qx"
+  },
+  {
+    "subject": "physics",
+    "grade": 8,
+    "quarter": 2,
+    "title": "Агрегатные состояния",
+    "description": "Плавление, парообразование",
+    "order": 2,
+    "id": "1787000119688-1kt2birkk"
+  },
+  {
+    "subject": "physics",
+    "grade": 8,
+    "quarter": 3,
+    "title": "Электрические явления",
+    "description": "Электрический ток, сопротивление",
+    "order": 3,
+    "id": "1787000119688-e3wdwcv7q"
+  },
+  {
+    "subject": "physics",
+    "grade": 8,
+    "quarter": 4,
+    "title": "Закон Ома",
+    "description": "Закон Ома для участка цепи",
+    "order": 4,
+    "id": "1787000119688-lmm242ihz"
+  },
+  {
+    "subject": "physics",
+    "grade": 9,
+    "quarter": 1,
+    "title": "Кинематика",
+    "description": "Равномерное и равноускоренное движение",
+    "order": 1,
+    "id": "1787000119688-bxzbujgda"
+  },
+  {
+    "subject": "physics",
+    "grade": 9,
+    "quarter": 2,
+    "title": "Динамика",
+    "description": "Законы Ньютона",
+    "order": 2,
+    "id": "1787000119688-s4jvvp7tg"
+  },
+  {
+    "subject": "physics",
+    "grade": 9,
+    "quarter": 3,
+    "title": "Законы сохранения",
+    "description": "Импульс, энергия",
+    "order": 3,
+    "id": "1787000119688-quy21giky"
+  },
+  {
+    "subject": "physics",
+    "grade": 9,
+    "quarter": 4,
+    "title": "Колебания и волны",
+    "description": "Механические колебания и волны",
+    "order": 4,
+    "id": "1787000119688-p9t2n8a41"
+  },
+  {
+    "subject": "physics",
+    "grade": 10,
+    "quarter": 1,
+    "title": "Молекулярная физика",
+    "description": "МКТ, газовые законы",
+    "order": 1,
+    "id": "1787000119688-jyen7su4b"
+  },
+  {
+    "subject": "physics",
+    "grade": 10,
+    "quarter": 2,
+    "title": "Термодинамика",
+    "description": "Законы термодинамики",
+    "order": 2,
+    "id": "1787000119688-9nv6zd56y"
+  },
+  {
+    "subject": "physics",
+    "grade": 10,
+    "quarter": 3,
+    "title": "Электростатика",
+    "description": "Электрическое поле, конденсаторы",
+    "order": 3,
+    "id": "1787000119688-my9l9d7ps"
+  },
+  {
+    "subject": "physics",
+    "grade": 10,
+    "quarter": 4,
+    "title": "Постоянный ток",
+    "description": "Законы постоянного тока",
+    "order": 4,
+    "id": "1787000119688-mqe1iod61"
+  },
+  {
+    "subject": "informatics",
+    "grade": 7,
+    "quarter": 1,
+    "title": "Компьютерные системы",
+    "description": "Устройство компьютера, операционные системы",
+    "order": 1,
+    "id": "1787000119688-a68olq93j"
+  },
+  {
+    "subject": "informatics",
+    "grade": 7,
+    "quarter": 2,
+    "title": "Алгоритмизация",
+    "description": "Понятие алгоритма, блок-схемы",
+    "order": 2,
+    "id": "1787000119688-btycz7iwz"
+  },
+  {
+    "subject": "informatics",
+    "grade": 7,
+    "quarter": 3,
+    "title": "Введение в программирование",
+    "description": "Основы Python или Scratch",
+    "order": 3,
+    "id": "1787000119688-rkott81kn"
+  },
+  {
+    "subject": "informatics",
+    "grade": 7,
+    "quarter": 4,
+    "title": "Работа с данными",
+    "description": "Типы данных, переменные",
+    "order": 4,
+    "id": "1787000119688-pjjvyr04g"
+  },
+  {
+    "subject": "informatics",
+    "grade": 8,
+    "quarter": 1,
+    "title": "Условные операторы",
+    "description": "Ветвления в программах",
+    "order": 1,
+    "id": "1787000119688-g82c59ycy"
+  },
+  {
+    "subject": "informatics",
+    "grade": 8,
+    "quarter": 2,
+    "title": "Циклы",
+    "description": "For, while циклы",
+    "order": 2,
+    "id": "1787000119688-293s4dffi"
+  },
+  {
+    "subject": "informatics",
+    "grade": 8,
+    "quarter": 3,
+    "title": "Списки и массивы",
+    "description": "Работа с массивами данных",
+    "order": 3,
+    "id": "1787000119688-dnlhs6xvi"
+  },
+  {
+    "subject": "informatics",
+    "grade": 8,
+    "quarter": 4,
+    "title": "Функции",
+    "description": "Создание и использование функций",
+    "order": 4,
+    "id": "1787000119688-xdidlqxnb"
+  },
+  {
+    "subject": "informatics",
+    "grade": 9,
+    "quarter": 1,
+    "title": "Сложность алгоритмов",
+    "description": "O-нотация, эффективность",
+    "order": 1,
+    "id": "1787000119688-t5zz9lbh9"
+  },
+  {
+    "subject": "informatics",
+    "grade": 9,
+    "quarter": 2,
+    "title": "Сортировка и поиск",
+    "description": "Алгоритмы сортировки",
+    "order": 2,
+    "id": "1787000119688-jkz90qki7"
+  },
+  {
+    "subject": "informatics",
+    "grade": 9,
+    "quarter": 3,
+    "title": "Рекурсия",
+    "description": "Рекурсивные алгоритмы",
+    "order": 3,
+    "id": "1787000119688-sprlsj9bw"
+  },
+  {
+    "subject": "informatics",
+    "grade": 9,
+    "quarter": 4,
+    "title": "Базы данных",
+    "description": "Основы SQL",
+    "order": 4,
+    "id": "1787000119688-kkldba0g4"
+  },
+  {
+    "subject": "informatics",
+    "grade": 10,
+    "quarter": 1,
+    "title": "ООП",
+    "description": "Объектно-ориентированное программирование",
+    "order": 1,
+    "id": "1787000119688-psgmxwbrc"
+  },
+  {
+    "subject": "informatics",
+    "grade": 10,
+    "quarter": 2,
+    "title": "Структуры данных",
+    "description": "Стеки, очереди, деревья",
+    "order": 2,
+    "id": "1787000119688-4oph0akhn"
+  },
+  {
+    "subject": "informatics",
+    "grade": 10,
+    "quarter": 3,
+    "title": "Графы",
+    "description": "Представление и обход графов",
+    "order": 3,
+    "id": "1787000119688-o780qiims"
+  },
+  {
+    "subject": "informatics",
+    "grade": 10,
+    "quarter": 4,
+    "title": "Web-разработка",
+    "description": "HTML, CSS, JavaScript основы",
+    "order": 4,
+    "id": "1787000119688-yhmjewe6v"
+  }
+]
