@@ -120,7 +120,7 @@ export default function StudentDashboard() {
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800"
+              className="inline-block px-5 py-2.5 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700"
             >
               Начать диагностику
             </Link>
@@ -163,7 +163,7 @@ export default function StudentDashboard() {
                   className="border border-gray-200 rounded-lg p-5 hover:border-gray-300 transition-colors"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-gray-900 text-white rounded-lg flex items-center justify-center text-sm font-medium">
+                    <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-lg flex items-center justify-center text-sm font-medium">
                       {index + 1}
                     </div>
                     <div className="flex-1 min-w-0">

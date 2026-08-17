@@ -103,7 +103,7 @@ export default function RegisterPage() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-shadow"
                 required
               />
             </div>
@@ -116,7 +116,7 @@ export default function RegisterPage() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-shadow"
                 required
               />
             </div>
@@ -129,7 +129,7 @@ export default function RegisterPage() {
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-shadow"
                 required
               />
             </div>
@@ -144,7 +144,7 @@ export default function RegisterPage() {
                   onClick={() => setFormData({ ...formData, role: 'student' })}
                   className={`px-4 py-2.5 text-sm font-medium rounded-lg border-2 transition-colors ${
                     formData.role === 'student'
-                      ? 'border-gray-900 bg-gray-900 text-white'
+                      ? 'border-green-600 bg-green-600 text-white'
                       : 'border-gray-200 text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -155,7 +155,7 @@ export default function RegisterPage() {
                   onClick={() => setFormData({ ...formData, role: 'teacher' })}
                   className={`px-4 py-2.5 text-sm font-medium rounded-lg border-2 transition-colors ${
                     formData.role === 'teacher'
-                      ? 'border-gray-900 bg-gray-900 text-white'
+                      ? 'border-green-600 bg-green-600 text-white'
                       : 'border-gray-200 text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -192,7 +192,7 @@ export default function RegisterPage() {
                           type="checkbox"
                           checked={formData.goals.includes(goal)}
                           onChange={() => handleGoalToggle(goal)}
-                          className="w-4 h-4 text-gray-900 border-gray-300 rounded focus:ring-gray-900"
+                          className="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-600"
                         />
                         <span className="ml-3 text-sm text-gray-700">{goal}</span>
                       </label>
@@ -214,7 +214,7 @@ export default function RegisterPage() {
                         type="checkbox"
                         checked={formData.subjects.includes(key as Subject)}
                         onChange={() => handleSubjectToggle(key as Subject)}
-                        className="w-4 h-4 text-gray-900 border-gray-300 rounded focus:ring-gray-900"
+                        className="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-600"
                       />
                       <span className="ml-3 text-sm text-gray-700">{name}</span>
                     </label>
@@ -226,7 +226,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+              className="w-full py-3 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
             >
               {loading ? 'Создание аккаунта...' : 'Зарегистрироваться'}
             </button>
