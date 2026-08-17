@@ -7,10 +7,10 @@ export const qwenClient = new OpenAI({
 
 export async function qwenChat(messages: Array<{ role: string; content: string }>) {
   try {
+    // @ts-ignore - Qwen API uses extra_body which is not in OpenAI types
     const completion = await qwenClient.chat.completions.create({
       model: "qwen3.5-flash",
-      messages: messages,
-      // @ts-ignore - extra_body not in types
+      messages: messages as any,
       extra_body: { enable_thinking: true },
       stream: false,
     });
@@ -24,10 +24,10 @@ export async function qwenChat(messages: Array<{ role: string; content: string }
 
 export async function qwenChatStream(messages: Array<{ role: string; content: string }>) {
   try {
+    // @ts-ignore - Qwen API uses extra_body which is not in OpenAI types
     const completion = await qwenClient.chat.completions.create({
       model: "qwen3.5-flash",
-      messages: messages,
-      // @ts-ignore
+      messages: messages as any,
       extra_body: { enable_thinking: true },
       stream: true,
     });

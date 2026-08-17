@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromToken } from '@/lib/auth';
-import { findById, create, findBy, update } from '@/lib/db';
+import { findById, create, findBy, update, generateId } from '@/lib/db';
 import { Assignment, StudentProgress, AssignmentScore, StudentAnswer } from '@/types';
 import { qwenChat } from '@/lib/qwen';
 
@@ -102,15 +102,16 @@ export async function POST(request: NextRequest) {
           return q?.text.slice(0, 50) || '';
         });
 
-      update('student-progress', progress.studentId, {
+      update<StudentProgress>('student-progress', progress.id, {
         scores: updatedScores,
         completedAssignments,
         weakPoints: [...new Set([...progress.weakPoints, ...weakPoints])],
         lastActivity: new Date(),
-      });
+      } as Partial<StudentProgress>);
     } else {
       // Создаём новый прогресс
       const newProgress: StudentProgress = {
+        id: generateId(),
         studentId: user.userId,
         topicId: assignment.topicId,
         completedMaterials: [],

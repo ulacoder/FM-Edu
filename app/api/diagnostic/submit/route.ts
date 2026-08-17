@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromToken } from '@/lib/auth';
-import { findById, create, update } from '@/lib/db';
+import { findById, create, update, generateId } from '@/lib/db';
 import { DiagnosticTest, DiagnosticResult, Student } from '@/types';
 
 export async function POST(request: NextRequest) {
@@ -53,6 +53,7 @@ export async function POST(request: NextRequest) {
 
     // Сохранение результата
     const result: DiagnosticResult = {
+      id: generateId(),
       studentId: user.userId,
       testId,
       score,

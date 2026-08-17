@@ -87,6 +87,7 @@ export interface Question {
 
 // Прогресс ученика
 export interface StudentProgress {
+  id: string;
   studentId: string;
   topicId: string;
   completedMaterials: string[]; // ID материалов
@@ -120,6 +121,7 @@ export interface DiagnosticTest {
 }
 
 export interface DiagnosticResult {
+  id: string;
   studentId: string;
   testId: string;
   score: number;

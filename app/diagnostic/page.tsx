@@ -222,11 +222,12 @@ export default function DiagnosticPage() {
 
   // Шаг 3: Результаты
   if (step === 'result' && result) {
-    const levelText = {
+    const levelText: Record<string, string> = {
       beginner: 'Начальный',
       intermediate: 'Средний',
       advanced: 'Продвинутый',
-    }[result.level];
+    };
+    const displayLevel = levelText[result.level] || 'Не определён';
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white p-4">
@@ -247,7 +248,7 @@ export default function DiagnosticPage() {
                 {Math.round(result.score)}%
               </div>
               <div className="text-lg text-gray-700">
-                Ваш уровень: <span className="font-semibold">{levelText}</span>
+                Ваш уровень: <span className="font-semibold">{displayLevel}</span>
               </div>
             </div>
 
