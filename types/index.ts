@@ -30,6 +30,7 @@ export type Subject =
   | 'economics'
   | 'biology'
   | 'chemistry'
+  | 'geography'
   | 'english';
 
 export const subjectNames: Record<Subject, string> = {
@@ -39,6 +40,7 @@ export const subjectNames: Record<Subject, string> = {
   economics: 'Экономика',
   biology: 'Биология',
   chemistry: 'Химия',
+  geography: 'География',
   english: 'Английский язык',
 };
 

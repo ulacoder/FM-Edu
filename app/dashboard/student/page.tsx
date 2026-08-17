@@ -77,22 +77,18 @@ export default function StudentDashboard() {
   }[student?.level || 'beginner'];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              EduAI.kz
-            </Link>
-            <span className="text-gray-400">|</span>
-            <span className="text-gray-700">Личный кабинет</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-gray-700">{student?.name}</span>
+      <header className="border-b border-gray-100">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="text-xl font-semibold tracking-tight text-gray-900">
+            FM Edu
+          </Link>
+          <div className="flex items-center gap-6">
+            <span className="text-sm text-gray-700">{student?.name}</span>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 text-gray-600 hover:text-gray-900"
+              className="text-sm text-gray-600 hover:text-gray-900"
             >
               Выйти
             </button>
@@ -100,44 +96,46 @@ export default function StudentDashboard() {
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Приветствие */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Привет, {student?.name}! 👋
+      <div className="container mx-auto px-6 py-12 max-w-6xl">
+        {/* Header Section */}
+        <div className="mb-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">
+            Добро пожаловать, {student?.name}
           </h1>
-          <p className="text-gray-600">
-            {student?.grade} класс • Уровень: {levelText}
-          </p>
+          <div className="flex gap-4 text-sm text-gray-600">
+            <span>{student?.grade} класс</span>
+            <span>•</span>
+            <span>Уровень: {levelText}</span>
+          </div>
         </div>
 
-        {/* Кнопка диагностики */}
+        {/* Diagnostic CTA */}
         {!student?.level && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
-            <h3 className="font-semibold text-blue-900 mb-2">
+          <div className="mb-12 p-6 border border-gray-200 rounded-lg">
+            <h3 className="font-semibold text-gray-900 mb-2">
               Пройдите диагностику
             </h3>
-            <p className="text-blue-700 mb-4">
-              Пройдите короткий тест, чтобы мы могли подобрать материалы под ваш уровень
+            <p className="text-sm text-gray-600 mb-4">
+              Короткий тест для определения вашего уровня и подбора материалов
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="inline-block px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800"
             >
               Начать диагностику
             </Link>
           </div>
         )}
 
-        {/* Цели */}
+        {/* Goals */}
         {student?.goals && student.goals.length > 0 && (
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Ваши цели</h2>
+          <div className="mb-12">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Ваши цели</h2>
             <div className="flex flex-wrap gap-2">
               {student.goals.map((goal, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm"
+                  className="px-3 py-1.5 bg-gray-100 text-gray-900 rounded-md text-sm"
                 >
                   {goal}
                 </span>
@@ -146,38 +144,36 @@ export default function StudentDashboard() {
           </div>
         )}
 
-        {/* Рекомендации */}
+        {/* Recommendations */}
         {recommendations && recommendations.topics.length > 0 && (
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-2">
-                  Рекомендованные темы
-                </h2>
-                <p className="text-gray-600 text-sm">
-                  {recommendations.reasoning}
-                </p>
-              </div>
+          <div className="mb-12">
+            <div className="mb-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-2">
+                Рекомендованные темы
+              </h2>
+              <p className="text-sm text-gray-600">
+                {recommendations.reasoning}
+              </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {recommendations.topics.map((topic, index) => (
                 <div
                   key={topic.id}
-                  className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors"
+                  className="border border-gray-200 rounded-lg p-5 hover:border-gray-300 transition-colors"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gray-900 text-white rounded-lg flex items-center justify-center text-sm font-medium">
                       {index + 1}
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-gray-900 mb-1">
                         {topic.title}
                       </h3>
-                      <p className="text-sm text-gray-600 mb-2">
+                      <p className="text-sm text-gray-600 mb-3">
                         {topic.description}
                       </p>
-                      <div className="flex gap-2 text-xs text-gray-500">
+                      <div className="flex gap-3 text-xs text-gray-500">
                         <span>Класс {topic.grade}</span>
                         <span>•</span>
                         <span>Четверть {topic.quarter}</span>
@@ -185,7 +181,7 @@ export default function StudentDashboard() {
                     </div>
                     <Link
                       href={`/learn/${topic.id}`}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
+                      className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 whitespace-nowrap"
                     >
                       Изучить
                     </Link>
@@ -196,46 +192,61 @@ export default function StudentDashboard() {
           </div>
         )}
 
-        {/* Быстрые действия */}
-        <div className="grid md:grid-cols-3 gap-6">
-          <Link
-            href="/diagnostic"
-            className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
-          >
-            <div className="text-3xl mb-3">📊</div>
-            <h3 className="font-semibold text-gray-900 mb-2">
-              Пройти диагностику
-            </h3>
-            <p className="text-sm text-gray-600">
-              Определите свой уровень знаний
-            </p>
-          </Link>
+        {/* Quick Actions */}
+        <div>
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Быстрые действия</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            <Link
+              href="/diagnostic"
+              className="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
+            >
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Диагностика
+              </h3>
+              <p className="text-sm text-gray-600">
+                Определите свой уровень знаний
+              </p>
+            </Link>
 
-          <Link
-            href="/practice"
-            className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
-          >
-            <div className="text-3xl mb-3">✍️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">
-              Практика
-            </h3>
-            <p className="text-sm text-gray-600">
-              Решайте задачи и тесты
-            </p>
-          </Link>
+            <Link
+              href="/practice"
+              className="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
+            >
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Практика
+              </h3>
+              <p className="text-sm text-gray-600">
+                Решайте задачи и тесты
+              </p>
+            </Link>
 
-          <Link
-            href="/progress"
-            className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
-          >
-            <div className="text-3xl mb-3">📈</div>
-            <h3 className="font-semibold text-gray-900 mb-2">
-              Прогресс
-            </h3>
-            <p className="text-sm text-gray-600">
-              Отслеживайте свои достижения
-            </p>
-          </Link>
+            <Link
+              href="/progress"
+              className="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
+            >
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Прогресс
+              </h3>
+              <p className="text-sm text-gray-600">
+                Отслеживайте свои достижения
+              </p>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
