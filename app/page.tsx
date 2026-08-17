@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 
 export default function Home() {
@@ -18,7 +20,7 @@ export default function Home() {
             </Link>
             <Link
               href="/register"
-              className="px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-colors"
+              className="px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-all"
               style={{ backgroundColor: '#50C878' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0B6E4F'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#50C878'}
@@ -43,7 +45,7 @@ export default function Home() {
             <div className="flex gap-4 justify-center pt-4">
               <Link
                 href="/register"
-                className="px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-colors"
+                className="px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-all"
                 style={{ backgroundColor: '#50C878' }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0B6E4F'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#50C878'}
@@ -146,7 +148,7 @@ export default function Home() {
             </p>
             <Link
               href="/register"
-              className="inline-block px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-colors"
+              className="inline-block px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-all"
               style={{ backgroundColor: '#50C878' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0B6E4F'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#50C878'}
