@@ -48,49 +48,55 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6" style={{ backgroundColor: '#D1F2EB' }}>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link href="/" className="text-xl font-semibold text-gray-900">
+          <Link href="/" className="text-xl font-semibold" style={{ color: '#013220' }}>
             FM Edu
           </Link>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', border: '2px solid #50C878' }}>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Вход</h1>
-            <p className="mt-2 text-sm text-gray-600">Войдите в свой аккаунт</p>
+            <h1 className="text-2xl font-bold" style={{ color: '#013220' }}>Вход</h1>
+            <p className="mt-2 text-sm" style={{ color: '#0B6E4F' }}>Войдите в свой аккаунт</p>
           </div>
 
           {error && (
-            <div className="px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+            <div className="px-4 py-3 rounded-lg text-sm" style={{ backgroundColor: '#D1F2EB', border: '1px solid #0B6E4F', color: '#013220' }}>
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
+              <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
                 Email
               </label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-shadow"
+                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
+                style={{ border: '2px solid #50C878' }}
+                onFocus={(e) => e.currentTarget.style.borderColor = '#0B6E4F'}
+                onBlur={(e) => e.currentTarget.style.borderColor = '#50C878'}
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">
+              <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
                 Пароль
               </label>
               <input
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none transition-shadow"
+                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
+                style={{ border: '2px solid #50C878' }}
+                onFocus={(e) => e.currentTarget.style.borderColor = '#0B6E4F'}
+                onBlur={(e) => e.currentTarget.style.borderColor = '#50C878'}
                 required
               />
             </div>
@@ -98,15 +104,18 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+              className="w-full py-3 text-white text-sm font-medium rounded-lg transition-all"
+              style={{ backgroundColor: loading ? '#D1F2EB' : '#50C878' }}
+              onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#0B6E4F')}
+              onMouseLeave={(e) => !loading && (e.currentTarget.style.backgroundColor = '#50C878')}
             >
               {loading ? 'Вход...' : 'Войти'}
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm" style={{ color: '#0B6E4F' }}>
             Нет аккаунта?{' '}
-            <Link href="/register" className="font-medium text-gray-900 hover:underline">
+            <Link href="/register" className="font-medium" style={{ color: '#013220' }}>
               Зарегистрироваться
             </Link>
           </p>
