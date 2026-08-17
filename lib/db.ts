@@ -8,10 +8,25 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
+// In-memory storage для production (Vercel serverless)
+const memoryStore: Record<string, any[]> = {};
+
+// Проверка среды
+const isProduction = process.env.VERCEL === '1';
+
 // Универсальные CRUD операции
 export function readData<T>(filename: string): T[] {
-  const filePath = path.join(DATA_DIR, `${filename}.json`);
+  if (isProduction) {
+    // В production используем память
+    if (!memoryStore[filename]) {
+      memoryStore[filename] = [];
+      // Инициализируем базовые данные
+      initializeMemoryStore(filename);
+    }
+    return memoryStore[filename] as T[];
+  }
 
+  const filePath = path.join(DATA_DIR, `${filename}.json`);
   if (!fs.existsSync(filePath)) {
     return [];
   }
@@ -21,8 +36,26 @@ export function readData<T>(filename: string): T[] {
 }
 
 export function writeData<T>(filename: string, data: T[]): void {
+  if (isProduction) {
+    memoryStore[filename] = data;
+    return;
+  }
+
   const filePath = path.join(DATA_DIR, `${filename}.json`);
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+function initializeMemoryStore(filename: string): void {
+  // Инициализация тем при первом запуске
+  if (filename === 'topics') {
+    const { allTopics } = require('./seed-topics');
+    memoryStore[filename] = allTopics.map((topic: any, index: number) => ({
+      ...topic,
+      id: `topic-${index}`,
+    }));
+  } else {
+    memoryStore[filename] = [];
+  }
 }
 
 export function findById<T extends { id: string }>(filename: string, id: string): T | undefined {
