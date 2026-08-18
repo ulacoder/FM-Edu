@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-heading: ui-sans-serif, system-ui, sans-serif;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Mentoria Hub Design System - Light Mode */
+  --background: oklch(0.98 0.01 280); /* Light purple-tinted white */
+  --foreground: oklch(0.15 0.05 280); /* Dark purple text */
+  --card: oklch(1 0 0); /* Pure white cards */
+  --card-foreground: oklch(0.15 0.05 280);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.05 280);
+  --primary: oklch(0.65 0.25 293); /* #8B5CF6 - Vibrant Purple */
+  --primary-foreground: oklch(0.98 0.01 280);
+  --secondary: oklch(0.60 0.20 145); /* #10B981 - Vibrant Green */
+  --secondary-foreground: oklch(0.98 0.01 280);
+  --muted: oklch(0.95 0.01 280); /* Light purple-gray */
+  --muted-foreground: oklch(0.45 0.03 280);
+  --accent: oklch(0.60 0.20 145); /* Green accent */
+  --accent-foreground: oklch(0.98 0.01 280);
+  --destructive: oklch(0.60 0.25 30); /* Red */
+  --border: oklch(0.75 0.08 293); /* Light purple border */
+  --input: oklch(0.85 0.05 280);
+  --ring: oklch(0.65 0.25 293); /* Purple ring */
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom gradients for Mentoria Hub - Purple/Green theme */
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, #8B5CF6 0%, #10B981 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #10B981 0%, #8B5CF6 100%);
+  }
+
+  .gradient-purple {
+    background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+  }
+
+  .gradient-green {
+    background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+  }
 }

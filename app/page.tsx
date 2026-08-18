@@ -1,185 +1,226 @@
 'use client';
 
 import Link from "next/link";
+import { BookOpen, Target, MessageSquare, GraduationCap } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "white" }}>
-      {/* Header */}
-      <header style={{ backgroundColor: "white", borderBottom: '1px solid #e4e4e7' }}>
-        <div className="container mx-auto px-6 py-5 flex justify-between items-center">
-          <Link href="/" className="text-xl font-semibold tracking-tight" style={{ color: "#18181b" }}>
-            FM Edu
-          </Link>
-          <div className="flex gap-3">
-            <Link
-              href="/login"
-              className="px-5 py-2.5 text-sm font-medium transition-colors"
-              style={{ color: "#18181b" }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#8B5CF6'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#18181b'}
-            >
-              Войти
-            </Link>
-            <Link
-              href="/register"
-              className="px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-all"
-              style={{ backgroundColor: '#8B5CF6' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A78BFA'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8B5CF6'}
-            >
-              Начать
+    <div className="flex flex-col min-h-screen">
+      {/* Header/Navbar */}
+      <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                <GraduationCap className="w-5 h-5 text-white" />
+              </div>
+              <Link href="/" className="text-lg font-bold">
+                FM Edu
+              </Link>
+            </div>
+
+            <div className="hidden md:flex items-center gap-6">
+              <Link href="/diagnostic" className="text-sm font-medium hover:text-primary transition-colors">
+                Диагностика
+              </Link>
+              <Link href="/courses" className="text-sm font-medium hover:text-primary transition-colors">
+                Предметы
+              </Link>
+              <Link href="/dashboard" className="text-sm font-medium hover:text-primary transition-colors">
+                Дашборд
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Link href="/login">
+                <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
+                  Войти
+                </button>
+              </Link>
+              <Link href="/register">
+                <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                  Начать
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-16 pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 mb-6">
+              <span className="text-sm font-medium text-primary">AI-платформа для школьников</span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Персонализированное образование с искусственным интеллектом
+            </h1>
+
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Адаптивная платформа для школьников 7-12 классов. Диагностика уровня знаний,
+              индивидуальный план обучения и мгновенная обратная связь от AI.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 mb-12">
+              <Link href="/register">
+                <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-medium">
+                  Начать обучение
+                </button>
+              </Link>
+              <Link href="/diagnostic">
+                <button className="px-6 py-3 border border-border hover:border-primary/40 rounded-lg transition-colors font-medium">
+                  Пройти диагностику
+                </button>
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="flex gap-12 pt-8 border-t border-border/40">
+              <div>
+                <div className="text-2xl font-semibold">8</div>
+                <div className="text-sm text-muted-foreground">Предметов</div>
+              </div>
+              <div>
+                <div className="text-2xl font-semibold">6</div>
+                <div className="text-sm text-muted-foreground">Классов (7-12)</div>
+              </div>
+              <div>
+                <div className="text-2xl font-semibold">100%</div>
+                <div className="text-sm text-muted-foreground">МОН РК</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-16 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold mb-3">
+              Почему FM Edu?
+            </h2>
+            <p className="text-muted-foreground">
+              Современный подход к образованию с использованием AI
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+              <Target className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Адаптивный план обучения</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                AI анализирует результаты диагностики и создаёт индивидуальную траекторию обучения под ваш уровень
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+              <BookOpen className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Программа МОН РК</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Все материалы соответствуют официальной школьной программе Министерства образования Казахстана
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+              <MessageSquare className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Мгновенная обратная связь</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Персонализированные объяснения и подсказки к каждому заданию от AI-ассистента
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Subjects Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-8">Доступные предметы</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              'Математика',
+              'Физика',
+              'Информатика',
+              'Химия',
+              'Биология',
+              'Экономика',
+              'География',
+              'Английский'
+            ].map((subject) => (
+              <div
+                key={subject}
+                className="bg-card border border-border/60 rounded-lg p-6 text-center hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
+              >
+                <div className="text-sm font-medium">{subject}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              Начните персонализированное обучение прямо сейчас
+            </h2>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Доступно всем школьникам 7-12 классов по всему Казахстану
+            </p>
+            <Link href="/register">
+              <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-medium">
+                Создать аккаунт бесплатно
+              </button>
             </Link>
           </div>
         </div>
-      </header>
-
-      {/* Hero Section */}
-      <main className="container mx-auto px-6">
-        <section className="py-24 max-w-4xl mx-auto">
-          <div className="text-center space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight" style={{ color: "#18181b" }}>
-              Персонализированное<br />образование с AI
-            </h1>
-            <p className="text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: '#71717a' }}>
-              Адаптивная платформа для школьников 7-12 классов. Диагностика уровня знаний,
-              индивидуальный план обучения и мгновенная обратная связь.
-            </p>
-            <div className="flex gap-4 justify-center pt-4">
-              <Link
-                href="/register"
-                className="px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-all"
-                style={{ backgroundColor: '#8B5CF6' }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A78BFA'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8B5CF6'}
-              >
-                Начать обучение
-              </Link>
-              <Link
-                href="/diagnostic"
-                className="px-7 py-3.5 border-2 text-sm font-medium rounded-lg transition-all"
-                style={{ borderColor: '#e4e4e7', color: "#18181b", backgroundColor: 'white' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#8B5CF6';
-                  e.currentTarget.style.color = 'white';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'white';
-                  e.currentTarget.style.color = '#18181b';
-                }}
-              >
-                Пройти диагностику
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Features */}
-        <section className="py-20" style={{ borderTop: '1px solid #e4e4e7' }}>
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'white' }}>
-                <svg className="w-6 h-6" style={{ color: '#71717a' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold" style={{ color: "#18181b" }}>Адаптивный план</h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#71717a' }}>
-                AI анализирует результаты диагностики и создаёт индивидуальную траекторию обучения
-              </p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'white' }}>
-                <svg className="w-6 h-6" style={{ color: '#71717a' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold" style={{ color: "#18181b" }}>Программа МОН РК</h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#71717a' }}>
-                Все материалы соответствуют официальной школьной программе Казахстана
-              </p>
-            </div>
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'white' }}>
-                <svg className="w-6 h-6" style={{ color: '#71717a' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold" style={{ color: "#18181b" }}>Обратная связь</h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#71717a' }}>
-                Мгновенные персонализированные объяснения к каждому решённому заданию
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Subjects */}
-        <section className="py-20" style={{ borderTop: '1px solid #e4e4e7' }}>
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12" style={{ color: "#18181b" }}>Предметы</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                'Математика',
-                'Физика',
-                'Информатика',
-                'Химия',
-                'Биология',
-                'Экономика',
-                'География',
-                'Английский'
-              ].map((subject) => (
-                <div
-                  key={subject}
-                  className="px-4 py-6 border-2 rounded-lg text-center transition-all cursor-pointer"
-                  style={{ borderColor: '#e4e4e7', backgroundColor: 'white' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#A78BFA';
-                    e.currentTarget.style.backgroundColor = '#A78BFA';
-                    const text = e.currentTarget.querySelector('div');
-                    if (text) text.style.color = 'white';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#8B5CF6';
-                    e.currentTarget.style.backgroundColor = 'white';
-                    const text = e.currentTarget.querySelector('div');
-                    if (text) text.style.color = '#18181b';
-                  }}
-                >
-                  <div className="text-sm font-medium transition-colors" style={{ color: "#18181b" }}>{subject}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-20" style={{ borderTop: '1px solid #e4e4e7' }}>
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl font-bold" style={{ color: "#18181b" }}>
-              Начните персонализированное обучение
-            </h2>
-            <p className="text-lg" style={{ color: '#71717a' }}>
-              Доступно школьникам по всему Казахстану
-            </p>
-            <Link
-              href="/register"
-              className="inline-block px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-all"
-              style={{ backgroundColor: '#8B5CF6' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A78BFA'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8B5CF6'}
-            >
-              Создать аккаунт
-            </Link>
-          </div>
-        </section>
-      </main>
+      </section>
 
       {/* Footer */}
-      <footer style={{ borderTop: '1px solid #e4e4e7', marginTop: '5rem' }}>
-        <div className="container mx-auto px-6 py-8">
-          <p className="text-center text-sm" style={{ color: '#71717a' }}>
-            © 2026 FM Edu — Образовательная платформа для школьников Казахстана
-          </p>
+      <footer className="border-t border-border/40 py-12 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-lg font-bold">FM Edu</span>
+              </div>
+              <p className="text-sm text-muted-foreground max-w-sm">
+                Персонализированная образовательная платформа для школьников Казахстана
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">Платформа</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/diagnostic" className="hover:text-foreground transition-colors">Диагностика</Link></li>
+                <li><Link href="/courses" className="hover:text-foreground transition-colors">Предметы</Link></li>
+                <li><Link href="/dashboard" className="hover:text-foreground transition-colors">Дашборд</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">О нас</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/about" className="hover:text-foreground transition-colors">О платформе</Link></li>
+                <li><Link href="/contact" className="hover:text-foreground transition-colors">Контакты</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-border/40 mt-8 pt-8 text-center text-sm text-muted-foreground">
+            <p>© 2026 FM Edu. Все права защищены.</p>
+          </div>
         </div>
       </footer>
     </div>
