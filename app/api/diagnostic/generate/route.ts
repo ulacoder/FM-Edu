@@ -15,6 +15,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    console.log(`Generating diagnostic test for ${subjectNames[subject]}, grade ${grade}`);
+
     // Генерация теста через Qwen AI
     const prompt = `Создай диагностический тест по предмету "${subjectNames[subject]}" для ${grade} класса (программа МОН РК).
 
@@ -42,12 +44,15 @@ export async function POST(request: NextRequest) {
       { role: 'user', content: prompt }
     ]);
 
+    console.log('Qwen API response received:', response.substring(0, 100) + '...');
+
     // Парсинг ответа
     let questions: Question[];
     try {
       // Извлекаем JSON из ответа (может быть обёрнут в markdown блок)
       const jsonMatch = response.match(/\{[\s\S]*\}/);
       if (!jsonMatch) {
+        console.error('No JSON found in AI response:', response);
         throw new Error('No JSON found in response');
       }
       const parsed = JSON.parse(jsonMatch[0]);
@@ -60,8 +65,11 @@ export async function POST(request: NextRequest) {
         explanation: q.explanation,
         points: q.points || 10,
       }));
-    } catch (parseError) {
+
+      console.log(`Successfully generated ${questions.length} questions`);
+    } catch (parseError: any) {
       console.error('Failed to parse AI response:', response);
+      console.error('Parse error:', parseError.message);
       return NextResponse.json(
         { error: 'Failed to generate test. Please try again.' },
         { status: 500 }
@@ -79,10 +87,11 @@ export async function POST(request: NextRequest) {
     create('diagnostic-tests', test);
 
     return NextResponse.json(test);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Diagnostic generation error:', error);
+    console.error('Error stack:', error.stack);
     return NextResponse.json(
-      { error: 'Error generating diagnostic test' },
+      { error: error.message || 'Error generating diagnostic test' },
       { status: 500 }
     );
   }
