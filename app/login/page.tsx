@@ -48,29 +48,29 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6" style={{ backgroundColor: '#D1F2EB' }}>
+    <div className="min-h-screen flex items-center justify-center p-6" style={{ backgroundColor: '#E6C7E6' }}>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link href="/" className="text-xl font-semibold" style={{ color: '#013220' }}>
+          <Link href="/" className="text-xl font-semibold" style={{ color: '#2E1A47' }}>
             FM Edu
           </Link>
         </div>
 
-        <div className="space-y-6" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', border: '2px solid #50C878' }}>
+        <div className="space-y-6" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', border: '2px solid #663399' }}>
           <div>
-            <h1 className="text-2xl font-bold" style={{ color: '#013220' }}>Вход</h1>
-            <p className="mt-2 text-sm" style={{ color: '#0B6E4F' }}>Войдите в свой аккаунт</p>
+            <h1 className="text-2xl font-bold" style={{ color: '#2E1A47' }}>Вход</h1>
+            <p className="mt-2 text-sm" style={{ color: '#A3779D' }}>Войдите в свой аккаунт</p>
           </div>
 
           {error && (
-            <div className="px-4 py-3 rounded-lg text-sm" style={{ backgroundColor: '#D1F2EB', border: '1px solid #0B6E4F', color: '#013220' }}>
+            <div className="px-4 py-3 rounded-lg text-sm" style={{ backgroundColor: '#E6C7E6', border: '1px solid #A3779D', color: '#2E1A47' }}>
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: '#2E1A47' }}>
                 Email
               </label>
               <input
@@ -78,15 +78,15 @@ export default function LoginPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                style={{ border: '2px solid #50C878' }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#0B6E4F'}
-                onBlur={(e) => e.currentTarget.style.borderColor = '#50C878'}
+                style={{ border: '2px solid #663399' }}
+                onFocus={(e) => e.currentTarget.style.borderColor = '#A3779D'}
+                onBlur={(e) => e.currentTarget.style.borderColor = '#663399'}
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: '#2E1A47' }}>
                 Пароль
               </label>
               <input
@@ -94,9 +94,9 @@ export default function LoginPage() {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                style={{ border: '2px solid #50C878' }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#0B6E4F'}
-                onBlur={(e) => e.currentTarget.style.borderColor = '#50C878'}
+                style={{ border: '2px solid #663399' }}
+                onFocus={(e) => e.currentTarget.style.borderColor = '#A3779D'}
+                onBlur={(e) => e.currentTarget.style.borderColor = '#663399'}
                 required
               />
             </div>
@@ -105,17 +105,17 @@ export default function LoginPage() {
               type="submit"
               disabled={loading}
               className="w-full py-3 text-white text-sm font-medium rounded-lg transition-all"
-              style={{ backgroundColor: loading ? '#D1F2EB' : '#50C878' }}
-              onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#0B6E4F')}
-              onMouseLeave={(e) => !loading && (e.currentTarget.style.backgroundColor = '#50C878')}
+              style={{ backgroundColor: loading ? '#E6C7E6' : '#663399' }}
+              onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#A3779D')}
+              onMouseLeave={(e) => !loading && (e.currentTarget.style.backgroundColor = '#663399')}
             >
               {loading ? 'Вход...' : 'Войти'}
             </button>
           </form>
 
-          <p className="text-center text-sm" style={{ color: '#0B6E4F' }}>
+          <p className="text-center text-sm" style={{ color: '#A3779D' }}>
             Нет аккаунта?{' '}
-            <Link href="/register" className="font-medium" style={{ color: '#013220' }}>
+            <Link href="/register" className="font-medium" style={{ color: '#2E1A47' }}>
               Зарегистрироваться
             </Link>
           </p>

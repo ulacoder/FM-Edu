@@ -74,29 +74,29 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6" style={{ backgroundColor: '#D1F2EB' }}>
+    <div className="min-h-screen flex items-center justify-center p-6" style={{ backgroundColor: '#E6C7E6' }}>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link href="/" className="text-xl font-semibold" style={{ color: '#013220' }}>
+          <Link href="/" className="text-xl font-semibold" style={{ color: '#2E1A47' }}>
             FM Edu
           </Link>
         </div>
 
-        <div className="space-y-6" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', border: '2px solid #50C878' }}>
+        <div className="space-y-6" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', border: '2px solid #663399' }}>
           <div>
-            <h1 className="text-2xl font-bold" style={{ color: '#013220' }}>Создать аккаунт</h1>
-            <p className="mt-2 text-sm" style={{ color: '#0B6E4F' }}>Начните персонализированное обучение</p>
+            <h1 className="text-2xl font-bold" style={{ color: '#2E1A47' }}>Создать аккаунт</h1>
+            <p className="mt-2 text-sm" style={{ color: '#A3779D' }}>Начните персонализированное обучение</p>
           </div>
 
           {error && (
-            <div className="px-4 py-3 rounded-lg text-sm" style={{ backgroundColor: '#D1F2EB', border: '1px solid #0B6E4F', color: '#013220' }}>
+            <div className="px-4 py-3 rounded-lg text-sm" style={{ backgroundColor: '#E6C7E6', border: '1px solid #A3779D', color: '#2E1A47' }}>
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: '#2E1A47' }}>
                 Имя
               </label>
               <input
@@ -104,15 +104,15 @@ export default function RegisterPage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                style={{ border: '2px solid #50C878' }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#0B6E4F'}
-                onBlur={(e) => e.currentTarget.style.borderColor = '#50C878'}
+                style={{ border: '2px solid #663399' }}
+                onFocus={(e) => e.currentTarget.style.borderColor = '#A3779D'}
+                onBlur={(e) => e.currentTarget.style.borderColor = '#663399'}
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: '#2E1A47' }}>
                 Email
               </label>
               <input
@@ -120,15 +120,15 @@ export default function RegisterPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                style={{ border: '2px solid #50C878' }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#0B6E4F'}
-                onBlur={(e) => e.currentTarget.style.borderColor = '#50C878'}
+                style={{ border: '2px solid #663399' }}
+                onFocus={(e) => e.currentTarget.style.borderColor = '#A3779D'}
+                onBlur={(e) => e.currentTarget.style.borderColor = '#663399'}
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: '#2E1A47' }}>
                 Пароль
               </label>
               <input
@@ -136,15 +136,15 @@ export default function RegisterPage() {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                style={{ border: '2px solid #50C878' }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#0B6E4F'}
-                onBlur={(e) => e.currentTarget.style.borderColor = '#50C878'}
+                style={{ border: '2px solid #663399' }}
+                onFocus={(e) => e.currentTarget.style.borderColor = '#A3779D'}
+                onBlur={(e) => e.currentTarget.style.borderColor = '#663399'}
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-3" style={{ color: '#013220' }}>
+              <label className="block text-sm font-medium mb-3" style={{ color: '#2E1A47' }}>
                 Роль
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -153,9 +153,9 @@ export default function RegisterPage() {
                   onClick={() => setFormData({ ...formData, role: 'student' })}
                   className="px-4 py-2.5 text-sm font-medium rounded-lg border-2 transition-all"
                   style={{
-                    borderColor: formData.role === 'student' ? '#50C878' : '#D1F2EB',
-                    backgroundColor: formData.role === 'student' ? '#50C878' : 'white',
-                    color: formData.role === 'student' ? 'white' : '#013220'
+                    borderColor: formData.role === 'student' ? '#663399' : '#E6C7E6',
+                    backgroundColor: formData.role === 'student' ? '#663399' : 'white',
+                    color: formData.role === 'student' ? 'white' : '#2E1A47'
                   }}
                 >
                   Ученик
@@ -165,9 +165,9 @@ export default function RegisterPage() {
                   onClick={() => setFormData({ ...formData, role: 'teacher' })}
                   className="px-4 py-2.5 text-sm font-medium rounded-lg border-2 transition-all"
                   style={{
-                    borderColor: formData.role === 'teacher' ? '#50C878' : '#D1F2EB',
-                    backgroundColor: formData.role === 'teacher' ? '#50C878' : 'white',
-                    color: formData.role === 'teacher' ? 'white' : '#013220'
+                    borderColor: formData.role === 'teacher' ? '#663399' : '#E6C7E6',
+                    backgroundColor: formData.role === 'teacher' ? '#663399' : 'white',
+                    color: formData.role === 'teacher' ? 'white' : '#2E1A47'
                   }}
                 >
                   Учитель
@@ -178,14 +178,14 @@ export default function RegisterPage() {
             {formData.role === 'student' && (
               <>
                 <div>
-                  <label className="block text-sm font-medium mb-2" style={{ color: '#013220' }}>
+                  <label className="block text-sm font-medium mb-2" style={{ color: '#2E1A47' }}>
                     Класс
                   </label>
                   <select
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: parseInt(e.target.value) })}
                     className="w-full px-4 py-2.5 rounded-lg outline-none"
-                    style={{ border: '2px solid #50C878', color: '#013220' }}
+                    style={{ border: '2px solid #663399', color: '#2E1A47' }}
                   >
                     {[7, 8, 9, 10, 11, 12].map(grade => (
                       <option key={grade} value={grade}>{grade} класс</option>
@@ -194,7 +194,7 @@ export default function RegisterPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-3" style={{ color: '#013220' }}>
+                  <label className="block text-sm font-medium mb-3" style={{ color: '#2E1A47' }}>
                     Цели обучения
                   </label>
                   <div className="space-y-2">
@@ -205,9 +205,9 @@ export default function RegisterPage() {
                           checked={formData.goals.includes(goal)}
                           onChange={() => handleGoalToggle(goal)}
                           className="w-4 h-4 rounded"
-                          style={{ accentColor: '#50C878' }}
+                          style={{ accentColor: '#663399' }}
                         />
-                        <span className="ml-3 text-sm" style={{ color: '#013220' }}>{goal}</span>
+                        <span className="ml-3 text-sm" style={{ color: '#2E1A47' }}>{goal}</span>
                       </label>
                     ))}
                   </div>
@@ -217,7 +217,7 @@ export default function RegisterPage() {
 
             {formData.role === 'teacher' && (
               <div>
-                <label className="block text-sm font-medium mb-3" style={{ color: '#013220' }}>
+                <label className="block text-sm font-medium mb-3" style={{ color: '#2E1A47' }}>
                   Предметы
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -228,9 +228,9 @@ export default function RegisterPage() {
                         checked={formData.subjects.includes(key as Subject)}
                         onChange={() => handleSubjectToggle(key as Subject)}
                         className="w-4 h-4 rounded"
-                        style={{ accentColor: '#50C878' }}
+                        style={{ accentColor: '#663399' }}
                       />
-                      <span className="ml-3 text-sm" style={{ color: '#013220' }}>{name}</span>
+                      <span className="ml-3 text-sm" style={{ color: '#2E1A47' }}>{name}</span>
                     </label>
                   ))}
                 </div>
@@ -241,17 +241,17 @@ export default function RegisterPage() {
               type="submit"
               disabled={loading}
               className="w-full py-3 text-white text-sm font-medium rounded-lg transition-all"
-              style={{ backgroundColor: loading ? '#D1F2EB' : '#50C878' }}
-              onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#0B6E4F')}
-              onMouseLeave={(e) => !loading && (e.currentTarget.style.backgroundColor = '#50C878')}
+              style={{ backgroundColor: loading ? '#E6C7E6' : '#663399' }}
+              onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#A3779D')}
+              onMouseLeave={(e) => !loading && (e.currentTarget.style.backgroundColor = '#663399')}
             >
               {loading ? 'Создание аккаунта...' : 'Зарегистрироваться'}
             </button>
           </form>
 
-          <p className="text-center text-sm" style={{ color: '#0B6E4F' }}>
+          <p className="text-center text-sm" style={{ color: '#A3779D' }}>
             Уже есть аккаунт?{' '}
-            <Link href="/login" className="font-medium" style={{ color: '#013220' }}>
+            <Link href="/login" className="font-medium" style={{ color: '#2E1A47' }}>
               Войти
             </Link>
           </p>
