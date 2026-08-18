@@ -1,46 +1,87 @@
-import OpenAI from 'openai';
-
-export const qwenClient = new OpenAI({
-  apiKey: process.env.DASHSCOPE_API_KEY || '',
-  baseURL: process.env.QWEN_BASE_URL || 'https://ws-yf8sb129bygmh1i9.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1',
-});
+const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY || '';
+const BASE_URL = 'https://ws-yf8sb129bygmh1i9.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1';
 
 export async function qwenChat(messages: Array<{ role: string; content: string }>) {
   try {
-    if (!process.env.DASHSCOPE_API_KEY) {
+    if (!DASHSCOPE_API_KEY) {
       throw new Error('DASHSCOPE_API_KEY is not set');
     }
 
-    // @ts-ignore - Qwen API uses extra_body which is not in OpenAI types
-    const completion = await qwenClient.chat.completions.create({
-      model: "qwen3.5-flash",
-      messages: messages as any,
-      extra_body: { enable_thinking: true },
-      stream: false,
+    console.log('Calling Qwen API...');
+
+    const requestBody = {
+      model: 'qwen3.5-flash',
+      messages: messages,
+      temperature: 0.7,
+      max_tokens: 4000,
+      stream: false
+    };
+
+    const response = await fetch(`${BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
     });
 
-    return completion.choices[0]?.message?.content || "";
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Qwen API error:', errorData);
+      throw new Error(errorData.error?.message || JSON.stringify(errorData) || 'Qwen API error');
+    }
+
+    const data = await response.json();
+    const aiResponse = data.choices[0]?.message?.content;
+
+    if (!aiResponse || aiResponse.trim() === '') {
+      throw new Error('AI не дал ответ. Попробуйте еще раз.');
+    }
+
+    console.log('Qwen API response received successfully');
+    return aiResponse;
+
   } catch (error: any) {
     console.error("Qwen API error:", error?.message || error);
-    console.error("API Key present:", !!process.env.DASHSCOPE_API_KEY);
-    console.error("Base URL:", process.env.QWEN_BASE_URL);
+    console.error("API Key present:", !!DASHSCOPE_API_KEY);
+    console.error("Base URL:", BASE_URL);
     throw error;
   }
 }
 
 export async function qwenChatStream(messages: Array<{ role: string; content: string }>) {
   try {
-    // @ts-ignore - Qwen API uses extra_body which is not in OpenAI types
-    const completion = await qwenClient.chat.completions.create({
-      model: "qwen3.5-flash",
-      messages: messages as any,
-      extra_body: { enable_thinking: true },
-      stream: true,
+    if (!DASHSCOPE_API_KEY) {
+      throw new Error('DASHSCOPE_API_KEY is not set');
+    }
+
+    const requestBody = {
+      model: 'qwen3.5-flash',
+      messages: messages,
+      temperature: 0.7,
+      max_tokens: 4000,
+      stream: true
+    };
+
+    const response = await fetch(`${BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
     });
 
-    return completion;
-  } catch (error) {
-    console.error("Qwen API stream error:", error);
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Qwen API stream error:', errorData);
+      throw new Error(errorData.error?.message || 'Qwen API stream error');
+    }
+
+    return response.body;
+  } catch (error: any) {
+    console.error("Qwen API stream error:", error?.message || error);
     throw error;
   }
 }
