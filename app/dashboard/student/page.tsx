@@ -89,9 +89,9 @@ export default function StudentDashboard() {
             <button
               onClick={handleLogout}
               className="text-sm transition-colors"
-              style={{ color: '#10B981' }}
+              style={{ color: '#A78BFA' }}
               onMouseEnter={(e) => e.currentTarget.style.color = '#1F1B2E'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#10B981'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#A78BFA'}
             >
               Выйти
             </button>
@@ -105,7 +105,7 @@ export default function StudentDashboard() {
           <h1 className="text-3xl font-bold mb-3" style={{ color: '#1F1B2E' }}>
             Добро пожаловать, {student?.name}
           </h1>
-          <div className="flex gap-4 text-sm" style={{ color: '#10B981' }}>
+          <div className="flex gap-4 text-sm" style={{ color: '#A78BFA' }}>
             <span>{student?.grade} класс</span>
             <span>•</span>
             <span>Уровень: {levelText}</span>
@@ -118,7 +118,7 @@ export default function StudentDashboard() {
             <h3 className="font-semibold mb-2" style={{ color: '#1F1B2E' }}>
               Пройдите диагностику
             </h3>
-            <p className="text-sm mb-4" style={{ color: '#10B981' }}>
+            <p className="text-sm mb-4" style={{ color: '#A78BFA' }}>
               Короткий тест для определения вашего уровня и подбора материалов
             </p>
             <Link

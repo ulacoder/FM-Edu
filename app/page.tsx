@@ -25,7 +25,7 @@ export default function Home() {
               href="/register"
               className="px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-all"
               style={{ backgroundColor: '#8B5CF6' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#10B981'}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A78BFA'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8B5CF6'}
             >
               Начать
@@ -50,7 +50,7 @@ export default function Home() {
                 href="/register"
                 className="px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-all"
                 style={{ backgroundColor: '#8B5CF6' }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#10B981'}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A78BFA'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8B5CF6'}
               >
                 Начать обучение
@@ -133,8 +133,8 @@ export default function Home() {
                   className="px-4 py-6 border-2 rounded-lg text-center transition-all cursor-pointer"
                   style={{ borderColor: '#8B5CF6', backgroundColor: 'white' }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#10B981';
-                    e.currentTarget.style.backgroundColor = '#10B981';
+                    e.currentTarget.style.borderColor = '#A78BFA';
+                    e.currentTarget.style.backgroundColor = '#A78BFA';
                     const text = e.currentTarget.querySelector('div');
                     if (text) text.style.color = 'white';
                   }}
@@ -158,14 +158,14 @@ export default function Home() {
             <h2 className="text-3xl font-bold" style={{ color: '#1F1B2E' }}>
               Начните персонализированное обучение
             </h2>
-            <p className="text-lg" style={{ color: '#10B981' }}>
+            <p className="text-lg" style={{ color: '#A78BFA' }}>
               Доступно школьникам по всему Казахстану
             </p>
             <Link
               href="/register"
               className="inline-block px-7 py-3.5 text-white text-sm font-medium rounded-lg transition-all"
               style={{ backgroundColor: '#8B5CF6' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#10B981'}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A78BFA'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8B5CF6'}
             >
               Создать аккаунт
@@ -177,7 +177,7 @@ export default function Home() {
       {/* Footer */}
       <footer style={{ borderTop: '1px solid #8B5CF6', marginTop: '5rem' }}>
         <div className="container mx-auto px-6 py-8">
-          <p className="text-center text-sm" style={{ color: '#10B981' }}>
+          <p className="text-center text-sm" style={{ color: '#A78BFA' }}>
             © 2026 FM Edu — Образовательная платформа для школьников Казахстана
           </p>
         </div>
