@@ -1,1 +1,16 @@
-[]
+{
+  "mathematics": {
+    "7": [
+      {"text": "Решите уравнение: 2x + 5 = 13", "options": ["x = 4", "x = 8", "x = 3", "x = 6"], "correctAnswer": 0, "explanation": "Вычитаем 5 из обеих частей: 2x = 8, затем делим на 2: x = 4", "difficulty": "easy", "points": 10},
+      {"text": "Найдите значение выражения: 3² + 4²", "options": ["25", "49", "36", "16"], "correctAnswer": 0, "explanation": "3² = 9, 4² = 16, сумма: 9 + 16 = 25", "difficulty": "easy", "points": 10},
+      {"text": "Упростите выражение: 5a + 3a - 2a", "options": ["6a", "10a", "8a", "4a"], "correctAnswer": 0, "explanation": "Складываем коэффициенты: 5 + 3 - 2 = 6, ответ: 6a", "difficulty": "easy", "points": 10},
+      {"text": "Найдите 30% от числа 200", "options": ["60", "30", "90", "50"], "correctAnswer": 0, "explanation": "200 × 0.30 = 60", "difficulty": "medium", "points": 10},
+      {"text": "Решите неравенство: 3x - 7 > 8", "options": ["x > 5", "x > 3", "x < 5", "x > 15"], "correctAnswer": 0, "explanation": "3x > 15, делим на 3: x > 5", "difficulty": "medium", "points": 10},
+      {"text": "Найдите периметр прямоугольника со сторонами 8 см и 5 см", "options": ["26 см", "40 см", "13 см", "30 см"], "correctAnswer": 0, "explanation": "P = 2(a + b) = 2(8 + 5) = 26 см", "difficulty": "medium", "points": 10},
+      {"text": "Вычислите: (-3)²", "options": ["9", "-9", "6", "-6"], "correctAnswer": 0, "explanation": "(-3)² = (-3) × (-3) = 9", "difficulty": "medium", "points": 10},
+      {"text": "Решите систему уравнений: x + y = 10 и x - y = 2", "options": ["x = 6, y = 4", "x = 5, y = 5", "x = 8, y = 2", "x = 7, y = 3"], "correctAnswer": 0, "explanation": "Складываем уравнения: 2x = 12, x = 6. Подставляем: 6 + y = 10, y = 4", "difficulty": "hard", "points": 10},
+      {"text": "Найдите площадь треугольника с основанием 12 см и высотой 8 см", "options": ["48 см²", "96 см²", "40 см²", "60 см²"], "correctAnswer": 0, "explanation": "S = (a × h) / 2 = (12 × 8) / 2 = 48 см²", "difficulty": "hard", "points": 10},
+      {"text": "Упростите: (2a + 3b)² - (2a - 3b)²", "options": ["24ab", "12ab", "4a² + 9b²", "0"], "correctAnswer": 0, "explanation": "Используем формулу разности квадратов: (A + B)² - (A - B)² = 4AB = 4(2a)(3b) = 24ab", "difficulty": "hard", "points": 10}
+    ]
+  }
+}
