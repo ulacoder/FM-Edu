@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { BookOpen, Target, MessageSquare, GraduationCap } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-3">
+              <ThemeToggle />
               <Link href="/login">
                 <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
                   Войти

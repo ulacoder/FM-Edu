@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { GraduationCap } from 'lucide-react';
 import { Subject, subjectNames, DiagnosticTest } from '@/types';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function DiagnosticPage() {
   const router = useRouter();
@@ -89,52 +92,72 @@ export default function DiagnosticPage() {
   // Шаг 1: Выбор предмета и класса
   if (step === 'select') {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white p-4">
-        <div className="max-w-2xl mx-auto mt-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Диагностика уровня знаний</h1>
-            <p className="text-gray-600 mb-8">
-              Пройдите короткий тест, чтобы мы могли подобрать материалы под ваш уровень
-            </p>
-
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Выберите предмет
-                </label>
-                <select
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value as Subject)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                >
-                  {Object.entries(subjectNames).map(([key, name]) => (
-                    <option key={key} value={key}>{name}</option>
-                  ))}
-                </select>
+      <div className="min-h-screen flex flex-col">
+        {/* Navbar */}
+        <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <Link href="/" className="text-lg font-bold">
+                  FM Edu
+                </Link>
               </div>
+              <ThemeToggle />
+            </div>
+          </div>
+        </nav>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Ваш класс
-                </label>
-                <select
-                  value={grade}
-                  onChange={(e) => setGrade(parseInt(e.target.value))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+        {/* Content */}
+        <div className="flex-1 py-12 px-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-card border border-border/60 rounded-lg p-8 shadow-lg">
+              <h1 className="text-3xl font-bold mb-2">Диагностика уровня знаний</h1>
+              <p className="text-muted-foreground mb-8">
+                Пройдите короткий тест, чтобы мы могли подобрать материалы под ваш уровень
+              </p>
+
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Выберите предмет
+                  </label>
+                  <select
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value as Subject)}
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                  >
+                    {Object.entries(subjectNames).map(([key, name]) => (
+                      <option key={key} value={key}>{name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Ваш класс
+                  </label>
+                  <select
+                    value={grade}
+                    onChange={(e) => setGrade(parseInt(e.target.value))}
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                  >
+                    {[7, 8, 9, 10, 11, 12].map(g => (
+                      <option key={g} value={g}>{g} класс</option>
+                    ))}
+                  </select>
+                </div>
+
+                <button
+                  onClick={handleStartTest}
+                  disabled={loading}
+                  className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 disabled:opacity-50 transition-colors"
                 >
-                  {[7, 8, 9, 10, 11, 12].map(g => (
-                    <option key={g} value={g}>{g} класс</option>
-                  ))}
-                </select>
+                  {loading ? 'Генерация теста...' : 'Начать диагностику'}
+                </button>
               </div>
-
-              <button
-                onClick={handleStartTest}
-                disabled={loading}
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400"
-              >
-                {loading ? 'Генерация теста...' : 'Начать диагностику'}
-              </button>
             </div>
           </div>
         </div>
@@ -148,71 +171,91 @@ export default function DiagnosticPage() {
     const progress = ((currentQuestion + 1) / test.questions.length) * 100;
 
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white p-4">
-        <div className="max-w-3xl mx-auto mt-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            {/* Прогресс */}
-            <div className="mb-6">
-              <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span>Вопрос {currentQuestion + 1} из {test.questions.length}</span>
-                <span>{Math.round(progress)}%</span>
+      <div className="min-h-screen flex flex-col">
+        {/* Navbar */}
+        <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <Link href="/" className="text-lg font-bold">
+                  FM Edu
+                </Link>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div
-                  className="bg-blue-600 h-2 rounded-full transition-all"
-                  style={{ width: `${progress}%` }}
-                />
+              <ThemeToggle />
+            </div>
+          </div>
+        </nav>
+
+        {/* Content */}
+        <div className="flex-1 py-12 px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-card border border-border/60 rounded-lg p-8 shadow-lg">
+              {/* Прогресс */}
+              <div className="mb-6">
+                <div className="flex justify-between text-sm text-muted-foreground mb-2">
+                  <span>Вопрос {currentQuestion + 1} из {test.questions.length}</span>
+                  <span>{Math.round(progress)}%</span>
+                </div>
+                <div className="w-full bg-muted rounded-full h-2">
+                  <div
+                    className="bg-primary h-2 rounded-full transition-all"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Вопрос */}
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              {question.text}
-            </h2>
+              {/* Вопрос */}
+              <h2 className="text-2xl font-bold mb-6">
+                {question.text}
+              </h2>
 
-            {/* Варианты ответа */}
-            <div className="space-y-3 mb-8">
-              {question.options?.map((option, index) => (
+              {/* Варианты ответа */}
+              <div className="space-y-3 mb-8">
+                {question.options?.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleAnswerSelect(index)}
+                    className={`w-full text-left px-6 py-4 border-2 rounded-lg transition-all ${
+                      answers[currentQuestion] === index
+                        ? 'border-primary bg-primary/10'
+                        : 'border-border hover:border-primary/40'
+                    }`}
+                  >
+                    <span className="font-medium">{String.fromCharCode(65 + index)}.</span> {option}
+                  </button>
+                ))}
+              </div>
+
+              {/* Навигация */}
+              <div className="flex justify-between">
                 <button
-                  key={index}
-                  onClick={() => handleAnswerSelect(index)}
-                  className={`w-full text-left px-6 py-4 border-2 rounded-lg transition-all ${
-                    answers[currentQuestion] === index
-                      ? 'border-blue-600 bg-blue-50'
-                      : 'border-gray-300 hover:border-blue-300'
-                  }`}
+                  onClick={handlePrevious}
+                  disabled={currentQuestion === 0}
+                  className="px-6 py-2 border border-border rounded-lg disabled:opacity-50 hover:bg-muted transition-colors"
                 >
-                  <span className="font-medium">{String.fromCharCode(65 + index)}.</span> {option}
+                  Назад
                 </button>
-              ))}
-            </div>
 
-            {/* Навигация */}
-            <div className="flex justify-between">
-              <button
-                onClick={handlePrevious}
-                disabled={currentQuestion === 0}
-                className="px-6 py-2 border border-gray-300 rounded-lg disabled:opacity-50"
-              >
-                Назад
-              </button>
-
-              {currentQuestion === test.questions.length - 1 ? (
-                <button
-                  onClick={handleSubmit}
-                  disabled={answers.includes(-1) || loading}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
-                >
-                  {loading ? 'Отправка...' : 'Завершить'}
-                </button>
-              ) : (
-                <button
-                  onClick={handleNext}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                >
-                  Далее
-                </button>
-              )}
+                {currentQuestion === test.questions.length - 1 ? (
+                  <button
+                    onClick={handleSubmit}
+                    disabled={answers.includes(-1) || loading}
+                    className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 disabled:opacity-50 transition-colors"
+                  >
+                    {loading ? 'Отправка...' : 'Завершить'}
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleNext}
+                    className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    Далее
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -230,49 +273,69 @@ export default function DiagnosticPage() {
     const displayLevel = levelText[result.level] || 'Не определён';
 
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white p-4">
-        <div className="max-w-2xl mx-auto mt-12">
-          <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-            <div className="text-6xl mb-4">
-              {result.score >= 75 ? '🎉' : result.score >= 50 ? '👍' : '💪'}
+      <div className="min-h-screen flex flex-col">
+        {/* Navbar */}
+        <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <Link href="/" className="text-lg font-bold">
+                  FM Edu
+                </Link>
+              </div>
+              <ThemeToggle />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Диагностика завершена!
-            </h1>
-            <p className="text-gray-600 mb-8">
-              Ваш результат: {result.correctCount} из {result.totalQuestions} правильных ответов
-            </p>
+          </div>
+        </nav>
 
-            <div className="bg-blue-50 rounded-lg p-6 mb-8">
-              <div className="text-4xl font-bold text-blue-600 mb-2">
-                {Math.round(result.score)}%
+        {/* Content */}
+        <div className="flex-1 py-12 px-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-card border border-border/60 rounded-lg p-8 shadow-lg text-center">
+              <div className="text-6xl mb-4">
+                {result.score >= 75 ? '🎉' : result.score >= 50 ? '👍' : '💪'}
               </div>
-              <div className="text-lg text-gray-700">
-                Ваш уровень: <span className="font-semibold">{displayLevel}</span>
+              <h1 className="text-3xl font-bold mb-2">
+                Диагностика завершена!
+              </h1>
+              <p className="text-muted-foreground mb-8">
+                Ваш результат: {result.correctCount} из {result.totalQuestions} правильных ответов
+              </p>
+
+              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 mb-8">
+                <div className="text-4xl font-bold text-primary mb-2">
+                  {Math.round(result.score)}%
+                </div>
+                <div className="text-lg">
+                  Ваш уровень: <span className="font-semibold">{displayLevel}</span>
+                </div>
               </div>
+
+              {result.weakTopics.length > 0 && (
+                <div className="text-left mb-8">
+                  <h3 className="font-semibold mb-3">
+                    Рекомендуем повторить:
+                  </h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    {result.weakTopics.slice(0, 3).map((topic: string, index: number) => (
+                      <li key={index}>
+                        • {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <button
+                onClick={() => router.push('/dashboard/student')}
+                className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+              >
+                Перейти к обучению
+              </button>
             </div>
-
-            {result.weakTopics.length > 0 && (
-              <div className="text-left mb-8">
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  Рекомендуем повторить:
-                </h3>
-                <ul className="space-y-2">
-                  {result.weakTopics.slice(0, 3).map((topic: string, index: number) => (
-                    <li key={index} className="text-gray-700">
-                      • {topic}...
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <button
-              onClick={() => router.push('/dashboard/student')}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700"
-            >
-              Перейти к обучению
-            </button>
           </div>
         </div>
       </div>
