@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -18,18 +18,22 @@ import {
   GraduationCap
 } from "lucide-react";
 
-interface SidebarProps {
-  isAuthenticated?: boolean;
-}
-
-export function Sidebar({ isAuthenticated = false }: SidebarProps) {
+export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    // Check authentication status
+    const token = localStorage.getItem('token');
+    setIsAuthenticated(!!token);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    setIsAuthenticated(false);
     router.push('/');
     setIsOpen(false);
   };

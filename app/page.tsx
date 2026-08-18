@@ -1,17 +1,46 @@
 'use client';
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { BookOpen, Target, MessageSquare, GraduationCap } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userName, setUserName] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const userStr = localStorage.getItem('user');
+
+    if (token && userStr) {
+      setIsAuthenticated(true);
+      try {
+        const user = JSON.parse(userStr);
+        setUserName(user.name || "");
+      } catch (e) {
+        console.error("Error parsing user data:", e);
+      }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setIsAuthenticated(false);
+    setUserName("");
+    router.push('/');
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header/Navbar */}
       <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 ml-16">
               <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
@@ -20,30 +49,37 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="hidden md:flex items-center gap-6">
-              <Link href="/diagnostic" className="text-sm font-medium hover:text-primary transition-colors">
-                Диагностика
-              </Link>
-              <Link href="/courses" className="text-sm font-medium hover:text-primary transition-colors">
-                Предметы
-              </Link>
-              <Link href="/dashboard" className="text-sm font-medium hover:text-primary transition-colors">
-                Дашборд
-              </Link>
-            </div>
-
             <div className="flex items-center gap-3">
               <ThemeToggle />
-              <Link href="/login">
-                <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
-                  Войти
-                </button>
-              </Link>
-              <Link href="/register">
-                <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
-                  Начать
-                </button>
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <span className="text-sm font-medium">{userName}</span>
+                  <Link href="/dashboard/student">
+                    <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                      Дашборд
+                    </button>
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors"
+                  >
+                    Выйти
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href="/login">
+                    <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
+                      Войти
+                    </button>
+                  </Link>
+                  <Link href="/register">
+                    <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                      Начать
+                    </button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
