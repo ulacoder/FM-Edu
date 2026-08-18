@@ -90,8 +90,8 @@ export default function Home() {
                 <div className="text-sm text-muted-foreground">Классов (7-12)</div>
               </div>
               <div>
-                <div className="text-2xl font-semibold">100%</div>
-                <div className="text-sm text-muted-foreground">МОН РК</div>
+                <div className="text-2xl font-semibold">NIS</div>
+                <div className="text-sm text-muted-foreground">Programme</div>
               </div>
             </div>
           </div>
@@ -123,9 +123,9 @@ export default function Home() {
             {/* Card 2 */}
             <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
               <BookOpen className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Программа МОН РК</h3>
+              <h3 className="text-lg font-semibold mb-2">NIS Programme</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Все материалы соответствуют официальной школьной программе Министерства образования Казахстана
+                Все материалы соответствуют программе Назарбаев Интеллектуальных Школ для максимальной эффективности подготовки
               </p>
             </div>
 

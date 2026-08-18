@@ -4,6 +4,17 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Student, Topic } from '@/types';
 import Link from 'next/link';
+import {
+  TrendingUp,
+  Target,
+  Clock,
+  Award,
+  Flame,
+  BookOpen,
+  CheckCircle2,
+  AlertCircle,
+  Trophy
+} from 'lucide-react';
 
 export default function StudentDashboard() {
   const router = useRouter();
@@ -14,6 +25,38 @@ export default function StudentDashboard() {
     level?: string;
   } | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Mock stats - в реальности будут из API
+  const stats = {
+    streak: 7,
+    totalPoints: 1250,
+    studyTimeHours: 24,
+    completedTopics: 12,
+    totalTopics: 48,
+    progressPercentage: 25
+  };
+
+  const activityData = [
+    { day: 'Пн', active: true },
+    { day: 'Вт', active: true },
+    { day: 'Ср', active: false },
+    { day: 'Чт', active: true },
+    { day: 'Пт', active: true },
+    { day: 'Сб', active: true },
+    { day: 'Вс', active: true },
+  ];
+
+  const achievements = [
+    { icon: '🔥', title: 'Неделя подряд', description: '7 дней активности' },
+    { icon: '🎯', title: 'Первые 100', description: '100 задач решено' },
+    { icon: '⭐', title: 'Отличник', description: '10 тестов на 90%+' },
+  ];
+
+  const recentActivity = [
+    { subject: 'Математика', topic: 'Квадратные уравнения', score: 95, date: '18.08' },
+    { subject: 'Физика', topic: 'Законы Ньютона', score: 88, date: '17.08' },
+    { subject: 'Информатика', topic: 'Алгоритмы', score: 92, date: '16.08' },
+  ];
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -35,14 +78,12 @@ export default function StudentDashboard() {
 
   const loadData = async (token: string) => {
     try {
-      // Загрузка профиля
       const profileRes = await fetch('/api/student/profile', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const profileData = await profileRes.json();
       setStudent(profileData);
 
-      // Загрузка рекомендаций
       const recsRes = await fetch('/api/student/recommendations', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -56,16 +97,10 @@ export default function StudentDashboard() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    router.push('/');
-  };
-
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "white" }}>
-        <div className="text-xl" style={{ color: "#18181b" }}>Загрузка...</div>
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="text-xl text-gray-900">Загрузка...</div>
       </div>
     );
   }
@@ -77,105 +112,166 @@ export default function StudentDashboard() {
   }[student?.level || 'beginner'];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "white" }}>
-      {/* Header */}
-      <header style={{ backgroundColor: 'white', borderBottom: '2px solid #8B5CF6' }}>
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-xl font-semibold tracking-tight" style={{ color: "#18181b" }}>
-            FM Edu
-          </Link>
-          <div className="flex items-center gap-6">
-            <span className="text-sm" style={{ color: "#18181b" }}>{student?.name}</span>
-            <button
-              onClick={handleLogout}
-              className="text-sm transition-colors"
-              style={{ color: '#71717a' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#18181b'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#A78BFA'}
-            >
-              Выйти
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div className="container mx-auto px-6 py-12 max-w-6xl">
-        {/* Header Section */}
-        <div className="mb-12">
-          <h1 className="text-3xl font-bold mb-3" style={{ color: "#18181b" }}>
-            Добро пожаловать, {student?.name}
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+      <div className="container mx-auto px-6 py-8 max-w-7xl">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold mb-2 text-gray-900">
+            Привет, {student?.name}! 👋
           </h1>
-          <div className="flex gap-4 text-sm" style={{ color: '#71717a' }}>
-            <span>{student?.grade} класс</span>
-            <span>•</span>
-            <span>Уровень: {levelText}</span>
+          <p className="text-gray-600">{student?.grade} класс • Уровень: {levelText}</p>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {/* Streak */}
+          <div className="bg-white rounded-xl p-6 border-2 border-orange-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                <Flame className="w-5 h-5 text-orange-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{stats.streak}</p>
+                <p className="text-xs text-gray-600">дней подряд</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Points */}
+          <div className="bg-white rounded-xl p-6 border-2 border-purple-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Trophy className="w-5 h-5 text-purple-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{stats.totalPoints}</p>
+                <p className="text-xs text-gray-600">баллов</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Study Time */}
+          <div className="bg-white rounded-xl p-6 border-2 border-blue-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <Clock className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{stats.studyTimeHours}ч</p>
+                <p className="text-xs text-gray-600">обучения</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Progress */}
+          <div className="bg-white rounded-xl p-6 border-2 border-green-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <BookOpen className="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{stats.completedTopics}/{stats.totalTopics}</p>
+                <p className="text-xs text-gray-600">тем</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Diagnostic CTA */}
-        {!student?.level && (
-          <div className="mb-12 p-6 rounded-lg" style={{ border: '1px solid #e4e4e7', backgroundColor: 'white' }}>
-            <h3 className="font-semibold mb-2" style={{ color: "#18181b" }}>
-              Пройдите диагностику
-            </h3>
-            <p className="text-sm mb-4" style={{ color: '#71717a' }}>
-              Короткий тест для определения вашего уровня и подбора материалов
-            </p>
-            <Link
-              href="/diagnostic"
-              className="inline-block px-5 py-2.5 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700"
-            >
-              Начать диагностику
-            </Link>
+        {/* Progress Bar */}
+        <div className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm mb-8">
+          <div className="flex justify-between items-center mb-3">
+            <h3 className="font-semibold text-gray-900">Общий прогресс</h3>
+            <span className="text-sm font-medium text-purple-600">{stats.progressPercentage}%</span>
           </div>
-        )}
+          <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div
+              className="h-full gradient-primary rounded-full transition-all duration-500"
+              style={{ width: `${stats.progressPercentage}%` }}
+            />
+          </div>
+        </div>
 
-        {/* Goals */}
-        {student?.goals && student.goals.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Ваши цели</h2>
-            <div className="flex flex-wrap gap-2">
-              {student.goals.map((goal, index) => (
-                <span
-                  key={index}
-                  className="px-3 py-1.5 bg-gray-100 text-gray-900 rounded-md text-sm"
-                >
-                  {goal}
-                </span>
+        <div className="grid lg:grid-cols-3 gap-8 mb-8">
+          {/* Activity Calendar */}
+          <div className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm">
+            <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-purple-600" />
+              Активность за неделю
+            </h3>
+            <div className="flex justify-between gap-2">
+              {activityData.map((day, idx) => (
+                <div key={idx} className="flex flex-col items-center gap-2">
+                  <div className={`w-10 h-10 rounded-lg ${day.active ? 'bg-green-500' : 'bg-gray-200'}`} />
+                  <span className="text-xs text-gray-600">{day.day}</span>
+                </div>
               ))}
             </div>
           </div>
-        )}
+
+          {/* Achievements */}
+          <div className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm lg:col-span-2">
+            <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <Award className="w-5 h-5 text-purple-600" />
+              Достижения
+            </h3>
+            <div className="grid grid-cols-3 gap-4">
+              {achievements.map((achievement, idx) => (
+                <div key={idx} className="text-center p-4 bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg border border-purple-200">
+                  <div className="text-3xl mb-2">{achievement.icon}</div>
+                  <p className="font-semibold text-sm text-gray-900">{achievement.title}</p>
+                  <p className="text-xs text-gray-600 mt-1">{achievement.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Recent Activity */}
+        <div className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm mb-8">
+          <h3 className="font-semibold text-gray-900 mb-4">Недавняя активность</h3>
+          <div className="space-y-3">
+            {recentActivity.map((activity, idx) => (
+              <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">{activity.topic}</p>
+                    <p className="text-sm text-gray-600">{activity.subject}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="font-semibold text-green-600">{activity.score}%</p>
+                  <p className="text-xs text-gray-500">{activity.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Recommendations */}
         {recommendations && recommendations.topics.length > 0 && (
-          <div className="mb-12">
-            <div className="mb-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">
-                Рекомендованные темы
-              </h2>
-              <p className="text-sm text-gray-600">
-                {recommendations.reasoning}
-              </p>
-            </div>
+          <div className="bg-white rounded-xl p-6 border-2 border-purple-200 shadow-sm">
+            <h2 className="text-xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+              <Target className="w-6 h-6 text-purple-600" />
+              Рекомендованные темы
+            </h2>
+            <p className="text-sm text-gray-600 mb-6">{recommendations.reasoning}</p>
 
             <div className="space-y-3">
-              {recommendations.topics.map((topic, index) => (
+              {recommendations.topics.slice(0, 5).map((topic, index) => (
                 <div
                   key={topic.id}
-                  className="border border-gray-200 rounded-lg p-5 hover:border-gray-300 transition-colors"
+                  className="border-2 border-gray-200 rounded-lg p-5 hover:border-purple-400 transition-colors"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-lg flex items-center justify-center text-sm font-medium">
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-primary text-white rounded-lg flex items-center justify-center text-sm font-bold">
                       {index + 1}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        {topic.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-3">
-                        {topic.description}
-                      </p>
+                      <h3 className="font-semibold text-gray-900 mb-1">{topic.title}</h3>
+                      <p className="text-sm text-gray-600 mb-3">{topic.description}</p>
                       <div className="flex gap-3 text-xs text-gray-500">
                         <span>Класс {topic.grade}</span>
                         <span>•</span>
@@ -184,7 +280,7 @@ export default function StudentDashboard() {
                     </div>
                     <Link
                       href={`/learn/${topic.id}`}
-                      className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 whitespace-nowrap"
+                      className="px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 whitespace-nowrap transition-colors"
                     >
                       Изучить
                     </Link>
@@ -194,63 +290,6 @@ export default function StudentDashboard() {
             </div>
           </div>
         )}
-
-        {/* Quick Actions */}
-        <div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Быстрые действия</h2>
-          <div className="grid md:grid-cols-3 gap-4">
-            <Link
-              href="/diagnostic"
-              className="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
-            >
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">
-                Диагностика
-              </h3>
-              <p className="text-sm text-gray-600">
-                Определите свой уровень знаний
-              </p>
-            </Link>
-
-            <Link
-              href="/practice"
-              className="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
-            >
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">
-                Практика
-              </h3>
-              <p className="text-sm text-gray-600">
-                Решайте задачи и тесты
-              </p>
-            </Link>
-
-            <Link
-              href="/progress"
-              className="p-6 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
-            >
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">
-                Прогресс
-              </h3>
-              <p className="text-sm text-gray-600">
-                Отслеживайте свои достижения
-              </p>
-            </Link>
-          </div>
-        </div>
       </div>
     </div>
   );
