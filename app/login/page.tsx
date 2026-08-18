@@ -48,29 +48,29 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6" style={{ backgroundColor: '#F5F3FF' }}>
+    <div className="min-h-screen flex items-center justify-center p-6" style={{ backgroundColor: "white" }}>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link href="/" className="text-xl font-semibold" style={{ color: '#1F1B2E' }}>
+          <Link href="/" className="text-xl font-semibold" style={{ color: "#18181b" }}>
             FM Edu
           </Link>
         </div>
 
-        <div className="space-y-6" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', border: '2px solid #8B5CF6' }}>
+        <div className="space-y-6" style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', border: '1px solid #e4e4e7' }}>
           <div>
-            <h1 className="text-2xl font-bold" style={{ color: '#1F1B2E' }}>Вход</h1>
-            <p className="mt-2 text-sm" style={{ color: '#A78BFA' }}>Войдите в свой аккаунт</p>
+            <h1 className="text-2xl font-bold" style={{ color: "#18181b" }}>Вход</h1>
+            <p className="mt-2 text-sm" style={{ color: '#71717a' }}>Войдите в свой аккаунт</p>
           </div>
 
           {error && (
-            <div className="px-4 py-3 rounded-lg text-sm" style={{ backgroundColor: '#F5F3FF', border: '1px solid #A78BFA', color: '#1F1B2E' }}>
+            <div className="px-4 py-3 rounded-lg text-sm" style={{ backgroundColor: "white", border: '1px solid #A78BFA', color: "#18181b" }}>
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#1F1B2E' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: "#18181b" }}>
                 Email
               </label>
               <input
@@ -78,7 +78,7 @@ export default function LoginPage() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                style={{ border: '2px solid #8B5CF6' }}
+                style={{ border: '1px solid #e4e4e7' }}
                 onFocus={(e) => e.currentTarget.style.borderColor = '#A78BFA'}
                 onBlur={(e) => e.currentTarget.style.borderColor = '#8B5CF6'}
                 required
@@ -86,7 +86,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#1F1B2E' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: "#18181b" }}>
                 Пароль
               </label>
               <input
@@ -94,7 +94,7 @@ export default function LoginPage() {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                style={{ border: '2px solid #8B5CF6' }}
+                style={{ border: '1px solid #e4e4e7' }}
                 onFocus={(e) => e.currentTarget.style.borderColor = '#A78BFA'}
                 onBlur={(e) => e.currentTarget.style.borderColor = '#8B5CF6'}
                 required
@@ -113,9 +113,9 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="text-center text-sm" style={{ color: '#A78BFA' }}>
+          <p className="text-center text-sm" style={{ color: '#71717a' }}>
             Нет аккаунта?{' '}
-            <Link href="/register" className="font-medium" style={{ color: '#1F1B2E' }}>
+            <Link href="/register" className="font-medium" style={{ color: "#18181b" }}>
               Зарегистрироваться
             </Link>
           </p>

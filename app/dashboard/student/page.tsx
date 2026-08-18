@@ -64,8 +64,8 @@ export default function StudentDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F5F3FF' }}>
-        <div className="text-xl" style={{ color: '#1F1B2E' }}>Загрузка...</div>
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "white" }}>
+        <div className="text-xl" style={{ color: "#18181b" }}>Загрузка...</div>
       </div>
     );
   }
@@ -77,20 +77,20 @@ export default function StudentDashboard() {
   }[student?.level || 'beginner'];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F5F3FF' }}>
+    <div className="min-h-screen" style={{ backgroundColor: "white" }}>
       {/* Header */}
       <header style={{ backgroundColor: 'white', borderBottom: '2px solid #8B5CF6' }}>
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-xl font-semibold tracking-tight" style={{ color: '#1F1B2E' }}>
+          <Link href="/" className="text-xl font-semibold tracking-tight" style={{ color: "#18181b" }}>
             FM Edu
           </Link>
           <div className="flex items-center gap-6">
-            <span className="text-sm" style={{ color: '#1F1B2E' }}>{student?.name}</span>
+            <span className="text-sm" style={{ color: "#18181b" }}>{student?.name}</span>
             <button
               onClick={handleLogout}
               className="text-sm transition-colors"
-              style={{ color: '#A78BFA' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#1F1B2E'}
+              style={{ color: '#71717a' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#18181b'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#A78BFA'}
             >
               Выйти
@@ -102,10 +102,10 @@ export default function StudentDashboard() {
       <div className="container mx-auto px-6 py-12 max-w-6xl">
         {/* Header Section */}
         <div className="mb-12">
-          <h1 className="text-3xl font-bold mb-3" style={{ color: '#1F1B2E' }}>
+          <h1 className="text-3xl font-bold mb-3" style={{ color: "#18181b" }}>
             Добро пожаловать, {student?.name}
           </h1>
-          <div className="flex gap-4 text-sm" style={{ color: '#A78BFA' }}>
+          <div className="flex gap-4 text-sm" style={{ color: '#71717a' }}>
             <span>{student?.grade} класс</span>
             <span>•</span>
             <span>Уровень: {levelText}</span>
@@ -114,11 +114,11 @@ export default function StudentDashboard() {
 
         {/* Diagnostic CTA */}
         {!student?.level && (
-          <div className="mb-12 p-6 rounded-lg" style={{ border: '2px solid #8B5CF6', backgroundColor: 'white' }}>
-            <h3 className="font-semibold mb-2" style={{ color: '#1F1B2E' }}>
+          <div className="mb-12 p-6 rounded-lg" style={{ border: '1px solid #e4e4e7', backgroundColor: 'white' }}>
+            <h3 className="font-semibold mb-2" style={{ color: "#18181b" }}>
               Пройдите диагностику
             </h3>
-            <p className="text-sm mb-4" style={{ color: '#A78BFA' }}>
+            <p className="text-sm mb-4" style={{ color: '#71717a' }}>
               Короткий тест для определения вашего уровня и подбора материалов
             </p>
             <Link
