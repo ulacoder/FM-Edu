@@ -64,7 +64,7 @@ export function Sidebar() {
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 p-2 bg-white border-2 border-purple-600 rounded-lg shadow-lg hover:bg-purple-50 transition-colors"
+        className="fixed top-4 left-4 z-[100] p-2 bg-white border-2 border-purple-600 rounded-lg shadow-lg hover:bg-purple-50 transition-colors"
         aria-label="Toggle menu"
       >
         {isOpen ? (
@@ -77,14 +77,14 @@ export function Sidebar() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 transition-opacity"
+          className="fixed inset-0 bg-black/50 z-[90] transition-opacity"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-72 bg-white border-r-2 border-purple-600 shadow-2xl z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-72 bg-white border-r-2 border-purple-600 shadow-2xl z-[95] transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
