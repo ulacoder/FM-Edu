@@ -71,18 +71,18 @@ export default function StudentDashboard() {
       {/* Navbar */}
       <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2 ml-16">
+          <div className="flex justify-between items-center h-14 sm:h-16">
+            <div className="flex items-center gap-2">
               <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
-              <Link href="/" className="text-lg font-bold">
+              <Link href="/" className="text-base sm:text-lg font-bold">
                 FM Edu
               </Link>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <ThemeToggle />
-              <Link href="/profile">
+              <Link href="/profile" className="hidden sm:block">
                 <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
                   Профиль
                 </button>
@@ -94,61 +94,61 @@ export default function StudentDashboard() {
 
       {/* Main Content */}
       <div className="flex-1 bg-muted/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Welcome Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2">
               Привет, {user.name}! 👋
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               {user.grade} класс • {user.email}
             </p>
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <Bookmark className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">{stats.saved}</span>
+                <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">{stats.saved}</span>
               </div>
-              <p className="text-sm text-muted-foreground">Сохранено тем</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Сохранено</p>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <BookOpen className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">{stats.enrolled}</span>
+                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">{stats.enrolled}</span>
               </div>
-              <p className="text-sm text-muted-foreground">Активных курсов</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Активных</p>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <Zap className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">{stats.points}</span>
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">{stats.points}</span>
               </div>
-              <p className="text-sm text-muted-foreground">Баллов</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Баллов</p>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <Award className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">#{stats.rank}</span>
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">#{stats.rank}</span>
               </div>
-              <p className="text-sm text-muted-foreground">Место в рейтинге</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Рейтинг</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               {/* Recent Activity */}
               <section>
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold">Недавняя активность</h2>
+                  <h2 className="text-lg sm:text-xl font-bold">Недавняя активность</h2>
                   <Link href="/courses">
-                    <button className="text-sm text-primary hover:underline">
+                    <button className="text-xs sm:text-sm text-primary hover:underline">
                       Все предметы
                     </button>
                   </Link>
@@ -157,12 +157,12 @@ export default function StudentDashboard() {
                   {recentActivity.map((activity, idx) => (
                     <div
                       key={idx}
-                      className="bg-card border border-border/60 rounded-lg p-4 hover:border-primary/40 transition-colors"
+                      className="bg-card border border-border/60 rounded-lg p-3 sm:p-4 hover:border-primary/40 transition-colors"
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <div className="flex-1">
-                          <h3 className="font-semibold mb-1">{activity.topic}</h3>
-                          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold mb-1 text-sm sm:text-base truncate">{activity.topic}</h3>
+                          <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground flex-wrap">
                             <span className="px-2 py-0.5 bg-primary/10 text-primary rounded text-xs">
                               {activity.subject}
                             </span>
@@ -172,7 +172,7 @@ export default function StudentDashboard() {
                             </span>
                           </div>
                         </div>
-                        <span className="text-sm font-semibold text-primary">
+                        <span className="text-sm font-semibold text-primary ml-2">
                           {activity.progress}%
                         </span>
                       </div>
@@ -189,23 +189,23 @@ export default function StudentDashboard() {
 
               {/* Quick Start */}
               <section>
-                <h2 className="text-xl font-bold mb-4">Начать обучение</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h2 className="text-lg sm:text-xl font-bold mb-4">Начать обучение</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <Link href="/diagnostic">
-                    <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors cursor-pointer">
-                      <Target className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">Диагностика</h3>
-                      <p className="text-sm text-muted-foreground">
+                    <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors cursor-pointer min-h-[120px]">
+                      <Target className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-2 sm:mb-3" />
+                      <h3 className="font-semibold mb-2 text-sm sm:text-base">Диагностика</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
                         Определи свой уровень знаний
                       </p>
                     </div>
                   </Link>
 
                   <Link href="/courses">
-                    <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors cursor-pointer">
-                      <BookOpen className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">Предметы</h3>
-                      <p className="text-sm text-muted-foreground">
+                    <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors cursor-pointer min-h-[120px]">
+                      <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-2 sm:mb-3" />
+                      <h3 className="font-semibold mb-2 text-sm sm:text-base">Предметы</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
                         Изучай темы по NIS Programme
                       </p>
                     </div>
@@ -215,12 +215,12 @@ export default function StudentDashboard() {
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {/* Recommendations */}
               <section>
                 <div className="flex items-center gap-2 mb-4">
-                  <Target className="w-5 h-5 text-primary" />
-                  <h2 className="text-xl font-bold">Рекомендации</h2>
+                  <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                  <h2 className="text-lg sm:text-xl font-bold">Рекомендации</h2>
                 </div>
                 <div className="space-y-3">
                   <div className="bg-card border border-border/60 rounded-lg p-4 hover:border-primary/40 transition-colors">
@@ -239,23 +239,23 @@ export default function StudentDashboard() {
 
               {/* Quick Actions */}
               <section>
-                <h2 className="text-xl font-bold mb-4">Быстрые действия</h2>
+                <h2 className="text-lg sm:text-xl font-bold mb-4">Быстрые действия</h2>
                 <div className="space-y-2">
                   <Link href="/diagnostic">
                     <button className="w-full flex items-center gap-3 px-4 py-3 bg-card border border-border/60 hover:border-primary/40 rounded-lg transition-colors text-left">
-                      <Calendar className="w-4 h-4 text-primary" />
+                      <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="text-sm font-medium">Пройти диагностику</span>
                     </button>
                   </Link>
                   <Link href="/courses">
                     <button className="w-full flex items-center gap-3 px-4 py-3 bg-card border border-border/60 hover:border-primary/40 rounded-lg transition-colors text-left">
-                      <BookOpen className="w-4 h-4 text-primary" />
+                      <BookOpen className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="text-sm font-medium">Все предметы</span>
                     </button>
                   </Link>
                   <Link href="/progress">
                     <button className="w-full flex items-center gap-3 px-4 py-3 bg-card border border-border/60 hover:border-primary/40 rounded-lg transition-colors text-left">
-                      <TrendingUp className="w-4 h-4 text-primary" />
+                      <TrendingUp className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="text-sm font-medium">Мой прогресс</span>
                     </button>
                   </Link>

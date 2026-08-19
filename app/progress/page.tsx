@@ -96,20 +96,20 @@ export default function ProgressPage() {
       {/* Navbar */}
       <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2 ml-16">
+          <div className="flex justify-between items-center h-14 sm:h-16">
+            <div className="flex items-center gap-2">
               <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
-              <Link href="/" className="text-lg font-bold">
+              <Link href="/" className="text-base sm:text-lg font-bold">
                 FM Edu
               </Link>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <ThemeToggle />
-              <span className="text-sm font-medium">{userName}</span>
+              <span className="text-xs sm:text-sm font-medium hidden sm:block">{userName}</span>
               <Link href="/dashboard/student">
-                <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                <button className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
                   Дашборд
                 </button>
               </Link>
@@ -119,57 +119,57 @@ export default function ProgressPage() {
       </nav>
 
       <div className="flex-1 bg-muted/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">Ваш прогресс</h1>
-            <p className="text-muted-foreground">Отслеживайте свои достижения и динамику обучения</p>
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2">Ваш прогресс</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">Отслеживайте свои достижения и динамику обучения</p>
           </div>
 
           {/* Weekly Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <Flame className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">7</span>
+                <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">7</span>
               </div>
-              <p className="text-sm text-muted-foreground">дней подряд</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">дней подряд</p>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <Clock className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">19.5</span>
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">19.5</span>
               </div>
-              <p className="text-sm text-muted-foreground">часов за неделю</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">часов</p>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">70</span>
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">70</span>
               </div>
-              <p className="text-sm text-muted-foreground">задач решено</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">задач</p>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <Target className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-bold">86%</span>
+                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-xl sm:text-2xl font-bold">86%</span>
               </div>
-              <p className="text-sm text-muted-foreground">точность</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">точность</p>
             </div>
           </div>
 
           {/* Weekly Activity Chart */}
-          <div className="bg-card border border-border/60 rounded-lg p-6 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <BarChart3 className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-bold">Активность за неделю</h2>
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <h2 className="text-lg sm:text-xl font-bold">Активность за неделю</h2>
             </div>
-            <div className="flex items-end justify-between gap-4 h-48">
+            <div className="flex items-end justify-between gap-2 sm:gap-4 h-32 sm:h-48">
               {weeklyActivity.map((day, idx) => (
-                <div key={idx} className="flex-1 flex flex-col items-center gap-3">
+                <div key={idx} className="flex-1 flex flex-col items-center gap-2 sm:gap-3">
                   <div className="w-full flex flex-col items-center justify-end flex-1">
                     <div
                       className="w-full bg-primary/80 hover:bg-primary rounded-t-lg transition-all"
@@ -177,8 +177,8 @@ export default function ProgressPage() {
                     />
                   </div>
                   <div className="text-center">
-                    <p className="text-sm font-semibold">{day.hours}ч</p>
-                    <p className="text-xs text-muted-foreground">{day.day}</p>
+                    <p className="text-xs sm:text-sm font-semibold">{day.hours}ч</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground">{day.day}</p>
                   </div>
                 </div>
               ))}
@@ -186,19 +186,19 @@ export default function ProgressPage() {
           </div>
 
           {/* Subject Progress */}
-          <div className="bg-card border border-border/60 rounded-lg p-6 mb-8">
-            <div className="flex items-center gap-2 mb-6">
-              <TrendingUp className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-bold">Прогресс по предметам</h2>
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <h2 className="text-lg sm:text-xl font-bold">Прогресс по предметам</h2>
             </div>
             <div className="space-y-4">
               {subjectProgress.map((subject, idx) => (
                 <div key={idx}>
                   <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium">{subject.name}</span>
+                    <span className="font-medium text-sm sm:text-base">{subject.name}</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-muted-foreground">{subject.level}</span>
-                      <span className="text-sm font-bold text-primary">{subject.progress}%</span>
+                      <span className="text-xs sm:text-sm text-muted-foreground">{subject.level}</span>
+                      <span className="text-xs sm:text-sm font-bold text-primary">{subject.progress}%</span>
                     </div>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
@@ -213,26 +213,26 @@ export default function ProgressPage() {
           </div>
 
           {/* Achievements */}
-          <div className="bg-card border border-border/60 rounded-lg p-6">
-            <div className="flex items-center gap-2 mb-6">
-              <Award className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-bold">Достижения</h2>
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <h2 className="text-lg sm:text-xl font-bold">Достижения</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {achievements.map((achievement, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-lg border transition-all ${
+                  className={`p-4 sm:p-6 rounded-lg border transition-all ${
                     achievement.unlocked
                       ? 'bg-primary/5 border-primary/30 hover:border-primary/50'
                       : 'bg-muted/20 border-border/60 opacity-60'
                   }`}
                 >
-                  <div className="text-4xl mb-3 text-center">{achievement.icon}</div>
-                  <h3 className="font-bold text-sm mb-1 text-center">
+                  <div className="text-3xl sm:text-4xl mb-2 sm:mb-3 text-center">{achievement.icon}</div>
+                  <h3 className="font-bold text-xs sm:text-sm mb-1 text-center">
                     {achievement.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground text-center">
+                  <p className="text-[10px] sm:text-xs text-muted-foreground text-center">
                     {achievement.description}
                   </p>
                 </div>

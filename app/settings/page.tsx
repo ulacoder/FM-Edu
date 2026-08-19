@@ -117,20 +117,20 @@ export default function SettingsPage() {
       {/* Navbar */}
       <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2 ml-16">
+          <div className="flex justify-between items-center h-14 sm:h-16">
+            <div className="flex items-center gap-2">
               <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
-              <Link href="/" className="text-lg font-bold">
+              <Link href="/" className="text-base sm:text-lg font-bold">
                 FM Edu
               </Link>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <ThemeToggle />
-              <span className="text-sm font-medium">{user.name}</span>
+              <span className="text-xs sm:text-sm font-medium hidden sm:block">{user.name}</span>
               <Link href="/dashboard/student">
-                <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                <button className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
                   Дашборд
                 </button>
               </Link>
@@ -140,11 +140,11 @@ export default function SettingsPage() {
       </nav>
 
       <div className="flex-1 bg-muted/20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">Настройки</h1>
-            <p className="text-muted-foreground">Управляйте параметрами вашего аккаунта</p>
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2">Настройки</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">Управляйте параметрами вашего аккаунта</p>
           </div>
 
           {/* Save/Reset Buttons */}
@@ -152,27 +152,27 @@ export default function SettingsPage() {
             <button
               onClick={handleSave}
               disabled={saveStatus === 'saving'}
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2 disabled:opacity-50"
+              className="px-4 sm:px-6 py-2 text-sm bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2 disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
               {saveStatus === 'saving' ? 'Сохранение...' : saveStatus === 'saved' ? 'Сохранено!' : 'Сохранить'}
             </button>
             <button
               onClick={handleReset}
-              className="px-6 py-2 bg-muted text-foreground rounded-lg hover:bg-muted/80 transition-colors flex items-center gap-2"
+              className="px-4 sm:px-6 py-2 text-sm bg-muted text-foreground rounded-lg hover:bg-muted/80 transition-colors flex items-center gap-2"
             >
               <RefreshCw className="w-4 h-4" />
-              Сбросить
+              <span className="hidden sm:inline">Сбросить</span>
             </button>
           </div>
 
           {/* Notifications */}
-          <div className="bg-card border border-border/60 rounded-lg p-6 mb-6">
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 mb-6">
             <div className="flex items-center gap-2 mb-4">
-              <Bell className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-bold">Уведомления</h2>
+              <Bell className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <h2 className="text-lg sm:text-xl font-bold">Уведомления</h2>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {Object.entries({
                 email: 'Email уведомления',
                 push: 'Push уведомления',
@@ -180,8 +180,8 @@ export default function SettingsPage() {
                 achievements: 'Достижения',
                 reminders: 'Напоминания о занятиях',
               }).map(([key, label]) => (
-                <label key={key} className="flex items-center justify-between p-4 bg-muted/50 rounded-lg cursor-pointer hover:bg-muted transition-colors">
-                  <span className="font-medium">{label}</span>
+                <label key={key} className="flex items-center justify-between p-3 sm:p-4 bg-muted/50 rounded-lg cursor-pointer hover:bg-muted transition-colors touch-manipulation">
+                  <span className="font-medium text-sm sm:text-base">{label}</span>
                   <input
                     type="checkbox"
                     checked={settings.notifications[key as keyof typeof settings.notifications]}
