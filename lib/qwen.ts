@@ -1,4 +1,4 @@
-const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY || '';
+const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY || 'sk-ws-H.DMPHPHM.GebG.MEUCIGCe_O6NGEA2_muZeS6QlLFVw4Tft2TLnq_NgdyrGI-QAiEAmt0BQn7KNevSS9kqRwyLJhPNS9fW4uFxqvaitua_rLY';
 const BASE_URL = 'https://ws-yf8sb129bygmh1i9.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1';
 
 export async function qwenChat(messages: Array<{ role: string; content: string }>) {
@@ -10,11 +10,12 @@ export async function qwenChat(messages: Array<{ role: string; content: string }
     console.log('Calling Qwen API...');
 
     const requestBody = {
-      model: 'qwen3.8-max',
+      model: 'qwen3.5-flash',
       messages: messages,
       temperature: 0.7,
       max_tokens: 4000,
-      stream: false
+      stream: false,
+      enable_thinking: true
     };
 
     const response = await fetch(`${BASE_URL}/chat/completions`, {
@@ -57,11 +58,12 @@ export async function qwenChatStream(messages: Array<{ role: string; content: st
     }
 
     const requestBody = {
-      model: 'qwen3.8-max',
+      model: 'qwen3.5-flash',
       messages: messages,
       temperature: 0.7,
       max_tokens: 4000,
-      stream: true
+      stream: true,
+      enable_thinking: true
     };
 
     const response = await fetch(`${BASE_URL}/chat/completions`, {
