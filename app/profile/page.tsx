@@ -60,11 +60,13 @@ export default function ProfilePage() {
     { icon: Award, label: 'Достижений', value: '8', color: 'bg-orange-100 text-orange-600' },
   ];
 
-  const levelText = {
+  const levelText: Record<string, string> = {
     beginner: 'Начальный',
     intermediate: 'Средний',
     advanced: 'Продвинутый',
-  }[user.level || 'beginner'];
+  };
+
+  const displayLevel = levelText[user.level || 'beginner'] || 'Начальный';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
@@ -196,7 +198,7 @@ export default function ProfilePage() {
                     <Award className="w-4 h-4" />
                     Уровень
                   </label>
-                  <p className="text-lg font-semibold text-gray-900">{levelText}</p>
+                  <p className="text-lg font-semibold text-gray-900">{displayLevel}</p>
                 </div>
 
                 {/* Registration Date */}
