@@ -376,7 +376,7 @@ export default function StudentDashboard() {
         </Link>
 
         {/* Recommendations */}
-        {recommendations && recommendations.topics.length > 0 && (
+        {recommendations && recommendations.topics && recommendations.topics.length > 0 && (
           <div className="bg-white rounded-xl p-6 border-2 border-purple-200 shadow-sm">
             <h2 className="text-xl font-bold text-gray-900 mb-2 flex items-center gap-2">
               <Target className="w-6 h-6 text-purple-600" />
