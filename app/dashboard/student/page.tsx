@@ -115,14 +115,87 @@ export default function StudentDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
       <div className="container mx-auto px-6 py-8 max-w-7xl">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2 text-gray-900">
-            Привет, {student?.name}! 👋
-          </h1>
-          <p className="text-gray-600">{student?.grade} класс • Уровень: {levelText}</p>
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-4xl font-bold mb-2 text-gray-900">
+              Привет, {student?.name}! 👋
+            </h1>
+            <p className="text-gray-600">{student?.grade} класс • Уровень: {levelText}</p>
+          </div>
+          <div className="flex items-center gap-3 bg-white rounded-xl px-6 py-3 border-2 border-green-400 shadow-sm">
+            <Trophy className="w-6 h-6 text-green-600" />
+            <span className="text-3xl font-bold text-green-600">{stats.totalPoints}</span>
+          </div>
         </div>
 
-        {/* Stats Grid */}
+        {/* Stats Grid - Top 3 Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {/* Active Subjects - Purple */}
+          <div className="bg-white rounded-xl p-6 border-2 border-purple-300 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-start justify-between mb-4">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <BookOpen className="w-6 h-6 text-purple-600" />
+              </div>
+            </div>
+            <p className="text-4xl font-bold text-gray-900 mb-1">6</p>
+            <p className="text-sm text-gray-600 font-medium">My courses</p>
+            <p className="text-xs text-gray-500 mt-2">{stats.completedTopics}/{stats.totalTopics} lessons completed</p>
+          </div>
+
+          {/* Study Time - Yellow */}
+          <div className="bg-white rounded-xl p-6 border-2 border-yellow-300 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-start justify-between mb-4">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <Clock className="w-6 h-6 text-yellow-600" />
+              </div>
+            </div>
+            <p className="text-4xl font-bold text-gray-900 mb-1">22h</p>
+            <p className="text-sm text-gray-600 font-medium">Study time</p>
+            <p className="text-xs text-gray-500 mt-2">1317 minutes total</p>
+          </div>
+
+          {/* Progress - Green with circular chart */}
+          <div className="bg-white rounded-xl p-6 border-2 border-green-300 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <TrendingUp className="w-6 h-6 text-green-600" />
+                </div>
+                <p className="text-4xl font-bold text-gray-900 mb-1">58.7%</p>
+                <p className="text-sm text-gray-600 font-medium">Progress Overview</p>
+                <p className="text-xs text-gray-500 mt-2">236/402 steps completed</p>
+              </div>
+              <div className="relative w-24 h-24">
+                <svg className="transform -rotate-90 w-24 h-24">
+                  <circle
+                    cx="48"
+                    cy="48"
+                    r="40"
+                    stroke="#e5e7eb"
+                    strokeWidth="8"
+                    fill="transparent"
+                  />
+                  <circle
+                    cx="48"
+                    cy="48"
+                    r="40"
+                    stroke="#10b981"
+                    strokeWidth="8"
+                    fill="transparent"
+                    strokeDasharray={`${2 * Math.PI * 40}`}
+                    strokeDashoffset={`${2 * Math.PI * 40 * (1 - 58.7 / 100)}`}
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-lg font-bold text-gray-900">58.7%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Second Row - 4 Small Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {/* Streak */}
           <div className="bg-white rounded-xl p-6 border-2 border-orange-200 shadow-sm hover:shadow-md transition-shadow">
@@ -249,6 +322,58 @@ export default function StudentDashboard() {
             ))}
           </div>
         </div>
+
+        {/* Leaderboard Card */}
+        <Link href="/leaderboard" className="block mb-8 hover:opacity-90 transition-opacity">
+          <div className="bg-white rounded-xl p-6 border-2 border-yellow-300 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                <Trophy className="w-7 h-7 text-yellow-600" />
+                Leaderboard
+              </h2>
+              <div className="flex gap-2">
+                <button className="px-4 py-2 bg-gray-100 text-gray-600 text-sm font-medium rounded-lg">
+                  My Group
+                </button>
+                <button className="px-4 py-2 bg-gray-100 text-gray-600 text-sm font-medium rounded-lg">
+                  All Students
+                </button>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <p className="text-xs text-gray-500 uppercase font-semibold mb-2">YOUR RANK</p>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-4xl font-bold text-gray-900">#454</span>
+                  <span className="text-lg text-gray-600 font-semibold flex items-center gap-1">
+                    GRINDING 💪
+                  </span>
+                </div>
+              </div>
+
+              <div className="text-right">
+                <p className="text-xs text-gray-500 uppercase font-semibold mb-2">RANK</p>
+                <div className="text-3xl font-bold text-gray-900 mb-1">
+                  454 / 1185
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-gray-700">Next Level</span>
+                <span className="text-sm font-semibold text-blue-600">2 points needed</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-500"
+                  style={{ width: '85%' }}
+                />
+              </div>
+            </div>
+          </div>
+        </Link>
 
         {/* Recommendations */}
         {recommendations && recommendations.topics.length > 0 && (

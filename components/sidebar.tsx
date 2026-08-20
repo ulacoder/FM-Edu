@@ -21,6 +21,7 @@ import {
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState<'НИШ' | 'КТЛ' | 'РФМШ'>('НИШ');
   const pathname = usePathname();
   const router = useRouter();
 
@@ -28,7 +29,18 @@ export function Sidebar() {
     // Check authentication status
     const token = localStorage.getItem('token');
     setIsAuthenticated(!!token);
+
+    // Load selected program
+    const savedProgram = localStorage.getItem('selectedProgram') as 'НИШ' | 'КТЛ' | 'РФМШ' | null;
+    if (savedProgram) {
+      setSelectedProgram(savedProgram);
+    }
   }, []);
+
+  const handleProgramChange = (program: 'НИШ' | 'КТЛ' | 'РФМШ') => {
+    setSelectedProgram(program);
+    localStorage.setItem('selectedProgram', program);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -45,6 +57,7 @@ export function Sidebar() {
     { icon: BookOpen, label: "Предметы", href: "/courses", auth: false },
     { icon: Bot, label: "AI Ментор", href: "#", auth: false, action: "openNavi" },
     { icon: TrendingUp, label: "Прогресс", href: "/progress", auth: true },
+    { icon: GraduationCap, label: "Leaderboard", href: "/leaderboard", auth: true },
     { icon: User, label: "Профиль", href: "/profile", auth: true },
     { icon: Settings, label: "Настройки", href: "/settings", auth: true },
   ];
@@ -91,14 +104,47 @@ export function Sidebar() {
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-blue-50">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <div>
                 <h2 className="text-lg font-bold text-gray-900">FM Edu</h2>
-                <p className="text-xs text-gray-600">NIS Programme</p>
+                <p className="text-xs text-gray-600">Выберите программу</p>
               </div>
+            </div>
+            {/* Program Selector */}
+            <div className="flex gap-2">
+              <button
+                onClick={() => handleProgramChange('НИШ')}
+                className={`flex-1 px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
+                  selectedProgram === 'НИШ'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-purple-400'
+                }`}
+              >
+                НИШ
+              </button>
+              <button
+                onClick={() => handleProgramChange('КТЛ')}
+                className={`flex-1 px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
+                  selectedProgram === 'КТЛ'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-purple-400'
+                }`}
+              >
+                КТЛ
+              </button>
+              <button
+                onClick={() => handleProgramChange('РФМШ')}
+                className={`flex-1 px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
+                  selectedProgram === 'РФМШ'
+                    ? 'bg-purple-600 text-white'
+                    : 'bg-white text-gray-600 border border-gray-300 hover:border-purple-400'
+                }`}
+              >
+                РФМШ
+              </button>
             </div>
           </div>
 
