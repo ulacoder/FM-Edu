@@ -14,9 +14,11 @@ import {
   X,
   Trophy,
   Target,
-  BookOpen
+  BookOpen,
+  MapPin
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { Region, regionNames } from '@/types';
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -198,6 +200,29 @@ export default function ProfilePage() {
                       Уровень
                     </label>
                     <p className="text-base sm:text-lg font-semibold">{displayLevel}</p>
+                  </div>
+
+                  {/* Region */}
+                  <div className="sm:col-span-2">
+                    <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-muted-foreground mb-2">
+                      <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+                      Регион
+                    </label>
+                    {isEditing ? (
+                      <select
+                        value={user.region || 'astana'}
+                        onChange={(e) => setUser({ ...user, region: e.target.value as Region })}
+                        className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-background border border-border rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+                      >
+                        {Object.entries(regionNames).map(([key, name]) => (
+                          <option key={key} value={key}>{name}</option>
+                        ))}
+                      </select>
+                    ) : (
+                      <p className="text-base sm:text-lg font-semibold">
+                        {user.region ? regionNames[user.region as Region] : 'Не указан'}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

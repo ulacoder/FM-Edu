@@ -8,14 +8,22 @@ import {
   LayoutDashboard,
   TestTube,
   BookOpen,
-  Bot,
   TrendingUp,
   User,
   Settings,
   LogOut,
   Menu,
   X,
-  GraduationCap
+  GraduationCap,
+  Brain,
+  Gamepad2,
+  Trophy,
+  MessageCircle,
+  Target,
+  Sparkles,
+  Calendar,
+  ShoppingBag,
+  Lightbulb
 } from "lucide-react";
 
 export function Sidebar() {
@@ -38,12 +46,26 @@ export function Sidebar() {
     setIsOpen(false);
   };
 
-  const menuItems = [
+  const menuItems: Array<{
+    icon: any;
+    label: string;
+    href: string;
+    auth: boolean;
+    action?: string;
+  }> = [
     { icon: Home, label: "Главная", href: "/", auth: false },
-    { icon: LayoutDashboard, label: "Дашборд", href: "/dashboard/student", auth: true },
+    { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard/student", auth: true },
+    { icon: Sparkles, label: "Agentic AI Demo", href: "/ai-agent-demo", auth: true },
     { icon: TestTube, label: "Диагностика", href: "/diagnostic", auth: false },
-    { icon: BookOpen, label: "Предметы", href: "/courses", auth: false },
-    { icon: Bot, label: "AI Ментор", href: "#", auth: false, action: "openNavi" },
+    { icon: BookOpen, label: "Курсы", href: "/courses", auth: false },
+    { icon: Gamepad2, label: "Игры", href: "/games", auth: false },
+    { icon: Target, label: "Мой роадмап", href: "/roadmap", auth: true },
+    { icon: Lightbulb, label: "Возможности", href: "/opportunities", auth: false },
+    { icon: Calendar, label: "Календарь", href: "/calendar", auth: true },
+    { icon: ShoppingBag, label: "Магазин", href: "/shop", auth: true },
+    { icon: Trophy, label: "Лидерборд", href: "/leaderboard", auth: true },
+    { icon: MessageCircle, label: "Региональный чат", href: "/regional-chat", auth: true },
+    { icon: Brain, label: "MBTI Профиль", href: "/mbti-profile", auth: true },
     { icon: TrendingUp, label: "Прогресс", href: "/progress", auth: true },
     { icon: User, label: "Профиль", href: "/profile", auth: true },
     { icon: Settings, label: "Настройки", href: "/settings", auth: true },
@@ -61,18 +83,16 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Hamburger Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-[100] p-2 bg-white border-2 border-purple-600 rounded-lg shadow-lg hover:bg-purple-50 transition-colors"
-        aria-label="Toggle menu"
-      >
-        {isOpen ? (
-          <X className="w-6 h-6 text-purple-600" />
-        ) : (
+      {/* Hamburger Button - только когда sidebar закрыт */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed top-4 left-4 z-[100] p-2 bg-white border-2 border-purple-600 rounded-lg shadow-lg hover:bg-purple-50 transition-colors"
+          aria-label="Toggle menu"
+        >
           <Menu className="w-6 h-6 text-purple-600" />
-        )}
-      </button>
+        </button>
+      )}
 
       {/* Overlay */}
       {isOpen && (
@@ -89,22 +109,31 @@ export function Sidebar() {
         }`}
       >
         <div className="flex flex-col h-full">
-          {/* Header */}
+          {/* Header с кнопкой закрытия */}
           <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-blue-50">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-white" />
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
+                  <GraduationCap className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">FM Edu</h2>
+                  <p className="text-xs text-gray-600">NIS Programme</p>
+                </div>
               </div>
-              <div>
-                <h2 className="text-lg font-bold text-gray-900">FM Edu</h2>
-                <p className="text-xs text-gray-600">NIS Programme</p>
-              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1.5 hover:bg-white/50 rounded-lg transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
             </div>
           </div>
 
           {/* Menu Items */}
           <nav className="flex-1 overflow-y-auto p-4">
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {menuItems.map((item) => {
                 // Skip auth-required items if not authenticated
                 if (item.auth && !isAuthenticated) return null;
@@ -117,27 +146,27 @@ export function Sidebar() {
                     {item.action ? (
                       <button
                         onClick={() => handleItemClick(item)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
                           isActive
                             ? "bg-purple-600 text-white"
                             : "text-gray-700 hover:bg-purple-50"
                         }`}
                       >
-                        <Icon className="w-5 h-5" />
-                        <span className="font-medium">{item.label}</span>
+                        <Icon className="w-4 h-4" />
+                        <span className="text-sm font-medium">{item.label}</span>
                       </button>
                     ) : (
                       <Link
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
                           isActive
                             ? "bg-purple-600 text-white"
                             : "text-gray-700 hover:bg-purple-50"
                         }`}
                       >
-                        <Icon className="w-5 h-5" />
-                        <span className="font-medium">{item.label}</span>
+                        <Icon className="w-4 h-4" />
+                        <span className="text-sm font-medium">{item.label}</span>
                       </Link>
                     )}
                   </li>

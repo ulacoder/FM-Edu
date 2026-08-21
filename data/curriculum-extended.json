@@ -1,0 +1,1810 @@
+[
+  {
+    "id": "1787265001956-qxpzdqeh0",
+    "subject": "chemistry",
+    "grade": 7,
+    "quarter": 1,
+    "order": 1,
+    "title": "Введение в химию",
+    "description": "Предмет химии, вещества и их свойства",
+    "keywords": [
+      "вещество",
+      "молекула",
+      "атом",
+      "химическая реакция"
+    ]
+  },
+  {
+    "id": "1787265001956-kxx0unbaf",
+    "subject": "chemistry",
+    "grade": 7,
+    "quarter": 2,
+    "order": 2,
+    "title": "Атомы и молекулы",
+    "description": "Строение атома, химические элементы",
+    "keywords": [
+      "протон",
+      "нейтрон",
+      "электрон",
+      "периодическая система"
+    ]
+  },
+  {
+    "id": "1787265001956-owvdwj0th",
+    "subject": "chemistry",
+    "grade": 7,
+    "quarter": 3,
+    "order": 3,
+    "title": "Простые и сложные вещества",
+    "description": "Классификация веществ",
+    "keywords": [
+      "простые вещества",
+      "сложные вещества",
+      "оксиды"
+    ]
+  },
+  {
+    "id": "1787265001956-pomkgv871",
+    "subject": "chemistry",
+    "grade": 7,
+    "quarter": 4,
+    "order": 4,
+    "title": "Химические реакции",
+    "description": "Типы химических реакций",
+    "keywords": [
+      "реакция соединения",
+      "разложение",
+      "замещение",
+      "обмен"
+    ]
+  },
+  {
+    "id": "1787265001956-fqjutql14",
+    "subject": "chemistry",
+    "grade": 8,
+    "quarter": 1,
+    "order": 5,
+    "title": "Периодический закон",
+    "description": "Периодическая система Менделеева",
+    "keywords": [
+      "период",
+      "группа",
+      "металлы",
+      "неметаллы"
+    ]
+  },
+  {
+    "id": "1787265001956-w5ay41wdk",
+    "subject": "chemistry",
+    "grade": 8,
+    "quarter": 2,
+    "order": 6,
+    "title": "Химическая связь",
+    "description": "Ионная и ковалентная связь",
+    "keywords": [
+      "ионная связь",
+      "ковалентная связь",
+      "электроотрицательность"
+    ]
+  },
+  {
+    "id": "1787265001956-f6erofskt",
+    "subject": "chemistry",
+    "grade": 8,
+    "quarter": 3,
+    "order": 7,
+    "title": "Классы неорганических соединений",
+    "description": "Оксиды, кислоты, основания, соли",
+    "keywords": [
+      "оксиды",
+      "кислоты",
+      "основания",
+      "соли"
+    ]
+  },
+  {
+    "id": "1787265001956-6uwqv4gve",
+    "subject": "chemistry",
+    "grade": 8,
+    "quarter": 4,
+    "order": 8,
+    "title": "Растворы",
+    "description": "Растворы и их концентрация",
+    "keywords": [
+      "раствор",
+      "концентрация",
+      "растворимость"
+    ]
+  },
+  {
+    "id": "1787265001956-r57n50oj8",
+    "subject": "chemistry",
+    "grade": 9,
+    "quarter": 1,
+    "order": 9,
+    "title": "Электролитическая диссоциация",
+    "description": "Теория электролитической диссоциации",
+    "keywords": [
+      "электролит",
+      "ионы",
+      "диссоциация"
+    ]
+  },
+  {
+    "id": "1787265001956-hq66y2oqc",
+    "subject": "chemistry",
+    "grade": 9,
+    "quarter": 2,
+    "order": 10,
+    "title": "Реакции ионного обмена",
+    "description": "ОВР и ионный обмен",
+    "keywords": [
+      "окисление",
+      "восстановление",
+      "ионное уравнение"
+    ]
+  },
+  {
+    "id": "1787265001956-z239adskw",
+    "subject": "chemistry",
+    "grade": 9,
+    "quarter": 3,
+    "order": 11,
+    "title": "Неметаллы",
+    "description": "Свойства неметаллов и их соединений",
+    "keywords": [
+      "галогены",
+      "кислород",
+      "сера",
+      "азот"
+    ]
+  },
+  {
+    "id": "1787265001956-44slm8apd",
+    "subject": "chemistry",
+    "grade": 9,
+    "quarter": 4,
+    "order": 12,
+    "title": "Металлы",
+    "description": "Общие свойства металлов",
+    "keywords": [
+      "щелочные металлы",
+      "алюминий",
+      "железо"
+    ]
+  },
+  {
+    "id": "1787265001956-rhv9r04a6",
+    "subject": "chemistry",
+    "grade": 10,
+    "quarter": 1,
+    "order": 13,
+    "title": "Теория строения органических соединений",
+    "description": "Основы органической химии",
+    "keywords": [
+      "органические вещества",
+      "гомологи",
+      "изомеры"
+    ]
+  },
+  {
+    "id": "1787265001956-o1xk1sg87",
+    "subject": "chemistry",
+    "grade": 10,
+    "quarter": 2,
+    "order": 14,
+    "title": "Углеводороды",
+    "description": "Алканы, алкены, алкины",
+    "keywords": [
+      "алканы",
+      "алкены",
+      "алкины",
+      "ароматические"
+    ]
+  },
+  {
+    "id": "1787265001956-23dgnmiv8",
+    "subject": "chemistry",
+    "grade": 10,
+    "quarter": 3,
+    "order": 15,
+    "title": "Спирты и фенолы",
+    "description": "Кислородсодержащие органические соединения",
+    "keywords": [
+      "спирты",
+      "фенолы",
+      "альдегиды"
+    ]
+  },
+  {
+    "id": "1787265001956-rttbutf7y",
+    "subject": "chemistry",
+    "grade": 10,
+    "quarter": 4,
+    "order": 16,
+    "title": "Карбоновые кислоты",
+    "description": "Карбоновые кислоты и эфиры",
+    "keywords": [
+      "карбоновые кислоты",
+      "сложные эфиры",
+      "жиры"
+    ]
+  },
+  {
+    "id": "1787265001956-0671m49kj",
+    "subject": "chemistry",
+    "grade": 11,
+    "quarter": 1,
+    "order": 17,
+    "title": "Азотсодержащие соединения",
+    "description": "Амины, аминокислоты",
+    "keywords": [
+      "амины",
+      "аминокислоты",
+      "белки"
+    ]
+  },
+  {
+    "id": "1787265001956-oun6tfptn",
+    "subject": "chemistry",
+    "grade": 11,
+    "quarter": 2,
+    "order": 18,
+    "title": "Углеводы",
+    "description": "Моно- и полисахариды",
+    "keywords": [
+      "глюкоза",
+      "сахароза",
+      "крахмал",
+      "целлюлоза"
+    ]
+  },
+  {
+    "id": "1787265001956-xd0un534d",
+    "subject": "chemistry",
+    "grade": 11,
+    "quarter": 3,
+    "order": 19,
+    "title": "Высокомолекулярные соединения",
+    "description": "Полимеры",
+    "keywords": [
+      "полимеры",
+      "мономеры",
+      "пластмассы"
+    ]
+  },
+  {
+    "id": "1787265001956-l0a215ehr",
+    "subject": "chemistry",
+    "grade": 11,
+    "quarter": 4,
+    "order": 20,
+    "title": "Химия и жизнь",
+    "description": "Прикладная химия",
+    "keywords": [
+      "биохимия",
+      "экология",
+      "химическое производство"
+    ]
+  },
+  {
+    "id": "1787265001956-vvvhsvqjm",
+    "subject": "chemistry",
+    "grade": 12,
+    "quarter": 1,
+    "order": 21,
+    "title": "Химическая термодинамика",
+    "description": "Энергетика химических реакций",
+    "keywords": [
+      "энтальпия",
+      "энтропия",
+      "энергия Гиббса"
+    ]
+  },
+  {
+    "id": "1787265001956-trnhe5fof",
+    "subject": "chemistry",
+    "grade": 12,
+    "quarter": 2,
+    "order": 22,
+    "title": "Химическая кинетика",
+    "description": "Скорость химических реакций",
+    "keywords": [
+      "скорость реакции",
+      "катализ",
+      "равновесие"
+    ]
+  },
+  {
+    "id": "1787265001956-05o2q1ynh",
+    "subject": "chemistry",
+    "grade": 12,
+    "quarter": 3,
+    "order": 23,
+    "title": "Электрохимия",
+    "description": "Окислительно-восстановительные процессы",
+    "keywords": [
+      "электролиз",
+      "гальванический элемент",
+      "коррозия"
+    ]
+  },
+  {
+    "id": "1787265001956-5udcp91mu",
+    "subject": "chemistry",
+    "grade": 12,
+    "quarter": 4,
+    "order": 24,
+    "title": "Обобщение курса химии",
+    "description": "Систематизация знаний",
+    "keywords": [
+      "неорганическая химия",
+      "органическая химия"
+    ]
+  },
+  {
+    "id": "1787265001956-wc77az06z",
+    "subject": "biology",
+    "grade": 7,
+    "quarter": 1,
+    "order": 1,
+    "title": "Многообразие живых организмов",
+    "description": "Классификация организмов",
+    "keywords": [
+      "царства живой природы",
+      "систематика",
+      "таксономия"
+    ]
+  },
+  {
+    "id": "1787265001956-a808mnusg",
+    "subject": "biology",
+    "grade": 7,
+    "quarter": 2,
+    "order": 2,
+    "title": "Бактерии и вирусы",
+    "description": "Строение и значение бактерий",
+    "keywords": [
+      "прокариоты",
+      "вирусы",
+      "бактерии"
+    ]
+  },
+  {
+    "id": "1787265001956-cbandgrgj",
+    "subject": "biology",
+    "grade": 7,
+    "quarter": 3,
+    "order": 3,
+    "title": "Грибы и лишайники",
+    "description": "Особенности грибов",
+    "keywords": [
+      "мицелий",
+      "споры",
+      "лишайники"
+    ]
+  },
+  {
+    "id": "1787265001956-956m1tp59",
+    "subject": "biology",
+    "grade": 7,
+    "quarter": 4,
+    "order": 4,
+    "title": "Растения",
+    "description": "Строение и разнообразие растений",
+    "keywords": [
+      "водоросли",
+      "мхи",
+      "папоротники",
+      "голосеменные",
+      "покрытосеменные"
+    ]
+  },
+  {
+    "id": "1787265001956-9g8tt9o0c",
+    "subject": "biology",
+    "grade": 8,
+    "quarter": 1,
+    "order": 5,
+    "title": "Зоология беспозвоночных",
+    "description": "Беспозвоночные животные",
+    "keywords": [
+      "простейшие",
+      "черви",
+      "моллюски",
+      "членистоногие"
+    ]
+  },
+  {
+    "id": "1787265001956-7ejsnze2e",
+    "subject": "biology",
+    "grade": 8,
+    "quarter": 2,
+    "order": 6,
+    "title": "Зоология позвоночных",
+    "description": "Позвоночные животные",
+    "keywords": [
+      "рыбы",
+      "земноводные",
+      "пресмыкающиеся"
+    ]
+  },
+  {
+    "id": "1787265001956-n3t5g1beo",
+    "subject": "biology",
+    "grade": 8,
+    "quarter": 3,
+    "order": 7,
+    "title": "Птицы и млекопитающие",
+    "description": "Высшие позвоночные",
+    "keywords": [
+      "птицы",
+      "млекопитающие",
+      "теплокровные"
+    ]
+  },
+  {
+    "id": "1787265001956-qt6vvt89z",
+    "subject": "biology",
+    "grade": 8,
+    "quarter": 4,
+    "order": 8,
+    "title": "Эволюция животных",
+    "description": "Происхождение и эволюция",
+    "keywords": [
+      "эволюция",
+      "дарвинизм",
+      "естественный отбор"
+    ]
+  },
+  {
+    "id": "1787265001956-vg5sv6nui",
+    "subject": "biology",
+    "grade": 9,
+    "quarter": 1,
+    "order": 9,
+    "title": "Анатомия человека",
+    "description": "Строение организма человека",
+    "keywords": [
+      "ткани",
+      "органы",
+      "системы органов"
+    ]
+  },
+  {
+    "id": "1787265001956-xb48w8pkc",
+    "subject": "biology",
+    "grade": 9,
+    "quarter": 2,
+    "order": 10,
+    "title": "Опорно-двигательная система",
+    "description": "Скелет и мышцы",
+    "keywords": [
+      "скелет",
+      "мышцы",
+      "суставы"
+    ]
+  },
+  {
+    "id": "1787265001956-qjem98f32",
+    "subject": "biology",
+    "grade": 9,
+    "quarter": 3,
+    "order": 11,
+    "title": "Кровь и кровообращение",
+    "description": "Сердечно-сосудистая система",
+    "keywords": [
+      "кровь",
+      "сердце",
+      "сосуды",
+      "иммунитет"
+    ]
+  },
+  {
+    "id": "1787265001956-bx0zxbtw7",
+    "subject": "biology",
+    "grade": 9,
+    "quarter": 4,
+    "order": 12,
+    "title": "Дыхание и пищеварение",
+    "description": "Дыхательная и пищеварительная системы",
+    "keywords": [
+      "дыхание",
+      "пищеварение",
+      "обмен веществ"
+    ]
+  },
+  {
+    "id": "1787265001956-ztnujxz4r",
+    "subject": "biology",
+    "grade": 10,
+    "quarter": 1,
+    "order": 13,
+    "title": "Клетка - основа жизни",
+    "description": "Цитология",
+    "keywords": [
+      "клетка",
+      "органоиды",
+      "мембрана",
+      "ядро"
+    ]
+  },
+  {
+    "id": "1787265001956-qchruqgt8",
+    "subject": "biology",
+    "grade": 10,
+    "quarter": 2,
+    "order": 14,
+    "title": "Обмен веществ",
+    "description": "Метаболизм",
+    "keywords": [
+      "фотосинтез",
+      "дыхание",
+      "синтез белка"
+    ]
+  },
+  {
+    "id": "1787265001956-5tk504tc3",
+    "subject": "biology",
+    "grade": 10,
+    "quarter": 3,
+    "order": 15,
+    "title": "Размножение и развитие",
+    "description": "Репродукция организмов",
+    "keywords": [
+      "митоз",
+      "мейоз",
+      "гаметогенез",
+      "онтогенез"
+    ]
+  },
+  {
+    "id": "1787265001956-knbfq963g",
+    "subject": "biology",
+    "grade": 10,
+    "quarter": 4,
+    "order": 16,
+    "title": "Генетика",
+    "description": "Основы наследственности",
+    "keywords": [
+      "ген",
+      "хромосома",
+      "законы Менделя",
+      "ДНК"
+    ]
+  },
+  {
+    "id": "1787265001956-432vbjulo",
+    "subject": "biology",
+    "grade": 11,
+    "quarter": 1,
+    "order": 17,
+    "title": "Молекулярная биология",
+    "description": "ДНК и РНК",
+    "keywords": [
+      "ДНК",
+      "РНК",
+      "репликация",
+      "транскрипция",
+      "трансляция"
+    ]
+  },
+  {
+    "id": "1787265001956-sf7xboipn",
+    "subject": "biology",
+    "grade": 11,
+    "quarter": 2,
+    "order": 18,
+    "title": "Изменчивость",
+    "description": "Виды изменчивости",
+    "keywords": [
+      "модификации",
+      "мутации",
+      "комбинативная изменчивость"
+    ]
+  },
+  {
+    "id": "1787265001956-y4zdo2g28",
+    "subject": "biology",
+    "grade": 11,
+    "quarter": 3,
+    "order": 19,
+    "title": "Селекция",
+    "description": "Основы селекции и биотехнологии",
+    "keywords": [
+      "селекция",
+      "биотехнология",
+      "генная инженерия"
+    ]
+  },
+  {
+    "id": "1787265001956-ha7fcjg4i",
+    "subject": "biology",
+    "grade": 11,
+    "quarter": 4,
+    "order": 20,
+    "title": "Эволюция",
+    "description": "Теория эволюции",
+    "keywords": [
+      "эволюция",
+      "Дарвин",
+      "СТЭ",
+      "антропогенез"
+    ]
+  },
+  {
+    "id": "1787265001956-7a6461pb5",
+    "subject": "biology",
+    "grade": 12,
+    "quarter": 1,
+    "order": 21,
+    "title": "Экология организмов",
+    "description": "Основы экологии",
+    "keywords": [
+      "среда обитания",
+      "экологические факторы",
+      "адаптации"
+    ]
+  },
+  {
+    "id": "1787265001956-8rwzh65c9",
+    "subject": "biology",
+    "grade": 12,
+    "quarter": 2,
+    "order": 22,
+    "title": "Экосистемы",
+    "description": "Биоценозы и экосистемы",
+    "keywords": [
+      "биоценоз",
+      "экосистема",
+      "цепи питания",
+      "биосфера"
+    ]
+  },
+  {
+    "id": "1787265001956-0r75rimvq",
+    "subject": "biology",
+    "grade": 12,
+    "quarter": 3,
+    "order": 23,
+    "title": "Биосфера",
+    "description": "Учение о биосфере",
+    "keywords": [
+      "биосфера",
+      "Вернадский",
+      "круговорот веществ"
+    ]
+  },
+  {
+    "id": "1787265001956-vl6v8hc19",
+    "subject": "biology",
+    "grade": 12,
+    "quarter": 4,
+    "order": 24,
+    "title": "Охрана природы",
+    "description": "Рациональное природопользование",
+    "keywords": [
+      "охрана природы",
+      "экологические проблемы",
+      "устойчивое развитие"
+    ]
+  },
+  {
+    "id": "1787265001956-7qhm8nwul",
+    "subject": "english",
+    "grade": 7,
+    "quarter": 1,
+    "order": 1,
+    "title": "Our World",
+    "description": "Describing places and people",
+    "keywords": [
+      "present simple",
+      "present continuous",
+      "adjectives",
+      "prepositions of place"
+    ]
+  },
+  {
+    "id": "1787265001956-3lr8moec0",
+    "subject": "english",
+    "grade": 7,
+    "quarter": 2,
+    "order": 2,
+    "title": "Values",
+    "description": "Character and values",
+    "keywords": [
+      "past simple",
+      "past continuous",
+      "comparative adjectives",
+      "superlatives"
+    ]
+  },
+  {
+    "id": "1787265001956-abtbdezmg",
+    "subject": "english",
+    "grade": 7,
+    "quarter": 3,
+    "order": 3,
+    "title": "Environment",
+    "description": "Nature and ecology",
+    "keywords": [
+      "future forms",
+      "first conditional",
+      "modal verbs",
+      "environment vocabulary"
+    ]
+  },
+  {
+    "id": "1787265001956-wwkiv4b6q",
+    "subject": "english",
+    "grade": 7,
+    "quarter": 4,
+    "order": 4,
+    "title": "Travel and Transport",
+    "description": "Holidays and journeys",
+    "keywords": [
+      "present perfect",
+      "travel vocabulary",
+      "giving directions"
+    ]
+  },
+  {
+    "id": "1787265001956-2eri5wuxa",
+    "subject": "english",
+    "grade": 8,
+    "quarter": 1,
+    "order": 5,
+    "title": "Hobbies and Leisure",
+    "description": "Free time activities",
+    "keywords": [
+      "present perfect continuous",
+      "gerunds",
+      "infinitives"
+    ]
+  },
+  {
+    "id": "1787265001956-e8avdb686",
+    "subject": "english",
+    "grade": 8,
+    "quarter": 2,
+    "order": 6,
+    "title": "Food and Health",
+    "description": "Healthy lifestyle",
+    "keywords": [
+      "countable/uncountable nouns",
+      "quantifiers",
+      "health vocabulary"
+    ]
+  },
+  {
+    "id": "1787265001956-4en2knhr0",
+    "subject": "english",
+    "grade": 8,
+    "quarter": 3,
+    "order": 7,
+    "title": "Entertainment and Media",
+    "description": "TV, films, books",
+    "keywords": [
+      "past perfect",
+      "reported speech",
+      "media vocabulary"
+    ]
+  },
+  {
+    "id": "1787265001956-rrnrs4dpt",
+    "subject": "english",
+    "grade": 8,
+    "quarter": 4,
+    "order": 8,
+    "title": "Science and Technology",
+    "description": "Modern technology",
+    "keywords": [
+      "passive voice",
+      "relative clauses",
+      "technology terms"
+    ]
+  },
+  {
+    "id": "1787265001956-n2j5plj2s",
+    "subject": "english",
+    "grade": 9,
+    "quarter": 1,
+    "order": 9,
+    "title": "Education",
+    "description": "School systems and learning",
+    "keywords": [
+      "modals of obligation",
+      "education vocabulary",
+      "used to"
+    ]
+  },
+  {
+    "id": "1787265001956-omr0qzled",
+    "subject": "english",
+    "grade": 9,
+    "quarter": 2,
+    "order": 10,
+    "title": "Work and Career",
+    "description": "Jobs and professions",
+    "keywords": [
+      "future perfect",
+      "career vocabulary",
+      "conditional sentences"
+    ]
+  },
+  {
+    "id": "1787265001956-tn4s88el8",
+    "subject": "english",
+    "grade": 9,
+    "quarter": 3,
+    "order": 11,
+    "title": "Culture and Traditions",
+    "description": "Cultural diversity",
+    "keywords": [
+      "articles",
+      "cultural vocabulary",
+      "narrative tenses"
+    ]
+  },
+  {
+    "id": "1787265001956-0cffv8413",
+    "subject": "english",
+    "grade": 9,
+    "quarter": 4,
+    "order": 12,
+    "title": "Social Issues",
+    "description": "Modern society problems",
+    "keywords": [
+      "wish/if only",
+      "advanced modals",
+      "social topics"
+    ]
+  },
+  {
+    "id": "1787265001956-i4se9gdeu",
+    "subject": "english",
+    "grade": 10,
+    "quarter": 1,
+    "order": 13,
+    "title": "Global Issues",
+    "description": "World problems and solutions",
+    "keywords": [
+      "advanced conditionals",
+      "discourse markers",
+      "global vocabulary"
+    ]
+  },
+  {
+    "id": "1787265001956-up9ev0gng",
+    "subject": "english",
+    "grade": 10,
+    "quarter": 2,
+    "order": 14,
+    "title": "Communication",
+    "description": "Ways of communication",
+    "keywords": [
+      "phrasal verbs",
+      "communication skills",
+      "idioms"
+    ]
+  },
+  {
+    "id": "1787265001956-1xtycdk3v",
+    "subject": "english",
+    "grade": 10,
+    "quarter": 3,
+    "order": 15,
+    "title": "Innovation",
+    "description": "Scientific discoveries",
+    "keywords": [
+      "causative form",
+      "scientific vocabulary",
+      "mixed conditionals"
+    ]
+  },
+  {
+    "id": "1787265001956-4i5275uam",
+    "subject": "english",
+    "grade": 10,
+    "quarter": 4,
+    "order": 16,
+    "title": "Independent Project",
+    "description": "Extended research project",
+    "keywords": [
+      "academic writing",
+      "research skills",
+      "presentations"
+    ]
+  },
+  {
+    "id": "1787265001956-q24p9schk",
+    "subject": "english",
+    "grade": 11,
+    "quarter": 1,
+    "order": 17,
+    "title": "Identity and Culture",
+    "description": "Personal and cultural identity",
+    "keywords": [
+      "advanced grammar",
+      "identity vocabulary",
+      "essay writing"
+    ]
+  },
+  {
+    "id": "1787265001956-0rwjpxrqz",
+    "subject": "english",
+    "grade": 11,
+    "quarter": 2,
+    "order": 18,
+    "title": "Literature and Arts",
+    "description": "Literary analysis",
+    "keywords": [
+      "literary devices",
+      "critical thinking",
+      "analysis"
+    ]
+  },
+  {
+    "id": "1787265001956-696egmlgb",
+    "subject": "english",
+    "grade": 11,
+    "quarter": 3,
+    "order": 19,
+    "title": "Business and Economics",
+    "description": "Business world",
+    "keywords": [
+      "business English",
+      "economic terms",
+      "formal writing"
+    ]
+  },
+  {
+    "id": "1787265001956-zh3g4tv3a",
+    "subject": "english",
+    "grade": 11,
+    "quarter": 4,
+    "order": 20,
+    "title": "Exam Preparation",
+    "description": "IELTS/SAT preparation",
+    "keywords": [
+      "exam strategies",
+      "academic English",
+      "test practice"
+    ]
+  },
+  {
+    "id": "1787265001956-fke8p0r2t",
+    "subject": "english",
+    "grade": 12,
+    "quarter": 1,
+    "order": 21,
+    "title": "Advanced Writing",
+    "description": "Academic writing skills",
+    "keywords": [
+      "essay types",
+      "argumentation",
+      "critical analysis"
+    ]
+  },
+  {
+    "id": "1787265001956-mg67qm5c1",
+    "subject": "english",
+    "grade": 12,
+    "quarter": 2,
+    "order": 22,
+    "title": "Public Speaking",
+    "description": "Presentations and debates",
+    "keywords": [
+      "rhetoric",
+      "persuasion",
+      "debate techniques"
+    ]
+  },
+  {
+    "id": "1787265001956-qhg4cbc20",
+    "subject": "english",
+    "grade": 12,
+    "quarter": 3,
+    "order": 23,
+    "title": "Research Project",
+    "description": "Independent research",
+    "keywords": [
+      "research methodology",
+      "academic integrity",
+      "citation"
+    ]
+  },
+  {
+    "id": "1787265001956-v0b9quy9l",
+    "subject": "english",
+    "grade": 12,
+    "quarter": 4,
+    "order": 24,
+    "title": "Preparation for University",
+    "description": "University readiness",
+    "keywords": [
+      "academic skills",
+      "study abroad",
+      "motivation letter"
+    ]
+  },
+  {
+    "id": "1787265001956-k9b71jep5",
+    "subject": "geography",
+    "grade": 7,
+    "quarter": 1,
+    "order": 1,
+    "title": "Введение в географию",
+    "description": "Источники географической информации",
+    "keywords": [
+      "карта",
+      "глобус",
+      "масштаб",
+      "координаты"
+    ]
+  },
+  {
+    "id": "1787265001956-db1689mfj",
+    "subject": "geography",
+    "grade": 7,
+    "quarter": 2,
+    "order": 2,
+    "title": "Литосфера",
+    "description": "Строение Земли и рельеф",
+    "keywords": [
+      "литосфера",
+      "рельеф",
+      "горы",
+      "равнины"
+    ]
+  },
+  {
+    "id": "1787265001956-93ugxlx6y",
+    "subject": "geography",
+    "grade": 7,
+    "quarter": 3,
+    "order": 3,
+    "title": "Гидросфера",
+    "description": "Воды Земли",
+    "keywords": [
+      "мировой океан",
+      "реки",
+      "озёра",
+      "подземные воды"
+    ]
+  },
+  {
+    "id": "1787265001956-5hoxtg02h",
+    "subject": "geography",
+    "grade": 7,
+    "quarter": 4,
+    "order": 4,
+    "title": "Атмосфера",
+    "description": "Воздушная оболочка Земли",
+    "keywords": [
+      "атмосфера",
+      "погода",
+      "климат",
+      "ветер"
+    ]
+  },
+  {
+    "id": "1787265001956-9mvl9npjm",
+    "subject": "geography",
+    "grade": 8,
+    "quarter": 1,
+    "order": 5,
+    "title": "Материки: Африка и Австралия",
+    "description": "Природа и население",
+    "keywords": [
+      "Африка",
+      "Австралия",
+      "природные зоны",
+      "население"
+    ]
+  },
+  {
+    "id": "1787265001956-1rupmezng",
+    "subject": "geography",
+    "grade": 8,
+    "quarter": 2,
+    "order": 6,
+    "title": "Южная Америка",
+    "description": "Природа и страны",
+    "keywords": [
+      "Южная Америка",
+      "Амазонка",
+      "Анды",
+      "латиноамериканцы"
+    ]
+  },
+  {
+    "id": "1787265001956-mmkmv7dnk",
+    "subject": "geography",
+    "grade": 8,
+    "quarter": 3,
+    "order": 7,
+    "title": "Северная Америка",
+    "description": "США и Канада",
+    "keywords": [
+      "Северная Америка",
+      "США",
+      "Канада",
+      "природные ресурсы"
+    ]
+  },
+  {
+    "id": "1787265001956-9dxurhm6n",
+    "subject": "geography",
+    "grade": 8,
+    "quarter": 4,
+    "order": 8,
+    "title": "Евразия",
+    "description": "Крупнейший материк",
+    "keywords": [
+      "Евразия",
+      "Европа",
+      "Азия",
+      "страны"
+    ]
+  },
+  {
+    "id": "1787265001956-muj6kiliu",
+    "subject": "geography",
+    "grade": 9,
+    "quarter": 1,
+    "order": 9,
+    "title": "Географическое положение РК",
+    "description": "Территория и границы",
+    "keywords": [
+      "территория",
+      "границы",
+      "регионы",
+      "административное деление"
+    ]
+  },
+  {
+    "id": "1787265001956-rzvi2jhg8",
+    "subject": "geography",
+    "grade": 9,
+    "quarter": 2,
+    "order": 10,
+    "title": "Природа Казахстана",
+    "description": "Рельеф, климат, воды",
+    "keywords": [
+      "рельеф",
+      "климат",
+      "реки Казахстана",
+      "озёра"
+    ]
+  },
+  {
+    "id": "1787265001956-16v6jkwvz",
+    "subject": "geography",
+    "grade": 9,
+    "quarter": 3,
+    "order": 11,
+    "title": "Природные ресурсы",
+    "description": "Полезные ископаемые РК",
+    "keywords": [
+      "нефть",
+      "газ",
+      "руды",
+      "минеральные ресурсы"
+    ]
+  },
+  {
+    "id": "1787265001956-8ejn13kx6",
+    "subject": "geography",
+    "grade": 9,
+    "quarter": 4,
+    "order": 12,
+    "title": "Население и хозяйство",
+    "description": "Демография и экономика РК",
+    "keywords": [
+      "население",
+      "миграция",
+      "промышленность",
+      "сельское хозяйство"
+    ]
+  },
+  {
+    "id": "1787265001956-wykl7s0of",
+    "subject": "geography",
+    "grade": 10,
+    "quarter": 1,
+    "order": 13,
+    "title": "Экономическая география",
+    "description": "Мировое хозяйство",
+    "keywords": [
+      "мировое хозяйство",
+      "отрасли",
+      "международное разделение труда"
+    ]
+  },
+  {
+    "id": "1787265001956-dp8kinl71",
+    "subject": "geography",
+    "grade": 10,
+    "quarter": 2,
+    "order": 14,
+    "title": "Промышленность мира",
+    "description": "Отрасли промышленности",
+    "keywords": [
+      "промышленность",
+      "энергетика",
+      "металлургия",
+      "машиностроение"
+    ]
+  },
+  {
+    "id": "1787265001956-udbqf204l",
+    "subject": "geography",
+    "grade": 10,
+    "quarter": 3,
+    "order": 15,
+    "title": "Сельское хозяйство",
+    "description": "Агропромышленный комплекс",
+    "keywords": [
+      "сельское хозяйство",
+      "растениеводство",
+      "животноводство"
+    ]
+  },
+  {
+    "id": "1787265001956-zfgz94nus",
+    "subject": "geography",
+    "grade": 10,
+    "quarter": 4,
+    "order": 16,
+    "title": "Транспорт и связь",
+    "description": "Инфраструктура мира",
+    "keywords": [
+      "транспорт",
+      "логистика",
+      "связь",
+      "торговля"
+    ]
+  },
+  {
+    "id": "1787265001956-uo9fbmtsf",
+    "subject": "geography",
+    "grade": 11,
+    "quarter": 1,
+    "order": 17,
+    "title": "Регионы мира",
+    "description": "Региональная география",
+    "keywords": [
+      "регионы",
+      "интеграция",
+      "глобализация"
+    ]
+  },
+  {
+    "id": "1787265001956-6ys1l0ac9",
+    "subject": "geography",
+    "grade": 11,
+    "quarter": 2,
+    "order": 18,
+    "title": "Развитые страны",
+    "description": "США, Европа, Япония",
+    "keywords": [
+      "развитые страны",
+      "постиндустриальное общество",
+      "инновации"
+    ]
+  },
+  {
+    "id": "1787265001956-qiyer593y",
+    "subject": "geography",
+    "grade": 11,
+    "quarter": 3,
+    "order": 19,
+    "title": "Развивающиеся страны",
+    "description": "Азия, Африка, Латинская Америка",
+    "keywords": [
+      "развивающиеся страны",
+      "демографический взрыв",
+      "урбанизация"
+    ]
+  },
+  {
+    "id": "1787265001956-9r2p4s4si",
+    "subject": "geography",
+    "grade": 11,
+    "quarter": 4,
+    "order": 20,
+    "title": "Глобальные проблемы",
+    "description": "Проблемы человечества",
+    "keywords": [
+      "глобальные проблемы",
+      "экология",
+      "ресурсы",
+      "бедность"
+    ]
+  },
+  {
+    "id": "1787265001956-5cazgwui0",
+    "subject": "geography",
+    "grade": 12,
+    "quarter": 1,
+    "order": 21,
+    "title": "Политическая карта мира",
+    "description": "Страны и территории",
+    "keywords": [
+      "государства",
+      "столицы",
+      "формы правления",
+      "геополитика"
+    ]
+  },
+  {
+    "id": "1787265001956-mwp78m0ub",
+    "subject": "geography",
+    "grade": 12,
+    "quarter": 2,
+    "order": 22,
+    "title": "Население мира",
+    "description": "Демография и миграция",
+    "keywords": [
+      "население",
+      "демография",
+      "миграция",
+      "урбанизация"
+    ]
+  },
+  {
+    "id": "1787265001956-6gc7r0qc0",
+    "subject": "geography",
+    "grade": 12,
+    "quarter": 3,
+    "order": 23,
+    "title": "Устойчивое развитие",
+    "description": "Концепция устойчивого развития",
+    "keywords": [
+      "устойчивое развитие",
+      "зелёная экономика",
+      "SDGs"
+    ]
+  },
+  {
+    "id": "1787265001956-c0jofpis0",
+    "subject": "geography",
+    "grade": 12,
+    "quarter": 4,
+    "order": 24,
+    "title": "Казахстан в мире",
+    "description": "Место РК в мировой экономике",
+    "keywords": [
+      "Казахстан",
+      "международные отношения",
+      "ЕАЭС",
+      "экспорт"
+    ]
+  },
+  {
+    "id": "1787265001956-eidmlm1yk",
+    "subject": "economics",
+    "grade": 10,
+    "quarter": 1,
+    "order": 1,
+    "title": "Основы экономики",
+    "description": "Экономические системы",
+    "keywords": [
+      "экономика",
+      "ресурсы",
+      "потребности",
+      "блага",
+      "экономические системы"
+    ]
+  },
+  {
+    "id": "1787265001956-imrof9pbz",
+    "subject": "economics",
+    "grade": 10,
+    "quarter": 2,
+    "order": 2,
+    "title": "Рынок и конкуренция",
+    "description": "Рыночная экономика",
+    "keywords": [
+      "спрос",
+      "предложение",
+      "цена",
+      "конкуренция",
+      "рынок"
+    ]
+  },
+  {
+    "id": "1787265001956-maef6tnuv",
+    "subject": "economics",
+    "grade": 10,
+    "quarter": 3,
+    "order": 3,
+    "title": "Предпринимательство",
+    "description": "Формы организации бизнеса",
+    "keywords": [
+      "предприниматель",
+      "бизнес-план",
+      "ИП",
+      "ТОО",
+      "АО"
+    ]
+  },
+  {
+    "id": "1787265001956-x68k8nhmp",
+    "subject": "economics",
+    "grade": 10,
+    "quarter": 4,
+    "order": 4,
+    "title": "Деньги и банки",
+    "description": "Финансовая система",
+    "keywords": [
+      "деньги",
+      "банки",
+      "кредит",
+      "инфляция"
+    ]
+  },
+  {
+    "id": "1787265001956-bg8aeb6vz",
+    "subject": "economics",
+    "grade": 11,
+    "quarter": 1,
+    "order": 5,
+    "title": "Макроэкономика",
+    "description": "Национальная экономика",
+    "keywords": [
+      "ВВП",
+      "экономический рост",
+      "безработица",
+      "циклы"
+    ]
+  },
+  {
+    "id": "1787265001956-64prjfhyd",
+    "subject": "economics",
+    "grade": 11,
+    "quarter": 2,
+    "order": 6,
+    "title": "Государство в экономике",
+    "description": "Роль государства",
+    "keywords": [
+      "налоги",
+      "бюджет",
+      "государственное регулирование",
+      "фискальная политика"
+    ]
+  },
+  {
+    "id": "1787265001956-7uecumhxw",
+    "subject": "economics",
+    "grade": 11,
+    "quarter": 3,
+    "order": 7,
+    "title": "Международная экономика",
+    "description": "Мировая экономика",
+    "keywords": [
+      "международная торговля",
+      "валюта",
+      "глобализация",
+      "ВТО"
+    ]
+  },
+  {
+    "id": "1787265001956-tywf0loe6",
+    "subject": "economics",
+    "grade": 11,
+    "quarter": 4,
+    "order": 8,
+    "title": "Финансовые рынки",
+    "description": "Инвестиции и биржа",
+    "keywords": [
+      "акции",
+      "облигации",
+      "биржа",
+      "инвестиции",
+      "портфель"
+    ]
+  },
+  {
+    "id": "1787265001956-up2ydgt2x",
+    "subject": "economics",
+    "grade": 12,
+    "quarter": 1,
+    "order": 9,
+    "title": "Личные финансы",
+    "description": "Финансовая грамотность",
+    "keywords": [
+      "бюджет",
+      "сбережения",
+      "инвестиции",
+      "пенсия",
+      "кредиты"
+    ]
+  },
+  {
+    "id": "1787265001956-54698ulhd",
+    "subject": "economics",
+    "grade": 12,
+    "quarter": 2,
+    "order": 10,
+    "title": "Экономика Казахстана",
+    "description": "Национальная экономика РК",
+    "keywords": [
+      "экономика РК",
+      "нефтегазовый сектор",
+      "диверсификация",
+      "индустриализация"
+    ]
+  },
+  {
+    "id": "1787265001956-mncfvz153",
+    "subject": "economics",
+    "grade": 12,
+    "quarter": 3,
+    "order": 11,
+    "title": "Предпринимательский проект",
+    "description": "Разработка бизнес-проекта",
+    "keywords": [
+      "бизнес-план",
+      "стартап",
+      "маркетинг",
+      "финансовый план"
+    ]
+  },
+  {
+    "id": "1787265001956-lrt5jia1x",
+    "subject": "economics",
+    "grade": 12,
+    "quarter": 4,
+    "order": 12,
+    "title": "Современные экономические проблемы",
+    "description": "Вызовы XXI века",
+    "keywords": [
+      "неравенство",
+      "безработица",
+      "экологизация",
+      "цифровая экономика"
+    ]
+  },
+  {
+    "id": "1787265001956-pueb3irpo",
+    "subject": "physics",
+    "grade": 11,
+    "quarter": 1,
+    "order": 1,
+    "title": "Магнитное поле",
+    "description": "Магнитное поле тока, индукция",
+    "keywords": [
+      "магнитное поле",
+      "сила Ампера",
+      "сила Лоренца",
+      "магнитная индукция"
+    ]
+  },
+  {
+    "id": "1787265001956-zj71778nc",
+    "subject": "physics",
+    "grade": 11,
+    "quarter": 2,
+    "order": 2,
+    "title": "Электромагнитная индукция",
+    "description": "Закон электромагнитной индукции",
+    "keywords": [
+      "индукция",
+      "закон Фарадея",
+      "правило Ленца",
+      "самоиндукция"
+    ]
+  },
+  {
+    "id": "1787265001956-mdjo98089",
+    "subject": "physics",
+    "grade": 11,
+    "quarter": 3,
+    "order": 3,
+    "title": "Электромагнитные колебания",
+    "description": "Колебательный контур, переменный ток",
+    "keywords": [
+      "колебательный контур",
+      "переменный ток",
+      "резонанс",
+      "трансформатор"
+    ]
+  },
+  {
+    "id": "1787265001956-z312bryem",
+    "subject": "physics",
+    "grade": 11,
+    "quarter": 4,
+    "order": 4,
+    "title": "Электромагнитные волны",
+    "description": "Излучение и распространение ЭМВ",
+    "keywords": [
+      "электромагнитные волны",
+      "радиоволны",
+      "свет",
+      "интерференция"
+    ]
+  },
+  {
+    "id": "1787265001956-u5ufy5wgn",
+    "subject": "physics",
+    "grade": 12,
+    "quarter": 1,
+    "order": 5,
+    "title": "Геометрическая оптика",
+    "description": "Законы отражения и преломления",
+    "keywords": [
+      "отражение",
+      "преломление",
+      "линзы",
+      "оптические приборы"
+    ]
+  },
+  {
+    "id": "1787265001956-7bckyso73",
+    "subject": "physics",
+    "grade": 12,
+    "quarter": 2,
+    "order": 6,
+    "title": "Волновая оптика",
+    "description": "Интерференция, дифракция",
+    "keywords": [
+      "интерференция",
+      "дифракция",
+      "дисперсия",
+      "поляризация"
+    ]
+  },
+  {
+    "id": "1787265001956-8wh4mdaw6",
+    "subject": "physics",
+    "grade": 12,
+    "quarter": 3,
+    "order": 7,
+    "title": "Квантовая физика",
+    "description": "Фотоэффект, атомная физика",
+    "keywords": [
+      "фотоэффект",
+      "кванты",
+      "атом Бора",
+      "спектры"
+    ]
+  },
+  {
+    "id": "1787265001956-hj5vol7p4",
+    "subject": "physics",
+    "grade": 12,
+    "quarter": 4,
+    "order": 8,
+    "title": "Ядерная физика",
+    "description": "Строение ядра, радиоактивность",
+    "keywords": [
+      "ядро",
+      "радиоактивность",
+      "ядерные реакции",
+      "энергия связи"
+    ]
+  },
+  {
+    "id": "1787265001956-hij8pwsfd",
+    "subject": "informatics",
+    "grade": 11,
+    "quarter": 1,
+    "order": 1,
+    "title": "Сети и интернет",
+    "description": "Компьютерные сети",
+    "keywords": [
+      "IP",
+      "протоколы",
+      "топология",
+      "интернет"
+    ]
+  },
+  {
+    "id": "1787265001956-fgj2dpolc",
+    "subject": "informatics",
+    "grade": 11,
+    "quarter": 2,
+    "order": 2,
+    "title": "Кибербезопасность",
+    "description": "Защита информации",
+    "keywords": [
+      "шифрование",
+      "хеширование",
+      "аутентификация",
+      "вирусы"
+    ]
+  },
+  {
+    "id": "1787265001956-7yxbu8z1p",
+    "subject": "informatics",
+    "grade": 11,
+    "quarter": 3,
+    "order": 3,
+    "title": "Искусственный интеллект",
+    "description": "Основы AI и ML",
+    "keywords": [
+      "машинное обучение",
+      "нейронные сети",
+      "AI",
+      "большие данные"
+    ]
+  },
+  {
+    "id": "1787265001956-garzxu35l",
+    "subject": "informatics",
+    "grade": 11,
+    "quarter": 4,
+    "order": 4,
+    "title": "Мобильная разработка",
+    "description": "Создание мобильных приложений",
+    "keywords": [
+      "мобильные приложения",
+      "React Native",
+      "Flutter",
+      "UI/UX"
+    ]
+  },
+  {
+    "id": "1787265001956-g5bos7rbl",
+    "subject": "informatics",
+    "grade": 12,
+    "quarter": 1,
+    "order": 5,
+    "title": "Проектирование ПО",
+    "description": "Жизненный цикл разработки",
+    "keywords": [
+      "SDLC",
+      "UML",
+      "проектирование",
+      "тестирование"
+    ]
+  },
+  {
+    "id": "1787265001956-z09150zjb",
+    "subject": "informatics",
+    "grade": 12,
+    "quarter": 2,
+    "order": 6,
+    "title": "Облачные технологии",
+    "description": "Cloud computing",
+    "keywords": [
+      "облако",
+      "SaaS",
+      "API",
+      "микросервисы"
+    ]
+  },
+  {
+    "id": "1787265001956-vfh6kuwnw",
+    "subject": "informatics",
+    "grade": 12,
+    "quarter": 3,
+    "order": 7,
+    "title": "Итоговый проект",
+    "description": "Разработка полноценного приложения",
+    "keywords": [
+      "проект",
+      "разработка",
+      "командная работа",
+      "презентация"
+    ]
+  },
+  {
+    "id": "1787265001956-vikv03oik",
+    "subject": "informatics",
+    "grade": 12,
+    "quarter": 4,
+    "order": 8,
+    "title": "Подготовка к олимпиадам",
+    "description": "Олимпиадное программирование",
+    "keywords": [
+      "алгоритмы",
+      "олимпиады",
+      "competitive programming",
+      "задачи"
+    ]
+  }
+]

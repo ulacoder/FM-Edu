@@ -6,5 +6,13 @@
     "role": "student",
     "name": "Нуртас Улагат",
     "createdAt": "2026-08-17T21:01:35.577Z"
+  },
+  {
+    "id": "1787397346536-1e9y829el",
+    "email": "sf@a.s",
+    "password": "$2b$10$/JWiQ1o9qYtk.Jsrt9JbhehOc02FSJrWLN3KkivMJM9qayipEom5y",
+    "role": "student",
+    "name": "ула",
+    "createdAt": "2026-08-22T11:15:46.537Z"
   }
 ]

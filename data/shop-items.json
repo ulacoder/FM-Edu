@@ -1,0 +1,172 @@
+[
+  {
+    "id": "item_001",
+    "name": "FM Edu футболка",
+    "description": "Стильная черная футболка с логотипом FM Edu",
+    "category": "merch",
+    "price": 5000,
+    "imageUrl": "/shop/tshirt-black.png",
+    "stock": 50,
+    "isLimited": false,
+    "rarity": "common",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "item_002",
+    "name": "FM Edu худи",
+    "description": "Теплое худи с вышитым логотипом. Лимитированная серия!",
+    "category": "merch",
+    "price": 12000,
+    "imageUrl": "/shop/hoodie-purple.png",
+    "stock": 20,
+    "isLimited": true,
+    "rarity": "rare",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "item_003",
+    "name": "FM Edu кепка",
+    "description": "Бейсболка с вышивкой. Идеально для лета!",
+    "category": "merch",
+    "price": 3500,
+    "imageUrl": "/shop/cap-white.png",
+    "stock": 100,
+    "isLimited": false,
+    "rarity": "common",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "item_004",
+    "name": "Рюкзак FM Edu",
+    "description": "Вместительный рюкзак для учебников и ноутбука",
+    "category": "merch",
+    "price": 8000,
+    "imageUrl": "/shop/backpack.png",
+    "stock": 30,
+    "isLimited": false,
+    "rarity": "common",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "frame_001",
+    "name": "Золотая рамка",
+    "description": "Роскошная золотая рамка для профиля",
+    "category": "profile_frame",
+    "price": 2500,
+    "imageUrl": "/shop/frame-gold.png",
+    "rarity": "epic",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "frame_002",
+    "name": "Неоновая рамка",
+    "description": "Светящаяся неоновая рамка с RGB эффектом",
+    "category": "profile_frame",
+    "price": 3000,
+    "imageUrl": "/shop/frame-neon.png",
+    "rarity": "epic",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "frame_003",
+    "name": "Космическая рамка",
+    "description": "Рамка с космической тематикой и звездами",
+    "category": "profile_frame",
+    "price": 2000,
+    "imageUrl": "/shop/frame-space.png",
+    "rarity": "rare",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "frame_004",
+    "name": "Алмазная рамка",
+    "description": "Легендарная алмазная рамка для топ студентов",
+    "category": "profile_frame",
+    "price": 10000,
+    "imageUrl": "/shop/frame-diamond.png",
+    "isLimited": true,
+    "rarity": "legendary",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "badge_001",
+    "name": "Бейдж 'Гений'",
+    "description": "Покажи всем, что ты гений математики",
+    "category": "badge",
+    "price": 1500,
+    "imageUrl": "/shop/badge-genius.png",
+    "rarity": "rare",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "badge_002",
+    "name": "Бейдж 'Олимпиадник'",
+    "description": "Для победителей олимпиад",
+    "category": "badge",
+    "price": 2000,
+    "imageUrl": "/shop/badge-olympiad.png",
+    "rarity": "epic",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "badge_003",
+    "name": "Бейдж 'Первопроходец'",
+    "description": "Для тех, кто не боится трудностей",
+    "category": "badge",
+    "price": 1000,
+    "imageUrl": "/shop/badge-pioneer.png",
+    "rarity": "common",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "badge_004",
+    "name": "Бейдж 'Легенда'",
+    "description": "Легендарный бейдж для избранных",
+    "category": "badge",
+    "price": 15000,
+    "imageUrl": "/shop/badge-legend.png",
+    "isLimited": true,
+    "rarity": "legendary",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "theme_001",
+    "name": "Темная тема 'Midnight'",
+    "description": "Стильная темная тема для ночных занятий",
+    "category": "theme",
+    "price": 1200,
+    "imageUrl": "/shop/theme-midnight.png",
+    "rarity": "common",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "theme_002",
+    "name": "Тема 'Ocean Wave'",
+    "description": "Успокаивающая морская тема",
+    "category": "theme",
+    "price": 1500,
+    "imageUrl": "/shop/theme-ocean.png",
+    "rarity": "rare",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "boost_001",
+    "name": "2x множитель баллов (24ч)",
+    "description": "Удваивает получаемые баллы на 24 часа",
+    "category": "boost",
+    "price": 2500,
+    "imageUrl": "/shop/boost-2x.png",
+    "rarity": "rare",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  },
+  {
+    "id": "boost_002",
+    "name": "3x множитель баллов (12ч)",
+    "description": "Утраивает получаемые баллы на 12 часов",
+    "category": "boost",
+    "price": 3500,
+    "imageUrl": "/shop/boost-3x.png",
+    "rarity": "epic",
+    "createdAt": "2026-08-20T00:00:00.000Z"
+  }
+]

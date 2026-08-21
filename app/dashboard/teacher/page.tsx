@@ -151,6 +151,7 @@ export default function TeacherDashboard() {
                   <tr>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Имя</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Класс</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">MBTI</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Уровень</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Заданий</th>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Средний балл</th>
@@ -177,6 +178,15 @@ export default function TeacherDashboard() {
                       <tr key={student.id} className="hover:bg-gray-50">
                         <td className="px-4 py-3 text-sm text-gray-900">{student.name}</td>
                         <td className="px-4 py-3 text-sm text-gray-600">{student.grade} класс</td>
+                        <td className="px-4 py-3 text-sm">
+                          {student.mbtiProfile ? (
+                            <span className="px-2 py-1 rounded text-xs bg-purple-100 text-purple-700 font-medium" title={student.mbtiProfile.learningStyle}>
+                              {student.mbtiProfile.type}
+                            </span>
+                          ) : (
+                            <span className="text-gray-400 text-xs">Не установлен</span>
+                          )}
+                        </td>
                         <td className="px-4 py-3 text-sm">
                           <span className={`px-2 py-1 rounded text-xs ${
                             student.level === 'advanced' ? 'bg-green-100 text-green-700' :

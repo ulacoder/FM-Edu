@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, Send, Minimize2, Maximize2, Sparkles, Loader2 } from "lucide-react";
+import { X, Send, Minimize2, Maximize2, Sparkles, Loader2, Mic, MicOff, Volume2, Edit2 } from "lucide-react";
 
 interface Message {
   role: "user" | "navi";
@@ -18,6 +18,14 @@ export function NaviMentor() {
   const [hasInitialized, setHasInitialized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Voice mode states (как в Isida AI)
+  const [isVoiceMode, setIsVoiceMode] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const [transcribedText, setTranscribedText] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const recognitionRef = useRef<any>(null);
+
   // Add greeting message on first load
   useEffect(() => {
     if (!hasInitialized && messages.length === 0) {
@@ -30,6 +38,44 @@ export function NaviMentor() {
       setHasInitialized(true);
     }
   }, [hasInitialized, messages]);
+
+  // Initialize Speech Recognition (как в Isida AI)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'ru-RU';
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        recognition.onresult = (event: any) => {
+          const transcript = event.results[0][0].transcript;
+          setTranscribedText(transcript);
+          setInputValue(transcript);
+          setIsEditing(true);
+          setIsTranscribing(false);
+          setIsRecording(false);
+        };
+
+        recognition.onerror = (event: any) => {
+          console.error('Speech recognition error:', event.error);
+          setIsTranscribing(false);
+          setIsRecording(false);
+          alert('Ошибка распознавания речи. Попробуй еще раз.');
+        };
+
+        recognition.onend = () => {
+          setIsRecording(false);
+          if (!transcribedText && !isEditing) {
+            setIsTranscribing(false);
+          }
+        };
+
+        recognitionRef.current = recognition;
+      }
+    }
+  }, [transcribedText, isEditing]);
 
   // Listen for openNavi event from Sidebar
   useEffect(() => {
@@ -50,6 +96,56 @@ export function NaviMentor() {
     scrollToBottom();
   }, [messages]);
 
+  const startVoiceRecording = () => {
+    if (recognitionRef.current) {
+      setIsRecording(true);
+      setIsTranscribing(true);
+      setTranscribedText("");
+      setIsEditing(false);
+      recognitionRef.current.start();
+    } else {
+      alert('Распознавание речи не поддерживается в вашем браузере. Используйте Chrome или Edge.');
+    }
+  };
+
+  const stopVoiceRecording = () => {
+    if (recognitionRef.current && isRecording) {
+      recognitionRef.current.stop();
+    }
+  };
+
+  const speakMessage = async (text: string) => {
+    try {
+      const response = await fetch('/api/voice/tts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate speech');
+      }
+
+      const audioBlob = await response.blob();
+      const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl);
+
+      audio.onended = () => {
+        URL.revokeObjectURL(audioUrl);
+      };
+
+      audio.onerror = () => {
+        URL.revokeObjectURL(audioUrl);
+      };
+
+      await audio.play();
+    } catch (error) {
+      console.error('TTS error:', error);
+    }
+  };
+
   const handleSend = async () => {
     if (!inputValue.trim() || isLoading) return;
 
@@ -61,10 +157,26 @@ export function NaviMentor() {
 
     setMessages(prev => [...prev, userMessage]);
     setInputValue("");
+    setTranscribedText("");
+    setIsEditing(false);
     setIsLoading(true);
 
     try {
       const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
+      let studentId = null;
+
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          if (user.role === 'student') {
+            studentId = user.id;
+          }
+        } catch (e) {
+          console.error('Error parsing user:', e);
+        }
+      }
+
       const conversationHistory = messages.map(msg => ({
         role: msg.role === "navi" ? "assistant" : "user",
         content: msg.content
@@ -78,7 +190,8 @@ export function NaviMentor() {
         },
         body: JSON.stringify({
           message: inputValue,
-          conversationHistory
+          conversationHistory,
+          studentId
         })
       });
 
@@ -95,6 +208,11 @@ export function NaviMentor() {
       };
 
       setMessages(prev => [...prev, naviMessage]);
+
+      // Автоматически озвучиваем ответ если включен голосовой режим
+      if (isVoiceMode) {
+        await speakMessage(data.response);
+      }
     } catch (error) {
       console.error("Chat error:", error);
 
@@ -174,9 +292,20 @@ export function NaviMentor() {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Voice Mode Toggle (как в Isida AI) */}
+          <button
+            onClick={() => setIsVoiceMode(!isVoiceMode)}
+            className={`p-2 rounded-lg transition-colors ${
+              isVoiceMode ? 'bg-purple-600 text-white' : 'hover:bg-gray-100 text-gray-600'
+            }`}
+            title={isVoiceMode ? 'Выключить голосовой режим' : 'Включить голосовой режим'}
+          >
+            <Volume2 className="w-4 h-4" />
+          </button>
+
           <button
             onClick={() => setIsMinimized(!isMinimized)}
-            className="hover:bg-gray-100 p-1 rounded transition-colors"
+            className="hover:bg-gray-100 p-2 rounded transition-colors"
           >
             {isMinimized ? (
               <Maximize2 className="w-4 h-4 text-gray-600" />
@@ -186,7 +315,7 @@ export function NaviMentor() {
           </button>
           <button
             onClick={() => setIsOpen(false)}
-            className="hover:bg-gray-100 p-1 rounded transition-colors"
+            className="hover:bg-gray-100 p-2 rounded transition-colors"
           >
             <X className="w-4 h-4 text-gray-600" />
           </button>
@@ -230,33 +359,83 @@ export function NaviMentor() {
             <div ref={messagesEndRef} />
           </div>
 
+          {/* Voice Transcription Box (как в Isida AI) */}
+          {isEditing && transcribedText && (
+            <div className="px-4 py-2 bg-blue-50 border-t border-blue-200">
+              <div className="flex items-start gap-2">
+                <Edit2 className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-xs text-blue-600 font-medium mb-1">Распознанный текст (редактируй если нужно):</p>
+                  <textarea
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    className="w-full p-2 text-sm border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    rows={2}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Recording Indicator */}
+          {isRecording && (
+            <div className="px-4 py-3 bg-red-50 border-t border-red-200 flex items-center justify-center gap-2">
+              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+              <span className="text-sm text-red-600 font-medium">Запись... Говори</span>
+            </div>
+          )}
+
+          {/* Transcribing Indicator */}
+          {isTranscribing && !isRecording && (
+            <div className="px-4 py-3 bg-yellow-50 border-t border-yellow-200 flex items-center justify-center gap-2">
+              <Loader2 className="w-4 h-4 text-yellow-600 animate-spin" />
+              <span className="text-sm text-yellow-600 font-medium">Обрабатываю речь...</span>
+            </div>
+          )}
+
           {/* Input */}
           <div className="p-4 border-t border-gray-200 bg-white">
             <div className="flex gap-2">
+              {/* Microphone Button (как в Isida AI) */}
+              <button
+                onClick={isRecording ? stopVoiceRecording : startVoiceRecording}
+                disabled={isLoading || isTranscribing}
+                className={`p-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+                  isRecording
+                    ? 'bg-red-500 text-white hover:bg-red-600'
+                    : 'bg-purple-100 text-purple-600 hover:bg-purple-200'
+                }`}
+                title={isRecording ? "Остановить запись" : "Голосовой ввод"}
+              >
+                {isRecording ? (
+                  <MicOff className="w-5 h-5" />
+                ) : (
+                  <Mic className="w-5 h-5" />
+                )}
+              </button>
+
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={(e) => e.key === "Enter" && !isLoading && handleSend()}
-                placeholder="Напиши сообщение..."
-                disabled={isLoading}
-                className="flex-1 px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-sm disabled:opacity-50"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+                placeholder="Напиши сообщение или используй микрофон..."
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                disabled={isLoading || isRecording}
               />
               <button
                 onClick={handleSend}
-                disabled={isLoading || !inputValue.trim()}
-                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={!inputValue.trim() || isLoading || isRecording}
+                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
-                {isLoading ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Send className="w-4 h-4" />
-                )}
+                <Send className="w-4 h-4" />
               </button>
             </div>
-            <p className="text-xs text-gray-500 mt-2 text-center">
-              Navi работает на Qwen AI 🤖
-            </p>
           </div>
         </>
       )}

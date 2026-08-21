@@ -13,9 +13,11 @@ import {
   Target,
   Clock,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  Brain
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { CountdownTimer } from '@/components/countdown-timer';
 
 export default function StudentDashboard() {
   const router = useRouter();
@@ -38,12 +40,31 @@ export default function StudentDashboard() {
         return;
       }
       setUser(userData);
+
+      // Загружаем актуальные баллы
+      loadUserPoints(userData.id);
     } catch (e) {
       console.error('Error parsing user data:', e);
       router.push('/login');
     }
     setLoading(false);
   }, [router]);
+
+  const loadUserPoints = async (studentId: string) => {
+    try {
+      const response = await fetch(`/api/student/points?studentId=${studentId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setUser((prev: any) => ({
+          ...prev,
+          totalPoints: data.totalPoints,
+          gameStats: data.gameStats
+        }));
+      }
+    } catch (error) {
+      console.error('Error loading points:', error);
+    }
+  };
 
   if (loading || !user) {
     return (
@@ -56,7 +77,7 @@ export default function StudentDashboard() {
   const stats = {
     saved: 8,
     enrolled: 3,
-    points: 1250,
+    points: user.totalPoints || 0,
     rank: user.rank || 42
   };
 
@@ -216,6 +237,9 @@ export default function StudentDashboard() {
 
             {/* Sidebar */}
             <div className="space-y-6 sm:space-y-8">
+              {/* Countdown Timer */}
+              <CountdownTimer studentId={user.id} />
+
               {/* Recommendations */}
               <section>
                 <div className="flex items-center gap-2 mb-4">
@@ -241,6 +265,12 @@ export default function StudentDashboard() {
               <section>
                 <h2 className="text-lg sm:text-xl font-bold mb-4">Быстрые действия</h2>
                 <div className="space-y-2">
+                  <Link href="/mbti-profile">
+                    <button className="w-full flex items-center gap-3 px-4 py-3 bg-card border border-border/60 hover:border-primary/40 rounded-lg transition-colors text-left">
+                      <Brain className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm font-medium">MBTI профиль</span>
+                    </button>
+                  </Link>
                   <Link href="/diagnostic">
                     <button className="w-full flex items-center gap-3 px-4 py-3 bg-card border border-border/60 hover:border-primary/40 rounded-lg transition-colors text-left">
                       <Calendar className="w-4 h-4 text-primary flex-shrink-0" />

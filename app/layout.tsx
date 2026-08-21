@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NaviMentor } from "@/components/navi-mentor";
 import { Sidebar } from "@/components/sidebar";
+import { BurnoutSupportWidget } from "@/components/burnout-support";
+import { ProactiveAIAgent } from "@/components/proactive-ai-agent";
+import { PomodoroTimer } from "@/components/pomodoro-timer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +32,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Sidebar />
         {children}
         <NaviMentor />
+        <BurnoutSupportWidget />
+        <ProactiveAIAgent />
+        <PomodoroTimer />
       </body>
     </html>
   );

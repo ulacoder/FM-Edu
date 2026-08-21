@@ -1,13 +1,12 @@
 import { Topic, Subject } from '@/types';
 
-// Темы по математике для классов 7-12 (программа МОН РК)
+// Темы по математике для классов 7-12 (программа МОН РК) - ПО 1 ТЕМЕ НА ЧЕТВЕРТЬ
 export const mathematicsTopics: Omit<Topic, 'id'>[] = [
   // 7 класс
   { subject: 'mathematics', grade: 7, quarter: 1, title: 'Рациональные числа', description: 'Действия с рациональными числами, модуль числа', order: 1 },
-  { subject: 'mathematics', grade: 7, quarter: 1, title: 'Степень с натуральным показателем', description: 'Свойства степеней, действия со степенями', order: 2 },
-  { subject: 'mathematics', grade: 7, quarter: 2, title: 'Одночлены и многочлены', description: 'Действия с одночленами и многочленами', order: 3 },
-  { subject: 'mathematics', grade: 7, quarter: 3, title: 'Формулы сокращённого умножения', description: 'Квадрат суммы, разность квадратов', order: 4 },
-  { subject: 'mathematics', grade: 7, quarter: 4, title: 'Линейные уравнения', description: 'Решение линейных уравнений и систем', order: 5 },
+  { subject: 'mathematics', grade: 7, quarter: 2, title: 'Одночлены и многочлены', description: 'Действия с одночленами и многочленами', order: 2 },
+  { subject: 'mathematics', grade: 7, quarter: 3, title: 'Формулы сокращённого умножения', description: 'Квадрат суммы, разность квадратов', order: 3 },
+  { subject: 'mathematics', grade: 7, quarter: 4, title: 'Линейные уравнения', description: 'Решение линейных уравнений и систем', order: 4 },
 
   // 8 класс
   { subject: 'mathematics', grade: 8, quarter: 1, title: 'Квадратные корни', description: 'Арифметический квадратный корень, свойства', order: 1 },

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { subjectNames, Subject } from '@/types';
+import { subjectNames, Subject, regionNames, Region, MBTIType } from '@/types';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -15,11 +15,20 @@ export default function RegisterPage() {
     grade: 7,
     subjects: [] as Subject[],
     goals: [] as string[],
+    region: 'astana' as Region,
+    mbtiType: '' as MBTIType | '',
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const goalOptions = ['Подготовка к экзаменам', 'Подготовка к олимпиадам', 'Повторение материала', 'Углубленное изучение'];
+
+  const mbtiTypes: MBTIType[] = [
+    'INTJ', 'INTP', 'ENTJ', 'ENTP',
+    'INFJ', 'INFP', 'ENFJ', 'ENFP',
+    'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ',
+    'ISTP', 'ISFP', 'ESTP', 'ESFP'
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -211,6 +220,46 @@ export default function RegisterPage() {
                       </label>
                     ))}
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2" style={{ color: "#18181b" }}>
+                    Регион
+                  </label>
+                  <select
+                    value={formData.region}
+                    onChange={(e) => setFormData({ ...formData, region: e.target.value as Region })}
+                    className="w-full px-4 py-2.5 rounded-lg outline-none"
+                    style={{ border: '1px solid #e4e4e7', color: "#18181b" }}
+                  >
+                    {Object.entries(regionNames).map(([key, name]) => (
+                      <option key={key} value={key}>{name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2" style={{ color: "#18181b" }}>
+                    MBTI тип личности
+                  </label>
+                  <select
+                    value={formData.mbtiType}
+                    onChange={(e) => setFormData({ ...formData, mbtiType: e.target.value as MBTIType })}
+                    className="w-full px-4 py-2.5 rounded-lg outline-none"
+                    style={{ border: '1px solid #e4e4e7', color: "#18181b" }}
+                    required
+                  >
+                    <option value="">Выберите тип</option>
+                    {mbtiTypes.map(type => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                  <p className="mt-1 text-xs" style={{ color: '#71717a' }}>
+                    Не знаешь свой тип? Пройди тест на{' '}
+                    <a href="https://www.16personalities.com/ru" target="_blank" rel="noopener noreferrer" className="underline">
+                      16personalities.com
+                    </a>
+                  </p>
                 </div>
               </>
             )}

@@ -7,10 +7,479 @@
     "name": "Нуртас Улагат",
     "createdAt": "2026-08-17T21:01:35.577Z",
     "grade": 11,
+    "region": "astana",
     "goals": [
       "Подготовка к экзаменам",
       "Подготовка к олимпиадам",
       "Повторение материала"
+    ],
+    "mbtiProfile": {
+      "type": "ESTP",
+      "description": "# Персонализированный профиль обучения: Нуртас Улагат (11 класс)\n\n### 1. Описание типа личности\nТы — живой деятель, который понимает мир через действие и личный опыт, а не через абстрактные теории. Твое мышление прагматично: ты сразу ищешь практическую пользу от знаний и принимаешь решения на основе фактов, а не домыслов. Ты отлично адаптируешься к изменениям даже в напряженной ситуации, но тебе сложно усидеть над скучной рутиной. Для тебя учеба — это инструмент для достижения конкретных целей, а не самоцель.\n\n### 2. Стиль обучения\n*   **Предпочитаемые методы:** Тебе идеально подходит **кинестетическое обучение** (через движение и практику) и визуальное (схемы, видео). Слушать длинные лекции в классе тебе тяжело — лучше всего разбирать кейсы, проводить эксперименты или участвовать в дебатах.\n*   **Оптимальная среда:** Учись там, где есть динамика. Групповые проекты, споры с одноклассниками или работа за компьютером с интерактивным софтом работают лучше, чем тихая библиотека. Нужен постоянный доступ к материалам, чтобы ты мог мгновенно проверить гипотезу.\n*   **Темп работы:** Ты работаешь импульсивно и быстро. Тебе нужны короткие интенсивные рывки, а не медленное чтение страниц за страницами. Если задача становится монотонной, твой интерес резко падает.\n*   **Подход к задачам:** Ты решаешь задачи методом проб и ошибок. Тебе нужно видеть цель в конце («как это поможет сдать экзамен» или «где это пригодится в жизни»), иначе мотивация исчезнет.\n\n### 3. Сильные стороны в обучении\n1.  **Быстрая адаптация:** Ты мгновенно понимаешь суть новой темы, если она подана в контексте реальных событий.\n2.  **Практическая направленность:** Ты умеешь применять теорию сразу, что помогает решать сложные прикладные задачи на уроках физики или химии.\n3.  **Хладнокровие в стрессе:** На контрольных или во время устных ответов ты сохраняешь спокойствие, пока другие паникуют, и быстро находишь выход.\n4.  **Лидерство в команде:** В групповых проектах ты берешь на себя активную роль, организуя работу и распределяя задачи между участниками.\n5.  **Наблюдательность:** Ты замечаешь детали в окружении, которые упускают другие, что полезно в лабораторных работах или анализе данных.\n6.  **Креативность:** Ты видишь нестандартные пути решения проблем, когда стандартные методы не работают.\n\n### 4. Возможные сложности\n1.  **Скука от теории:** Долгие чтения учебников без практической выгоды вызывают быстрое утомление и желание отложить дело.\n2.  **Проблемы с долгосрочным планированием:** Ты живешь моментом, поэтому подготовку к ЕГЭ или поступлению можешь начать в последнюю неделю.\n3.  **Игнорирование деталей:** Стремление к быстрому результату может привести к тому, что ты пропустите важные нюансы условий задачи или формулировок.\n4.  **Риск поспешных решений:** Иногда ты даешь ответ, не проверив его дважды, полагаясь на интуицию, что может стоить баллов.\n5.  **Нежелание писать много текста:** Эссе и развернутые ответы требуют длительной концентрации, которая для тебя — испытание.\n6.  **Конфликт с авторитетами:** Ты можешь воспринимать жесткие правила учителей как ограничение твоей свободы и действовать наперекор.\n\n### 5. Рекомендации для эффективного обучения\n1.  **Метод «Объясни другу»:** Чтобы запомнить материал, придумай, как объяснить тему однокласснику своими словами. Это превращает сухую теорию в живой диалог, который тебе интересен.\n2.  **Геймификация подготовки:** Разбей подготовку к экзамену на уровни с наградами (например, после 30 минут математики — 10 минут игры). Используй таймеры (техника Pomodoro), чтобы учиться короткими спринтами.\n3.  **Визуализируй результат:** Перед началом зубрежки четко представь, как знание предмета поможет тебе в будущей профессии (например, английский язык для путешествий или программирования). Держи эту цель перед глазами.\n4.  **Делегируй рутину:** Если нужно читать большой объем, слушай аудиоверсии или смотри видео-разборы тем на YouTube, а затем делай краткие конспекты в виде схем.\n5.  **Управляй импульсами:** Перед сдачей работы ставь правило: «Я проверяю задачу дважды, прежде чем закрыть тетрадь». Заставляй себя замедлиться на финальном этапе, чтобы избежать глупых ошибок.",
+      "learningStyle": "Адаптивный подход к обучению с учетом личных особенностей",
+      "strengths": [
+        "Энергичность, действие, риск",
+        "Способность к самостоятельному обучению",
+        "Адаптивность к различным методам преподавания"
+      ],
+      "challenges": [
+        "Индивидуальные особенности требуют персонализированного подхода",
+        "Важно найти оптимальный темп работы"
+      ],
+      "setAt": "2026-08-20T15:48:03.716Z"
+    },
+    "totalPoints": 415,
+    "gameStats": {
+      "totalGamesPlayed": 3,
+      "bestScoresBySubject": {
+        "mathematics": 200
+      },
+      "totalPointsEarned": 415,
+      "lastPlayedAt": "2026-08-20T22:21:26.564Z"
+    },
+    "selectedSubjects": [
+      "mathematics",
+      "physics",
+      "english"
+    ],
+    "weakTopics": [
+      {
+        "subject": "mathematics",
+        "topicName": "Тригонометрия",
+        "topicId": "math_trigonometry",
+        "weaknessLevel": 75,
+        "lastTestScore": 45,
+        "gamesPlayed": 1
+      },
+      {
+        "subject": "physics",
+        "topicName": "Электромагнетизм",
+        "topicId": "phys_electromagnetism",
+        "weaknessLevel": 68,
+        "lastTestScore": 52,
+        "gamesPlayed": 0
+      },
+      {
+        "subject": "english",
+        "topicName": "Past Perfect Tense",
+        "topicId": "eng_past_perfect",
+        "weaknessLevel": 82,
+        "lastTestScore": 38,
+        "gamesPlayed": 0
+      }
+    ]
+  },
+  {
+    "id": "mock_leader_1",
+    "email": "aidar.top@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Айдар Нурсултанов",
+    "createdAt": "2026-08-01T10:00:00.000Z",
+    "grade": 11,
+    "region": "astana",
+    "goals": [
+      "Подготовка к олимпиадам"
+    ],
+    "totalPoints": 2850,
+    "gameStats": {
+      "totalGamesPlayed": 45,
+      "bestScoresBySubject": {
+        "mathematics": 400,
+        "physics": 350,
+        "informatics": 400
+      },
+      "totalPointsEarned": 2850
+    }
+  },
+  {
+    "id": "mock_leader_2",
+    "email": "dina.super@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Дина Касымова",
+    "createdAt": "2026-07-25T10:00:00.000Z",
+    "grade": 12,
+    "region": "astana",
+    "goals": [
+      "Подготовка к экзаменам"
+    ],
+    "totalPoints": 3200,
+    "gameStats": {
+      "totalGamesPlayed": 52,
+      "bestScoresBySubject": {
+        "mathematics": 400,
+        "english": 400,
+        "biology": 350
+      },
+      "totalPointsEarned": 3200
+    }
+  },
+  {
+    "id": "mock_leader_3",
+    "email": "erzhan.smart@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Ержан Сапаров",
+    "createdAt": "2026-08-05T10:00:00.000Z",
+    "grade": 10,
+    "region": "astana",
+    "goals": [
+      "Подготовка к олимпиадам"
+    ],
+    "totalPoints": 2600,
+    "gameStats": {
+      "totalGamesPlayed": 38,
+      "bestScoresBySubject": {
+        "physics": 400,
+        "mathematics": 350
+      },
+      "totalPointsEarned": 2600
+    }
+  },
+  {
+    "id": "mock_leader_4",
+    "email": "aliya.genius@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Алия Жумагалиева",
+    "createdAt": "2026-07-20T10:00:00.000Z",
+    "grade": 11,
+    "region": "astana",
+    "goals": [
+      "Углубленное изучение"
+    ],
+    "totalPoints": 2200,
+    "gameStats": {
+      "totalGamesPlayed": 32,
+      "bestScoresBySubject": {
+        "chemistry": 400,
+        "biology": 350
+      },
+      "totalPointsEarned": 2200
+    }
+  },
+  {
+    "id": "mock_leader_5",
+    "email": "temirlanbek@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Темирлан Бекбаев",
+    "createdAt": "2026-08-10T10:00:00.000Z",
+    "grade": 12,
+    "region": "astana",
+    "goals": [
+      "Подготовка к экзаменам"
+    ],
+    "totalPoints": 1950,
+    "gameStats": {
+      "totalGamesPlayed": 28,
+      "bestScoresBySubject": {
+        "mathematics": 350,
+        "physics": 300
+      },
+      "totalPointsEarned": 1950
+    }
+  },
+  {
+    "id": "mock_leader_6",
+    "email": "kamila.best@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Камила Ибрагимова",
+    "createdAt": "2026-08-03T10:00:00.000Z",
+    "grade": 11,
+    "region": "astana",
+    "goals": [
+      "Подготовка к экзаменам"
+    ],
+    "totalPoints": 1700,
+    "gameStats": {
+      "totalGamesPlayed": 25,
+      "bestScoresBySubject": {
+        "english": 400,
+        "geography": 300
+      },
+      "totalPointsEarned": 1700
+    }
+  },
+  {
+    "id": "mock_leader_7",
+    "email": "bakyt.pro@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Бакытжан Есенов",
+    "createdAt": "2026-08-08T10:00:00.000Z",
+    "grade": 10,
+    "region": "astana",
+    "goals": [
+      "Повторение материала"
+    ],
+    "totalPoints": 1450,
+    "gameStats": {
+      "totalGamesPlayed": 22,
+      "bestScoresBySubject": {
+        "informatics": 350,
+        "mathematics": 300
+      },
+      "totalPointsEarned": 1450
+    }
+  },
+  {
+    "id": "mock_leader_8",
+    "email": "gulnara.star@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Гульнара Сагынбаева",
+    "createdAt": "2026-08-12T10:00:00.000Z",
+    "grade": 11,
+    "region": "astana",
+    "goals": [
+      "Углубленное изучение"
+    ],
+    "totalPoints": 1200,
+    "gameStats": {
+      "totalGamesPlayed": 18,
+      "bestScoresBySubject": {
+        "biology": 350,
+        "chemistry": 300
+      },
+      "totalPointsEarned": 1200
+    }
+  },
+  {
+    "id": "mock_leader_9",
+    "email": "asel.almaty@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Асель Мухамедова",
+    "createdAt": "2026-07-28T10:00:00.000Z",
+    "grade": 11,
+    "region": "almaty",
+    "goals": [
+      "Подготовка к экзаменам"
+    ],
+    "totalPoints": 3500,
+    "gameStats": {
+      "totalGamesPlayed": 58,
+      "bestScoresBySubject": {
+        "mathematics": 400,
+        "physics": 400,
+        "english": 400
+      },
+      "totalPointsEarned": 3500
+    }
+  },
+  {
+    "id": "mock_leader_10",
+    "email": "nurzhan.almaty@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Нуржан Аманов",
+    "createdAt": "2026-07-30T10:00:00.000Z",
+    "grade": 11,
+    "region": "almaty",
+    "goals": [
+      "Подготовка к олимпиадам"
+    ],
+    "totalPoints": 3100,
+    "gameStats": {
+      "totalGamesPlayed": 48,
+      "bestScoresBySubject": {
+        "informatics": 400,
+        "mathematics": 400
+      },
+      "totalPointsEarned": 3100
+    }
+  },
+  {
+    "id": "mock_leader_11",
+    "email": "arman.almaty@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Арман Токтаров",
+    "createdAt": "2026-08-02T10:00:00.000Z",
+    "grade": 12,
+    "region": "almaty",
+    "goals": [
+      "Подготовка к экзаменам"
+    ],
+    "totalPoints": 2750,
+    "gameStats": {
+      "totalGamesPlayed": 42,
+      "bestScoresBySubject": {
+        "physics": 400,
+        "mathematics": 350
+      },
+      "totalPointsEarned": 2750
+    }
+  },
+  {
+    "id": "mock_leader_12",
+    "email": "samira.almaty@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Самира Кажимова",
+    "createdAt": "2026-08-06T10:00:00.000Z",
+    "grade": 10,
+    "region": "almaty",
+    "goals": [
+      "Углубленное изучение"
+    ],
+    "totalPoints": 2300,
+    "gameStats": {
+      "totalGamesPlayed": 35,
+      "bestScoresBySubject": {
+        "informatics": 400,
+        "english": 350
+      },
+      "totalPointsEarned": 2300
+    }
+  },
+  {
+    "id": "mock_leader_13",
+    "email": "daniyar.almaty@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Данияр Шарипов",
+    "createdAt": "2026-08-04T10:00:00.000Z",
+    "grade": 11,
+    "region": "almaty",
+    "goals": [
+      "Подготовка к олимпиадам"
+    ],
+    "totalPoints": 1850,
+    "gameStats": {
+      "totalGamesPlayed": 27,
+      "bestScoresBySubject": {
+        "informatics": 350,
+        "mathematics": 300
+      },
+      "totalPointsEarned": 1850
+    }
+  },
+  {
+    "id": "mock_leader_14",
+    "email": "zhanar.shym@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Жанар Омарова",
+    "createdAt": "2026-08-07T10:00:00.000Z",
+    "grade": 11,
+    "region": "shymkent",
+    "goals": [
+      "Подготовка к олимпиадам"
+    ],
+    "totalPoints": 2900,
+    "gameStats": {
+      "totalGamesPlayed": 44,
+      "bestScoresBySubject": {
+        "biology": 400,
+        "chemistry": 400
+      },
+      "totalPointsEarned": 2900
+    }
+  },
+  {
+    "id": "mock_leader_15",
+    "email": "sultan.shym@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Султан Алиев",
+    "createdAt": "2026-08-09T10:00:00.000Z",
+    "grade": 12,
+    "region": "shymkent",
+    "goals": [
+      "Подготовка к экзаменам"
+    ],
+    "totalPoints": 2450,
+    "gameStats": {
+      "totalGamesPlayed": 36,
+      "bestScoresBySubject": {
+        "biology": 350,
+        "english": 350
+      },
+      "totalPointsEarned": 2450
+    }
+  },
+  {
+    "id": "mock_leader_16",
+    "email": "aibek.kara@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Айбек Сериков",
+    "createdAt": "2026-08-11T10:00:00.000Z",
+    "grade": 11,
+    "region": "karaganda",
+    "goals": [
+      "Подготовка к олимпиадам"
+    ],
+    "totalPoints": 2100,
+    "gameStats": {
+      "totalGamesPlayed": 31,
+      "bestScoresBySubject": {
+        "physics": 400,
+        "mathematics": 350
+      },
+      "totalPointsEarned": 2100
+    }
+  },
+  {
+    "id": "mock_leader_17",
+    "email": "madina.pavl@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Мадина Абилова",
+    "createdAt": "2026-08-13T10:00:00.000Z",
+    "grade": 10,
+    "region": "pavlodar",
+    "goals": [
+      "Повторение материала"
+    ],
+    "totalPoints": 1600,
+    "gameStats": {
+      "totalGamesPlayed": 24,
+      "bestScoresBySubject": {
+        "mathematics": 350,
+        "geography": 300
+      },
+      "totalPointsEarned": 1600
+    }
+  },
+  {
+    "id": "mock_leader_18",
+    "email": "yerlan.aktobe@mail.kz",
+    "password": "$2b$10$mock",
+    "role": "student",
+    "name": "Ерлан Смагулов",
+    "createdAt": "2026-08-14T10:00:00.000Z",
+    "grade": 12,
+    "region": "aktobe",
+    "goals": [
+      "Подготовка к экзаменам"
+    ],
+    "totalPoints": 1350,
+    "gameStats": {
+      "totalGamesPlayed": 20,
+      "bestScoresBySubject": {
+        "economics": 350,
+        "mathematics": 300
+      },
+      "totalPointsEarned": 1350
+    }
+  },
+  {
+    "id": "1787397346536-1e9y829el",
+    "email": "sf@a.s",
+    "password": "$2b$10$/JWiQ1o9qYtk.Jsrt9JbhehOc02FSJrWLN3KkivMJM9qayipEom5y",
+    "role": "student",
+    "name": "ула",
+    "createdAt": "2026-08-22T11:15:46.537Z",
+    "grade": 10,
+    "goals": [
+      "Углубленное изучение",
+      "Повторение материала",
+      "Подготовка к олимпиадам"
     ]
   }
 ]

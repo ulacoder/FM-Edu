@@ -1,0 +1,62 @@
+[
+  {
+    "studentId": "1787000495577-1letv3yj9",
+    "ownedItems": [
+      {
+        "itemId": "badge_003",
+        "purchasedAt": "2026-08-19T10:00:00.000Z",
+        "isEquipped": true
+      },
+      {
+        "itemId": "frame_001",
+        "purchasedAt": "2026-08-19T10:05:00.000Z",
+        "isEquipped": false
+      }
+    ],
+    "equippedBadge": "badge_003"
+  },
+  {
+    "studentId": "student_002",
+    "ownedItems": [
+      {
+        "itemId": "badge_002",
+        "purchasedAt": "2026-08-18T15:30:00.000Z",
+        "isEquipped": true
+      }
+    ],
+    "equippedBadge": "badge_002"
+  },
+  {
+    "studentId": "student_005",
+    "ownedItems": [
+      {
+        "itemId": "badge_001",
+        "purchasedAt": "2026-08-17T12:00:00.000Z",
+        "isEquipped": true
+      },
+      {
+        "itemId": "frame_003",
+        "purchasedAt": "2026-08-17T12:10:00.000Z",
+        "isEquipped": false
+      }
+    ],
+    "equippedBadge": "badge_001"
+  },
+  {
+    "studentId": "student_010",
+    "ownedItems": [
+      {
+        "itemId": "badge_004",
+        "purchasedAt": "2026-08-15T09:00:00.000Z",
+        "isEquipped": true
+      },
+      {
+        "itemId": "frame_004",
+        "purchasedAt": "2026-08-15T09:05:00.000Z",
+        "isEquipped": true
+      }
+    ],
+    "equippedBadge": "badge_004",
+    "equippedFrame": "frame_004"
+  }
+]

@@ -183,22 +183,63 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8">Доступные предметы</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              'Математика',
-              'Физика',
-              'Информатика',
-              'Химия',
-              'Биология',
-              'Экономика',
-              'География',
-              'Английский'
-            ].map((subject) => (
-              <div
-                key={subject}
-                className="bg-card border border-border/60 rounded-lg p-6 text-center hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer"
-              >
-                <div className="text-sm font-medium">{subject}</div>
-              </div>
-            ))}
+              { name: 'Математика', status: 'available', href: '/courses/mathematics' },
+              { name: 'География', status: 'available', href: '/courses/geography' },
+              { name: 'История', status: 'available', href: '/courses/history' },
+              { name: 'Информатика', status: 'development', href: '/courses/informatics-static/grade7_q1' },
+              { name: 'Физика', status: 'soon' },
+              { name: 'Химия', status: 'soon' },
+              { name: 'Биология', status: 'soon' },
+              { name: 'Английский', status: 'soon' }
+            ].map((subject) => {
+              const isDisabled = subject.status === 'soon';
+              const isDev = subject.status === 'development';
+
+              const badge = subject.status === 'available'
+                ? <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-green-500/20 text-green-600 dark:text-green-400 rounded">Доступно</span>
+                : subject.status === 'development'
+                ? <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 rounded">В разработке</span>
+                : <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-gray-500/20 text-gray-600 dark:text-gray-400 rounded">Скоро</span>;
+
+              const card = (
+                <div
+                  className={`bg-card border border-border/60 rounded-lg p-6 text-center transition-all ${
+                    isDisabled
+                      ? 'opacity-50 cursor-not-allowed'
+                      : isDev
+                      ? 'hover:border-yellow-400/40 hover:bg-yellow-500/5 cursor-pointer'
+                      : 'hover:border-primary/40 hover:bg-primary/5 cursor-pointer'
+                  }`}
+                >
+                  <div className="text-sm font-medium mb-2">{subject.name}</div>
+                  {badge}
+                </div>
+              );
+
+              return isDisabled || !subject.href ? (
+                <div key={subject.name}>{card}</div>
+              ) : (
+                <Link key={subject.name} href={subject.href}>
+                  {card}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Legend */}
+          <div className="mt-8 flex flex-wrap gap-4 justify-center text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-green-500/20 text-green-600 dark:text-green-400 rounded">Доступно</span>
+              <span>— Полный контент</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 rounded">В разработке</span>
+              <span>— Возможны ошибки</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-gray-500/20 text-gray-600 dark:text-gray-400 rounded">Скоро</span>
+              <span>— Контент готовится</span>
+            </div>
           </div>
         </div>
       </section>
@@ -242,7 +283,7 @@ export default function Home() {
               <h3 className="font-semibold mb-4">Платформа</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/diagnostic" className="hover:text-foreground transition-colors">Диагностика</Link></li>
-                <li><Link href="/courses" className="hover:text-foreground transition-colors">Предметы</Link></li>
+                <li><Link href="/courses" className="hover:text-foreground transition-colors">Курсы</Link></li>
                 <li><Link href="/dashboard" className="hover:text-foreground transition-colors">Дашборд</Link></li>
               </ul>
             </div>

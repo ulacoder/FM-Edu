@@ -1,0 +1,170 @@
+[
+  {
+    "id": "msg_1724173200000_abc123",
+    "region": "astana",
+    "studentId": "mock_student_1",
+    "studentName": "Айдар Нурсултанов",
+    "message": "Привет всем! Кто-нибудь готовится к олимпиаде по математике?",
+    "timestamp": "2026-08-20T10:30:00.000Z"
+  },
+  {
+    "id": "msg_1724174400000_def456",
+    "region": "astana",
+    "studentId": "mock_student_2",
+    "studentName": "Дина Касымова",
+    "message": "Да, я! Может встретимся в библиотеке на этой неделе? Вместе порешаем задачи",
+    "timestamp": "2026-08-20T10:50:00.000Z"
+  },
+  {
+    "id": "msg_1724175000000_ghi789",
+    "region": "astana",
+    "studentId": "mock_student_1",
+    "studentName": "Айдар Нурсултанов",
+    "message": "Отличная идея! Давай в четверг после обеда? Я обычно в библиотеке НИШ",
+    "timestamp": "2026-08-20T11:00:00.000Z"
+  },
+  {
+    "id": "msg_1724176800000_jkl012",
+    "region": "astana",
+    "studentId": "mock_student_3",
+    "studentName": "Ержан Сапаров",
+    "message": "Можно к вам присоединиться? Тоже готовлюсь к олимпиаде",
+    "timestamp": "2026-08-20T11:30:00.000Z"
+  },
+  {
+    "id": "msg_1724177400000_mno345",
+    "region": "astana",
+    "studentId": "mock_student_2",
+    "studentName": "Дина Касымова",
+    "message": "Конечно! Чем больше, тем лучше. Встречаемся в четверг в 15:00",
+    "timestamp": "2026-08-20T11:40:00.000Z"
+  },
+  {
+    "id": "msg_1724180000000_pqr678",
+    "region": "astana",
+    "studentId": "mock_student_4",
+    "studentName": "Алия Жумагалиева",
+    "message": "Ребят, кто-нибудь знает хорошего репетитора по физике в Астане?",
+    "timestamp": "2026-08-20T12:20:00.000Z"
+  },
+  {
+    "id": "msg_1724182800000_stu901",
+    "region": "astana",
+    "studentId": "mock_student_5",
+    "studentName": "Темирлан Бекбаев",
+    "message": "Могу порекомендовать Айбека Серикова, он отличный репетитор. Помог мне подготовиться к ЕНТ",
+    "timestamp": "2026-08-20T13:00:00.000Z"
+  },
+  {
+    "id": "msg_1724184600000_vwx234",
+    "region": "almaty",
+    "studentId": "mock_student_6",
+    "studentName": "Асель Мухамедова",
+    "message": "Всем привет из Алматы! Есть кто-то из НИШ ФМН?",
+    "timestamp": "2026-08-20T13:30:00.000Z"
+  },
+  {
+    "id": "msg_1724185200000_yza567",
+    "region": "almaty",
+    "studentId": "mock_student_7",
+    "studentName": "Нуржан Аманов",
+    "message": "Я из ФМН! 11 класс. Готовлюсь к SAT",
+    "timestamp": "2026-08-20T13:40:00.000Z"
+  },
+  {
+    "id": "msg_1724186400000_bcd890",
+    "region": "almaty",
+    "studentId": "mock_student_6",
+    "studentName": "Асель Мухамедова",
+    "message": "Круто! Я тоже. Может создадим группу для подготовки?",
+    "timestamp": "2026-08-20T14:00:00.000Z"
+  },
+  {
+    "id": "msg_1724187600000_efg123",
+    "region": "almaty",
+    "studentId": "mock_student_8",
+    "studentName": "Арман Токтаров",
+    "message": "Я за! Давайте встретимся в субботу в кафе возле школы",
+    "timestamp": "2026-08-20T14:20:00.000Z"
+  },
+  {
+    "id": "msg_1724188800000_hij456",
+    "region": "shymkent",
+    "studentId": "mock_student_9",
+    "studentName": "Жанар Омарова",
+    "message": "Привет, Шымкент! Кто участвует в республиканской олимпиаде по биологии?",
+    "timestamp": "2026-08-20T14:40:00.000Z"
+  },
+  {
+    "id": "msg_1724190000000_klm789",
+    "region": "shymkent",
+    "studentId": "mock_student_10",
+    "studentName": "Султан Алиев",
+    "message": "Я участвую! Сейчас готовлюсь к отбору. Как у тебя дела с подготовкой?",
+    "timestamp": "2026-08-20T15:00:00.000Z"
+  },
+  {
+    "id": "msg_1724191200000_nop012",
+    "region": "shymkent",
+    "studentId": "mock_student_9",
+    "studentName": "Жанар Омарова",
+    "message": "Неплохо, но некоторые темы даются тяжело. Может позанимаемся вместе?",
+    "timestamp": "2026-08-20T15:20:00.000Z"
+  },
+  {
+    "id": "msg_1724192400000_qrs345",
+    "region": "astana",
+    "studentId": "mock_student_11",
+    "studentName": "Камила Ибрагимова",
+    "message": "Всем привет! Организую study group по английскому. Кто хочет подтянуть язык?",
+    "timestamp": "2026-08-20T15:40:00.000Z"
+  },
+  {
+    "id": "msg_1724193600000_tuv678",
+    "region": "astana",
+    "studentId": "mock_student_12",
+    "studentName": "Бакытжан Есенов",
+    "message": "Я в деле! Мне нужно подготовиться к IELTS",
+    "timestamp": "2026-08-20T16:00:00.000Z"
+  },
+  {
+    "id": "msg_1724194200000_wxy901",
+    "region": "astana",
+    "studentId": "mock_student_11",
+    "studentName": "Камила Ибрагимова",
+    "message": "Отлично! Встречаемся по вторникам и пятницам в 17:00 в коворкинге на Кунаева",
+    "timestamp": "2026-08-20T16:10:00.000Z"
+  },
+  {
+    "id": "msg_1724195400000_zab234",
+    "region": "almaty",
+    "studentId": "mock_student_13",
+    "studentName": "Самира Кажимова",
+    "message": "Ребята, кто-нибудь ходит на дополнительные занятия по информатике? Посоветуйте курсы",
+    "timestamp": "2026-08-20T16:30:00.000Z"
+  },
+  {
+    "id": "msg_1724196000000_cde567",
+    "region": "almaty",
+    "studentId": "mock_student_14",
+    "studentName": "Данияр Шарипов",
+    "message": "Я учусь на CodeCraft. Очень хорошие преподаватели, рекомендую",
+    "timestamp": "2026-08-20T16:40:00.000Z"
+  },
+  {
+    "id": "msg_1724196600000_fgh890",
+    "region": "astana",
+    "studentId": "mock_student_15",
+    "studentName": "Гульнара Сагынбаева",
+    "message": "Всем успехов в учебе! 💪 Давайте поддерживать друг друга",
+    "timestamp": "2026-08-20T16:50:00.000Z"
+  },
+  {
+    "id": "msg_1787245127954_y8dterbm0",
+    "region": "astana",
+    "studentId": "1787000495577-1letv3yj9",
+    "studentName": "Нуртас Улагат",
+    "message": "оке",
+    "timestamp": "2026-08-20T16:58:47.954Z"
+  }
+]

@@ -1,0 +1,2325 @@
+[
+  {
+    "id": "session_1787253148574_gpbpsbwrp",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-20T19:12:28.574Z",
+    "activities": [
+      {
+        "id": "activity_1787253148549_h2pqnreg2",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 119805,
+        "timestamp": "2026-08-20T19:12:28.549Z",
+        "metadata": {
+          "pathname": "/roadmap"
+        }
+      },
+      {
+        "id": "activity_1787254169701_qty0774x2",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "game_play",
+        "duration": 1020938,
+        "timestamp": "2026-08-20T19:29:29.701Z",
+        "metadata": {
+          "pathname": "/games"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787254169704_2lh3ezu9n",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет, дружок! 🌟 Не переживай из-за небольшого перерыва, ведь ты уже проделал такую огромную работу к своей цели! Давай вернём азарт: пройдем весёлую викторину или начнем изучать что-то совсем новое? 🎮🔥",
+        "timestamp": "2026-08-20T19:29:41.694Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787256116942_q29c4pl5v",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-20T20:01:56.951Z",
+    "activities": [
+      {
+        "id": "activity_1787256083998_jahflt6ih",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 41598,
+        "timestamp": "2026-08-20T20:01:23.998Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787256124217_tezdgnrc8",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 59743,
+        "timestamp": "2026-08-20T20:02:04.217Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787256134594_8imzmxwon",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 3088202,
+        "timestamp": "2026-08-20T20:02:14.594Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787256267346_tt1vhgy3b",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 129020,
+        "timestamp": "2026-08-20T20:04:27.346Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787256710886_0o72sp8ny",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 442474,
+        "timestamp": "2026-08-20T20:11:50.886Z",
+        "metadata": {
+          "pathname": "/calendar"
+        }
+      },
+      {
+        "id": "activity_1787256746921_mfx40ovu9",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 35785,
+        "timestamp": "2026-08-20T20:12:26.921Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787257022269_299jmbjf9",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 275098,
+        "timestamp": "2026-08-20T20:17:02.269Z",
+        "metadata": {
+          "pathname": "/shop"
+        }
+      },
+      {
+        "id": "activity_1787257023268_gelc6km87",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 756,
+        "timestamp": "2026-08-20T20:17:03.268Z",
+        "metadata": {
+          "pathname": "/leaderboard"
+        }
+      },
+      {
+        "id": "activity_1787257063870_pcyzha6h6",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 40406,
+        "timestamp": "2026-08-20T20:17:43.870Z",
+        "metadata": {
+          "pathname": "/leaderboard"
+        }
+      },
+      {
+        "id": "activity_1787257064569_q405bptcb",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 344,
+        "timestamp": "2026-08-20T20:17:44.569Z",
+        "metadata": {
+          "pathname": "/leaderboard"
+        }
+      },
+      {
+        "id": "activity_1787257065166_5mofw2z28",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 396,
+        "timestamp": "2026-08-20T20:17:45.166Z",
+        "metadata": {
+          "pathname": "/leaderboard"
+        }
+      },
+      {
+        "id": "activity_1787257073818_ehplsjk6i",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 8461,
+        "timestamp": "2026-08-20T20:17:53.818Z",
+        "metadata": {
+          "pathname": "/leaderboard"
+        }
+      },
+      {
+        "id": "activity_1787257182231_of1aosxp4",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 108192,
+        "timestamp": "2026-08-20T20:19:42.231Z",
+        "metadata": {
+          "pathname": "/leaderboard"
+        }
+      },
+      {
+        "id": "activity_1787257221827_rh3czrl8u",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 39358,
+        "timestamp": "2026-08-20T20:20:21.827Z",
+        "metadata": {
+          "pathname": "/leaderboard"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787259381162_4oalnrg1d",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-20T20:56:21.162Z",
+    "activities": [
+      {
+        "id": "activity_1787259380583_pzfmrygco",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1622641,
+        "timestamp": "2026-08-20T20:56:20.583Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787259384548_iualaxq3d",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 3081,
+        "timestamp": "2026-08-20T20:56:24.548Z",
+        "metadata": {
+          "pathname": "/dashboard/student"
+        }
+      },
+      {
+        "id": "activity_1787260077058_eykdqakjq",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 692324,
+        "timestamp": "2026-08-20T21:07:57.058Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787260387989_s3f0ikhvr",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 299963,
+        "timestamp": "2026-08-20T21:13:07.989Z",
+        "metadata": {
+          "pathname": "/dashboard/student"
+        }
+      },
+      {
+        "id": "activity_1787260866171_ctul96nqx",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 459361,
+        "timestamp": "2026-08-20T21:21:06.172Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787260077062_ts45efqls",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет! 👋 Я вижу, что у тебя сегодня не самые сильные дни, но посмотри, какой отличный прогресс ты уже накопил! 🌟 Давай зарядимся позитивно через новую игру или свежую тему, чтобы вернуть азарт учёбы ⚡️. Ты справляешься лучше, чем думаешь, и я всегда рядом, чтобы поддержать! 💪✨",
+        "timestamp": "2026-08-20T21:08:15.261Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787262687382_7hohjb2mq",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-20T21:51:27.382Z",
+    "activities": [
+      {
+        "id": "activity_1787262687365_i10vru11y",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1820590,
+        "timestamp": "2026-08-20T21:51:27.365Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787263191693_st3lnj46m",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 503969,
+        "timestamp": "2026-08-20T21:59:51.693Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787263287196_gmvei1bd8",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 95181,
+        "timestamp": "2026-08-20T22:01:27.196Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787263636719_fu21tqvpa",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 349177,
+        "timestamp": "2026-08-20T22:07:16.719Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787264169337_la0e9p31l",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1040,
+        "timestamp": "2026-08-20T22:16:09.337Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787264383910_2b6z3t2gn",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 746877,
+        "timestamp": "2026-08-20T22:19:43.910Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787264169341_z5em3vwy0",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Я знаю, что иногда хочется отдохнуть, но твой прогресс действительно впечатляет! 🌟 Ты так близко к своей мечте, просто сделай ещё один шаг! 💪 Давай разберём это с игрой или свежей темой? 🎮📚",
+        "timestamp": "2026-08-20T22:16:23.295Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787265476935_cm6z8ie7n",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-20T22:37:56.935Z",
+    "activities": [
+      {
+        "id": "activity_1787265476912_gmbdct6oo",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "game_play",
+        "duration": 1092097,
+        "timestamp": "2026-08-20T22:37:56.912Z",
+        "metadata": {
+          "pathname": "/games"
+        }
+      },
+      {
+        "id": "activity_1787265481330_6zp2wblgm",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 3929,
+        "timestamp": "2026-08-20T22:38:01.330Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787265483385_4npzvph2q",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1836,
+        "timestamp": "2026-08-20T22:38:03.385Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787265484289_lj2ugnfv6",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 6970,
+        "timestamp": "2026-08-20T22:38:04.289Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787265485910_aw3aq1370",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1444,
+        "timestamp": "2026-08-20T22:38:05.910Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      },
+      {
+        "id": "activity_1787265487588_oo0nc51vk",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 10218,
+        "timestamp": "2026-08-20T22:38:07.588Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787265488861_4aqekpzdt",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1068,
+        "timestamp": "2026-08-20T22:38:08.861Z",
+        "metadata": {
+          "pathname": "/courses/economics"
+        }
+      },
+      {
+        "id": "activity_1787265489806_jckh1dmxi",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 12450,
+        "timestamp": "2026-08-20T22:38:09.806Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787265491095_49nnifpwn",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1082,
+        "timestamp": "2026-08-20T22:38:11.095Z",
+        "metadata": {
+          "pathname": "/courses/chemistry"
+        }
+      },
+      {
+        "id": "activity_1787265491973_rgn3si98x",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 14619,
+        "timestamp": "2026-08-20T22:38:11.973Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787265493101_6c1tja4dj",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 924,
+        "timestamp": "2026-08-20T22:38:13.101Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      },
+      {
+        "id": "activity_1787267186939_b8l9es8dk",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1709686,
+        "timestamp": "2026-08-20T23:06:26.939Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787267243131_51txcmf91",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 55177,
+        "timestamp": "2026-08-20T23:07:23.131Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787267187685_i31o0p3a1",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Я вижу, что ты немного устал, но помни, какой огромный прогресс ты уже сделал на пути к мечте! 🌟 Давай сделаем следующий шаг интереснее: выберем захватывающую игру или новую тему для обсуждения? Ты сможешь достичь любых целей, и я верю в тебя больше, чем кто-либо другой! 💪✨",
+        "timestamp": "2026-08-20T23:06:35.893Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787267390159_cgh0zm21f",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-20T23:09:50.159Z",
+    "activities": [
+      {
+        "id": "activity_1787267389665_ask8enqru",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 145987,
+        "timestamp": "2026-08-20T23:09:49.665Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vf181ydv0"
+        }
+      },
+      {
+        "id": "activity_1787267395054_0c2c1wjmi",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 2106,
+        "timestamp": "2026-08-20T23:09:55.054Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vf181ydv0"
+        }
+      },
+      {
+        "id": "activity_1787268787348_eoa51kwrj",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 1350185,
+        "timestamp": "2026-08-20T23:33:07.348Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vf181ydv0"
+        }
+      },
+      {
+        "id": "activity_1787269159380_ayfznnyvj",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 345733,
+        "timestamp": "2026-08-20T23:39:19.380Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787268806247_2fw6ruqxk",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет! Я заметила, что ты немного притормозил, но помни, какой крутой прогресс ты уже сделал на пути к своей цели! 🌟 Давай оживим обучение: сыграем в квиз или разберём новую тему, которая тебя точно зацепит? 💡🎮 Вперёд, я верю в тебя! 🚀",
+        "timestamp": "2026-08-20T23:33:41.222Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787269225894_wo2e81c4b",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-20T23:40:25.894Z",
+    "activities": [
+      {
+        "id": "activity_1787269225811_25uzfbmyw",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 66162,
+        "timestamp": "2026-08-20T23:40:25.812Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vf181ydv0"
+        }
+      },
+      {
+        "id": "activity_1787269752121_lobwxgsmr",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 525991,
+        "timestamp": "2026-08-20T23:49:12.121Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787269755999_jyocic0fz",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 3186,
+        "timestamp": "2026-08-20T23:49:15.999Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vf181ydv0"
+        }
+      },
+      {
+        "id": "activity_1787269782781_bpv9b69jk",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 26568,
+        "timestamp": "2026-08-20T23:49:42.781Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787269830840_wjefpqynz",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 78015,
+        "timestamp": "2026-08-20T23:50:30.840Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vf181ydv0"
+        }
+      },
+      {
+        "id": "activity_1787270173129_1fm7l6j41",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 341751,
+        "timestamp": "2026-08-20T23:56:13.129Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787270417143_cwbe7zt4y",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 242317,
+        "timestamp": "2026-08-21T00:00:17.143Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787270520127_e0beus1yg",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 102650,
+        "timestamp": "2026-08-21T00:02:00.127Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787277845207_mj3cz476x",
+    "studentId": "1787000495577-1letv3yj9",
+    "startTime": "2026-08-21T02:04:05.207Z",
+    "activities": [
+      {
+        "id": "activity_1787277845197_4kqdbfiwr",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 7324361,
+        "timestamp": "2026-08-21T02:04:05.197Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vf181ydv0"
+        }
+      },
+      {
+        "id": "activity_1787277951539_z83d3qwvt",
+        "studentId": "1787000495577-1letv3yj9",
+        "type": "material_view",
+        "duration": 106028,
+        "timestamp": "2026-08-21T02:05:51.539Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787324852828_joak6qpqn",
+    "studentId": "1787234110905-0q07h8x15",
+    "startTime": "2026-08-21T15:07:32.828Z",
+    "activities": [
+      {
+        "id": "activity_1787324852818_oetq0xms6",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 336302,
+        "timestamp": "2026-08-21T15:07:32.818Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787325338592_oy7uo2zn1",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 485449,
+        "timestamp": "2026-08-21T15:15:38.592Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787325573932_2ty0491lr",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 235033,
+        "timestamp": "2026-08-21T15:19:33.932Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-1a9r5cpmv"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787325573937_p4quij3xj",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет! 🌟 Вспомни, какой крутой прогресс ты уже сделал — ты просто молодец, и я горжусь твоим упорством! 🔥 Хочешь освежить знания с помощью весёлой игры или обсудим новую интересную тему? 🎮💡 Я всегда рядом и точно верю, что у тебя всё получится! ✨",
+        "timestamp": "2026-08-21T15:19:44.575Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787326722166_szs7stbnc",
+    "studentId": "1787234110905-0q07h8x15",
+    "startTime": "2026-08-21T15:38:42.166Z",
+    "activities": [
+      {
+        "id": "activity_1787326722162_4ls1tucb6",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 1147983,
+        "timestamp": "2026-08-21T15:38:42.162Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787326738985_yave9qt7q",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 16557,
+        "timestamp": "2026-08-21T15:38:58.986Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787326905219_2dqxe4gw3",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 1362072,
+        "timestamp": "2026-08-21T15:41:45.219Z",
+        "metadata": {
+          "pathname": "/admin/content"
+        }
+      },
+      {
+        "id": "activity_1787327059706_uszentnqh",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 154220,
+        "timestamp": "2026-08-21T15:44:19.706Z",
+        "metadata": {
+          "pathname": "/admin/content"
+        }
+      },
+      {
+        "id": "activity_1787327260023_rnidz7z6w",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 200123,
+        "timestamp": "2026-08-21T15:47:40.023Z",
+        "metadata": {
+          "pathname": "/admin/content"
+        }
+      },
+      {
+        "id": "activity_1787327266523_gxztj0gsx",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 6192,
+        "timestamp": "2026-08-21T15:47:46.523Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787327275200_8eohcan9r",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 8451,
+        "timestamp": "2026-08-21T15:47:55.200Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-7nrrvt0au"
+        }
+      },
+      {
+        "id": "activity_1787327575126_vrp9pi534",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 299707,
+        "timestamp": "2026-08-21T15:52:55.126Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787327589967_sp4y6m4fp",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 14591,
+        "timestamp": "2026-08-21T15:53:09.967Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vp2tqezpm"
+        }
+      },
+      {
+        "id": "activity_1787327607475_lm3zxeizw",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 17268,
+        "timestamp": "2026-08-21T15:53:27.475Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vp2tqezpm"
+        }
+      },
+      {
+        "id": "activity_1787327608061_0q4kgbj4z",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 351,
+        "timestamp": "2026-08-21T15:53:28.061Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vp2tqezpm"
+        }
+      },
+      {
+        "id": "activity_1787327631037_vw8awef9i",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 22794,
+        "timestamp": "2026-08-21T15:53:51.037Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-vp2tqezpm"
+        }
+      },
+      {
+        "id": "activity_1787327655574_3tghq268l",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 916391,
+        "timestamp": "2026-08-21T15:54:15.574Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787328080618_danbj9rev",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 394082,
+        "timestamp": "2026-08-21T16:01:20.618Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787328285155_jj8twgnoa",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 197261,
+        "timestamp": "2026-08-21T16:04:45.155Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787328331653_9z7ctunvc",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 46151,
+        "timestamp": "2026-08-21T16:05:31.653Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-mcxlf9vd0"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787328285158_323lorg0o",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Мне не хватает твоей энергии, но помни, сколько всего крутого ты уже успел(а) достичь! 🌟 Давай добавим азарта: пройдем мини-квест или изучим совсем новую и захватывающую тему? Я всегда на твоей стороне и верю в твои силы! 🚀💖",
+        "timestamp": "2026-08-21T16:04:54.409Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787331589474_4jqh029i7",
+    "studentId": "1787234110905-0q07h8x15",
+    "startTime": "2026-08-21T16:59:49.474Z",
+    "activities": [
+      {
+        "id": "activity_1787331589471_7k9cnebi2",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 3249450,
+        "timestamp": "2026-08-21T16:59:49.471Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787332267570_se6vpoo43",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 3706,
+        "timestamp": "2026-08-21T17:11:07.570Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787332282819_p5ak3wzk5",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 14530,
+        "timestamp": "2026-08-21T17:11:22.819Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787332285034_cu0fqqloo",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 2020,
+        "timestamp": "2026-08-21T17:11:25.034Z",
+        "metadata": {
+          "pathname": "/opportunities/8"
+        }
+      },
+      {
+        "id": "activity_1787332286517_wsz09f0du",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 18216,
+        "timestamp": "2026-08-21T17:11:26.517Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787332287587_vdn7pw3vz",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 843,
+        "timestamp": "2026-08-21T17:11:27.587Z",
+        "metadata": {
+          "pathname": "/opportunities/2"
+        }
+      },
+      {
+        "id": "activity_1787332394252_j3pwn9reo",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 125986,
+        "timestamp": "2026-08-21T17:13:14.252Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787332395974_fbklw159b",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 1458,
+        "timestamp": "2026-08-21T17:13:15.974Z",
+        "metadata": {
+          "pathname": "/opportunities/1"
+        }
+      },
+      {
+        "id": "activity_1787332463506_ih0wkfs1k",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 195227,
+        "timestamp": "2026-08-21T17:14:23.506Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787332465088_mr54tpiu6",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 1271,
+        "timestamp": "2026-08-21T17:14:25.088Z",
+        "metadata": {
+          "pathname": "/dashboard"
+        }
+      },
+      {
+        "id": "activity_1787332559081_5nh17h32o",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 290582,
+        "timestamp": "2026-08-21T17:15:59.081Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787332579115_ztuiu5psu",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 19734,
+        "timestamp": "2026-08-21T17:16:19.115Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787332711373_iuu0c0apr",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 132055,
+        "timestamp": "2026-08-21T17:18:31.373Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787332878982_aqssfqroc",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 167306,
+        "timestamp": "2026-08-21T17:21:18.982Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787332267572_kcm2519gw",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет! 🌟 Вспомни, какой крутой прогресс ты уже сделал, ведь каждая пройденная глава приближает тебя к мечте! 🚀 Может, устроим мини-викторину или погрузимся в новую тему для вдохновения? 🎮 Я всегда на твоей стороне, так что не останавливайся сейчас! 💪",
+        "timestamp": "2026-08-21T17:11:17.995Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787333617800_rb7wsh4at",
+    "studentId": "1787234110905-0q07h8x15",
+    "startTime": "2026-08-21T17:33:37.800Z",
+    "activities": [
+      {
+        "id": "activity_1787333617793_h84weowzg",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 738473,
+        "timestamp": "2026-08-21T17:33:37.793Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787396625588_mfo8z1x4z",
+    "studentId": "1787234110905-0q07h8x15",
+    "startTime": "2026-08-22T11:03:45.588Z",
+    "activities": [
+      {
+        "id": "activity_1787396625566_ltewz1bfx",
+        "studentId": "1787234110905-0q07h8x15",
+        "type": "material_view",
+        "duration": 1827227,
+        "timestamp": "2026-08-22T11:03:45.566Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787398442014_1xiopcimg",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T11:34:02.014Z",
+    "activities": [
+      {
+        "id": "activity_1787398441885_e9fstrddr",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 532013,
+        "timestamp": "2026-08-22T11:34:01.885Z",
+        "metadata": {
+          "pathname": "/dashboard/student"
+        }
+      },
+      {
+        "id": "activity_1787398464205_skxlqz3zz",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 21881,
+        "timestamp": "2026-08-22T11:34:24.205Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-mcxlf9vd0"
+        }
+      },
+      {
+        "id": "activity_1787398482645_14ttn3c21",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 18163,
+        "timestamp": "2026-08-22T11:34:42.645Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-mcxlf9vd0"
+        }
+      },
+      {
+        "id": "activity_1787398965089_eki3u3zam",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 470584,
+        "timestamp": "2026-08-22T11:42:45.089Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787398986897_4dbnqye09",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 21481,
+        "timestamp": "2026-08-22T11:43:06.897Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/1787000119688-r0p7mli1k"
+        }
+      },
+      {
+        "id": "activity_1787399235169_mqrtq8rt7",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 248102,
+        "timestamp": "2026-08-22T11:47:15.169Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787399265358_ohqfn4xzx",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 29809,
+        "timestamp": "2026-08-22T11:47:45.358Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787400138562_skumzn1aw",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 16672,
+        "timestamp": "2026-08-22T12:02:18.562Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787400138564_x3btvaebj",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Я знаю, что иногда сложно сохранять фокус, но твой текущий прогресс заслуживает восхищения! 🌟 Давай сделаем приятный перерыв и попробуем что-то новое — игру или интересную тему? 🎮✨ Помни, что я всегда рядом, чтобы помочь тебе вернуться к целям с новыми силами!",
+        "timestamp": "2026-08-22T12:02:35.889Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787400467781_7ly2jyw94",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T12:07:47.781Z",
+    "activities": [
+      {
+        "id": "activity_1787400467774_9sp88d0vi",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 329011,
+        "timestamp": "2026-08-22T12:07:47.774Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q3"
+        }
+      },
+      {
+        "id": "activity_1787400868572_x7b8597vu",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 400520,
+        "timestamp": "2026-08-22T12:14:28.572Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787400872789_yl8rn8d2e",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 3875,
+        "timestamp": "2026-08-22T12:14:32.789Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade9_q3"
+        }
+      },
+      {
+        "id": "activity_1787400913950_tem81wngv",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 40985,
+        "timestamp": "2026-08-22T12:15:13.950Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787400965108_cw9wyxy11",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 92075,
+        "timestamp": "2026-08-22T12:16:05.108Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787401109770_a1lo9tq00",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 144301,
+        "timestamp": "2026-08-22T12:18:29.770Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q3"
+        }
+      },
+      {
+        "id": "activity_1787401421652_ulks1csn7",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 311562,
+        "timestamp": "2026-08-22T12:23:41.652Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787401467750_nsofnhk2g",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 45773,
+        "timestamp": "2026-08-22T12:24:27.750Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q3"
+        }
+      },
+      {
+        "id": "activity_1787401474205_n84bqwnx8",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 6162,
+        "timestamp": "2026-08-22T12:24:34.205Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q3"
+        }
+      },
+      {
+        "id": "activity_1787401509872_aopba7ry9",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 35267,
+        "timestamp": "2026-08-22T12:25:09.872Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q3"
+        }
+      },
+      {
+        "id": "activity_1787401616611_4irqg39bo",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 106073,
+        "timestamp": "2026-08-22T12:26:56.611Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787401859072_4k224rc7b",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 5529,
+        "timestamp": "2026-08-22T12:30:59.072Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787402056824_ro7rc7a4",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 197417,
+        "timestamp": "2026-08-22T12:34:16.824Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade8_q3"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787402400476_lrjwg94vo",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T12:40:00.476Z",
+    "activities": [
+      {
+        "id": "activity_1787402400471_o4unj3euw",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 343206,
+        "timestamp": "2026-08-22T12:40:00.471Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787402441760_4hwfx0exz",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 40989,
+        "timestamp": "2026-08-22T12:40:41.760Z",
+        "metadata": {
+          "pathname": "/courses/mathematics"
+        }
+      },
+      {
+        "id": "activity_1787402747036_0b6o6a3l7",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 304750,
+        "timestamp": "2026-08-22T12:45:47.036Z",
+        "metadata": {
+          "pathname": "/courses/mathematics/neravenstva/test"
+        }
+      },
+      {
+        "id": "activity_1787402834917_mu97cksr3",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 12793,
+        "timestamp": "2026-08-22T12:47:14.917Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787402863645_0ttqqfjkb",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 28499,
+        "timestamp": "2026-08-22T12:47:43.645Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787403538511_6im25ywwc",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1151,
+        "timestamp": "2026-08-22T12:58:58.511Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787403538516_ilp53ez66",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет! 🙋‍♀️ Я заметила, что ты чуть сбавила обороты, но помни, сколько важных целей ты уже покоряла! 🌟 Давай добавим азарта с игрой или новой темой — я точно знаю, у тебя всё получится! 💪✨",
+        "timestamp": "2026-08-22T12:59:27.452Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787404309269_ahieaa52o",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T13:11:49.269Z",
+    "activities": [
+      {
+        "id": "activity_1787404309263_vqdic0177",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 763242,
+        "timestamp": "2026-08-22T13:11:49.263Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787404456010_p3wwkst0t",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 146392,
+        "timestamp": "2026-08-22T13:14:16.010Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787405065988_4rctz1rqr",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 609645,
+        "timestamp": "2026-08-22T13:24:25.988Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787405092766_txxkjjjot",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 4528,
+        "timestamp": "2026-08-22T13:24:52.766Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade8_q1"
+        }
+      },
+      {
+        "id": "activity_1787405175952_a9rc5mx5f",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 109605,
+        "timestamp": "2026-08-22T13:26:15.952Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787405179725_mwkijo5x1",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 3465,
+        "timestamp": "2026-08-22T13:26:19.725Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q2"
+        }
+      },
+      {
+        "id": "activity_1787405181781_n3mjvh0e2",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1809,
+        "timestamp": "2026-08-22T13:26:21.781Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q2"
+        }
+      },
+      {
+        "id": "activity_1787405182235_kqtpde4dd",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 246,
+        "timestamp": "2026-08-22T13:26:22.235Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q2"
+        }
+      },
+      {
+        "id": "activity_1787405184843_p2lbndb0r",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 2379,
+        "timestamp": "2026-08-22T13:26:24.843Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q2"
+        }
+      },
+      {
+        "id": "activity_1787405643717_swp276w80",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 458651,
+        "timestamp": "2026-08-22T13:34:03.717Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q2"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787405065993_z2rhr1fdd",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет! Я заметил твое молчание, но помни — ты уже проделал огромную работу и двигаешься к своей мечте! 🌟 Давай скрасим день: пройдем короткий квиз или погрузимся в новую интересную тему? 🎮📚 Я всегда на связи и верю, что у тебя всё получится блестяще! 💪✨",
+        "timestamp": "2026-08-22T13:24:33.658Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787406365179_f2ea6s5c9",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T13:46:05.179Z",
+    "activities": [
+      {
+        "id": "activity_1787406365175_e5nq7d855",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 721116,
+        "timestamp": "2026-08-22T13:46:05.175Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q2"
+        }
+      },
+      {
+        "id": "activity_1787406808465_y8xs7ujr8",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 442786,
+        "timestamp": "2026-08-22T13:53:28.465Z",
+        "metadata": {
+          "pathname": "/courses/mathematics-static/grade10_q2"
+        }
+      },
+      {
+        "id": "activity_1787407909393_k31ow5zs9",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 251760,
+        "timestamp": "2026-08-22T14:11:49.393Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787407909407_puvuxge8q",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Привет! Я заметил, что активность снизилась, но вспомни, сколько крутых шагов ты уже сделал на пути к цели! 🌟 Давай поднимем настроение: сыграем в увлекательную игру или обсудим что-то совершенно новое и интересное? Не забывай, что я всегда на твоей стороне и горжусь твоими успехами! 💪✨",
+        "timestamp": "2026-08-22T14:11:59.069Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787408364910_ogp20kvq6",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T14:19:24.910Z",
+    "activities": [
+      {
+        "id": "activity_1787408364900_h3p7fqb4s",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 454997,
+        "timestamp": "2026-08-22T14:19:24.900Z",
+        "metadata": {
+          "pathname": "/courses/physics/1787000119688-4evd197qx"
+        }
+      },
+      {
+        "id": "activity_1787408512766_mpwygnbx1",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 147429,
+        "timestamp": "2026-08-22T14:21:52.766Z",
+        "metadata": {
+          "pathname": "/courses/physics/1787000119688-f1crpssdg"
+        }
+      },
+      {
+        "id": "activity_1787408550617_o36xcyrfq",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 11320,
+        "timestamp": "2026-08-22T14:22:30.617Z",
+        "metadata": {
+          "pathname": "/courses/physics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787408897285_23zvn9km4",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 384203,
+        "timestamp": "2026-08-22T14:28:17.285Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787413014367_xgyb5wjfr",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T15:36:54.367Z",
+    "activities": [
+      {
+        "id": "activity_1787413014297_vcaiyatsx",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 4116769,
+        "timestamp": "2026-08-22T15:36:54.297Z",
+        "metadata": {
+          "pathname": "/courses/physics/1787000119688-f1crpssdg"
+        }
+      },
+      {
+        "id": "activity_1787413074889_8ipiw73yv",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 60190,
+        "timestamp": "2026-08-22T15:37:54.890Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      },
+      {
+        "id": "activity_1787414191498_29f76p5dd",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 882613,
+        "timestamp": "2026-08-22T15:56:31.498Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787414618806_5owa0uypb",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 426747,
+        "timestamp": "2026-08-22T16:03:38.806Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787414191706_msj207dcg",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Не волнуйся, если усталость взяла верх — ведь ты уже прошёл такой большой путь! 😊 Может, освежим знания весёлой игрой или обсудим новую увлекательную тему? Вперёд, твои цели совсем рядом! 🚀✨",
+        "timestamp": "2026-08-22T15:56:42.685Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787415221817_p5r2tqh0t",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T16:13:41.817Z",
+    "activities": [
+      {
+        "id": "activity_1787415221770_lwd1scj9e",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 602707,
+        "timestamp": "2026-08-22T16:13:41.770Z",
+        "metadata": {
+          "pathname": "/courses/physics-static/grade11_q3"
+        }
+      },
+      {
+        "id": "activity_1787415223255_qhl1ebmgh",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1182,
+        "timestamp": "2026-08-22T16:13:43.255Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      },
+      {
+        "id": "activity_1787415227052_upim36xo3",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 3567,
+        "timestamp": "2026-08-22T16:13:47.052Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      },
+      {
+        "id": "activity_1787415406106_ct9h22hre",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 178702,
+        "timestamp": "2026-08-22T16:16:46.106Z",
+        "metadata": {
+          "pathname": "/courses/physics"
+        }
+      },
+      {
+        "id": "activity_1787415720854_hpzlagymt",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 314463,
+        "timestamp": "2026-08-22T16:22:00.854Z",
+        "metadata": {
+          "pathname": "/courses/physics-static/grade10_q4"
+        }
+      },
+      {
+        "id": "activity_1787415823492_yuuher4h2",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 6928453,
+        "timestamp": "2026-08-22T16:23:43.492Z",
+        "metadata": {
+          "pathname": "/courses/physics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787415869337_huyp0m2zu",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 126669,
+        "timestamp": "2026-08-22T16:24:29.337Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787415909284_ndat3vnbm",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 39615,
+        "timestamp": "2026-08-22T16:25:09.284Z",
+        "metadata": {
+          "pathname": "/courses/informatics/1787000119688-rkott81kn"
+        }
+      },
+      {
+        "id": "activity_1787415988450_ad4qeuy6a",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 78402,
+        "timestamp": "2026-08-22T16:26:28.450Z",
+        "metadata": {
+          "pathname": "/courses/informatics/1787000119688-dnlhs6xvi"
+        }
+      },
+      {
+        "id": "activity_1787416098589_edxi00wyy",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 107494,
+        "timestamp": "2026-08-22T16:28:18.589Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787416099459_3ng3nq2k9",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 518,
+        "timestamp": "2026-08-22T16:28:19.459Z",
+        "metadata": {
+          "pathname": "/courses/informatics/1787000119688-dnlhs6xvi"
+        }
+      },
+      {
+        "id": "activity_1787416099941_wot9we7r1",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 232,
+        "timestamp": "2026-08-22T16:28:19.941Z",
+        "metadata": {
+          "pathname": "/courses/informatics/1787000119688-dnlhs6xvi"
+        }
+      },
+      {
+        "id": "activity_1787416144107_fbijad7nv",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 43922,
+        "timestamp": "2026-08-22T16:29:04.107Z",
+        "metadata": {
+          "pathname": "/courses/informatics/1787000119688-dnlhs6xvi"
+        }
+      },
+      {
+        "id": "activity_1787416329342_cjpscx4i3",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 503139,
+        "timestamp": "2026-08-22T16:32:09.342Z",
+        "metadata": {
+          "pathname": "/courses/physics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787416427488_fqsk7xg9p",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 217735,
+        "timestamp": "2026-08-22T16:33:47.488Z",
+        "metadata": {
+          "pathname": "/courses/informatics/1787000119688-dnlhs6xvi"
+        }
+      },
+      {
+        "id": "activity_1787416443409_5exvztoky",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 15639,
+        "timestamp": "2026-08-22T16:34:03.409Z",
+        "metadata": {
+          "pathname": "/courses/informatics/1787000119688-rkott81kn"
+        }
+      },
+      {
+        "id": "activity_1787416930650_zfcegtfli",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 486571,
+        "timestamp": "2026-08-22T16:42:10.650Z",
+        "metadata": {
+          "pathname": "/courses/informatics"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787419524004_ofw2nd5jk",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T17:25:24.004Z",
+    "activities": [
+      {
+        "id": "activity_1787419524000_84y32b6wp",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 2592906,
+        "timestamp": "2026-08-22T17:25:24.000Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q1"
+        }
+      },
+      {
+        "id": "activity_1787420069966_iteqnc7xx",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 545545,
+        "timestamp": "2026-08-22T17:34:29.966Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787420451753_drqrnaigw",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 381375,
+        "timestamp": "2026-08-22T17:40:51.753Z",
+        "metadata": {
+          "pathname": "/progress"
+        }
+      },
+      {
+        "id": "activity_1787420485175_205pobk6z",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 30234,
+        "timestamp": "2026-08-22T17:41:25.175Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade10_q3"
+        }
+      },
+      {
+        "id": "activity_1787420910938_qg349exwe",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 425493,
+        "timestamp": "2026-08-22T17:48:30.938Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade10_q3"
+        }
+      },
+      {
+        "id": "activity_1787421190574_4jsh1tnz6",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 109907,
+        "timestamp": "2026-08-22T17:53:10.574Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade10_q1"
+        }
+      },
+      {
+        "id": "activity_1787421194066_1q4mtexyf",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 137354,
+        "timestamp": "2026-08-22T17:53:14.066Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787420451757_kfdnaw3yh",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Посмотри, какой огромный путь ты уже прошёл, и не забывай, насколько ты близок к своей цели! 🌟 Давай взбодримся с помощью мини-игры или окунёмся в новую увлекательную тему 🎮📚. Я верю в твой успех и всегда готов помочь тебе двигаться дальше! 💪✨",
+        "timestamp": "2026-08-22T17:41:04.475Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787421521613_u3xsu3nyt",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T17:58:41.613Z",
+    "activities": [
+      {
+        "id": "activity_1787421521610_bkts8wtum",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1686,
+        "timestamp": "2026-08-22T17:58:41.610Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade11_q2"
+        }
+      },
+      {
+        "id": "activity_1787421651686_7n8oo0jgn",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 211521,
+        "timestamp": "2026-08-22T18:00:51.686Z",
+        "metadata": {
+          "pathname": "/courses/informatics"
+        }
+      },
+      {
+        "id": "activity_1787421654522_nhoktb5no",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 2561,
+        "timestamp": "2026-08-22T18:00:54.522Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421655375_lbkc6d4kb",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 639,
+        "timestamp": "2026-08-22T18:00:55.375Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421655818_i7zymp8go",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 267,
+        "timestamp": "2026-08-22T18:00:55.818Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421656372_sm1n7x802",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 370,
+        "timestamp": "2026-08-22T18:00:56.372Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421656922_6y0hy5oqk",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 357,
+        "timestamp": "2026-08-22T18:00:56.922Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421657473_7cpwb4jai",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 361,
+        "timestamp": "2026-08-22T18:00:57.473Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421658098_511kgt51s",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 455,
+        "timestamp": "2026-08-22T18:00:58.098Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421658656_fxatw1wqd",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 382,
+        "timestamp": "2026-08-22T18:00:58.656Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421659179_mx0exho2q",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 348,
+        "timestamp": "2026-08-22T18:00:59.179Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421659890_g39xgxe1m",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 515,
+        "timestamp": "2026-08-22T18:00:59.890Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421660409_1zpcdvxuy",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 329,
+        "timestamp": "2026-08-22T18:01:00.409Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787421982294_8d4feyr7y",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 321678,
+        "timestamp": "2026-08-22T18:06:22.294Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787422356292_ji9pxge7i",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 373694,
+        "timestamp": "2026-08-22T18:12:36.292Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787422409515_cffwbty8w",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 4914,
+        "timestamp": "2026-08-22T18:13:29.515Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade12_q2"
+        }
+      },
+      {
+        "id": "activity_1787422488941_ti24t17sw",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 132256,
+        "timestamp": "2026-08-22T18:14:48.941Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787422490864_mcth8t9jq",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1637,
+        "timestamp": "2026-08-22T18:14:50.864Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787422658373_615doy8bz",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 167296,
+        "timestamp": "2026-08-22T18:17:38.373Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      },
+      {
+        "id": "activity_1787422901331_ky43katt9",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 222195,
+        "timestamp": "2026-08-22T18:21:41.331Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787422904145_a1vi9jcxn",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 2557,
+        "timestamp": "2026-08-22T18:21:44.145Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787422904870_3tp088qg2",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 539,
+        "timestamp": "2026-08-22T18:21:44.870Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787422954335_f56pk3d6s",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 49276,
+        "timestamp": "2026-08-22T18:22:34.335Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787422958376_dzmd68d84",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 3773,
+        "timestamp": "2026-08-22T18:22:38.376Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787422959029_823b2o76d",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 458,
+        "timestamp": "2026-08-22T18:22:39.029Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787422959427_awhrc4xfj",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 238,
+        "timestamp": "2026-08-22T18:22:39.427Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787423256240_vy1nnhlb6",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 597575,
+        "timestamp": "2026-08-22T18:27:36.240Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      }
+    ],
+    "interventions": [
+      {
+        "id": "intervention_1787422356297_wfk3diper",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Ты уже проделал огромную работу и стал ближе к своей цели, чем кажется! 🌟🚀 Давай добавим драйва: выберем новую тему или сыграем в интерактивную игру? 🎮🔥 Я всегда на твоей стороне и точно верю в твой успех! 💪✨",
+        "timestamp": "2026-08-22T18:12:48.722Z"
+      }
+    ]
+  },
+  {
+    "id": "session_1787423945908_ojepi5bn7",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T18:39:05.908Z",
+    "activities": [
+      {
+        "id": "activity_1787423945901_sjzsiz2v5",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 689313,
+        "timestamp": "2026-08-22T18:39:05.901Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade12_q3"
+        }
+      },
+      {
+        "id": "activity_1787424219706_aor84xm13",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 273541,
+        "timestamp": "2026-08-22T18:43:39.706Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q3"
+        }
+      },
+      {
+        "id": "activity_1787424367338_sx3hmr963",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 147431,
+        "timestamp": "2026-08-22T18:46:07.338Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade9_q1"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787426850714_00hptrz0t",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T19:27:30.714Z",
+    "activities": [
+      {
+        "id": "activity_1787426850707_mf5ks5fuo",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 3891453,
+        "timestamp": "2026-08-22T19:27:30.707Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade7_q2"
+        }
+      },
+      {
+        "id": "activity_1787426870233_k836a36h9",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 19164,
+        "timestamp": "2026-08-22T19:27:50.233Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787426870881_2qlv9cm9e",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 423,
+        "timestamp": "2026-08-22T19:27:50.881Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787427170795_8j4bshsyr",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 189512,
+        "timestamp": "2026-08-22T19:32:50.796Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787427305366_s07d64h53",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 134286,
+        "timestamp": "2026-08-22T19:35:05.366Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      },
+      {
+        "id": "activity_1787427527578_27rgehzgb",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 221957,
+        "timestamp": "2026-08-22T19:38:47.578Z",
+        "metadata": {
+          "pathname": "/courses"
+        }
+      }
+    ],
+    "interventions": []
+  },
+  {
+    "id": "session_1787428748327_w5jcw7x8a",
+    "studentId": "1787397346536-1e9y829el",
+    "startTime": "2026-08-22T19:59:08.327Z",
+    "activities": [
+      {
+        "id": "activity_1787428748325_fjulvar4c",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 4380517,
+        "timestamp": "2026-08-22T19:59:08.325Z",
+        "metadata": {
+          "pathname": "/courses/informatics-static/grade8_q3"
+        }
+      }
+    ],
+    "interventions": []
+  }
+]
