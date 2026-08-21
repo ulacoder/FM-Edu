@@ -312,10 +312,10 @@ export default function TeacherDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           <Link
             href="/dashboard/teacher/classes"
-            className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors"
+            className="bg-card border border-primary/60 rounded-lg p-4 sm:p-6 hover:border-primary hover:bg-primary/5 transition-all cursor-pointer group"
           >
-            <Users className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-semibold mb-2">
+            <Users className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
+            <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
               Мои классы
             </h3>
             <p className="text-sm text-muted-foreground">
@@ -323,31 +323,31 @@ export default function TeacherDashboard() {
             </p>
           </Link>
 
-          <Link
-            href="/teacher/assignments"
-            className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors"
-          >
-            <FileText className="w-8 h-8 text-primary mb-3" />
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 opacity-60 cursor-not-allowed relative">
+            <div className="absolute top-3 right-3 px-2 py-1 bg-primary/20 text-primary text-xs font-medium rounded">
+              Скоро
+            </div>
+            <FileText className="w-8 h-8 text-muted-foreground mb-3" />
             <h3 className="font-semibold mb-2">
               Создать задание
             </h3>
             <p className="text-sm text-muted-foreground">
               Создайте новое задание для класса
             </p>
-          </Link>
+          </div>
 
-          <Link
-            href="/teacher/materials"
-            className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors"
-          >
-            <BookOpen className="w-8 h-8 text-primary mb-3" />
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 opacity-60 cursor-not-allowed relative">
+            <div className="absolute top-3 right-3 px-2 py-1 bg-primary/20 text-primary text-xs font-medium rounded">
+              Скоро
+            </div>
+            <BookOpen className="w-8 h-8 text-muted-foreground mb-3" />
             <h3 className="font-semibold mb-2">
               Добавить материалы
             </h3>
             <p className="text-sm text-muted-foreground">
               Загрузите новые материалы для учеников
             </p>
-          </Link>
+          </div>
         </div>
       </div>
     </div>
