@@ -23,7 +23,8 @@ import {
   Sparkles,
   Calendar,
   ShoppingBag,
-  Lightbulb
+  Lightbulb,
+  Download
 } from "lucide-react";
 import { getTranslation, type Locale } from "@/lib/i18n";
 
@@ -74,6 +75,7 @@ export function Sidebar() {
     { icon: Sparkles, labelKey: "aiAgentDemo", href: "/ai-agent-demo", auth: true },
     { icon: TestTube, labelKey: "diagnostic", href: "/diagnostic", auth: false },
     { icon: BookOpen, labelKey: "courses", href: "/courses", auth: false },
+    { icon: Download, labelKey: "offlineBank", href: "/offline-bank", auth: false },
     { icon: Gamepad2, labelKey: "games", href: "/games", auth: false },
     { icon: Target, labelKey: "roadmap", href: "/roadmap", auth: true },
     { icon: Lightbulb, labelKey: "opportunities", href: "/opportunities", auth: false },
