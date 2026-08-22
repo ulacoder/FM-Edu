@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import type { Subject } from "@/types";
 import { subjectNames } from "@/types";
+import { getTranslation, type Locale } from "@/lib/i18n";
 
 interface SubjectCard {
   subject: Subject;
@@ -40,6 +41,9 @@ export default function CoursesPage() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [topicsCount, setTopicsCount] = useState<Record<string, number>>({});
+  const [locale, setLocale] = useState<Locale>('ru');
+
+  const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
     const userStr = localStorage.getItem('user');
@@ -49,6 +53,18 @@ export default function CoursesPage() {
     }
     setUser(JSON.parse(userStr));
     loadTopicsCount();
+
+    const savedLocale = localStorage.getItem('locale') as Locale;
+    if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
+      setLocale(savedLocale);
+    }
+
+    const handleLocaleChange = (e: CustomEvent<Locale>) => {
+      setLocale(e.detail);
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
+    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
   }, [router]);
 
   const loadTopicsCount = async () => {
@@ -75,10 +91,10 @@ export default function CoursesPage() {
               <BookOpen className="w-16 h-16 text-primary" />
             </div>
             <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Курсы по программе РК
+              {t('coursesTitle')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Полная школьная программа 7-12 классов с видео-уроками и тестами
+              {t('coursesSubtitle')}
             </p>
           </div>
 
@@ -87,22 +103,22 @@ export default function CoursesPage() {
             <div className="bg-card border border-border/60 rounded-lg p-6 text-center">
               <BookOpen className="w-8 h-8 text-blue-500 mx-auto mb-2" />
               <div className="text-3xl font-bold">180</div>
-              <div className="text-sm text-muted-foreground">Тем всего</div>
+              <div className="text-sm text-muted-foreground">{t('totalTopics')}</div>
             </div>
             <div className="bg-card border border-border/60 rounded-lg p-6 text-center">
               <PlayCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
               <div className="text-3xl font-bold">180</div>
-              <div className="text-sm text-muted-foreground">Видео-уроков</div>
+              <div className="text-sm text-muted-foreground">{t('videoLessonsCount')}</div>
             </div>
             <div className="bg-card border border-border/60 rounded-lg p-6 text-center">
               <FileText className="w-8 h-8 text-purple-500 mx-auto mb-2" />
               <div className="text-3xl font-bold">1800</div>
-              <div className="text-sm text-muted-foreground">Тестов</div>
+              <div className="text-sm text-muted-foreground">{t('testsCount')}</div>
             </div>
             <div className="bg-card border border-border/60 rounded-lg p-6 text-center">
               <Award className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
               <div className="text-3xl font-bold">{user.totalPoints || 0}</div>
-              <div className="text-sm text-muted-foreground">Твои баллы</div>
+              <div className="text-sm text-muted-foreground">{t('yourPoints')}</div>
             </div>
           </div>
 
@@ -110,7 +126,7 @@ export default function CoursesPage() {
           <div className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <GraduationCap className="w-6 h-6 text-primary" />
-              Школьная программа РК
+              {t('schoolProgram')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {SUBJECTS.map((subjectCard) => {
@@ -120,10 +136,10 @@ export default function CoursesPage() {
               const isDev = subjectCard.status === 'development';
 
               const statusBadge = subjectCard.status === 'available'
-                ? <span className="absolute top-3 left-3 px-2 py-1 bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-bold rounded-full">✓ Доступно</span>
+                ? <span className="absolute top-3 left-3 px-2 py-1 bg-green-500/20 text-green-600 dark:text-green-400 text-xs font-bold rounded-full">✓ {t('available')}</span>
                 : subjectCard.status === 'development'
-                ? <span className="absolute top-3 left-3 px-2 py-1 bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 text-xs font-bold rounded-full">⚠ В разработке</span>
-                : <span className="absolute top-3 left-3 px-2 py-1 bg-gray-500/20 text-gray-600 dark:text-gray-400 text-xs font-bold rounded-full">⏳ Скоро</span>;
+                ? <span className="absolute top-3 left-3 px-2 py-1 bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 text-xs font-bold rounded-full">⚠ {t('development')}</span>
+                : <span className="absolute top-3 left-3 px-2 py-1 bg-gray-500/20 text-gray-600 dark:text-gray-400 text-xs font-bold rounded-full">⏳ {t('soon')}</span>;
 
               return (
                 <button
@@ -148,7 +164,7 @@ export default function CoursesPage() {
                   {/* Selected Badge */}
                   {isSelected && !isDisabled && (
                     <div className={`absolute top-3 right-3 px-2 py-1 bg-gradient-to-r ${subjectCard.gradient} text-white text-xs font-bold rounded-full`}>
-                      ⭐ Выбран
+                      ⭐ {t('selected')}
                     </div>
                   )}
 
@@ -166,29 +182,29 @@ export default function CoursesPage() {
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <BookOpen className="w-4 h-4" />
-                      <span>{count} тем</span>
+                      <span>{count} {t('topics')}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <GraduationCap className="w-4 h-4" />
-                      <span>7-12 классы</span>
+                      <span>7-12 {t('class')}</span>
                     </div>
                   </div>
 
                   {/* Action */}
                   {!isDisabled && (
                     <div className="flex items-center justify-between text-primary font-medium">
-                      <span>Открыть курс</span>
+                      <span>{t('openCourse')}</span>
                       <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   )}
                   {isDisabled && (
                     <div className="text-sm text-muted-foreground text-center">
-                      Контент готовится
+                      {t('contentInProgress')}
                     </div>
                   )}
                   {isDev && (
                     <div className="text-xs text-yellow-600 dark:text-yellow-400 text-center mt-2">
-                      Возможны ошибки в контенте
+                      {t('possibleErrors')}
                     </div>
                   )}
                 </button>
@@ -201,22 +217,22 @@ export default function CoursesPage() {
           <div className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Award className="w-6 h-6 text-yellow-500" />
-              SAT Подготовка
-              <span className="text-sm font-normal text-muted-foreground ml-2">(скоро)</span>
+              {t('satPreparation')}
+              <span className="text-sm font-normal text-muted-foreground ml-2">({t('soon').toLowerCase()})</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* SAT Math */}
               <div className="group relative bg-card border-2 border-dashed border-border/60 rounded-xl p-6 opacity-60">
                 <div className="text-6xl mb-4">🧮</div>
-                <h3 className="text-xl font-bold mb-3">SAT Math</h3>
+                <h3 className="text-xl font-bold mb-3">{t('satMath')}</h3>
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <BookOpen className="w-4 h-4" />
-                    <span>Алгебра, геометрия, анализ данных</span>
+                    <span>{t('satMathDesc')}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
-                    <span>В разработке</span>
+                    <span>{t('inDevelopment')}</span>
                   </div>
                 </div>
               </div>
@@ -224,15 +240,15 @@ export default function CoursesPage() {
               {/* SAT English */}
               <div className="group relative bg-card border-2 border-dashed border-border/60 rounded-xl p-6 opacity-60">
                 <div className="text-6xl mb-4">📝</div>
-                <h3 className="text-xl font-bold mb-3">SAT Reading & Writing</h3>
+                <h3 className="text-xl font-bold mb-3">{t('satEnglish')}</h3>
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <BookOpen className="w-4 h-4" />
-                    <span>Reading comprehension, грамматика</span>
+                    <span>{t('satEnglishDesc')}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4" />
-                    <span>В разработке</span>
+                    <span>{t('inDevelopment')}</span>
                   </div>
                 </div>
               </div>
@@ -248,10 +264,10 @@ export default function CoursesPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2 text-orange-900">
-                    🎯 Рекомендации AI
+                    🎯 {t('aiRecommendations')}
                   </h3>
                   <p className="text-orange-800 mb-4">
-                    Система обнаружила отстающие темы. Рекомендуем пройти эти курсы для улучшения результатов:
+                    {t('aiRecommendationsDesc')}
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {user.weakTopics.slice(0, 3).map((weakTopic: any) => (
@@ -271,7 +287,7 @@ export default function CoursesPage() {
                         </div>
                         <div className="flex items-center gap-2 text-xs text-orange-600">
                           <Clock className="w-3 h-3" />
-                          <span>Отставание: {weakTopic.weaknessLevel}%</span>
+                          <span>{t('weakness')}: {weakTopic.weaknessLevel}%</span>
                         </div>
                       </button>
                     ))}

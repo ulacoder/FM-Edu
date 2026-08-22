@@ -2048,5 +2048,65 @@
     "metadata": {
       "pathname": "/courses/informatics-static/grade8_q3"
     }
+  },
+  {
+    "id": "activity_1787440649024_nx9pv9y4w",
+    "studentId": "1787397346536-1e9y829el",
+    "type": "material_view",
+    "duration": 11656556,
+    "timestamp": "2026-08-22T23:17:29.024Z",
+    "metadata": {
+      "pathname": "/dashboard/student"
+    }
+  },
+  {
+    "id": "activity_1787440650955_0u56ec7qt",
+    "studentId": "1787397346536-1e9y829el",
+    "type": "material_view",
+    "duration": 1495,
+    "timestamp": "2026-08-22T23:17:30.955Z",
+    "metadata": {
+      "pathname": "/profile"
+    }
+  },
+  {
+    "id": "activity_1787440663771_4uw52qrrt",
+    "studentId": "1787397346536-1e9y829el",
+    "type": "material_view",
+    "duration": 11671293,
+    "timestamp": "2026-08-22T23:17:43.771Z",
+    "metadata": {
+      "pathname": "/dashboard/student"
+    }
+  },
+  {
+    "id": "activity_1787440667563_newmlnrsx",
+    "studentId": "1787397346536-1e9y829el",
+    "type": "material_view",
+    "duration": 3350,
+    "timestamp": "2026-08-22T23:17:47.563Z",
+    "metadata": {
+      "pathname": "/profile"
+    }
+  },
+  {
+    "id": "activity_1787441243408_7ecnzkk3z",
+    "studentId": "1787397346536-1e9y829el",
+    "type": "material_view",
+    "duration": 12250490,
+    "timestamp": "2026-08-22T23:27:23.408Z",
+    "metadata": {
+      "pathname": "/dashboard/student"
+    }
+  },
+  {
+    "id": "activity_1787441293372_c1kgusfmh",
+    "studentId": "1787397346536-1e9y829el",
+    "type": "material_view",
+    "duration": 49449,
+    "timestamp": "2026-08-22T23:28:13.372Z",
+    "metadata": {
+      "pathname": "/"
+    }
   }
 ]

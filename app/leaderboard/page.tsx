@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import { LeaderboardEntry, Region, regionNames } from '@/types';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { LanguageSwitcher } from '@/components/language-switcher';
+import { getTranslation, type Locale } from '@/lib/i18n';
 
 type LeaderboardMode = 'all' | Region;
 
@@ -23,6 +25,9 @@ export default function LeaderboardPage() {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [mode, setMode] = useState<LeaderboardMode>('all');
   const [totalStudents, setTotalStudents] = useState(0);
+  const [locale, setLocale] = useState<Locale>('ru');
+
+  const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -49,7 +54,20 @@ export default function LeaderboardPage() {
       console.error('Error parsing user data:', e);
       router.push('/login');
     }
+
+    const savedLocale = localStorage.getItem('locale') as Locale;
+    if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
+      setLocale(savedLocale);
+    }
+
+    const handleLocaleChange = (e: CustomEvent<Locale>) => {
+      setLocale(e.detail);
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
     setLoading(false);
+
+    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
   }, [router]);
 
   useEffect(() => {
@@ -75,7 +93,7 @@ export default function LeaderboardPage() {
   if (loading || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg text-muted-foreground">Загрузка...</div>
+        <div className="text-lg text-muted-foreground">{t('loading')}</div>
       </div>
     );
   }
@@ -104,10 +122,11 @@ export default function LeaderboardPage() {
               </Link>
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
+              <LanguageSwitcher />
               <ThemeToggle />
               <Link href="/dashboard/student">
                 <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
-                  Дашборд
+                  {t('dashboard')}
                 </button>
               </Link>
             </div>
@@ -122,10 +141,10 @@ export default function LeaderboardPage() {
           <div className="mb-6 sm:mb-8">
             <h1 className="text-2xl sm:text-3xl font-bold mb-2 flex items-center gap-2">
               <Trophy className="w-7 h-7 text-primary" />
-              Лидерборд
+              {t('leaderboard')}
             </h1>
             <p className="text-sm sm:text-base text-muted-foreground">
-              Топ студентов по баллам
+              {t('topStudents')}
             </p>
           </div>
 
