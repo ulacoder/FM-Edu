@@ -12,6 +12,8 @@ import {
   Users
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { LanguageSwitcher } from '@/components/language-switcher';
+import { getTranslation, type Locale } from '@/lib/i18n';
 
 export default function RegionalChatPage() {
   const router = useRouter();
@@ -20,7 +22,10 @@ export default function RegionalChatPage() {
   const [messages, setMessages] = useState<RegionalChatMessage[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [sending, setSending] = useState(false);
+  const [locale, setLocale] = useState<Locale>('ru');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -49,7 +54,20 @@ export default function RegionalChatPage() {
       console.error('Error parsing user data:', e);
       router.push('/login');
     }
+
+    const savedLocale = localStorage.getItem('locale') as Locale;
+    if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
+      setLocale(savedLocale);
+    }
+
+    const handleLocaleChange = (e: CustomEvent<Locale>) => {
+      setLocale(e.detail);
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
     setLoading(false);
+
+    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
   }, [router]);
 
   useEffect(() => {
