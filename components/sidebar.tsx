@@ -38,9 +38,13 @@ export function Sidebar() {
   const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
-    // Check authentication status
-    const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token);
+    // Check authentication status on mount and when pathname changes
+    const checkAuth = () => {
+      const token = localStorage.getItem('token');
+      setIsAuthenticated(!!token);
+    };
+
+    checkAuth();
 
     const savedLocale = localStorage.getItem('locale') as Locale;
     if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
@@ -51,9 +55,15 @@ export function Sidebar() {
       setLocale(e.detail);
     };
 
+    // Listen for storage changes (for cross-tab auth sync)
+    window.addEventListener('storage', checkAuth);
     window.addEventListener('localeChange', handleLocaleChange as EventListener);
-    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
-  }, []);
+
+    return () => {
+      window.removeEventListener('storage', checkAuth);
+      window.removeEventListener('localeChange', handleLocaleChange as EventListener);
+    };
+  }, [pathname]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
