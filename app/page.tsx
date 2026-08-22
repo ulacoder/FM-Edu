@@ -201,12 +201,12 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { id: 'math', nameKey: 'mathematics' as const, status: 'available', href: '/courses/mathematics' },
-              { id: 'geo', nameKey: 'geography' as const, status: 'available', href: '/courses/geography' },
-              { id: 'hist', nameKey: 'geography' as const, status: 'available', href: '/courses/history', customName: locale === 'ru' ? 'История' : locale === 'kk' ? 'Тарих' : 'History' },
+              { id: 'phys', nameKey: 'physics' as const, status: 'available', href: '/courses/physics' },
               { id: 'info', nameKey: 'informatics' as const, status: 'development', href: '/courses/informatics-static/grade7_q1' },
-              { id: 'phys', nameKey: 'physics' as const, status: 'soon' },
+              { id: 'geo', nameKey: 'geography' as const, status: 'soon' },
               { id: 'chem', nameKey: 'chemistry' as const, status: 'soon' },
               { id: 'bio', nameKey: 'biology' as const, status: 'soon' },
+              { id: 'econ', nameKey: 'economics' as const, status: 'soon' },
               { id: 'eng', nameKey: 'english' as const, status: 'soon' }
             ].map((subject) => {
               const isDisabled = subject.status === 'soon';
