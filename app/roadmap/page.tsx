@@ -81,6 +81,12 @@ export default function RoadmapPage() {
 
   const loadRoadmaps = async (studentId: string) => {
     try {
+      // Сначала загружаем из localStorage
+      const cached = localStorage.getItem(`roadmaps_${studentId}`);
+      if (cached) {
+        setRoadmaps(JSON.parse(cached));
+      }
+
       const response = await fetch(`/api/roadmap?studentId=${studentId}`);
       if (response.ok) {
         const data = await response.json();
@@ -127,7 +133,10 @@ export default function RoadmapPage() {
 
       if (response.ok) {
         const data = await response.json();
-        setRoadmaps([...roadmaps, data.roadmap]);
+        const updatedRoadmaps = [...roadmaps, data.roadmap];
+        setRoadmaps(updatedRoadmaps);
+        // Сохраняем в localStorage
+        localStorage.setItem(`roadmaps_${user.id}`, JSON.stringify(updatedRoadmaps));
         setShowCreateModal(false);
         resetForm();
       } else {
