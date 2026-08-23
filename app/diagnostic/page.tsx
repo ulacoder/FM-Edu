@@ -271,8 +271,8 @@ export default function DiagnosticPage() {
               </div>
 
               {/* AI Анализ */}
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-8 text-left">
-                <div className="flex items-start gap-3 mb-3">
+              <div className="bg-card border border-border rounded-lg p-6 mb-8 text-left shadow-sm">
+                <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-xl">🤖</span>
                   </div>
@@ -286,15 +286,15 @@ export default function DiagnosticPage() {
               </div>
 
               {result.weakTopics.length > 0 && (
-                <div className="text-left mb-8 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-5">
+                <div className="text-left mb-8 bg-card border border-border rounded-lg p-5 shadow-sm">
                   <h3 className="font-semibold mb-3 flex items-center gap-2 text-foreground">
                     <span className="text-xl">📚</span>
                     Рекомендуем повторить:
                   </h3>
-                  <ul className="space-y-2 text-muted-foreground">
+                  <ul className="space-y-2 text-foreground">
                     {result.weakTopics.slice(0, 3).map((topic: string, index: number) => (
                       <li key={index} className="flex items-start gap-2">
-                        <span className="text-amber-600 dark:text-amber-400 font-bold">•</span>
+                        <span className="text-primary font-bold">•</span>
                         <span>{topic}</span>
                       </li>
                     ))}
