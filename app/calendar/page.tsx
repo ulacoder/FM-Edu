@@ -124,17 +124,29 @@ export default function CalendarPage() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Удалить дедлайн?')) return;
+    if (!user) return;
 
     try {
+      const updatedDeadlines = deadlines.filter(d => d.id !== id);
+      setDeadlines(updatedDeadlines);
+      localStorage.setItem(`deadlines_${user.id}`, JSON.stringify(updatedDeadlines));
+
       await fetch(`/api/deadlines?id=${id}`, { method: 'DELETE' });
-      if (user) loadDeadlines(user.id);
     } catch (error) {
       console.error('Error deleting deadline:', error);
     }
   };
 
   const handleToggleComplete = async (deadline: Deadline) => {
+    if (!user) return;
+
     try {
+      const updatedDeadlines = deadlines.map(d =>
+        d.id === deadline.id ? { ...d, completed: !d.completed } : d
+      );
+      setDeadlines(updatedDeadlines);
+      localStorage.setItem(`deadlines_${user.id}`, JSON.stringify(updatedDeadlines));
+
       await fetch('/api/deadlines', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -143,7 +155,6 @@ export default function CalendarPage() {
           completed: !deadline.completed
         })
       });
-      if (user) loadDeadlines(user.id);
     } catch (error) {
       console.error('Error updating deadline:', error);
     }

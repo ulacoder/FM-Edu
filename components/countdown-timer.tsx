@@ -19,6 +19,28 @@ export function CountdownTimer({ studentId }: CountdownTimerProps) {
 
   const loadDeadlines = async () => {
     try {
+      // Загружаем из localStorage
+      const cached = localStorage.getItem(`deadlines_${studentId}`);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        // Конвертируем date строки обратно в Date объекты
+        const deadlinesWithDates = parsed.map((d: any) => ({
+          ...d,
+          date: new Date(d.date),
+          createdAt: d.createdAt ? new Date(d.createdAt) : new Date()
+        }));
+
+        // Берем только ближайшие 3 невыполненных дедлайна
+        const upcoming = deadlinesWithDates
+          .filter((d: Deadline) => !d.completed && new Date(d.date) >= new Date())
+          .sort((a: Deadline, b: Deadline) => new Date(a.date).getTime() - new Date(b.date).getTime())
+          .slice(0, 3);
+
+        setDeadlines(upcoming);
+        setLoading(false);
+        return;
+      }
+
       const res = await fetch(`/api/deadlines?studentId=${studentId}`);
       const data = await res.json();
       // Берем только ближайшие 3 невыполненных дедлайна
