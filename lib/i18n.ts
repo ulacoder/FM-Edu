@@ -24,6 +24,118 @@ export const translations = {
     start: 'Начать',
     aiAgentDemo: 'Agentic AI Demo',
 
+    // Common
+    loading: 'Загрузка...',
+    class: 'класс',
+    back: 'Назад',
+    save: 'Сохранить',
+    cancel: 'Отмена',
+    delete: 'Удалить',
+    edit: 'Редактировать',
+    add: 'Добавить',
+    close: 'Закрыть',
+    confirm: 'Подтвердить',
+
+    // Dashboard
+    welcome: 'Добро пожаловать',
+    yourProgress: 'Твой прогресс',
+    recentActivity: 'Недавняя активность',
+    quickStats: 'Быстрая статистика',
+    continueWhere: 'Продолжить с того места',
+    recommendedForYou: 'Рекомендовано для тебя',
+    upcomingDeadlines: 'Ближайшие дедлайны',
+
+    // Regional Chat
+    regionalChatTitle: 'Региональный чат',
+    regionalStudents: 'Студенты региона',
+    noMessages: 'Пока нет сообщений',
+    beFirst: 'Будь первым! Познакомься с другими студентами из',
+    writeMessage: 'Напиши сообщение...',
+    send: 'Отправить',
+    beFriendly: 'Будь дружелюбным и уважительным к другим студентам',
+
+    // Games
+    gamesTitle: 'Образовательные игры',
+    gamesSubtitle: 'Учись играя! Зарабатывай баллы и соревнуйся с друзьями',
+    chooseSubject: 'Выбери предмет',
+    chooseGame: 'Выбери игру',
+    startGame: 'Начать игру',
+    yourScore: 'Твой счёт',
+    highScore: 'Лучший результат',
+    playAgain: 'Играть снова',
+
+    // Profile
+    profileTitle: 'Мой профиль',
+    personalInfo: 'Личная информация',
+    name: 'Имя',
+    email: 'Email',
+    region: 'Регион',
+    selectRegion: 'Выбери регион',
+    achievements: 'Достижения',
+    statistics: 'Статистика',
+
+    // Settings
+    settingsTitle: 'Настройки',
+    accountSettings: 'Настройки аккаунта',
+    notificationSettings: 'Уведомления',
+    privacySettings: 'Приватность',
+    language: 'Язык',
+    theme: 'Тема',
+    darkMode: 'Тёмная тема',
+    lightMode: 'Светлая тема',
+
+    // MBTI Profile
+    mbtiProfileTitle: 'MBTI Личностный профиль',
+    yourType: 'Твой тип',
+    learningStyle: 'Стиль обучения',
+    strengths: 'Сильные стороны',
+    challenges: 'Трудности',
+    recommendations: 'Рекомендации',
+
+    // Roadmap
+    roadmapTitle: 'Мой роадмап',
+    yourGoals: 'Твои цели',
+    addGoal: 'Добавить цель',
+    inProgress: 'В процессе',
+    completed: 'Завершено',
+    deadline: 'Дедлайн',
+
+    // Calendar
+    calendarTitle: 'Календарь событий',
+    today: 'Сегодня',
+    thisWeek: 'На этой неделе',
+    thisMonth: 'В этом месяце',
+    upcomingEvents: 'Предстоящие события',
+    noEvents: 'Нет событий',
+
+    // Shop
+    shopTitle: 'Магазин наград',
+    yourBalance: 'Твой баланс',
+    buyNow: 'Купить сейчас',
+    purchased: 'Куплено',
+    notEnoughPoints: 'Недостаточно баллов',
+
+    // Diagnostic
+    diagnosticTitle: 'Диагностика знаний',
+    diagnosticSubtitle: 'Пройди тест и узнай свой уровень',
+    selectSubject: 'Выбери предмет для тестирования',
+    startTest: 'Начать тест',
+    testResults: 'Результаты теста',
+    yourLevel: 'Твой уровень',
+    beginner: 'Начинающий',
+    intermediate: 'Средний',
+    advanced: 'Продвинутый',
+
+    // Opportunities
+    opportunitiesTitle: 'Возможности',
+    opportunitiesSubtitle: 'Олимпиады, конкурсы и стипендии',
+    olympiads: 'Олимпиады',
+    scholarships: 'Стипендии',
+    competitions: 'Конкурсы',
+    internships: 'Стажировки',
+    applyNow: 'Подать заявку',
+    learnMore: 'Узнать больше',
+
     // Home page
     heroTitle: 'Персонализированное образование с искусственным интеллектом',
     heroSubtitle: 'Адаптивная платформа для школьников 7-12 классов. Диагностика уровня знаний, индивидуальный план обучения и мгновенная обратная связь от AI.',
@@ -109,20 +221,6 @@ export const translations = {
     wantToRiseHigher: 'Хочешь подняться выше?',
     playGamesEarnPoints: 'Играй в игры и зарабатывай баллы!',
     play: 'Играть',
-
-    // Regional Chat
-    regionalChatTitle: 'Региональный чат',
-    regionalStudents: 'Студенты региона',
-    noMessages: 'Пока нет сообщений',
-    beFirst: 'Будь первым! Познакомься с другими студентами из',
-    writeMessage: 'Напиши сообщение...',
-    send: 'Отправить',
-    beFriendly: 'Будь дружелюбным и уважительным к другим студентам',
-
-    // Common
-    loading: 'Загрузка...',
-    class: 'класс',
-    back: 'Назад',
   },
 
   kk: {
@@ -148,6 +246,118 @@ export const translations = {
     start: 'Бастау',
     aiAgentDemo: 'Agentic AI Demo',
 
+    // Common
+    loading: 'Жүктелуде...',
+    class: 'сынып',
+    back: 'Артқа',
+    save: 'Сақтау',
+    cancel: 'Болдырмау',
+    delete: 'Жою',
+    edit: 'Өңдеу',
+    add: 'Қосу',
+    close: 'Жабу',
+    confirm: 'Растау',
+
+    // Dashboard
+    welcome: 'Қош келдіңіз',
+    yourProgress: 'Сіздің үлгеріміңіз',
+    recentActivity: 'Соңғы белсенділік',
+    quickStats: 'Жылдам статистика',
+    continueWhere: 'Қалған жерден жалғастыру',
+    recommendedForYou: 'Сізге ұсынылған',
+    upcomingDeadlines: 'Жақын мерзімдер',
+
+    // Regional Chat
+    regionalChatTitle: 'Аймақтық чат',
+    regionalStudents: 'Аймақтың студенттері',
+    noMessages: 'Әзірге хабарлар жоқ',
+    beFirst: 'Бірінші бол! Басқа студенттермен танысыңыз',
+    writeMessage: 'Хабарлама жазыңыз...',
+    send: 'Жіберу',
+    beFriendly: 'Басқа студенттерге достық және құрметпен қараңыз',
+
+    // Games
+    gamesTitle: 'Білім беру ойындары',
+    gamesSubtitle: 'Ойнап үйрен! Ұпай жина және достарыңмен бәсекеле',
+    chooseSubject: 'Пәнді таңда',
+    chooseGame: 'Ойынды таңда',
+    startGame: 'Ойынды бастау',
+    yourScore: 'Сіздің ұпайыңыз',
+    highScore: 'Ең жақсы нәтиже',
+    playAgain: 'Қайтадан ойнау',
+
+    // Profile
+    profileTitle: 'Менің профилім',
+    personalInfo: 'Жеке ақпарат',
+    name: 'Аты',
+    email: 'Email',
+    region: 'Аймақ',
+    selectRegion: 'Аймақты таңда',
+    achievements: 'Жетістіктер',
+    statistics: 'Статистика',
+
+    // Settings
+    settingsTitle: 'Баптаулар',
+    accountSettings: 'Аккаунт баптаулары',
+    notificationSettings: 'Хабарландырулар',
+    privacySettings: 'Құпиялылық',
+    language: 'Тіл',
+    theme: 'Тақырып',
+    darkMode: 'Қараңғы тақырып',
+    lightMode: 'Ашық тақырып',
+
+    // MBTI Profile
+    mbtiProfileTitle: 'MBTI тұлға профилі',
+    yourType: 'Сіздің типіңіз',
+    learningStyle: 'Оқу стилі',
+    strengths: 'Күшті жақтары',
+    challenges: 'Қиындықтар',
+    recommendations: 'Ұсыныстар',
+
+    // Roadmap
+    roadmapTitle: 'Менің жол картам',
+    yourGoals: 'Сіздің мақсаттарыңыз',
+    addGoal: 'Мақсат қосу',
+    inProgress: 'Орындалуда',
+    completed: 'Аяқталды',
+    deadline: 'Мерзімі',
+
+    // Calendar
+    calendarTitle: 'Оқиғалар күнтізбесі',
+    today: 'Бүгін',
+    thisWeek: 'Осы аптада',
+    thisMonth: 'Осы айда',
+    upcomingEvents: 'Болашақ оқиғалар',
+    noEvents: 'Оқиғалар жоқ',
+
+    // Shop
+    shopTitle: 'Сыйлықтар дүкені',
+    yourBalance: 'Сіздің балансыңыз',
+    buyNow: 'Қазір сатып алу',
+    purchased: 'Сатып алынды',
+    notEnoughPoints: 'Ұпай жеткіліксіз',
+
+    // Diagnostic
+    diagnosticTitle: 'Білім диагностикасы',
+    diagnosticSubtitle: 'Тестті өт және деңгейіңді біл',
+    selectSubject: 'Тестілеу үшін пәнді таңда',
+    startTest: 'Тестті бастау',
+    testResults: 'Тест нәтижелері',
+    yourLevel: 'Сіздің деңгейіңіз',
+    beginner: 'Бастауыш',
+    intermediate: 'Орташа',
+    advanced: 'Жетілдірілген',
+
+    // Opportunities
+    opportunitiesTitle: 'Мүмкіндіктер',
+    opportunitiesSubtitle: 'Олимпиадалар, байқаулар және стипендиялар',
+    olympiads: 'Олимпиадалар',
+    scholarships: 'Стипендиялар',
+    competitions: 'Байқаулар',
+    internships: 'Тәжірибелер',
+    applyNow: 'Өтінім беру',
+    learnMore: 'Толығырақ білу',
+
     // Home page
     heroTitle: 'Жасанды интеллектпен дербестендірілген білім беру',
     heroSubtitle: '7-12 сынып оқушыларына арналған бейімделген платформа. Білім деңгейін диагностикалау, жеке оқу жоспары және AI-дан лезде кері байланыс.',
@@ -158,16 +368,12 @@ export const translations = {
     nisProgram: 'бағдарламасы',
     whyFmEdu: 'Неліктен FM Edu?',
     modernApproach: 'AI пайдаланумен білім беруге заманауи көзқарас',
-
-    // Features
     adaptiveLearning: 'Бейімделген оқу жоспары',
     adaptiveLearningDesc: 'AI диагностика нәтижелерін талдап, сіздің деңгейіңізге жеке оқу траекториясын құрады',
     nisProgContent: 'NIS бағдарламасы',
     nisProgContentDesc: 'Барлық материалдар дайындықтың тиімділігін арттыру үшін Назарбаев Зияткерлік мектептерінің бағдарламасына сәйкес келеді',
     instantFeedback: 'Лезде кері байланыс',
     instantFeedbackDesc: 'AI-ассистенттен әр тапсырмаға дербестендірілген түсініктемелер мен кеңестер',
-
-    // Subjects
     availableSubjects: 'Қолжетімді пәндер',
     mathematics: 'Математика',
     physics: 'Физика',
@@ -177,29 +383,21 @@ export const translations = {
     chemistry: 'Химия',
     biology: 'Биология',
     english: 'Ағылшын тілі',
-
-    // Status
     available: 'Қолжетімді',
     development: 'Әзірлеуде',
     soon: 'Жақында',
     fullContent: 'Толық контент',
     possibleErrors: 'Қателер мүмкін',
     contentInProgress: 'Контент дайындалуда',
-
-    // CTA
     startPersonalized: 'Дербестендірілген оқуды қазір бастаңыз',
     availableForAll: 'Қазақстанның барлық жерінде 7-12 сынып оқушыларына қолжетімді',
     createAccountFree: 'Тегін аккаунт құру',
-
-    // Footer
     platformTitle: 'Платформа',
     aboutUs: 'Біз туралы',
     aboutPlatform: 'Платформа туралы',
     contacts: 'Байланыстар',
     allRightsReserved: 'Барлық құқықтар қорғалған',
     personalizedPlatform: 'Қазақстан оқушыларына арналған дербестендірілген білім беру платформасы',
-
-    // Courses
     schoolProgram: 'ҚР мектеп бағдарламасы',
     coursesTitle: 'ҚР бағдарламасы бойынша курстар',
     coursesSubtitle: '7-12 сыныптарға арналған толық мектеп бағдарламасы видео-сабақтармен және тесттермен',
@@ -221,8 +419,6 @@ export const translations = {
     aiRecommendations: 'AI ұсыныстары',
     aiRecommendationsDesc: 'Жүйе артта қалған тақырыптарды анықтады. Нәтижелерді жақсарту үшін осы курстарды өтуді ұсынамыз:',
     weakness: 'Артта қалу',
-
-    // Leaderboard
     topStudents: 'Үздік студенттер ұпайлары бойынша',
     allKazakhstan: 'Бүкіл Қазақстан',
     yourPosition: 'Сіздің орныңыз',
@@ -233,20 +429,6 @@ export const translations = {
     wantToRiseHigher: 'Жоғары көтерілгіңіз келе ме?',
     playGamesEarnPoints: 'Ойындарда ойнап, ұпай жинаңыз!',
     play: 'Ойнау',
-
-    // Regional Chat
-    regionalChatTitle: 'Аймақтық чат',
-    regionalStudents: 'Аймақтың студенттері',
-    noMessages: 'Әзірге хабарлар жоқ',
-    beFirst: 'Бірінші бол! Басқа студенттермен танысыңыз',
-    writeMessage: 'Хабарлама жазыңыз...',
-    send: 'Жіберу',
-    beFriendly: 'Басқа студенттерге достық және құрметпен қараңыз',
-
-    // Common
-    loading: 'Жүктелуде...',
-    class: 'сынып',
-    back: 'Артқа',
   },
 
   en: {
@@ -272,6 +454,118 @@ export const translations = {
     start: 'Start',
     aiAgentDemo: 'Agentic AI Demo',
 
+    // Common
+    loading: 'Loading...',
+    class: 'grade',
+    back: 'Back',
+    save: 'Save',
+    cancel: 'Cancel',
+    delete: 'Delete',
+    edit: 'Edit',
+    add: 'Add',
+    close: 'Close',
+    confirm: 'Confirm',
+
+    // Dashboard
+    welcome: 'Welcome',
+    yourProgress: 'Your Progress',
+    recentActivity: 'Recent Activity',
+    quickStats: 'Quick Stats',
+    continueWhere: 'Continue Where You Left Off',
+    recommendedForYou: 'Recommended For You',
+    upcomingDeadlines: 'Upcoming Deadlines',
+
+    // Regional Chat
+    regionalChatTitle: 'Regional Chat',
+    regionalStudents: 'Regional Students',
+    noMessages: 'No messages yet',
+    beFirst: 'Be the first! Meet other students from',
+    writeMessage: 'Write a message...',
+    send: 'Send',
+    beFriendly: 'Be friendly and respectful to other students',
+
+    // Games
+    gamesTitle: 'Educational Games',
+    gamesSubtitle: 'Learn by playing! Earn points and compete with friends',
+    chooseSubject: 'Choose Subject',
+    chooseGame: 'Choose Game',
+    startGame: 'Start Game',
+    yourScore: 'Your Score',
+    highScore: 'High Score',
+    playAgain: 'Play Again',
+
+    // Profile
+    profileTitle: 'My Profile',
+    personalInfo: 'Personal Information',
+    name: 'Name',
+    email: 'Email',
+    region: 'Region',
+    selectRegion: 'Select Region',
+    achievements: 'Achievements',
+    statistics: 'Statistics',
+
+    // Settings
+    settingsTitle: 'Settings',
+    accountSettings: 'Account Settings',
+    notificationSettings: 'Notifications',
+    privacySettings: 'Privacy',
+    language: 'Language',
+    theme: 'Theme',
+    darkMode: 'Dark Mode',
+    lightMode: 'Light Mode',
+
+    // MBTI Profile
+    mbtiProfileTitle: 'MBTI Personality Profile',
+    yourType: 'Your Type',
+    learningStyle: 'Learning Style',
+    strengths: 'Strengths',
+    challenges: 'Challenges',
+    recommendations: 'Recommendations',
+
+    // Roadmap
+    roadmapTitle: 'My Roadmap',
+    yourGoals: 'Your Goals',
+    addGoal: 'Add Goal',
+    inProgress: 'In Progress',
+    completed: 'Completed',
+    deadline: 'Deadline',
+
+    // Calendar
+    calendarTitle: 'Events Calendar',
+    today: 'Today',
+    thisWeek: 'This Week',
+    thisMonth: 'This Month',
+    upcomingEvents: 'Upcoming Events',
+    noEvents: 'No Events',
+
+    // Shop
+    shopTitle: 'Rewards Shop',
+    yourBalance: 'Your Balance',
+    buyNow: 'Buy Now',
+    purchased: 'Purchased',
+    notEnoughPoints: 'Not Enough Points',
+
+    // Diagnostic
+    diagnosticTitle: 'Knowledge Diagnostic',
+    diagnosticSubtitle: 'Take the test and find out your level',
+    selectSubject: 'Select subject for testing',
+    startTest: 'Start Test',
+    testResults: 'Test Results',
+    yourLevel: 'Your Level',
+    beginner: 'Beginner',
+    intermediate: 'Intermediate',
+    advanced: 'Advanced',
+
+    // Opportunities
+    opportunitiesTitle: 'Opportunities',
+    opportunitiesSubtitle: 'Olympiads, competitions, and scholarships',
+    olympiads: 'Olympiads',
+    scholarships: 'Scholarships',
+    competitions: 'Competitions',
+    internships: 'Internships',
+    applyNow: 'Apply Now',
+    learnMore: 'Learn More',
+
     // Home page
     heroTitle: 'Personalized Education with Artificial Intelligence',
     heroSubtitle: 'Adaptive platform for 7-12 grade students. Knowledge level diagnostics, individual learning plan, and instant AI feedback.',
@@ -282,16 +576,12 @@ export const translations = {
     nisProgram: 'Programme',
     whyFmEdu: 'Why FM Edu?',
     modernApproach: 'Modern approach to education using AI',
-
-    // Features
     adaptiveLearning: 'Adaptive Learning Plan',
     adaptiveLearningDesc: 'AI analyzes diagnostic results and creates an individual learning path tailored to your level',
     nisProgContent: 'NIS Programme',
     nisProgContentDesc: 'All materials comply with the Nazarbayev Intellectual Schools curriculum for maximum preparation efficiency',
     instantFeedback: 'Instant Feedback',
     instantFeedbackDesc: 'Personalized explanations and hints for each task from the AI assistant',
-
-    // Subjects
     availableSubjects: 'Available Subjects',
     mathematics: 'Mathematics',
     physics: 'Physics',
@@ -301,29 +591,21 @@ export const translations = {
     chemistry: 'Chemistry',
     biology: 'Biology',
     english: 'English Language',
-
-    // Status
     available: 'Available',
     development: 'In Development',
     soon: 'Coming Soon',
     fullContent: 'Full Content',
     possibleErrors: 'Possible Errors',
     contentInProgress: 'Content in Progress',
-
-    // CTA
     startPersonalized: 'Start Personalized Learning Right Now',
     availableForAll: 'Available to all 7-12 grade students across Kazakhstan',
     createAccountFree: 'Create Free Account',
-
-    // Footer
     platformTitle: 'Platform',
     aboutUs: 'About',
     aboutPlatform: 'About Platform',
     contacts: 'Contacts',
     allRightsReserved: 'All rights reserved',
     personalizedPlatform: 'Personalized educational platform for students in Kazakhstan',
-
-    // Courses
     schoolProgram: 'Kazakhstan School Program',
     coursesTitle: 'Kazakhstan Curriculum Courses',
     coursesSubtitle: 'Complete school curriculum for grades 7-12 with video lessons and tests',
@@ -345,8 +627,6 @@ export const translations = {
     aiRecommendations: 'AI Recommendations',
     aiRecommendationsDesc: 'The system detected struggling topics. We recommend completing these courses to improve results:',
     weakness: 'Weakness',
-
-    // Leaderboard
     topStudents: 'Top Students by Points',
     allKazakhstan: 'All Kazakhstan',
     yourPosition: 'Your Position',
@@ -357,20 +637,6 @@ export const translations = {
     wantToRiseHigher: 'Want to Rise Higher?',
     playGamesEarnPoints: 'Play games and earn points!',
     play: 'Play',
-
-    // Regional Chat
-    regionalChatTitle: 'Regional Chat',
-    regionalStudents: 'Regional Students',
-    noMessages: 'No messages yet',
-    beFirst: 'Be the first! Meet other students from',
-    writeMessage: 'Write a message...',
-    send: 'Send',
-    beFriendly: 'Be friendly and respectful to other students',
-
-    // Common
-    loading: 'Loading...',
-    class: 'grade',
-    back: 'Back',
   }
 };
 
