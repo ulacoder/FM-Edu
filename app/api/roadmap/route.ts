@@ -1,41 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
-import { RoadmapGoal } from '@/types';
 
 const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY || '';
 const BASE_URL = 'https://ws-yf8sb129bygmh1i9.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1';
-const ROADMAPS_FILE = path.join(process.cwd(), 'data', 'roadmaps.json');
 
-// Инициализация файла если не существует
-async function ensureRoadmapsFile() {
-  try {
-    await fs.access(ROADMAPS_FILE);
-  } catch {
-    await fs.writeFile(ROADMAPS_FILE, JSON.stringify([]), 'utf-8');
-  }
-}
-
+// В Mentoria Hub стиле - не сохраняем ничего, просто генерируем и возвращаем
 export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url);
-    const studentId = searchParams.get('studentId');
-
-    if (!studentId) {
-      return NextResponse.json(
-        { error: 'Не указан ID студента' },
-        { status: 400 }
-      );
-    }
-
-    await ensureRoadmapsFile();
-    const roadmapsData = await fs.readFile(ROADMAPS_FILE, 'utf-8');
-    const roadmaps: RoadmapGoal[] = JSON.parse(roadmapsData);
-
-    const studentRoadmaps = roadmaps.filter(r => r.studentId === studentId);
-
-    return NextResponse.json({ roadmaps: studentRoadmaps });
-
+    // Просто возвращаем пустой массив - данные не персистятся
+    return NextResponse.json({ roadmaps: [] });
   } catch (error: any) {
     console.error('Error fetching roadmaps:', error);
     return NextResponse.json(
@@ -66,10 +38,6 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-
-    await ensureRoadmapsFile();
-    const roadmapsData = await fs.readFile(ROADMAPS_FILE, 'utf-8');
-    const roadmaps: RoadmapGoal[] = JSON.parse(roadmapsData);
 
     // Формируем промпт для AI
     let portfolioText = '';
@@ -168,7 +136,7 @@ ${portfolioText}
       }
     }
 
-    const newRoadmap: RoadmapGoal = {
+    const newRoadmap = {
       id: `roadmap_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       studentId,
       type,
@@ -193,10 +161,8 @@ ${portfolioText}
       updatedAt: new Date()
     };
 
-    roadmaps.push(newRoadmap);
-    await fs.writeFile(ROADMAPS_FILE, JSON.stringify(roadmaps, null, 2), 'utf-8');
-
-    console.log('Roadmap created successfully:', newRoadmap.id);
+    // НЕ СОХРАНЯЕМ - просто возвращаем сгенерированный роадмап
+    console.log('Roadmap generated successfully:', newRoadmap.id);
 
     return NextResponse.json({
       success: true,
@@ -223,34 +189,10 @@ export async function PATCH(req: NextRequest) {
       );
     }
 
-    await ensureRoadmapsFile();
-    const roadmapsData = await fs.readFile(ROADMAPS_FILE, 'utf-8');
-    const roadmaps: RoadmapGoal[] = JSON.parse(roadmapsData);
-
-    const roadmapIndex = roadmaps.findIndex(r => r.id === roadmapId);
-    if (roadmapIndex === -1) {
-      return NextResponse.json(
-        { error: 'Роадмап не найден' },
-        { status: 404 }
-      );
-    }
-
-    const taskIndex = roadmaps[roadmapIndex].tasks.findIndex(t => t.id === taskId);
-    if (taskIndex === -1) {
-      return NextResponse.json(
-        { error: 'Задача не найдена' },
-        { status: 404 }
-      );
-    }
-
-    roadmaps[roadmapIndex].tasks[taskIndex].completed = completed;
-    roadmaps[roadmapIndex].updatedAt = new Date();
-
-    await fs.writeFile(ROADMAPS_FILE, JSON.stringify(roadmaps, null, 2), 'utf-8');
-
+    // В Mentoria Hub стиле - просто возвращаем успех без сохранения
     return NextResponse.json({
       success: true,
-      roadmap: roadmaps[roadmapIndex]
+      roadmap: null
     });
 
   } catch (error: any) {

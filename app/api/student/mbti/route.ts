@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
-import { Student, MBTIType, MBTIProfile } from '@/types';
+import { MBTIType, MBTIProfile } from '@/types';
 import { qwenChat } from '@/lib/qwen';
-
-const STUDENTS_FILE = path.join(process.cwd(), 'data', 'students.json');
 
 const MBTI_DESCRIPTIONS: Record<MBTIType, { title: string; traits: string }> = {
   'INTJ': { title: 'Архитектор', traits: 'Стратегический мыслитель с жаждой знаний' },
@@ -27,7 +23,7 @@ const MBTI_DESCRIPTIONS: Record<MBTIType, { title: string; traits: string }> = {
 
 export async function POST(req: NextRequest) {
   try {
-    const { studentId, mbtiType } = await req.json();
+    const { studentId, mbtiType, studentName, grade } = await req.json();
 
     if (!studentId || !mbtiType) {
       return NextResponse.json(
@@ -36,26 +32,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const studentsData = await fs.readFile(STUDENTS_FILE, 'utf-8');
-    const students: Student[] = JSON.parse(studentsData);
-
-    const studentIndex = students.findIndex(s => s.id === studentId);
-    if (studentIndex === -1) {
-      return NextResponse.json(
-        { error: 'Студент не найден' },
-        { status: 404 }
-      );
-    }
-
-    const student = students[studentIndex];
     const mbtiInfo = MBTI_DESCRIPTIONS[mbtiType as MBTIType];
 
     // Генерируем детальный анализ через AI (как в Mentoria Hub)
     const prompt = `Ты эксперт по психологии и типологии MBTI, работающий с платформой FM Edu для школьников.
 
 **Профиль студента:**
-- Имя: ${student.name}
-- Класс: ${student.grade}
+- Имя: ${studentName || 'Студент'}
+- Класс: ${grade || 10}
 - MBTI тип: ${mbtiType} (${mbtiInfo.title})
 
 **Твоя задача:**
@@ -63,7 +47,7 @@ export async function POST(req: NextRequest) {
 
 Верни ТОЛЬКО валидный JSON в таком формате:
 {
-  "feedback": "Персональное приветствие и общий анализ личности студента (200-300 слов). Обращайся к студенту напрямую на 'ты'. Объясни что значит быть ${mbtiType}, как это проявляется в учебе и жизни. Будь теплым и мотивирующим. Начни с 'Привет, ${student.name}!'",
+  "feedback": "Персональное приветствие и общий анализ личности студента (200-300 слов). Обращайся к студенту напрямую на 'ты'. Объясни что значит быть ${mbtiType}, как это проявляется в учебе и жизни. Будь теплым и мотивирующим. Начни с 'Привет!'",
   "strengths": [
     "Конкретная сильная сторона 1 специфичная для ${mbtiType} в учебе",
     "Сильная сторона 2 в социальном взаимодействии",
@@ -130,10 +114,7 @@ export async function POST(req: NextRequest) {
       setAt: new Date()
     };
 
-    students[studentIndex].mbtiProfile = mbtiProfile;
-
-    await fs.writeFile(STUDENTS_FILE, JSON.stringify(students, null, 2), 'utf-8');
-
+    // НЕ СОХРАНЯЕМ - просто возвращаем (как в Mentoria Hub)
     return NextResponse.json({
       success: true,
       profile: mbtiProfile
@@ -150,30 +131,8 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url);
-    const studentId = searchParams.get('studentId');
-
-    if (!studentId) {
-      return NextResponse.json(
-        { error: 'Не указан ID студента' },
-        { status: 400 }
-      );
-    }
-
-    const studentsData = await fs.readFile(STUDENTS_FILE, 'utf-8');
-    const students: Student[] = JSON.parse(studentsData);
-
-    const student = students.find(s => s.id === studentId);
-    if (!student) {
-      return NextResponse.json(
-        { error: 'Студент не найден' },
-        { status: 404 }
-      );
-    }
-
-    return NextResponse.json({
-      profile: student.mbtiProfile || null
-    });
+    // В Mentoria Hub стиле - данные не персистятся, возвращаем null
+    return NextResponse.json({ profile: null });
 
   } catch (error: any) {
     console.error('Error getting MBTI profile:', error);
