@@ -16,8 +16,6 @@ export default function DiagnosticPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
-  const [aiAnalysis, setAiAnalysis] = useState<string>('');
-  const [analyzingAI, setAnalyzingAI] = useState(false);
 
   const handleStartTest = async () => {
     setLoading(true);
@@ -66,9 +64,6 @@ export default function DiagnosticPage() {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const userStr = localStorage.getItem('user');
-      const user = userStr ? JSON.parse(userStr) : null;
-
       const response = await fetch('/api/diagnostic/submit', {
         method: 'POST',
         headers: {
@@ -87,37 +82,10 @@ export default function DiagnosticPage() {
       const data = await response.json();
       setResult(data);
       setStep('result');
-      setLoading(false);
-
-      // Генерация AI-анализа
-      setAnalyzingAI(true);
-      try {
-        const aiResponse = await fetch('/api/diagnostic/analyze', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            subject: test?.subject,
-            score: data.score,
-            level: data.level,
-            correctCount: data.correctCount,
-            totalQuestions: data.totalQuestions,
-            weakTopics: data.weakTopics,
-            studentName: user?.name || 'Ученик',
-          }),
-        });
-
-        if (aiResponse.ok) {
-          const aiData = await aiResponse.json();
-          setAiAnalysis(aiData.analysis);
-        }
-      } catch (error) {
-        console.error('AI analysis error:', error);
-      }
-      setAnalyzingAI(false);
     } catch (error) {
       alert('Ошибка соединения');
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   // Шаг 1: Выбор предмета и класса
@@ -267,6 +235,17 @@ export default function DiagnosticPage() {
     };
     const displayLevel = levelText[result.level] || 'Не определён';
 
+    // Генерация мок-анализа на основе результата
+    const getAnalysis = () => {
+      if (result.score >= 75) {
+        return "Отлично справился с диагностикой! Твои знания на высоком уровне. Особенно хорошо у тебя идут основные темы - продолжай в том же духе! Советую перейти к более сложным задачам и олимпиадным заданиям. У тебя большой потенциал! 🎯";
+      } else if (result.score >= 50) {
+        return "Хороший результат! Ты показал средний уровень знаний, это отличная база для дальнейшего роста. Обрати внимание на темы, где были ошибки - повтори теорию и порешай задачки. Практика делает мастера! 💪";
+      } else {
+        return "Не переживай, это только начало! Диагностика показала темы, над которыми нужно поработать. Советую начать с базовых тем и постепенно двигаться дальше. Главное - практика и регулярные занятия. Ты точно справишься! 🚀";
+      }
+    };
+
     return (
       <div className="min-h-screen flex flex-col">{/* Content */}
         <div className="flex-1 py-12 px-4">
@@ -299,21 +278,9 @@ export default function DiagnosticPage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-2 text-foreground">Анализ от AI-преподавателя</h3>
-                    {analyzingAI ? (
-                      <div className="space-y-2">
-                        <div className="h-4 bg-muted rounded animate-pulse"></div>
-                        <div className="h-4 bg-muted rounded animate-pulse w-5/6"></div>
-                        <div className="h-4 bg-muted rounded animate-pulse w-4/6"></div>
-                      </div>
-                    ) : aiAnalysis ? (
-                      <p className="text-foreground leading-relaxed whitespace-pre-line">
-                        {aiAnalysis}
-                      </p>
-                    ) : (
-                      <p className="text-muted-foreground italic">
-                        Анализ недоступен
-                      </p>
-                    )}
+                    <p className="text-foreground leading-relaxed">
+                      {getAnalysis()}
+                    </p>
                   </div>
                 </div>
               </div>

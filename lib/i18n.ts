@@ -236,8 +236,6 @@ export const translations = {
     groupAvg: 'Средний по группе',
     topicStrengthsWeaknesses: 'Сильные и слабые стороны',
     subjectProgress: 'Прогресс по предметам',
-    advanced: 'Продвинутый',
-    intermediate: 'Средний',
   },
 
   kk: {
@@ -461,8 +459,6 @@ export const translations = {
     groupAvg: 'Топтық орташа',
     topicStrengthsWeaknesses: 'Күшті және әлсіз жақтары',
     subjectProgress: 'Пәндер бойынша үлгерім',
-    advanced: 'Жетілдірілген',
-    intermediate: 'Орташа',
   },
 
   en: {
@@ -686,8 +682,6 @@ export const translations = {
     groupAvg: 'Group Avg',
     topicStrengthsWeaknesses: 'Topic Strengths & Weaknesses',
     subjectProgress: 'Subject Progress',
-    advanced: 'Advanced',
-    intermediate: 'Intermediate',
   }
 };
 
