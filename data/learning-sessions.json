@@ -2651,6 +2651,226 @@
         "metadata": {
           "pathname": "/mbti-profile"
         }
+      },
+      {
+        "id": "activity_1787443265077_9783hqu6v",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "game_play",
+        "duration": 125224,
+        "timestamp": "2026-08-23T00:01:05.077Z",
+        "metadata": {
+          "pathname": "/games"
+        }
+      },
+      {
+        "id": "activity_1787443272011_hnqn1g8tf",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 6432,
+        "timestamp": "2026-08-23T00:01:12.011Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787443277670_i7fr0pi3n",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1801,
+        "timestamp": "2026-08-23T00:01:17.670Z",
+        "metadata": {
+          "pathname": "/roadmap"
+        }
+      },
+      {
+        "id": "activity_1787443314506_xhru4lfd4",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 48929,
+        "timestamp": "2026-08-23T00:01:54.506Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787443325318_mat8vrt2a",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "game_play",
+        "duration": 5845,
+        "timestamp": "2026-08-23T00:02:05.318Z",
+        "metadata": {
+          "pathname": "/games"
+        }
+      },
+      {
+        "id": "activity_1787443332638_9qifsmvn6",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 6273,
+        "timestamp": "2026-08-23T00:02:12.638Z",
+        "metadata": {
+          "pathname": "/roadmap"
+        }
+      },
+      {
+        "id": "activity_1787443341915_lsexga6gt",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 8908,
+        "timestamp": "2026-08-23T00:02:21.915Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787443386025_i0d4lvvtq",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 5731,
+        "timestamp": "2026-08-23T00:03:06.025Z",
+        "metadata": {
+          "pathname": "/ai-agent-demo"
+        }
+      },
+      {
+        "id": "activity_1787443393975_ojd4s3jt8",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 7096,
+        "timestamp": "2026-08-23T00:03:13.975Z",
+        "metadata": {
+          "pathname": "/regional-chat"
+        }
+      },
+      {
+        "id": "activity_1787443421775_aw0saq4nm",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 27330,
+        "timestamp": "2026-08-23T00:03:41.775Z",
+        "metadata": {
+          "pathname": "/mbti-profile"
+        }
+      },
+      {
+        "id": "activity_1787443435523_yfs2yfh1p",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1593,
+        "timestamp": "2026-08-23T00:03:55.523Z",
+        "metadata": {
+          "pathname": "/profile"
+        }
+      },
+      {
+        "id": "activity_1787443438218_xq25ajm43",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 2176,
+        "timestamp": "2026-08-23T00:03:58.218Z",
+        "metadata": {
+          "pathname": "/progress"
+        }
+      },
+      {
+        "id": "activity_1787443682178_o28qnjsz0",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 242969,
+        "timestamp": "2026-08-23T00:08:02.178Z",
+        "metadata": {
+          "pathname": "/profile"
+        }
+      },
+      {
+        "id": "activity_1787443700105_wd5amn7rb",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 17509,
+        "timestamp": "2026-08-23T00:08:20.105Z",
+        "metadata": {
+          "pathname": "/opportunities"
+        }
+      },
+      {
+        "id": "activity_1787443735722_egwiuqaj5",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 35246,
+        "timestamp": "2026-08-23T00:08:55.722Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      },
+      {
+        "id": "activity_1787443737103_93hquthm1",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 1031,
+        "timestamp": "2026-08-23T00:08:57.103Z",
+        "metadata": {
+          "pathname": "/roadmap"
+        }
+      },
+      {
+        "id": "activity_1787443742924_h8wzom6g7",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "game_play",
+        "duration": 5469,
+        "timestamp": "2026-08-23T00:09:02.924Z",
+        "metadata": {
+          "pathname": "/games"
+        }
+      },
+      {
+        "id": "activity_1787443811294_rfqyexu5w",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 67989,
+        "timestamp": "2026-08-23T00:10:11.294Z",
+        "metadata": {
+          "pathname": "/mbti-profile"
+        }
+      },
+      {
+        "id": "activity_1787443820905_g4swc1fsc",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 9177,
+        "timestamp": "2026-08-23T00:10:20.905Z",
+        "metadata": {
+          "pathname": "/mbti-profile"
+        }
+      },
+      {
+        "id": "activity_1787443827335_r5cyq13iu",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 6067,
+        "timestamp": "2026-08-23T00:10:27.335Z",
+        "metadata": {
+          "pathname": "/mbti-profile"
+        }
+      },
+      {
+        "id": "activity_1787443830625_iytjxusob",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 2962,
+        "timestamp": "2026-08-23T00:10:30.625Z",
+        "metadata": {
+          "pathname": "/mbti-profile"
+        }
+      },
+      {
+        "id": "activity_1787443867750_5favcrk1x",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 36797,
+        "timestamp": "2026-08-23T00:11:07.750Z",
+        "metadata": {
+          "pathname": "/mbti-profile"
+        }
       }
     ],
     "interventions": []

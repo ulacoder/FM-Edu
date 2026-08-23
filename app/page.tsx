@@ -218,7 +218,7 @@ export default function Home() {
                 ? <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 rounded">{t('development')}</span>
                 : <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-gray-500/20 text-gray-600 dark:text-gray-400 rounded">{t('soon')}</span>;
 
-              const displayName = subject.customName || t(subject.nameKey);
+              const displayName = t(subject.nameKey);
 
               const card = (
                 <div

@@ -17,12 +17,17 @@ import {
   Brain
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { LanguageSwitcher } from '@/components/language-switcher';
 import { CountdownTimer } from '@/components/countdown-timer';
+import { getTranslation, type Locale } from '@/lib/i18n';
 
 export default function StudentDashboard() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [locale, setLocale] = useState<Locale>('ru');
+
+  const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -47,7 +52,20 @@ export default function StudentDashboard() {
       console.error('Error parsing user data:', e);
       router.push('/login');
     }
+
+    const savedLocale = localStorage.getItem('locale') as Locale;
+    if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
+      setLocale(savedLocale);
+    }
+
+    const handleLocaleChange = (e: CustomEvent<Locale>) => {
+      setLocale(e.detail);
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
     setLoading(false);
+
+    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
   }, [router]);
 
   const loadUserPoints = async (studentId: string) => {
@@ -69,7 +87,7 @@ export default function StudentDashboard() {
   if (loading || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg text-muted-foreground">Загрузка...</div>
+        <div className="text-lg text-muted-foreground">{t('loading')}</div>
       </div>
     );
   }
