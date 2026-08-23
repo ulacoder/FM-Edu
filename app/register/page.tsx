@@ -112,45 +112,39 @@ export default function RegisterPage() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                className="border border-border"
-                
+                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all bg-background border border-border focus:border-primary text-foreground"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2" className="text-foreground">
+              <label className="block text-sm font-medium mb-2 text-foreground">
                 Email
               </label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                className="border border-border"
-                
+                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all bg-background border border-border focus:border-primary text-foreground"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2" className="text-foreground">
+              <label className="block text-sm font-medium mb-2 text-foreground">
                 Пароль
               </label>
               <input
                 type="password"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all"
-                className="border border-border"
-                
+                className="w-full px-4 py-2.5 rounded-lg outline-none transition-all bg-background border border-border focus:border-primary text-foreground"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-3" className="text-foreground">
+              <label className="block text-sm font-medium mb-3 text-foreground">
                 Роль
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -184,14 +178,13 @@ export default function RegisterPage() {
             {formData.role === 'student' && (
               <>
                 <div>
-                  <label className="block text-sm font-medium mb-2" className="text-foreground">
+                  <label className="block text-sm font-medium mb-2 text-foreground">
                     Класс
                   </label>
                   <select
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: parseInt(e.target.value) })}
-                    className="w-full px-4 py-2.5 rounded-lg outline-none"
-                    className="border border-border text-foreground bg-background"
+                    className="w-full px-4 py-2.5 rounded-lg outline-none border border-border text-foreground bg-background"
                   >
                     {[7, 8, 9, 10, 11, 12].map(grade => (
                       <option key={grade} value={grade}>{grade} класс</option>
@@ -200,7 +193,7 @@ export default function RegisterPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-3" className="text-foreground">
+                  <label className="block text-sm font-medium mb-3 text-foreground">
                     Цели обучения
                   </label>
                   <div className="space-y-2">
@@ -213,21 +206,20 @@ export default function RegisterPage() {
                           className="w-4 h-4 rounded"
                           style={{ accentColor: '#8B5CF6' }}
                         />
-                        <span className="ml-3 text-sm" className="text-foreground">{goal}</span>
+                        <span className="ml-3 text-sm text-foreground">{goal}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2" className="text-foreground">
+                  <label className="block text-sm font-medium mb-2 text-foreground">
                     Регион
                   </label>
                   <select
                     value={formData.region}
                     onChange={(e) => setFormData({ ...formData, region: e.target.value as Region })}
-                    className="w-full px-4 py-2.5 rounded-lg outline-none"
-                    className="border border-border text-foreground bg-background"
+                    className="w-full px-4 py-2.5 rounded-lg outline-none border border-border text-foreground bg-background"
                   >
                     {Object.entries(regionNames).map(([key, name]) => (
                       <option key={key} value={key}>{name}</option>
@@ -236,14 +228,13 @@ export default function RegisterPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2" className="text-foreground">
+                  <label className="block text-sm font-medium mb-2 text-foreground">
                     MBTI тип личности
                   </label>
                   <select
                     value={formData.mbtiType}
                     onChange={(e) => setFormData({ ...formData, mbtiType: e.target.value as MBTIType })}
-                    className="w-full px-4 py-2.5 rounded-lg outline-none"
-                    className="border border-border text-foreground bg-background"
+                    className="w-full px-4 py-2.5 rounded-lg outline-none border border-border text-foreground bg-background"
                     required
                   >
                     <option value="">Выберите тип</option>
@@ -251,7 +242,7 @@ export default function RegisterPage() {
                       <option key={type} value={type}>{type}</option>
                     ))}
                   </select>
-                  <p className="mt-1 text-xs" className="text-muted-foreground">
+                  <p className="mt-1 text-xs text-muted-foreground">
                     Не знаешь свой тип? Пройди тест на{' '}
                     <a href="https://www.16personalities.com/ru" target="_blank" rel="noopener noreferrer" className="underline">
                       16personalities.com
@@ -263,7 +254,7 @@ export default function RegisterPage() {
 
             {formData.role === 'teacher' && (
               <div>
-                <label className="block text-sm font-medium mb-3" className="text-foreground">
+                <label className="block text-sm font-medium mb-3 text-foreground">
                   Предметы
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -276,7 +267,7 @@ export default function RegisterPage() {
                         className="w-4 h-4 rounded"
                         style={{ accentColor: '#8B5CF6' }}
                       />
-                      <span className="ml-3 text-sm" className="text-foreground">{name}</span>
+                      <span className="ml-3 text-sm text-foreground">{name}</span>
                     </label>
                   ))}
                 </div>
@@ -295,9 +286,9 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p className="text-center text-sm" className="text-muted-foreground">
+          <p className="text-center text-sm text-muted-foreground">
             Уже есть аккаунт?{' '}
-            <Link href="/login" className="font-medium" className="text-foreground">
+            <Link href="/login" className="font-medium text-foreground">
               Войти
             </Link>
           </p>
