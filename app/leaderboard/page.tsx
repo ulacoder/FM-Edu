@@ -88,10 +88,10 @@ export default function LeaderboardPage() {
       { studentId: 's9', studentName: 'Жанар Ержанова', grade: 12, region: 'pavlodar', totalPoints: 1760, rank: 9 },
       { studentId: 's10', studentName: 'Санжар Абдуллаев', grade: 11, region: 'atyrau', totalPoints: 1690, rank: 10 },
       { studentId: 's11', studentName: 'Аида Касымова', grade: 10, region: 'taraz', totalPoints: 1620, rank: 11 },
-      { studentId: 's12', studentName: 'Ерлан Токаев', grade: 12, region: 'aktau', totalPoints: 1580, rank: 12 },
-      { studentId: 's13', studentName: 'Дина Омарова', grade: 11, region: 'semey', totalPoints: 1520, rank: 13 },
-      { studentId: 's14', studentName: 'Тимур Досаев', grade: 10, region: 'kokshetau', totalPoints: 1460, rank: 14 },
-      { studentId: 's15', studentName: 'Камила Нурланова', grade: 12, region: 'oskemen', totalPoints: 1400, rank: 15 },
+      { studentId: 's12', studentName: 'Ерлан Токаев', grade: 12, region: 'mangystau', totalPoints: 1580, rank: 12 },
+      { studentId: 's13', studentName: 'Дина Омарова', grade: 11, region: 'petropavl', totalPoints: 1520, rank: 13 },
+      { studentId: 's14', studentName: 'Тимур Досаев', grade: 10, region: 'kyzylorda', totalPoints: 1460, rank: 14 },
+      { studentId: 's15', studentName: 'Камила Нурланова', grade: 12, region: 'ustkamenogorsk', totalPoints: 1400, rank: 15 },
     ];
 
     try {
