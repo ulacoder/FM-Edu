@@ -2641,6 +2641,16 @@
         "metadata": {
           "pathname": "/mbti-profile"
         }
+      },
+      {
+        "id": "activity_1787443139321_y56emz3sa",
+        "studentId": "1787397346536-1e9y829el",
+        "type": "material_view",
+        "duration": 101779,
+        "timestamp": "2026-08-22T23:58:59.321Z",
+        "metadata": {
+          "pathname": "/mbti-profile"
+        }
       }
     ],
     "interventions": []

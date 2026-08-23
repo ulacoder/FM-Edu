@@ -25,17 +25,33 @@ import {
   ShoppingBag,
   Lightbulb
 } from "lucide-react";
+import { getTranslation, type Locale } from "@/lib/i18n";
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [locale, setLocale] = useState<Locale>('ru');
   const pathname = usePathname();
   const router = useRouter();
+
+  const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
     // Check authentication status
     const token = localStorage.getItem('token');
     setIsAuthenticated(!!token);
+
+    const savedLocale = localStorage.getItem('locale') as Locale;
+    if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
+      setLocale(savedLocale);
+    }
+
+    const handleLocaleChange = (e: CustomEvent<Locale>) => {
+      setLocale(e.detail);
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
+    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
   }, []);
 
   const handleLogout = () => {
@@ -48,27 +64,27 @@ export function Sidebar() {
 
   const menuItems: Array<{
     icon: any;
-    label: string;
+    labelKey: keyof typeof import('@/lib/i18n').translations.ru;
     href: string;
     auth: boolean;
     action?: string;
   }> = [
-    { icon: Home, label: "Главная", href: "/", auth: false },
-    { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard/student", auth: true },
-    { icon: Sparkles, label: "Agentic AI Demo", href: "/ai-agent-demo", auth: true },
-    { icon: TestTube, label: "Диагностика", href: "/diagnostic", auth: false },
-    { icon: BookOpen, label: "Курсы", href: "/courses", auth: false },
-    { icon: Gamepad2, label: "Игры", href: "/games", auth: false },
-    { icon: Target, label: "Мой роадмап", href: "/roadmap", auth: true },
-    { icon: Lightbulb, label: "Возможности", href: "/opportunities", auth: false },
-    { icon: Calendar, label: "Календарь", href: "/calendar", auth: true },
-    { icon: ShoppingBag, label: "Магазин", href: "/shop", auth: true },
-    { icon: Trophy, label: "Лидерборд", href: "/leaderboard", auth: true },
-    { icon: MessageCircle, label: "Региональный чат", href: "/regional-chat", auth: true },
-    { icon: Brain, label: "MBTI Профиль", href: "/mbti-profile", auth: true },
-    { icon: TrendingUp, label: "Прогресс", href: "/progress", auth: true },
-    { icon: User, label: "Профиль", href: "/profile", auth: true },
-    { icon: Settings, label: "Настройки", href: "/settings", auth: true },
+    { icon: Home, labelKey: "home", href: "/", auth: false },
+    { icon: LayoutDashboard, labelKey: "dashboard", href: "/dashboard/student", auth: true },
+    { icon: Sparkles, labelKey: "aiAgentDemo", href: "/ai-agent-demo", auth: true },
+    { icon: TestTube, labelKey: "diagnostic", href: "/diagnostic", auth: false },
+    { icon: BookOpen, labelKey: "courses", href: "/courses", auth: false },
+    { icon: Gamepad2, labelKey: "games", href: "/games", auth: false },
+    { icon: Target, labelKey: "roadmap", href: "/roadmap", auth: true },
+    { icon: Lightbulb, labelKey: "opportunities", href: "/opportunities", auth: false },
+    { icon: Calendar, labelKey: "calendar", href: "/calendar", auth: true },
+    { icon: ShoppingBag, labelKey: "shop", href: "/shop", auth: true },
+    { icon: Trophy, labelKey: "leaderboard", href: "/leaderboard", auth: true },
+    { icon: MessageCircle, labelKey: "regionalChat", href: "/regional-chat", auth: true },
+    { icon: Brain, labelKey: "mbtiProfile", href: "/mbti-profile", auth: true },
+    { icon: TrendingUp, labelKey: "progress", href: "/progress", auth: true },
+    { icon: User, labelKey: "profile", href: "/profile", auth: true },
+    { icon: Settings, labelKey: "settings", href: "/settings", auth: true },
   ];
 
   const handleItemClick = (item: any) => {
@@ -142,7 +158,7 @@ export function Sidebar() {
                 const isActive = pathname === item.href;
 
                 return (
-                  <li key={item.label}>
+                  <li key={item.labelKey}>
                     {item.action ? (
                       <button
                         onClick={() => handleItemClick(item)}
@@ -153,7 +169,7 @@ export function Sidebar() {
                         }`}
                       >
                         <Icon className="w-4 h-4" />
-                        <span className="text-sm font-medium">{item.label}</span>
+                        <span className="text-sm font-medium">{t(item.labelKey)}</span>
                       </button>
                     ) : (
                       <Link
@@ -166,7 +182,7 @@ export function Sidebar() {
                         }`}
                       >
                         <Icon className="w-4 h-4" />
-                        <span className="text-sm font-medium">{item.label}</span>
+                        <span className="text-sm font-medium">{t(item.labelKey)}</span>
                       </Link>
                     )}
                   </li>
@@ -183,7 +199,7 @@ export function Sidebar() {
                 className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
               >
                 <LogOut className="w-5 h-5" />
-                <span className="font-medium">Выйти</span>
+                <span className="font-medium">{t('logout')}</span>
               </button>
             ) : (
               <div className="space-y-2">
@@ -192,14 +208,14 @@ export function Sidebar() {
                   onClick={() => setIsOpen(false)}
                   className="block w-full text-center px-4 py-2 text-purple-600 border-2 border-purple-600 rounded-lg hover:bg-purple-50 transition-colors font-medium"
                 >
-                  Войти
+                  {t('login')}
                 </Link>
                 <Link
                   href="/register"
                   onClick={() => setIsOpen(false)}
                   className="block w-full text-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
                 >
-                  Регистрация
+                  {t('register')}
                 </Link>
               </div>
             )}
