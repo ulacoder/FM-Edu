@@ -1,9 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
-import { Student } from '@/types';
-
-const STUDENTS_FILE = path.join(process.cwd(), 'data', 'students.json');
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,52 +11,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const studentsData = await fs.readFile(STUDENTS_FILE, 'utf-8');
-    const students: Student[] = JSON.parse(studentsData);
-
-    const studentIndex = students.findIndex(s => s.id === studentId);
-    if (studentIndex === -1) {
-      return NextResponse.json(
-        { error: 'Студент не найден' },
-        { status: 404 }
-      );
-    }
-
-    const student = students[studentIndex];
-
-    // Инициализируем поля если их нет
-    if (!student.totalPoints) {
-      student.totalPoints = 0;
-    }
-
-    if (!student.gameStats) {
-      student.gameStats = {
-        totalGamesPlayed: 0,
-        bestScoresBySubject: {},
-        totalPointsEarned: 0
-      };
-    }
-
-    // Обновляем статистику
-    student.totalPoints += score;
-    student.gameStats.totalGamesPlayed += 1;
-    student.gameStats.totalPointsEarned += score;
-    student.gameStats.lastPlayedAt = new Date();
-
-    // Обновляем лучший результат по предмету
-    const currentBest = student.gameStats.bestScoresBySubject[subject] || 0;
-    if (score > currentBest) {
-      student.gameStats.bestScoresBySubject[subject] = score;
-    }
-
-    // Сохраняем
-    students[studentIndex] = student;
-    await fs.writeFile(STUDENTS_FILE, JSON.stringify(students, null, 2), 'utf-8');
-
+    // Просто возвращаем успех - данные управляются на фронте через localStorage
     return NextResponse.json({
       success: true,
-      newTotal: student.totalPoints,
-      gameStats: student.gameStats
+      newTotal: score,
+      gameStats: {
+        totalGamesPlayed: 1,
+        bestScoresBySubject: { [subject]: score },
+        totalPointsEarned: score
+      }
     });
 
   } catch (error: any) {
@@ -85,20 +43,10 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const studentsData = await fs.readFile(STUDENTS_FILE, 'utf-8');
-    const students: Student[] = JSON.parse(studentsData);
-
-    const student = students.find(s => s.id === studentId);
-    if (!student) {
-      return NextResponse.json(
-        { error: 'Студент не найден' },
-        { status: 404 }
-      );
-    }
-
+    // Возвращаем дефолтные значения - данные управляются на фронте
     return NextResponse.json({
-      totalPoints: student.totalPoints || 0,
-      gameStats: student.gameStats || {
+      totalPoints: 0,
+      gameStats: {
         totalGamesPlayed: 0,
         bestScoresBySubject: {},
         totalPointsEarned: 0

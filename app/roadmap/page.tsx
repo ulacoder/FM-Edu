@@ -81,17 +81,13 @@ export default function RoadmapPage() {
 
   const loadRoadmaps = async (studentId: string) => {
     try {
-      // Сначала загружаем из localStorage
+      // Загружаем из localStorage
       const cached = localStorage.getItem(`roadmaps_${studentId}`);
       if (cached) {
         setRoadmaps(JSON.parse(cached));
       }
 
-      const response = await fetch(`/api/roadmap?studentId=${studentId}`);
-      if (response.ok) {
-        const data = await response.json();
-        setRoadmaps(data.roadmaps);
-      }
+      // API больше не возвращает данные, используем только localStorage
     } catch (error) {
       console.error('Error loading roadmaps:', error);
     }
