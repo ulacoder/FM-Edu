@@ -65,6 +65,19 @@ export default function CalendarPage() {
 
   const loadDeadlines = async (studentId: string) => {
     try {
+      // Загружаем из localStorage
+      const cached = localStorage.getItem(`deadlines_${studentId}`);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        // Конвертируем date строки обратно в Date объекты
+        const deadlinesWithDates = parsed.map((d: any) => ({
+          ...d,
+          date: new Date(d.date),
+          createdAt: new Date(d.createdAt)
+        }));
+        setDeadlines(deadlinesWithDates);
+      }
+
       const res = await fetch(`/api/deadlines?studentId=${studentId}`);
       const data = await res.json();
       setDeadlines(data.deadlines || []);
@@ -89,6 +102,11 @@ export default function CalendarPage() {
       });
 
       if (res.ok) {
+        const data = await res.json();
+        const updatedDeadlines = [...deadlines, data.deadline];
+        setDeadlines(updatedDeadlines);
+        // Сохраняем в localStorage
+        localStorage.setItem(`deadlines_${user.id}`, JSON.stringify(updatedDeadlines));
         setFormData({
           title: '',
           type: 'exam',
@@ -98,7 +116,6 @@ export default function CalendarPage() {
           color: '#8B5CF6'
         });
         setShowForm(false);
-        loadDeadlines(user.id);
       }
     } catch (error) {
       console.error('Error creating deadline:', error);
