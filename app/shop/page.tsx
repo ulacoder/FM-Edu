@@ -181,7 +181,7 @@ export default function ShopPage() {
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               selectedCategory === 'all'
                 ? 'bg-purple-600 text-white'
-                : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                : 'bg-card border border-border text-foreground hover:bg-muted'
             }`}
           >
             Все товары
@@ -195,7 +195,7 @@ export default function ShopPage() {
                 className={`px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 ${
                   selectedCategory === key
                     ? 'bg-purple-600 text-white'
-                    : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                    : 'bg-card border border-border text-foreground hover:bg-muted'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -215,7 +215,7 @@ export default function ShopPage() {
             return (
               <div
                 key={item.id}
-                className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow ${
+                className={`bg-card rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow ${
                   item.rarity ? rarityColors[item.rarity] : ''
                 } border-2`}
               >
@@ -289,7 +289,7 @@ export default function ShopPage() {
       {/* Purchase Modal (для мерча) */}
       {purchaseModal?.show && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
+          <div className="bg-card rounded-lg p-6 max-w-md w-full">
             <h2 className="text-xl font-bold mb-4">Информация для доставки</h2>
             <p className="text-sm text-gray-600 mb-4">
               Товар: <span className="font-semibold">{purchaseModal.item.name}</span>
@@ -301,21 +301,21 @@ export default function ShopPage() {
                 placeholder="Адрес доставки"
                 value={shippingInfo.address}
                 onChange={(e) => setShippingInfo({ ...shippingInfo, address: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               />
               <input
                 type="text"
                 placeholder="Город"
                 value={shippingInfo.city}
                 onChange={(e) => setShippingInfo({ ...shippingInfo, city: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               />
               <input
                 type="tel"
                 placeholder="Телефон"
                 value={shippingInfo.phone}
                 onChange={(e) => setShippingInfo({ ...shippingInfo, phone: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               />
             </div>
 
@@ -332,7 +332,7 @@ export default function ShopPage() {
                   setPurchaseModal(null);
                   setShippingInfo({ address: '', city: '', phone: '' });
                 }}
-                className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                className="px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors"
               >
                 Отмена
               </button>
@@ -343,3 +343,4 @@ export default function ShopPage() {
     </div>
   );
 }
+

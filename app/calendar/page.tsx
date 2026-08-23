@@ -197,7 +197,7 @@ export default function CalendarPage() {
 
         {/* Add Form */}
         {showForm && (
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div className="bg-card rounded-lg shadow-md p-6 mb-6">
             <h2 className="text-xl font-bold mb-4">Новый дедлайн</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -313,7 +313,7 @@ export default function CalendarPage() {
         {/* Deadlines List */}
         <div className="space-y-4">
           {deadlines.length === 0 ? (
-            <div className="bg-white rounded-lg shadow-md p-8 text-center">
+            <div className="bg-card rounded-lg shadow-md p-8 text-center">
               <CalendarIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <p className="text-gray-500">Нет дедлайнов. Добавь свой первый!</p>
             </div>
@@ -321,7 +321,7 @@ export default function CalendarPage() {
             deadlines.map(deadline => (
               <div
                 key={deadline.id}
-                className="bg-white rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow"
+                className="bg-card rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow"
                 style={{ borderLeft: `4px solid ${deadline.color}` }}
               >
                 <div className="flex items-start justify-between">
@@ -388,3 +388,4 @@ export default function CalendarPage() {
     </div>
   );
 }
+

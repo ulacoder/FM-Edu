@@ -71,17 +71,17 @@ export default function TeacherDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-card shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Link href="/" className="text-2xl font-bold text-blue-600">
               EduAI.kz
             </Link>
             <span className="text-gray-400">|</span>
-            <span className="text-gray-700">Панель учителя</span>
+            <span className="text-foreground">Панель учителя</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-gray-700">{teacher?.name}</span>
+            <span className="text-foreground">{teacher?.name}</span>
             <button
               onClick={handleLogout}
               className="px-4 py-2 text-gray-600 hover:text-gray-900"
@@ -105,13 +105,13 @@ export default function TeacherDashboard() {
 
         {/* Статистика */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-card rounded-lg shadow-sm p-6">
             <div className="text-3xl mb-2">👥</div>
             <div className="text-3xl font-bold text-gray-900">{students.length}</div>
             <div className="text-gray-600">Всего учеников</div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-card rounded-lg shadow-sm p-6">
             <div className="text-3xl mb-2">✅</div>
             <div className="text-3xl font-bold text-gray-900">
               {progress.reduce((acc, p) => acc + p.completedAssignments.length, 0)}
@@ -119,7 +119,7 @@ export default function TeacherDashboard() {
             <div className="text-gray-600">Выполнено заданий</div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-card rounded-lg shadow-sm p-6">
             <div className="text-3xl mb-2">📊</div>
             <div className="text-3xl font-bold text-gray-900">
               {progress.length > 0
@@ -136,7 +136,7 @@ export default function TeacherDashboard() {
         </div>
 
         {/* Список учеников */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <div className="bg-card rounded-lg shadow-sm p-6 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Ученики</h2>
 
           {students.length === 0 ? (
@@ -149,13 +149,13 @@ export default function TeacherDashboard() {
               <table className="w-full">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Имя</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Класс</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">MBTI</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Уровень</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Заданий</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Средний балл</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Активность</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Имя</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Класс</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">MBTI</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Уровень</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Заданий</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Средний балл</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Активность</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -175,7 +175,7 @@ export default function TeacherDashboard() {
                       : 'Нет активности';
 
                     return (
-                      <tr key={student.id} className="hover:bg-gray-50">
+                      <tr key={student.id} className="hover:bg-muted">
                         <td className="px-4 py-3 text-sm text-gray-900">{student.name}</td>
                         <td className="px-4 py-3 text-sm text-gray-600">{student.grade} класс</td>
                         <td className="px-4 py-3 text-sm">
@@ -191,7 +191,7 @@ export default function TeacherDashboard() {
                           <span className={`px-2 py-1 rounded text-xs ${
                             student.level === 'advanced' ? 'bg-green-100 text-green-700' :
                             student.level === 'intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                            'bg-gray-100 text-gray-700'
+                            'bg-gray-100 text-foreground'
                           }`}>
                             {student.level === 'advanced' ? 'Продвинутый' :
                              student.level === 'intermediate' ? 'Средний' :
@@ -214,7 +214,7 @@ export default function TeacherDashboard() {
         <div className="grid md:grid-cols-3 gap-6">
           <Link
             href="/teacher/materials"
-            className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
+            className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
             <div className="text-3xl mb-3">📚</div>
             <h3 className="font-semibold text-gray-900 mb-2">
@@ -227,7 +227,7 @@ export default function TeacherDashboard() {
 
           <Link
             href="/teacher/assignments"
-            className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
+            className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
             <div className="text-3xl mb-3">✍️</div>
             <h3 className="font-semibold text-gray-900 mb-2">
@@ -240,7 +240,7 @@ export default function TeacherDashboard() {
 
           <Link
             href="/teacher/analytics"
-            className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
+            className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
             <div className="text-3xl mb-3">📊</div>
             <h3 className="font-semibold text-gray-900 mb-2">
@@ -255,3 +255,4 @@ export default function TeacherDashboard() {
     </div>
   );
 }
+
