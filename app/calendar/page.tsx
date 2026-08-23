@@ -77,10 +77,6 @@ export default function CalendarPage() {
         }));
         setDeadlines(deadlinesWithDates);
       }
-
-      const res = await fetch(`/api/deadlines?studentId=${studentId}`);
-      const data = await res.json();
-      setDeadlines(data.deadlines || []);
     } catch (error) {
       console.error('Error loading deadlines:', error);
     }
@@ -233,7 +229,7 @@ export default function CalendarPage() {
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value as DeadlineType })}
-                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-background text-foreground"
                     required
                   >
                     {deadlineTypes.map(dt => (
@@ -250,7 +246,7 @@ export default function CalendarPage() {
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-background text-foreground"
                     required
                   />
                 </div>
@@ -264,7 +260,7 @@ export default function CalendarPage() {
                   <select
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value as Subject })}
-                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-background text-foreground"
                   >
                     <option value="">Не выбрано</option>
                     {Object.entries(subjectNames).map(([key, name]) => (
@@ -280,7 +276,7 @@ export default function CalendarPage() {
                   <select
                     value={formData.color}
                     onChange={(e) => setFormData({ ...formData, color: e.target.value })}
-                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-background text-foreground"
                   >
                     {colors.map(c => (
                       <option key={c.value} value={c.value}>{c.label}</option>
