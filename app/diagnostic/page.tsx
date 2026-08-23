@@ -16,6 +16,8 @@ export default function DiagnosticPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
+  const [aiAnalysis, setAiAnalysis] = useState<string>('');
+  const [analyzingAI, setAnalyzingAI] = useState(false);
 
   const handleStartTest = async () => {
     setLoading(true);
@@ -64,6 +66,9 @@ export default function DiagnosticPage() {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
+      const user = userStr ? JSON.parse(userStr) : null;
+
       const response = await fetch('/api/diagnostic/submit', {
         method: 'POST',
         headers: {
@@ -82,10 +87,37 @@ export default function DiagnosticPage() {
       const data = await response.json();
       setResult(data);
       setStep('result');
+      setLoading(false);
+
+      // Генерация AI-анализа
+      setAnalyzingAI(true);
+      try {
+        const aiResponse = await fetch('/api/diagnostic/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            subject: test?.subject,
+            score: data.score,
+            level: data.level,
+            correctCount: data.correctCount,
+            totalQuestions: data.totalQuestions,
+            weakTopics: data.weakTopics,
+            studentName: user?.name || 'Ученик',
+          }),
+        });
+
+        if (aiResponse.ok) {
+          const aiData = await aiResponse.json();
+          setAiAnalysis(aiData.analysis);
+        }
+      } catch (error) {
+        console.error('AI analysis error:', error);
+      }
+      setAnalyzingAI(false);
     } catch (error) {
       alert('Ошибка соединения');
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   // Шаг 1: Выбор предмета и класса
@@ -259,15 +291,44 @@ export default function DiagnosticPage() {
                 </div>
               </div>
 
+              {/* AI Анализ */}
+              <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-8 text-left">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-xl">🤖</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg mb-2 text-foreground">Анализ от AI-преподавателя</h3>
+                    {analyzingAI ? (
+                      <div className="space-y-2">
+                        <div className="h-4 bg-muted rounded animate-pulse"></div>
+                        <div className="h-4 bg-muted rounded animate-pulse w-5/6"></div>
+                        <div className="h-4 bg-muted rounded animate-pulse w-4/6"></div>
+                      </div>
+                    ) : aiAnalysis ? (
+                      <p className="text-foreground leading-relaxed whitespace-pre-line">
+                        {aiAnalysis}
+                      </p>
+                    ) : (
+                      <p className="text-muted-foreground italic">
+                        Анализ недоступен
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
               {result.weakTopics.length > 0 && (
-                <div className="text-left mb-8">
-                  <h3 className="font-semibold mb-3">
+                <div className="text-left mb-8 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-5">
+                  <h3 className="font-semibold mb-3 flex items-center gap-2 text-foreground">
+                    <span className="text-xl">📚</span>
                     Рекомендуем повторить:
                   </h3>
                   <ul className="space-y-2 text-muted-foreground">
                     {result.weakTopics.slice(0, 3).map((topic: string, index: number) => (
-                      <li key={index}>
-                        • {topic}
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-amber-600 dark:text-amber-400 font-bold">•</span>
+                        <span>{topic}</span>
                       </li>
                     ))}
                   </ul>

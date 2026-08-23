@@ -10,11 +10,15 @@ import {
   Brain,
   Zap
 } from 'lucide-react';
+import { getTranslation, type Locale } from '@/lib/i18n';
 
 export default function ProgressPage() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState('');
+  const [locale, setLocale] = useState<Locale>('ru');
+
+  const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -32,6 +36,18 @@ export default function ProgressPage() {
     } catch (e) {
       console.error('Error parsing user data:', e);
     }
+
+    const savedLocale = localStorage.getItem('locale') as Locale;
+    if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
+      setLocale(savedLocale);
+    }
+
+    const handleLocaleChange = (e: CustomEvent<Locale>) => {
+      setLocale(e.detail);
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
+    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
   }, [router]);
 
   // Mock данные для аналитики
@@ -67,12 +83,12 @@ export default function ProgressPage() {
 
   // Прогресс по предметам
   const subjectProgress = [
-    { name: 'Математика', progress: 85, color: 'bg-green-500', level: 'Продвинутый' },
-    { name: 'Физика', progress: 72, color: 'bg-blue-500', level: 'Средний' },
-    { name: 'Информатика', progress: 90, color: 'bg-purple-500', level: 'Продвинутый' },
-    { name: 'Химия', progress: 65, color: 'bg-yellow-500', level: 'Средний' },
-    { name: 'Биология', progress: 78, color: 'bg-pink-500', level: 'Средний' },
-    { name: 'Английский', progress: 82, color: 'bg-indigo-500', level: 'Продвинутый' },
+    { name: t('mathematics'), progress: 85, color: 'bg-green-500', level: t('advanced') },
+    { name: t('physics'), progress: 72, color: 'bg-blue-500', level: t('intermediate') },
+    { name: t('informatics'), progress: 90, color: 'bg-purple-500', level: t('advanced') },
+    { name: t('chemistry'), progress: 65, color: 'bg-yellow-500', level: t('intermediate') },
+    { name: t('biology'), progress: 78, color: 'bg-pink-500', level: t('intermediate') },
+    { name: t('english'), progress: 82, color: 'bg-indigo-500', level: t('advanced') },
   ];
 
   const renderCircularProgress = (percentage: number, size: number, color: string) => {
@@ -210,55 +226,55 @@ export default function ProgressPage() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="w-8 h-8 text-primary" />
-              <h1 className="text-3xl font-bold">Your Analytics</h1>
+              <h1 className="text-3xl font-bold">{t('yourAnalytics')}</h1>
             </div>
-            <p className="text-muted-foreground">{analytics.testsCompleted} tests completed</p>
+            <p className="text-muted-foreground">{analytics.testsCompleted} {t('testsCompleted')}</p>
           </div>
 
           {/* Analytics Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
               <div className="text-5xl font-bold text-blue-500 mb-2">{analytics.overallAccuracy}%</div>
-              <div className="text-sm text-muted-foreground mb-2">Overall Accuracy</div>
+              <div className="text-sm text-muted-foreground mb-2">{t('overallAccuracy')}</div>
               <div className="flex items-center gap-1 text-green-500 text-sm font-medium">
                 <TrendingUp className="w-4 h-4" />
-                +{analytics.accuracyTrend}% trend
+                +{analytics.accuracyTrend}% {t('trend')}
               </div>
             </div>
 
             <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
               <div className="text-5xl font-bold text-cyan-500 mb-2">{analytics.readingWritingAvg}%</div>
-              <div className="text-sm text-muted-foreground">Reading and Writing Avg</div>
+              <div className="text-sm text-muted-foreground">{t('readingWritingAvg')}</div>
             </div>
 
             <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
               <div className="text-5xl font-bold text-green-500 mb-2">{analytics.mathAvg}%</div>
-              <div className="text-sm text-muted-foreground">Math Avg</div>
+              <div className="text-sm text-muted-foreground">{t('mathAvg')}</div>
             </div>
 
             <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
               <div className="text-5xl font-bold text-purple-500 mb-2">{analytics.percentile}%</div>
-              <div className="text-sm text-muted-foreground">Percentile</div>
+              <div className="text-sm text-muted-foreground">{t('percentile')}</div>
             </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6 mb-8">
             {/* Score Trend Over Time */}
             <div className="bg-card border border-border/60 rounded-2xl p-6">
-              <h2 className="text-xl font-bold mb-4">Score Trend Over Time</h2>
+              <h2 className="text-xl font-bold mb-4">{t('scoreTrendOverTime')}</h2>
 
               <div className="flex items-center gap-4 mb-4 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Verbal</span>
+                  <span>{t('verbal')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Math</span>
+                  <span>{t('math')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-orange-500"></div>
-                  <span>Group Avg</span>
+                  <span>{t('groupAvg')}</span>
                 </div>
               </div>
 
@@ -334,16 +350,16 @@ export default function ProgressPage() {
 
             {/* Topic Strengths & Weaknesses */}
             <div className="bg-card border border-border/60 rounded-2xl p-6">
-              <h2 className="text-xl font-bold mb-4">Topic Strengths & Weaknesses</h2>
+              <h2 className="text-xl font-bold mb-4">{t('topicStrengthsWeaknesses')}</h2>
 
               <div className="flex items-center justify-center gap-6 mb-4 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>Verbal</span>
+                  <span>{t('verbal')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>Math</span>
+                  <span>{t('math')}</span>
                 </div>
               </div>
 
@@ -353,7 +369,7 @@ export default function ProgressPage() {
 
           {/* Subject Progress */}
           <div className="bg-card border border-border/60 rounded-2xl p-6">
-            <h2 className="text-xl font-bold mb-6">Прогресс по предметам</h2>
+            <h2 className="text-xl font-bold mb-6">{t('subjectProgress')}</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {subjectProgress.map(subject => (

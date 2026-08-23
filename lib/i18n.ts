@@ -221,6 +221,23 @@ export const translations = {
     wantToRiseHigher: 'Хочешь подняться выше?',
     playGamesEarnPoints: 'Играй в игры и зарабатывай баллы!',
     play: 'Играть',
+
+    // Progress Analytics
+    yourAnalytics: 'Твоя аналитика',
+    testsCompleted: 'тестов завершено',
+    overallAccuracy: 'Общая точность',
+    readingWritingAvg: 'Reading and Writing Avg',
+    mathAvg: 'Math Avg',
+    percentile: 'Процентиль',
+    trend: 'тренд',
+    scoreTrendOverTime: 'Динамика результатов',
+    verbal: 'Verbal',
+    math: 'Math',
+    groupAvg: 'Средний по группе',
+    topicStrengthsWeaknesses: 'Сильные и слабые стороны',
+    subjectProgress: 'Прогресс по предметам',
+    advanced: 'Продвинутый',
+    intermediate: 'Средний',
   },
 
   kk: {
@@ -429,6 +446,23 @@ export const translations = {
     wantToRiseHigher: 'Жоғары көтерілгіңіз келе ме?',
     playGamesEarnPoints: 'Ойындарда ойнап, ұпай жинаңыз!',
     play: 'Ойнау',
+
+    // Progress Analytics
+    yourAnalytics: 'Сіздің аналитикаңыз',
+    testsCompleted: 'тесттер аяқталды',
+    overallAccuracy: 'Жалпы дәлдік',
+    readingWritingAvg: 'Reading and Writing Орташа',
+    mathAvg: 'Math Орташа',
+    percentile: 'Процентиль',
+    trend: 'тренд',
+    scoreTrendOverTime: 'Нәтижелердің динамикасы',
+    verbal: 'Verbal',
+    math: 'Math',
+    groupAvg: 'Топтық орташа',
+    topicStrengthsWeaknesses: 'Күшті және әлсіз жақтары',
+    subjectProgress: 'Пәндер бойынша үлгерім',
+    advanced: 'Жетілдірілген',
+    intermediate: 'Орташа',
   },
 
   en: {
@@ -637,6 +671,23 @@ export const translations = {
     wantToRiseHigher: 'Want to Rise Higher?',
     playGamesEarnPoints: 'Play games and earn points!',
     play: 'Play',
+
+    // Progress Analytics
+    yourAnalytics: 'Your Analytics',
+    testsCompleted: 'tests completed',
+    overallAccuracy: 'Overall Accuracy',
+    readingWritingAvg: 'Reading and Writing Avg',
+    mathAvg: 'Math Avg',
+    percentile: 'Percentile',
+    trend: 'trend',
+    scoreTrendOverTime: 'Score Trend Over Time',
+    verbal: 'Verbal',
+    math: 'Math',
+    groupAvg: 'Group Avg',
+    topicStrengthsWeaknesses: 'Topic Strengths & Weaknesses',
+    subjectProgress: 'Subject Progress',
+    advanced: 'Advanced',
+    intermediate: 'Intermediate',
   }
 };
 
