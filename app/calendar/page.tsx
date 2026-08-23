@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -173,7 +173,7 @@ export default function CalendarPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -182,8 +182,8 @@ export default function CalendarPage() {
               <CalendarIcon className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Календарь дедлайнов</h1>
-              <p className="text-gray-600">Отслеживай важные даты экзаменов и олимпиад</p>
+              <h1 className="text-3xl font-bold text-foreground">Календарь дедлайнов</h1>
+              <p className="text-muted-foreground">Отслеживай важные даты экзаменов и олимпиад</p>
             </div>
           </div>
           <button
@@ -201,14 +201,14 @@ export default function CalendarPage() {
             <h2 className="text-xl font-bold mb-4">Новый дедлайн</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-foreground mb-1">
                   Название *
                 </label>
                 <input
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   placeholder="ЕНТ по математике"
                   required
                 />
@@ -216,13 +216,13 @@ export default function CalendarPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-foreground mb-1">
                     Тип *
                   </label>
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value as DeadlineType })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     required
                   >
                     {deadlineTypes.map(dt => (
@@ -232,14 +232,14 @@ export default function CalendarPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-foreground mb-1">
                     Дата *
                   </label>
                   <input
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     required
                   />
                 </div>
@@ -247,13 +247,13 @@ export default function CalendarPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-foreground mb-1">
                     Предмет (опционально)
                   </label>
                   <select
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value as Subject })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   >
                     <option value="">Не выбрано</option>
                     {Object.entries(subjectNames).map(([key, name]) => (
@@ -263,13 +263,13 @@ export default function CalendarPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-foreground mb-1">
                     Цвет
                   </label>
                   <select
                     value={formData.color}
                     onChange={(e) => setFormData({ ...formData, color: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   >
                     {colors.map(c => (
                       <option key={c.value} value={c.value}>{c.label}</option>
@@ -279,13 +279,13 @@ export default function CalendarPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-foreground mb-1">
                   Описание (опционально)
                 </label>
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   rows={3}
                   placeholder="Дополнительная информация..."
                 />
@@ -301,7 +301,7 @@ export default function CalendarPage() {
                 <button
                   type="button"
                   onClick={() => setShowForm(false)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="px-4 py-2 border border-border rounded-lg hover:bg-background transition-colors"
                 >
                   Отмена
                 </button>
@@ -315,7 +315,7 @@ export default function CalendarPage() {
           {deadlines.length === 0 ? (
             <div className="bg-card rounded-lg shadow-md p-8 text-center">
               <CalendarIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-500">Нет дедлайнов. Добавь свой первый!</p>
+              <p className="text-muted-foreground">Нет дедлайнов. Добавь свой первый!</p>
             </div>
           ) : (
             deadlines.map(deadline => (
@@ -327,10 +327,10 @@ export default function CalendarPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className={`text-lg font-bold ${deadline.completed ? 'line-through text-gray-400' : 'text-gray-900'}`}>
+                      <h3 className={`text-lg font-bold ${deadline.completed ? 'line-through text-gray-400' : 'text-foreground'}`}>
                         {deadline.title}
                       </h3>
-                      <span className="px-2 py-1 text-xs font-medium bg-gray-100 rounded">
+                      <span className="px-2 py-1 text-xs font-medium bg-muted rounded">
                         {deadlineTypes.find(dt => dt.value === deadline.type)?.label}
                       </span>
                       {deadline.subject && (
@@ -340,7 +340,7 @@ export default function CalendarPage() {
                       )}
                     </div>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         <span>{new Date(deadline.date).toLocaleDateString('ru-RU')}</span>
@@ -355,7 +355,7 @@ export default function CalendarPage() {
                     </div>
 
                     {deadline.description && (
-                      <p className="text-sm text-gray-600">{deadline.description}</p>
+                      <p className="text-sm text-muted-foreground">{deadline.description}</p>
                     )}
                   </div>
 
@@ -365,7 +365,7 @@ export default function CalendarPage() {
                       className={`p-2 rounded-lg transition-colors ${
                         deadline.completed
                           ? 'bg-green-100 text-green-600 hover:bg-green-200'
-                          : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
+                          : 'bg-muted text-gray-400 hover:bg-muted'
                       }`}
                       title={deadline.completed ? 'Отметить как невыполненное' : 'Отметить как выполненное'}
                     >

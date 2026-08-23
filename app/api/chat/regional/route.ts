@@ -1,18 +1,73 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
 import { RegionalChatMessage, Region } from '@/types';
 
-const CHAT_FILE = path.join(process.cwd(), 'data', 'regional-chats.json');
-
-// Инициализация файла если не существует
-async function ensureChatFile() {
-  try {
-    await fs.access(CHAT_FILE);
-  } catch {
-    await fs.writeFile(CHAT_FILE, JSON.stringify([]), 'utf-8');
+// Мок данные для всех регионов (одни и те же сообщения)
+const MOCK_MESSAGES: RegionalChatMessage[] = [
+  {
+    id: 'msg_1',
+    region: 'astana' as Region,
+    studentId: 'student_1',
+    studentName: 'Айдар',
+    message: 'Привет всем! Кто готовится к экзаменам по математике?',
+    timestamp: new Date('2026-08-23T10:00:00Z')
+  },
+  {
+    id: 'msg_2',
+    region: 'astana' as Region,
+    studentId: 'student_2',
+    studentName: 'Мадина',
+    message: 'Я! Решаю задачи на квадратные уравнения, очень помогает платформа',
+    timestamp: new Date('2026-08-23T10:05:00Z')
+  },
+  {
+    id: 'msg_3',
+    region: 'astana' as Region,
+    studentId: 'student_3',
+    studentName: 'Данияр',
+    message: 'Есть кто из НИШ Астана? Давайте вместе готовиться к олимпиадам',
+    timestamp: new Date('2026-08-23T10:10:00Z')
+  },
+  {
+    id: 'msg_4',
+    region: 'astana' as Region,
+    studentId: 'student_1',
+    studentName: 'Айдар',
+    message: 'Я из НИШ ФМН! Тоже готовлюсь к олимпиаде по физике',
+    timestamp: new Date('2026-08-23T10:15:00Z')
+  },
+  {
+    id: 'msg_5',
+    region: 'astana' as Region,
+    studentId: 'student_4',
+    studentName: 'Арина',
+    message: 'Кто-нибудь проходил диагностический тест? Какие результаты?',
+    timestamp: new Date('2026-08-23T10:20:00Z')
+  },
+  {
+    id: 'msg_6',
+    region: 'astana' as Region,
+    studentId: 'student_2',
+    studentName: 'Мадина',
+    message: 'Я прошла, показало мой уровень и дало персональные рекомендации. Очень полезно!',
+    timestamp: new Date('2026-08-23T10:25:00Z')
+  },
+  {
+    id: 'msg_7',
+    region: 'astana' as Region,
+    studentId: 'student_5',
+    studentName: 'Темирлан',
+    message: 'У кого-нибудь есть советы по подготовке к ЕНТ по информатике?',
+    timestamp: new Date('2026-08-23T10:30:00Z')
+  },
+  {
+    id: 'msg_8',
+    region: 'astana' as Region,
+    studentId: 'student_3',
+    studentName: 'Данияр',
+    message: 'Проходи все темы по порядку на платформе, там алгоритмы очень хорошо объясняют',
+    timestamp: new Date('2026-08-23T10:35:00Z')
   }
-}
+];
 
 export async function GET(req: NextRequest) {
   try {
@@ -27,16 +82,10 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    await ensureChatFile();
-    const chatData = await fs.readFile(CHAT_FILE, 'utf-8');
-    const allMessages: RegionalChatMessage[] = JSON.parse(chatData);
-
-    // Фильтруем по региону и берем последние N сообщений
-    const messages = allMessages
-      .filter(m => m.region === region)
-      .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
-      .slice(0, limit)
-      .reverse(); // В хронологическом порядке
+    // Возвращаем те же мок сообщения для любого региона
+    const messages = MOCK_MESSAGES
+      .map(msg => ({ ...msg, region })) // Подставляем нужный регион
+      .slice(-limit);
 
     return NextResponse.json({ messages });
 
@@ -60,10 +109,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    await ensureChatFile();
-    const chatData = await fs.readFile(CHAT_FILE, 'utf-8');
-    const allMessages: RegionalChatMessage[] = JSON.parse(chatData);
-
+    // Создаем новое сообщение но не сохраняем (нет персистентности)
     const newMessage: RegionalChatMessage = {
       id: `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       region,
@@ -72,13 +118,6 @@ export async function POST(req: NextRequest) {
       message,
       timestamp: new Date()
     };
-
-    allMessages.push(newMessage);
-
-    // Ограничиваем общее количество сообщений (последние 1000)
-    const limitedMessages = allMessages.slice(-1000);
-
-    await fs.writeFile(CHAT_FILE, JSON.stringify(limitedMessages, null, 2), 'utf-8');
 
     return NextResponse.json({
       success: true,

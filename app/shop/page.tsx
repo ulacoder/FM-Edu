@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -15,7 +15,7 @@ const categoryInfo: Record<ShopItemCategory, { label: string; icon: any }> = {
 };
 
 const rarityColors: Record<string, string> = {
-  common: 'border-gray-400 bg-gray-50',
+  common: 'border-gray-400 bg-background',
   rare: 'border-blue-400 bg-blue-50',
   epic: 'border-purple-400 bg-purple-50',
   legendary: 'border-yellow-400 bg-yellow-50'
@@ -152,7 +152,7 @@ export default function ShopPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -162,8 +162,8 @@ export default function ShopPage() {
                 <ShoppingBag className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">Магазин</h1>
-                <p className="text-gray-600">Потрать баллы на крутые товары!</p>
+                <h1 className="text-3xl font-bold text-foreground">Магазин</h1>
+                <p className="text-muted-foreground">Потрать баллы на крутые товары!</p>
               </div>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg">
@@ -236,8 +236,8 @@ export default function ShopPage() {
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="font-bold text-lg mb-1 text-gray-900">{item.name}</h3>
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">{item.description}</p>
+                  <h3 className="font-bold text-lg mb-1 text-foreground">{item.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{item.description}</p>
 
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-1 text-purple-600 font-bold">
@@ -245,7 +245,7 @@ export default function ShopPage() {
                       <span>{item.price}</span>
                     </div>
                     {item.stock !== undefined && (
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-muted-foreground">
                         Осталось: {item.stock}
                       </span>
                     )}
@@ -258,9 +258,9 @@ export default function ShopPage() {
                       owned
                         ? 'bg-green-100 text-green-700 cursor-default'
                         : outOfStock
-                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
                         : !canAfford
-                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
                         : 'bg-purple-600 text-white hover:bg-purple-700'
                     }`}
                   >
@@ -281,7 +281,7 @@ export default function ShopPage() {
         {filteredItems.length === 0 && (
           <div className="text-center py-12">
             <ShoppingBag className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-500">В этой категории пока нет товаров</p>
+            <p className="text-muted-foreground">В этой категории пока нет товаров</p>
           </div>
         )}
       </div>
@@ -291,7 +291,7 @@ export default function ShopPage() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-card rounded-lg p-6 max-w-md w-full">
             <h2 className="text-xl font-bold mb-4">Информация для доставки</h2>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-muted-foreground mb-4">
               Товар: <span className="font-semibold">{purchaseModal.item.name}</span>
             </p>
 
