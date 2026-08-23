@@ -20,6 +20,7 @@ export function PomodoroTimer() {
   const [position, setPosition] = useState({ x: 0, y: 20 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [wasDragged, setWasDragged] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -205,6 +206,7 @@ export function PomodoroTimer() {
   const handleMouseDown = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest('.draggable-handle')) {
       setIsDragging(true);
+      setWasDragged(false);
       setDragOffset({
         x: e.clientX - position.x,
         y: e.clientY - position.y
@@ -215,6 +217,7 @@ export function PomodoroTimer() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (isDragging) {
+        setWasDragged(true);
         setPosition({
           x: e.clientX - dragOffset.x,
           y: e.clientY - dragOffset.y
@@ -254,7 +257,9 @@ export function PomodoroTimer() {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            setIsMinimized(false);
+            if (!wasDragged) {
+              setIsMinimized(false);
+            }
           }}
           className={`w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 ${
             timerState === 'work' && isRunning
@@ -293,7 +298,15 @@ export function PomodoroTimer() {
         onMouseDown={handleMouseDown}
       >
         <div className="flex items-center gap-2">
-          <Timer className="w-5 h-5 text-purple-600" />
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMinimized(true);
+            }}
+            className="p-1 hover:bg-purple-100 rounded transition-colors"
+          >
+            <Timer className="w-5 h-5 text-purple-600" />
+          </button>
           <h3 className="font-bold text-gray-900">Pomodoro Timer</h3>
         </div>
         <button
