@@ -75,14 +75,53 @@ export default function LeaderboardPage() {
   }, [mode, loading]);
 
   const loadLeaderboard = async () => {
+    // Мок-данные для лидерборда
+    const mockLeaderboard: LeaderboardEntry[] = [
+      { studentId: 's1', studentName: 'Айгерим Сатпаева', grade: 11, region: 'astana', totalPoints: 2450, rank: 1 },
+      { studentId: 's2', studentName: 'Ержан Нурланов', grade: 10, region: 'almaty', totalPoints: 2380, rank: 2 },
+      { studentId: 's3', studentName: 'Мадина Жумабекова', grade: 12, region: 'shymkent', totalPoints: 2290, rank: 3 },
+      { studentId: 's4', studentName: 'Даурен Бектемиров', grade: 11, region: 'astana', totalPoints: 2150, rank: 4 },
+      { studentId: 's5', studentName: 'Алия Камалова', grade: 10, region: 'almaty', totalPoints: 2080, rank: 5 },
+      { studentId: 's6', studentName: 'Нурбол Айтказинов', grade: 12, region: 'karaganda', totalPoints: 1950, rank: 6 },
+      { studentId: 's7', studentName: 'Асель Турсунова', grade: 11, region: 'aktobe', totalPoints: 1890, rank: 7 },
+      { studentId: 's8', studentName: 'Дияр Мухамедов', grade: 10, region: 'kostanay', totalPoints: 1820, rank: 8 },
+      { studentId: 's9', studentName: 'Жанар Ержанова', grade: 12, region: 'pavlodar', totalPoints: 1760, rank: 9 },
+      { studentId: 's10', studentName: 'Санжар Абдуллаев', grade: 11, region: 'atyrau', totalPoints: 1690, rank: 10 },
+      { studentId: 's11', studentName: 'Аида Касымова', grade: 10, region: 'taraz', totalPoints: 1620, rank: 11 },
+      { studentId: 's12', studentName: 'Ерлан Токаев', grade: 12, region: 'aktau', totalPoints: 1580, rank: 12 },
+      { studentId: 's13', studentName: 'Дина Омарова', grade: 11, region: 'semey', totalPoints: 1520, rank: 13 },
+      { studentId: 's14', studentName: 'Тимур Досаев', grade: 10, region: 'kokshetau', totalPoints: 1460, rank: 14 },
+      { studentId: 's15', studentName: 'Камила Нурланова', grade: 12, region: 'oskemen', totalPoints: 1400, rank: 15 },
+    ];
+
     try {
-      const regionParam = mode === 'all' ? 'all' : mode;
-      const response = await fetch(`/api/leaderboard?region=${regionParam}`);
-      if (response.ok) {
-        const data = await response.json();
-        setLeaderboard(data.leaderboard);
-        setTotalStudents(data.totalStudents);
+      // Фильтруем по региону если нужно
+      let filteredLeaderboard = mockLeaderboard;
+      if (mode !== 'all') {
+        filteredLeaderboard = mockLeaderboard.filter(e => e.region === mode);
+        // Пересчитываем ранги после фильтрации
+        filteredLeaderboard = filteredLeaderboard.map((entry, index) => ({
+          ...entry,
+          rank: index + 1
+        }));
       }
+
+      // Добавляем текущего пользователя если его нет в списке
+      const userInList = filteredLeaderboard.find(e => e.studentId === user?.id);
+      if (!userInList && user) {
+        const userEntry: LeaderboardEntry = {
+          studentId: user.id,
+          studentName: user.name,
+          grade: user.grade || 10,
+          region: user.region || 'astana',
+          totalPoints: user.totalPoints || 850,
+          rank: filteredLeaderboard.length + 1
+        };
+        filteredLeaderboard.push(userEntry);
+      }
+
+      setLeaderboard(filteredLeaderboard);
+      setTotalStudents(filteredLeaderboard.length);
     } catch (error) {
       console.error('Error loading leaderboard:', error);
     }
