@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Users, TrendingUp, BookOpen, FileText, FolderOpen } from 'lucide-react';
+import { Users, TrendingUp, BookOpen, FileText, FolderOpen, Presentation } from 'lucide-react';
 
 export default function TeacherDashboard() {
   const router = useRouter();
@@ -309,7 +309,7 @@ export default function TeacherDashboard() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <Link
             href="/dashboard/teacher/classes"
             className="bg-card border border-primary/60 rounded-lg p-4 sm:p-6 hover:border-primary hover:bg-primary/5 transition-all cursor-pointer group"
@@ -320,6 +320,19 @@ export default function TeacherDashboard() {
             </h3>
             <p className="text-sm text-muted-foreground">
               Управление классами и начисление баллов
+            </p>
+          </Link>
+
+          <Link
+            href="/dashboard/teacher/interactive"
+            className="bg-card border border-green-500/60 rounded-lg p-4 sm:p-6 hover:border-green-500 hover:bg-green-500/5 transition-all cursor-pointer group"
+          >
+            <Presentation className="w-8 h-8 text-green-600 mb-3 group-hover:scale-110 transition-transform" />
+            <h3 className="font-semibold mb-2 group-hover:text-green-600 transition-colors">
+              Классный интерактив
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Запустите квиз на проекторе для класса
             </p>
           </Link>
 
