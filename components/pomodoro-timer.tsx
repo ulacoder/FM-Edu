@@ -304,17 +304,12 @@ export function PomodoroTimer() {
               setIsMinimized(true);
             }}
             className="p-1 hover:bg-purple-100 rounded transition-colors"
+            title="Свернуть таймер"
           >
             <Timer className="w-5 h-5 text-purple-600" />
           </button>
           <h3 className="font-bold text-gray-900">Pomodoro Timer</h3>
         </div>
-        <button
-          onClick={() => setIsMinimized(true)}
-          className="p-1 hover:bg-gray-200 rounded transition-colors"
-        >
-          <X className="w-4 h-4 text-gray-600" />
-        </button>
       </div>
 
       <div className="p-4 space-y-4">
