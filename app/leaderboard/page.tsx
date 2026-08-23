@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -12,8 +12,6 @@ import {
   Zap
 } from 'lucide-react';
 import { LeaderboardEntry, Region, regionNames } from '@/types';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { LanguageSwitcher } from '@/components/language-switcher';
 import { getTranslation, type Locale } from '@/lib/i18n';
 
 type LeaderboardMode = 'all' | Region;
@@ -108,33 +106,7 @@ export default function LeaderboardPage() {
   const userEntry = leaderboard.find(e => e.studentId === user.id);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
-      <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-white" />
-              </div>
-              <Link href="/" className="text-base sm:text-lg font-bold">
-                FM Edu
-              </Link>
-            </div>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <LanguageSwitcher />
-              <ThemeToggle />
-              <Link href="/dashboard/student">
-                <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
-                  {t('dashboard')}
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Main Content */}
+    <div className="flex flex-col min-h-screen">{/* Main Content */}
       <div className="flex-1 bg-muted/20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Header */}

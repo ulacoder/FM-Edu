@@ -1,11 +1,10 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { GraduationCap } from 'lucide-react';
 import { Subject, subjectNames, DiagnosticTest } from '@/types';
-import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function DiagnosticPage() {
   const router = useRouter();
@@ -92,25 +91,7 @@ export default function DiagnosticPage() {
   // Шаг 1: Выбор предмета и класса
   if (step === 'select') {
     return (
-      <div className="min-h-screen flex flex-col">
-        {/* Navbar */}
-        <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <Link href="/" className="text-lg font-bold">
-                  FM Edu
-                </Link>
-              </div>
-              <ThemeToggle />
-            </div>
-          </div>
-        </nav>
-
-        {/* Content */}
+      <div className="min-h-screen flex flex-col">{/* Content */}
         <div className="flex-1 py-12 px-4">
           <div className="max-w-2xl mx-auto">
             <div className="bg-card border border-border/60 rounded-lg p-8 shadow-lg">
@@ -171,25 +152,7 @@ export default function DiagnosticPage() {
     const progress = ((currentQuestion + 1) / test.questions.length) * 100;
 
     return (
-      <div className="min-h-screen flex flex-col">
-        {/* Navbar */}
-        <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <Link href="/" className="text-lg font-bold">
-                  FM Edu
-                </Link>
-              </div>
-              <ThemeToggle />
-            </div>
-          </div>
-        </nav>
-
-        {/* Content */}
+      <div className="min-h-screen flex flex-col">{/* Content */}
         <div className="flex-1 py-12 px-4">
           <div className="max-w-3xl mx-auto">
             <div className="bg-card border border-border/60 rounded-lg p-8 shadow-lg">
@@ -273,25 +236,7 @@ export default function DiagnosticPage() {
     const displayLevel = levelText[result.level] || 'Не определён';
 
     return (
-      <div className="min-h-screen flex flex-col">
-        {/* Navbar */}
-        <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <Link href="/" className="text-lg font-bold">
-                  FM Edu
-                </Link>
-              </div>
-              <ThemeToggle />
-            </div>
-          </div>
-        </nav>
-
-        {/* Content */}
+      <div className="min-h-screen flex flex-col">{/* Content */}
         <div className="flex-1 py-12 px-4">
           <div className="max-w-2xl mx-auto">
             <div className="bg-card border border-border/60 rounded-lg p-8 shadow-lg text-center">

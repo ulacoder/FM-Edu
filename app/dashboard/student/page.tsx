@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
-  GraduationCap,
   Bookmark,
   BookOpen,
   Calendar,
@@ -16,8 +15,6 @@ import {
   CheckCircle2,
   Brain
 } from 'lucide-react';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { LanguageSwitcher } from '@/components/language-switcher';
 import { CountdownTimer } from '@/components/countdown-timer';
 import { getTranslation, type Locale } from '@/lib/i18n';
 
@@ -107,30 +104,6 @@ export default function StudentDashboard() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
-      <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-white" />
-              </div>
-              <Link href="/" className="text-base sm:text-lg font-bold">
-                FM Edu
-              </Link>
-            </div>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <ThemeToggle />
-              <Link href="/profile" className="hidden sm:block">
-                <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
-                  Профиль
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Main Content */}
       <div className="flex-1 bg-muted/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
