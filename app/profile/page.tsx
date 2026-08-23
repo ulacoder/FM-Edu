@@ -15,7 +15,8 @@ import {
   Trophy,
   Target,
   BookOpen,
-  MapPin
+  MapPin,
+  Brain
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Region, regionNames } from '@/types';
@@ -25,6 +26,7 @@ export default function ProfilePage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState<any>(null);
+  const [mbtiProfile, setMbtiProfile] = useState<any>(null);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -39,6 +41,12 @@ export default function ProfilePage() {
     try {
       const userData = JSON.parse(userStr);
       setUser(userData);
+
+      // Загружаем MBTI профиль из localStorage
+      const mbtiStr = localStorage.getItem(`mbti_${userData.id}`);
+      if (mbtiStr) {
+        setMbtiProfile(JSON.parse(mbtiStr));
+      }
     } catch (e) {
       console.error('Error parsing user data:', e);
     }
@@ -242,6 +250,45 @@ export default function ProfilePage() {
               );
             })}
           </div>
+
+          {/* MBTI Profile Section */}
+          {mbtiProfile && (
+            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+              <div className="flex items-center gap-3 mb-4">
+                <Brain className="w-6 h-6 text-primary" />
+                <h2 className="text-lg sm:text-xl font-bold">MBTI Профиль</h2>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-2xl font-bold text-primary mb-2">{mbtiProfile.type}</p>
+                  <p className="text-muted-foreground">{mbtiProfile.description}</p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold mb-2">Стиль обучения</h3>
+                  <p className="text-sm text-muted-foreground">{mbtiProfile.learningStyle}</p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold mb-2">Сильные стороны</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    {mbtiProfile.strengths?.map((s: string, i: number) => (
+                      <li key={i} className="text-sm text-muted-foreground">{s}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold mb-2">Рекомендации</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    {mbtiProfile.recommendations?.map((r: string, i: number) => (
+                      <li key={i} className="text-sm text-muted-foreground">{r}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Account Actions */}
           <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6">
