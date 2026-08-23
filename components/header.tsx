@@ -62,43 +62,43 @@ export function Header() {
   return (
     <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center gap-2 ml-16">
-            <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-              <GraduationCap className="w-5 h-5 text-white" />
+        <div className="flex justify-between items-center h-14 sm:h-16">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 gradient-primary rounded-lg flex items-center justify-center">
+              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            <Link href="/" className="text-lg font-bold">
+            <Link href="/" className="text-base sm:text-lg font-bold">
               FM Edu
             </Link>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <LanguageSwitcher />
             <ThemeToggle />
             {isAuthenticated ? (
               <>
-                <span className="text-sm font-medium hidden sm:inline">{userName}</span>
+                <span className="text-xs sm:text-sm font-medium hidden md:inline">{userName}</span>
                 <Link href={getDashboardLink()}>
-                  <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                  <button className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 active:scale-[0.98] rounded-lg transition-all">
                     {t('dashboard')}
                   </button>
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors"
+                  className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium hover:text-primary transition-colors hidden sm:inline-block"
                 >
                   {t('logout')}
                 </button>
               </>
             ) : (
               <>
-                <Link href="/login">
-                  <button className="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">
+                <Link href="/login" className="hidden sm:inline-block">
+                  <button className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium hover:text-primary transition-colors">
                     {t('login')}
                   </button>
                 </Link>
                 <Link href="/register">
-                  <button className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors">
+                  <button className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 active:scale-[0.98] rounded-lg transition-all">
                     {t('start')}
                   </button>
                 </Link>

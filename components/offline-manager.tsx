@@ -121,26 +121,26 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
   };
 
   return (
-    <div className="bg-card border border-border/60 rounded-2xl p-6">
+    <div className="bg-card border border-border/60 rounded-xl sm:rounded-2xl p-4 sm:p-6">
       {/* Заголовок с иконкой состояния сети */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-4 sm:mb-6">
         <div>
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-            <HardDrive className="w-6 h-6 text-primary" />
+          <h2 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 flex items-center gap-2">
+            <HardDrive className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             Режим Офлайн
           </h2>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Специально для сельских школ с плохим интернетом
           </p>
         </div>
 
-        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg ${
-          isOnline ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg self-start sm:self-auto ${
+          isOnline ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400'
         }`}>
           {isOnline ? (
             <>
               <Wifi className="w-4 h-4" />
-              <span className="text-sm font-medium">
+              <span className="text-xs sm:text-sm font-medium">
                 {connectionType === '2g' && '2G'}
                 {connectionType === '3g' && '3G'}
                 {connectionType === '4g' && '4G'}
@@ -150,7 +150,7 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
           ) : (
             <>
               <WifiOff className="w-4 h-4" />
-              <span className="text-sm font-medium">Офлайн</span>
+              <span className="text-xs sm:text-sm font-medium">Офлайн</span>
             </>
           )}
         </div>
@@ -158,8 +158,8 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
 
       {/* Предупреждение о медленном соединении */}
       {isSlowConnection && isOnline && (
-        <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
-          <p className="text-sm text-orange-800">
+        <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+          <p className="text-xs sm:text-sm text-orange-800 dark:text-orange-300">
             <strong>📶 Обнаружено медленное соединение ({connectionType.toUpperCase()})</strong>
             <br />
             Рекомендуем скачать материалы для работы без интернета!
@@ -168,14 +168,14 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
       )}
 
       {/* Информация о кэше */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="bg-muted/30 rounded-lg p-4">
-          <div className="text-sm text-muted-foreground mb-1">Загружено уроков</div>
-          <div className="text-2xl font-bold text-primary">{cachedLessons.length}</div>
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+        <div className="bg-muted/30 rounded-lg p-3 sm:p-4">
+          <div className="text-xs sm:text-sm text-muted-foreground mb-1">Загружено уроков</div>
+          <div className="text-xl sm:text-2xl font-bold text-primary">{cachedLessons.length}</div>
         </div>
-        <div className="bg-muted/30 rounded-lg p-4">
-          <div className="text-sm text-muted-foreground mb-1">Занято места</div>
-          <div className="text-2xl font-bold text-primary">{formatBytes(cachedSize)}</div>
+        <div className="bg-muted/30 rounded-lg p-3 sm:p-4">
+          <div className="text-xs sm:text-sm text-muted-foreground mb-1">Занято места</div>
+          <div className="text-xl sm:text-2xl font-bold text-primary">{formatBytes(cachedSize)}</div>
         </div>
       </div>
 
@@ -184,7 +184,7 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
         <button
           onClick={handleDownloadForOffline}
           disabled={isDownloading || !isOnline}
-          className="w-full px-6 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium"
+          className="w-full px-6 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 active:scale-[0.98] transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium text-sm sm:text-base"
         >
           {isDownloading ? (
             <>
@@ -204,13 +204,13 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
           )}
         </button>
       ) : (
-        <div className="space-y-4">
-          <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-            <div className="flex items-center gap-2 text-green-800 mb-2">
-              <CheckCircle className="w-5 h-5" />
-              <span className="font-medium">Материалы загружены!</span>
+        <div className="space-y-3 sm:space-y-4">
+          <div className="p-3 sm:p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+            <div className="flex items-center gap-2 text-green-800 dark:text-green-300 mb-2">
+              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="font-medium text-sm sm:text-base">Материалы загружены!</span>
             </div>
-            <p className="text-sm text-green-700">
+            <p className="text-xs sm:text-sm text-green-700 dark:text-green-400">
               Теперь вы можете заниматься без интернета. Все уроки, тесты и материалы доступны офлайн.
             </p>
           </div>
@@ -218,7 +218,7 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
           {/* Список загруженных уроков */}
           <div className="border border-border rounded-lg divide-y divide-border">
             {cachedLessons.slice(0, 5).map((lesson) => (
-              <div key={lesson.id} className="p-3 flex items-center justify-between">
+              <div key={lesson.id} className="p-3 flex items-center justify-between active:bg-muted/30 transition-colors">
                 <div>
                   <div className="font-medium text-sm">{lesson.title}</div>
                   <div className="text-xs text-muted-foreground">
@@ -227,14 +227,14 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
                     {lesson.subject === 'informatics' && '💻 Информатика'}
                   </div>
                 </div>
-                <CheckCircle className="w-4 h-4 text-green-600" />
+                <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
               </div>
             ))}
           </div>
 
           <button
             onClick={handleClearCache}
-            className="w-full px-4 py-3 border border-border rounded-lg hover:bg-muted transition-colors flex items-center justify-center gap-2 text-sm"
+            className="w-full px-4 py-3 border border-border rounded-lg hover:bg-muted active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-xs sm:text-sm"
           >
             <Trash2 className="w-4 h-4" />
             Удалить загруженные материалы
@@ -243,8 +243,8 @@ export function OfflineManager({ userId }: OfflineManagerProps) {
       )}
 
       {/* Информация о функционале */}
-      <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <p className="text-sm text-blue-800">
+      <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+        <p className="text-xs sm:text-sm text-blue-800 dark:text-blue-300 leading-relaxed">
           <strong>💡 Как это работает:</strong>
           <br />
           • Материалы сохраняются в памяти вашего устройства

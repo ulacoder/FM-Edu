@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  compress: true,
+  optimizeFonts: true,
+  swcMinify: true,
+
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+
   async headers() {
     return [
       {

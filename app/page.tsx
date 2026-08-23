@@ -32,47 +32,47 @@ export default function Home() {
       <TelegramBotBanner />
 
       {/* Hero Section */}
-      <section className="pt-16 pb-24">
+      <section className="pt-12 pb-16 sm:pt-16 sm:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 mb-6">
-              <span className="text-sm font-medium text-primary">AI-платформа для школьников</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-primary/10 mb-4 sm:mb-6">
+              <span className="text-xs sm:text-sm font-medium text-primary">AI-платформа для школьников</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
               {t('heroTitle')}
             </h1>
 
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               {t('heroSubtitle')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-12">
-              <Link href="/register">
-                <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-medium">
+            <div className="flex flex-col gap-3 mb-8 sm:mb-12">
+              <Link href="/register" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto px-6 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-medium text-base">
                   {t('startLearning')}
                 </button>
               </Link>
-              <Link href="/diagnostic">
-                <button className="px-6 py-3 border border-border hover:border-primary/40 rounded-lg transition-colors font-medium">
+              <Link href="/diagnostic" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto px-6 py-3.5 border border-border hover:border-primary/40 rounded-lg transition-colors font-medium text-base">
                   {t('takeDiagnostic')}
                 </button>
               </Link>
             </div>
 
             {/* Stats */}
-            <div className="flex gap-12 pt-8 border-t border-border/40">
+            <div className="flex gap-8 sm:gap-12 pt-6 sm:pt-8 border-t border-border/40">
               <div>
-                <div className="text-2xl font-semibold">8</div>
-                <div className="text-sm text-muted-foreground">{t('subjects')}</div>
+                <div className="text-xl sm:text-2xl font-semibold">8</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t('subjects')}</div>
               </div>
               <div>
-                <div className="text-2xl font-semibold">6</div>
-                <div className="text-sm text-muted-foreground">{t('grades')}</div>
+                <div className="text-xl sm:text-2xl font-semibold">6</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t('grades')}</div>
               </div>
               <div>
-                <div className="text-2xl font-semibold">NIS</div>
-                <div className="text-sm text-muted-foreground">{t('nisProgram')}</div>
+                <div className="text-xl sm:text-2xl font-semibold">NIS</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{t('nisProgram')}</div>
               </div>
             </div>
           </div>
@@ -80,40 +80,40 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-12 sm:py-16 bg-muted/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-3">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">
               {t('whyFmEdu')}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               {t('modernApproach')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6">
             {/* Card 1 */}
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
-              <Target className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-lg font-semibold mb-2">{t('adaptiveLearning')}</h3>
+            <div className="bg-card border border-border/60 rounded-lg p-5 sm:p-6 active:border-primary/60 transition-colors">
+              <Target className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-3 sm:mb-4" />
+              <h3 className="text-base sm:text-lg font-semibold mb-2">{t('adaptiveLearning')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {t('adaptiveLearningDesc')}
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
-              <BookOpen className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-lg font-semibold mb-2">{t('nisProgContent')}</h3>
+            <div className="bg-card border border-border/60 rounded-lg p-5 sm:p-6 active:border-primary/60 transition-colors">
+              <BookOpen className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-3 sm:mb-4" />
+              <h3 className="text-base sm:text-lg font-semibold mb-2">{t('nisProgContent')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {t('nisProgContentDesc')}
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-card border border-border/60 rounded-lg p-6 hover:border-primary/40 transition-colors">
-              <MessageSquare className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-lg font-semibold mb-2">{t('instantFeedback')}</h3>
+            <div className="bg-card border border-border/60 rounded-lg p-5 sm:p-6 active:border-primary/60 transition-colors">
+              <MessageSquare className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-3 sm:mb-4" />
+              <h3 className="text-base sm:text-lg font-semibold mb-2">{t('instantFeedback')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {t('instantFeedbackDesc')}
               </p>
@@ -123,13 +123,13 @@ export default function Home() {
       </section>
 
       {/* Offline Mode Section */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-3">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">
               Работает даже без интернета
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Специально для сельских школ с плохим интернетом (2G/3G)
             </p>
           </div>
@@ -139,10 +139,10 @@ export default function Home() {
       </section>
 
       {/* Subjects Section */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-8">{t('availableSubjects')}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">{t('availableSubjects')}</h2>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {[
               { id: 'math', nameKey: 'mathematics' as const, status: 'available', href: '/courses/mathematics' },
               { id: 'phys', nameKey: 'physics' as const, status: 'available', href: '/courses/physics' },
@@ -166,12 +166,12 @@ export default function Home() {
 
               const card = (
                 <div
-                  className={`bg-card border border-border/60 rounded-lg p-6 text-center transition-all ${
+                  className={`bg-card border border-border/60 rounded-lg p-4 sm:p-6 text-center transition-all ${
                     isDisabled
-                      ? 'opacity-50 cursor-not-allowed'
+                      ? 'opacity-50'
                       : isDev
-                      ? 'hover:border-yellow-400/40 hover:bg-yellow-500/5 cursor-pointer'
-                      : 'hover:border-primary/40 hover:bg-primary/5 cursor-pointer'
+                      ? 'active:border-yellow-400/60 active:bg-yellow-500/5'
+                      : 'active:border-primary/60 active:bg-primary/5'
                   }`}
                 >
                   <div className="text-sm font-medium mb-2">{displayName}</div>
@@ -190,7 +190,7 @@ export default function Home() {
           </div>
 
           {/* Legend */}
-          <div className="mt-8 flex flex-wrap gap-4 justify-center text-sm text-muted-foreground">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <span className="inline-block px-2 py-0.5 text-[10px] font-medium bg-green-500/20 text-green-600 dark:text-green-400 rounded">{t('available')}</span>
               <span>— {t('fullContent')}</span>
@@ -208,17 +208,17 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+          <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 sm:p-8 md:p-12 text-center">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
               {t('startPersonalized')}
             </h2>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-muted-foreground mb-5 sm:mb-6 max-w-2xl mx-auto">
               {t('availableForAll')}
             </p>
-            <Link href="/register">
-              <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-medium">
+            <Link href="/register" className="inline-block w-full sm:w-auto">
+              <button className="w-full sm:w-auto px-6 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-medium text-base">
                 {t('createAccountFree')}
               </button>
             </Link>
