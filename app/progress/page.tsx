@@ -1,17 +1,14 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  GraduationCap,
   TrendingUp,
   Award,
   Target,
-  Clock,
-  BarChart3,
-  CheckCircle2,
-  Flame
+  BookOpen,
+  Brain,
+  Zap
 } from 'lucide-react';
 
 export default function ProgressPage() {
@@ -37,190 +34,351 @@ export default function ProgressPage() {
     }
   }, [router]);
 
-  // Mock data
-  const weeklyActivity = [
-    { day: 'Пн', hours: 2.5, completed: 8 },
-    { day: 'Вт', hours: 3.0, completed: 12 },
-    { day: 'Ср', hours: 1.5, completed: 5 },
-    { day: 'Чт', hours: 4.0, completed: 15 },
-    { day: 'Пт', hours: 2.0, completed: 7 },
-    { day: 'Сб', hours: 3.5, completed: 14 },
-    { day: 'Вс', hours: 2.5, completed: 9 },
+  // Mock данные для аналитики
+  const analytics = {
+    overallAccuracy: 61,
+    readingWritingAvg: 58,
+    mathAvg: 63,
+    percentile: 74,
+    testsCompleted: 9,
+    accuracyTrend: 7
+  };
+
+  // Данные для радарного графика (сильные и слабые стороны)
+  const topicStrengths = [
+    { topic: 'Квадратные уравнения', math: 85, verbal: 45 },
+    { topic: 'Тригонометрия', math: 72, verbal: 38 },
+    { topic: 'Геометрия', math: 90, verbal: 42 },
+    { topic: 'Алгебра', math: 78, verbal: 50 },
+    { topic: 'Логика', math: 65, verbal: 88 },
+    { topic: 'Анализ текста', math: 40, verbal: 92 },
+    { topic: 'Грамматика', math: 35, verbal: 85 },
   ];
 
+  // Данные для линейного графика тренда
+  const scoreTrend = [
+    { date: '16.08', verbal: 45, math: 30, avg: 38 },
+    { date: '19.08', verbal: 50, math: 40, avg: 45 },
+    { date: '20.08', verbal: 78, math: 48, avg: 63 },
+    { date: '21.08', verbal: 80, math: 75, avg: 78 },
+    { date: '22.08', verbal: 65, math: 80, avg: 73 },
+    { date: '23.08', verbal: 72, math: 85, avg: 79 },
+  ];
+
+  // Прогресс по предметам
   const subjectProgress = [
-    { name: 'Математика', progress: 85, level: 'Продвинутый' },
-    { name: 'Физика', progress: 72, level: 'Средний' },
-    { name: 'Информатика', progress: 90, level: 'Продвинутый' },
-    { name: 'Химия', progress: 65, level: 'Средний' },
-    { name: 'Биология', progress: 78, level: 'Средний' },
-    { name: 'Английский', progress: 82, level: 'Продвинутый' },
+    { name: 'Математика', progress: 85, color: 'bg-green-500', level: 'Продвинутый' },
+    { name: 'Физика', progress: 72, color: 'bg-blue-500', level: 'Средний' },
+    { name: 'Информатика', progress: 90, color: 'bg-purple-500', level: 'Продвинутый' },
+    { name: 'Химия', progress: 65, color: 'bg-yellow-500', level: 'Средний' },
+    { name: 'Биология', progress: 78, color: 'bg-pink-500', level: 'Средний' },
+    { name: 'Английский', progress: 82, color: 'bg-indigo-500', level: 'Продвинутый' },
   ];
 
-  const achievements = [
-    {
-      icon: '🔥',
-      title: '7 дней подряд',
-      description: 'Занимались неделю без пропусков',
-      unlocked: true
-    },
-    {
-      icon: '🎯',
-      title: '100 задач',
-      description: 'Решили первые 100 задач',
-      unlocked: true
-    },
-    {
-      icon: '⭐',
-      title: 'Отличник',
-      description: '10 тестов на 90%+',
-      unlocked: true
-    },
-    {
-      icon: '🏆',
-      title: 'Марафонец',
-      description: '30 дней подряд',
-      unlocked: false
-    },
-  ];
+  const renderCircularProgress = (percentage: number, size: number, color: string) => {
+    const radius = (size - 8) / 2;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (percentage / 100) * circumference;
 
-  const maxHours = Math.max(...weeklyActivity.map(d => d.hours));
+    return (
+      <svg width={size} height={size} className="transform -rotate-90">
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="8"
+          className="text-muted"
+        />
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill="none"
+          stroke={color}
+          strokeWidth="8"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+          strokeLinecap="round"
+          className="transition-all duration-1000"
+        />
+      </svg>
+    );
+  };
+
+  const renderRadarChart = () => {
+    const centerX = 150;
+    const centerY = 150;
+    const maxRadius = 120;
+    const numPoints = topicStrengths.length;
+
+    const getPoint = (index: number, value: number) => {
+      const angle = (Math.PI * 2 * index) / numPoints - Math.PI / 2;
+      const radius = (value / 100) * maxRadius;
+      return {
+        x: centerX + radius * Math.cos(angle),
+        y: centerY + radius * Math.sin(angle)
+      };
+    };
+
+    const mathPoints = topicStrengths.map((t, i) => getPoint(i, t.math));
+    const verbalPoints = topicStrengths.map((t, i) => getPoint(i, t.verbal));
+
+    const mathPath = mathPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
+    const verbalPath = verbalPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
+
+    return (
+      <svg width="300" height="300" className="mx-auto">
+        {/* Grid circles */}
+        {[25, 50, 75, 100].map(percent => (
+          <circle
+            key={percent}
+            cx={centerX}
+            cy={centerY}
+            r={(percent / 100) * maxRadius}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+            className="text-border"
+          />
+        ))}
+
+        {/* Axis lines */}
+        {topicStrengths.map((_, index) => {
+          const point = getPoint(index, 100);
+          return (
+            <line
+              key={index}
+              x1={centerX}
+              y1={centerY}
+              x2={point.x}
+              y2={point.y}
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-border"
+            />
+          );
+        })}
+
+        {/* Math polygon */}
+        <path
+          d={mathPath}
+          fill="#10b981"
+          fillOpacity="0.3"
+          stroke="#10b981"
+          strokeWidth="2"
+        />
+
+        {/* Verbal polygon */}
+        <path
+          d={verbalPath}
+          fill="#3b82f6"
+          fillOpacity="0.3"
+          stroke="#3b82f6"
+          strokeWidth="2"
+        />
+
+        {/* Labels */}
+        {topicStrengths.map((topic, index) => {
+          const labelPoint = getPoint(index, 130);
+          return (
+            <text
+              key={index}
+              x={labelPoint.x}
+              y={labelPoint.y}
+              textAnchor="middle"
+              className="text-[10px] fill-current text-foreground"
+            >
+              {topic.topic.split(' ')[0]}
+            </text>
+          );
+        })}
+      </svg>
+    );
+  };
 
   if (!isAuthenticated) {
     return null;
   }
 
   return (
-    <div className="min-h-screen flex flex-col"><div className="flex-1 bg-muted/20">
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-1 bg-muted/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           {/* Header */}
-          <div className="mb-6 sm:mb-8">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-2">Ваш прогресс</h1>
-            <p className="text-sm sm:text-base text-muted-foreground">Отслеживайте свои достижения и динамику обучения</p>
+          <div className="mb-8">
+            <div className="flex items-center gap-3 mb-2">
+              <TrendingUp className="w-8 h-8 text-primary" />
+              <h1 className="text-3xl font-bold">Your Analytics</h1>
+            </div>
+            <p className="text-muted-foreground">{analytics.testsCompleted} tests completed</p>
           </div>
 
-          {/* Weekly Overview */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                <span className="text-xl sm:text-2xl font-bold">7</span>
+          {/* Analytics Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <div className="text-5xl font-bold text-blue-500 mb-2">{analytics.overallAccuracy}%</div>
+              <div className="text-sm text-muted-foreground mb-2">Overall Accuracy</div>
+              <div className="flex items-center gap-1 text-green-500 text-sm font-medium">
+                <TrendingUp className="w-4 h-4" />
+                +{analytics.accuracyTrend}% trend
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground">дней подряд</p>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                <span className="text-xl sm:text-2xl font-bold">19.5</span>
-              </div>
-              <p className="text-xs sm:text-sm text-muted-foreground">часов</p>
+            <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <div className="text-5xl font-bold text-cyan-500 mb-2">{analytics.readingWritingAvg}%</div>
+              <div className="text-sm text-muted-foreground">Reading and Writing Avg</div>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                <span className="text-xl sm:text-2xl font-bold">70</span>
-              </div>
-              <p className="text-xs sm:text-sm text-muted-foreground">задач</p>
+            <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <div className="text-5xl font-bold text-green-500 mb-2">{analytics.mathAvg}%</div>
+              <div className="text-sm text-muted-foreground">Math Avg</div>
             </div>
 
-            <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                <span className="text-xl sm:text-2xl font-bold">86%</span>
-              </div>
-              <p className="text-xs sm:text-sm text-muted-foreground">точность</p>
+            <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <div className="text-5xl font-bold text-purple-500 mb-2">{analytics.percentile}%</div>
+              <div className="text-sm text-muted-foreground">Percentile</div>
             </div>
           </div>
 
-          {/* Weekly Activity Chart */}
-          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
-            <div className="flex items-center gap-2 mb-4 sm:mb-6">
-              <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <h2 className="text-lg sm:text-xl font-bold">Активность за неделю</h2>
-            </div>
-            <div className="flex items-end justify-between gap-2 sm:gap-4 h-32 sm:h-48">
-              {weeklyActivity.map((day, idx) => (
-                <div key={idx} className="flex-1 flex flex-col items-center gap-2 sm:gap-3">
-                  <div className="w-full flex flex-col items-center justify-end flex-1">
-                    <div
-                      className="w-full bg-primary/80 hover:bg-primary rounded-t-lg transition-all"
-                      style={{ height: `${(day.hours / maxHours) * 100}%` }}
-                    />
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xs sm:text-sm font-semibold">{day.hours}ч</p>
-                    <p className="text-[10px] sm:text-xs text-muted-foreground">{day.day}</p>
-                  </div>
+          <div className="grid lg:grid-cols-2 gap-6 mb-8">
+            {/* Score Trend Over Time */}
+            <div className="bg-card border border-border/60 rounded-2xl p-6">
+              <h2 className="text-xl font-bold mb-4">Score Trend Over Time</h2>
+
+              <div className="flex items-center gap-4 mb-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                  <span>Verbal</span>
                 </div>
-              ))}
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <span>Math</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+                  <span>Group Avg</span>
+                </div>
+              </div>
+
+              <div className="relative h-64">
+                <svg width="100%" height="100%" viewBox="0 0 400 200" className="overflow-visible">
+                  {/* Grid lines */}
+                  {[0, 20, 40, 60, 80, 100].map(y => (
+                    <g key={y}>
+                      <line
+                        x1="0"
+                        y1={200 - (y * 2)}
+                        x2="400"
+                        y2={200 - (y * 2)}
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        className="text-border opacity-30"
+                      />
+                      <text
+                        x="-5"
+                        y={200 - (y * 2)}
+                        textAnchor="end"
+                        className="text-[10px] fill-current text-muted-foreground"
+                      >
+                        {y}%
+                      </text>
+                    </g>
+                  ))}
+
+                  {/* Lines */}
+                  <polyline
+                    points={scoreTrend.map((d, i) => `${i * 66 + 40},${200 - d.verbal * 2}`).join(' ')}
+                    fill="none"
+                    stroke="#3b82f6"
+                    strokeWidth="3"
+                  />
+                  <polyline
+                    points={scoreTrend.map((d, i) => `${i * 66 + 40},${200 - d.math * 2}`).join(' ')}
+                    fill="none"
+                    stroke="#10b981"
+                    strokeWidth="3"
+                  />
+                  <polyline
+                    points={scoreTrend.map((d, i) => `${i * 66 + 40},${200 - d.avg * 2}`).join(' ')}
+                    fill="none"
+                    stroke="#f97316"
+                    strokeWidth="2"
+                    strokeDasharray="5,5"
+                  />
+
+                  {/* Points */}
+                  {scoreTrend.map((d, i) => (
+                    <g key={i}>
+                      <circle cx={i * 66 + 40} cy={200 - d.verbal * 2} r="4" fill="#3b82f6" />
+                      <circle cx={i * 66 + 40} cy={200 - d.math * 2} r="4" fill="#10b981" />
+                    </g>
+                  ))}
+
+                  {/* X-axis labels */}
+                  {scoreTrend.map((d, i) => (
+                    <text
+                      key={i}
+                      x={i * 66 + 40}
+                      y="215"
+                      textAnchor="middle"
+                      className="text-[10px] fill-current text-muted-foreground"
+                    >
+                      {d.date}
+                    </text>
+                  ))}
+                </svg>
+              </div>
+            </div>
+
+            {/* Topic Strengths & Weaknesses */}
+            <div className="bg-card border border-border/60 rounded-2xl p-6">
+              <h2 className="text-xl font-bold mb-4">Topic Strengths & Weaknesses</h2>
+
+              <div className="flex items-center justify-center gap-6 mb-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                  <span>Verbal</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <span>Math</span>
+                </div>
+              </div>
+
+              {renderRadarChart()}
             </div>
           </div>
 
           {/* Subject Progress */}
-          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
-            <div className="flex items-center gap-2 mb-4 sm:mb-6">
-              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <h2 className="text-lg sm:text-xl font-bold">Прогресс по предметам</h2>
-            </div>
-            <div className="space-y-4">
-              {subjectProgress.map((subject, idx) => (
-                <div key={idx}>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium text-sm sm:text-base">{subject.name}</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs sm:text-sm text-muted-foreground">{subject.level}</span>
-                      <span className="text-xs sm:text-sm font-bold text-primary">{subject.progress}%</span>
-                    </div>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
-                    <div
-                      className="bg-primary h-2 rounded-full transition-all duration-500"
-                      style={{ width: `${subject.progress}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="bg-card border border-border/60 rounded-2xl p-6">
+            <h2 className="text-xl font-bold mb-6">Прогресс по предметам</h2>
 
-          {/* Achievements */}
-          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6">
-            <div className="flex items-center gap-2 mb-4 sm:mb-6">
-              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <h2 className="text-lg sm:text-xl font-bold">Достижения</h2>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              {achievements.map((achievement, idx) => (
-                <div
-                  key={idx}
-                  className={`p-4 sm:p-6 rounded-lg border transition-all ${
-                    achievement.unlocked
-                      ? 'bg-primary/5 border-primary/30 hover:border-primary/50'
-                      : 'bg-muted/20 border-border/60 opacity-60'
-                  }`}
-                >
-                  <div className="text-3xl sm:text-4xl mb-2 sm:mb-3 text-center">{achievement.icon}</div>
-                  <h3 className="font-bold text-xs sm:text-sm mb-1 text-center">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground text-center">
-                    {achievement.description}
-                  </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {subjectProgress.map(subject => (
+                <div key={subject.name} className="relative">
+                  <div className="flex flex-col items-center">
+                    <div className="relative mb-4">
+                      {renderCircularProgress(subject.progress, 120,
+                        subject.progress >= 85 ? '#10b981' :
+                        subject.progress >= 70 ? '#3b82f6' : '#f59e0b'
+                      )}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold">{subject.progress}%</div>
+                        </div>
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-lg mb-1">{subject.name}</h3>
+                    <p className="text-sm text-muted-foreground">{subject.level}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="border-t border-border/40 py-8 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-muted-foreground">
-          <p>© 2026 FM Edu. Все права защищены.</p>
-        </div>
-      </footer>
     </div>
   );
 }
