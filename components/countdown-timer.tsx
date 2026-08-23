@@ -57,10 +57,10 @@ export function CountdownTimer({ studentId }: CountdownTimerProps) {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-card rounded-lg shadow-md p-6 border border-border/60">
         <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded w-1/3 mb-4"></div>
-          <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+          <div className="h-6 bg-muted rounded w-1/3 mb-4"></div>
+          <div className="h-4 bg-muted rounded w-2/3"></div>
         </div>
       </div>
     );
@@ -68,12 +68,12 @@ export function CountdownTimer({ studentId }: CountdownTimerProps) {
 
   if (deadlines.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="bg-card rounded-lg shadow-md p-6 border border-border/60">
         <div className="flex items-center gap-2 mb-4">
           <Clock className="w-5 h-5 text-purple-600" />
-          <h3 className="text-lg font-bold text-gray-900">Ближайшие дедлайны</h3>
+          <h3 className="text-lg font-bold text-foreground">Ближайшие дедлайны</h3>
         </div>
-        <p className="text-gray-500 text-sm mb-4">Нет предстоящих дедлайнов</p>
+        <p className="text-muted-foreground text-sm mb-4">Нет предстоящих дедлайнов</p>
         <Link href="/calendar">
           <button className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2">
             <Calendar className="w-4 h-4" />
@@ -85,11 +85,11 @@ export function CountdownTimer({ studentId }: CountdownTimerProps) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-card rounded-lg shadow-md p-6 border border-border/60">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Clock className="w-5 h-5 text-purple-600" />
-          <h3 className="text-lg font-bold text-gray-900">Ближайшие дедлайны</h3>
+          <h3 className="text-lg font-bold text-foreground">Ближайшие дедлайны</h3>
         </div>
         <Link href="/calendar">
           <button className="text-sm text-purple-600 hover:text-purple-700 font-medium">
@@ -104,16 +104,16 @@ export function CountdownTimer({ studentId }: CountdownTimerProps) {
           return (
             <div
               key={deadline.id}
-              className="border border-gray-200 rounded-lg p-4 hover:border-purple-300 transition-colors"
+              className="border border-border rounded-lg p-4 hover:border-purple-300 transition-colors bg-muted/30"
               style={{ borderLeftWidth: '4px', borderLeftColor: deadline.color }}
             >
               <div className="flex items-start justify-between mb-2">
-                <h4 className="font-semibold text-gray-900 text-sm">{deadline.title}</h4>
+                <h4 className="font-semibold text-foreground text-sm">{deadline.title}</h4>
                 <span className={`text-xs font-bold ${timeUntil.color}`}>
                   {timeUntil.text}
                 </span>
               </div>
-              <div className="text-xs text-gray-500">
+              <div className="text-xs text-muted-foreground">
                 {new Date(deadline.date).toLocaleDateString('ru-RU', {
                   day: 'numeric',
                   month: 'long',
@@ -126,7 +126,7 @@ export function CountdownTimer({ studentId }: CountdownTimerProps) {
       </div>
 
       <Link href="/calendar">
-        <button className="w-full mt-4 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 text-sm">
+        <button className="w-full mt-4 px-4 py-2 border border-border rounded-lg hover:bg-muted transition-colors flex items-center justify-center gap-2 text-sm text-foreground">
           <Calendar className="w-4 h-4" />
           Открыть календарь
         </button>
