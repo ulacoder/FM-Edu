@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BookOpen, Target, MessageSquare, GraduationCap } from "lucide-react";
 import { getTranslation, type Locale } from "@/lib/i18n";
+import { TelegramBotBanner } from "@/components/telegram-bot-banner";
+import { OfflineManager } from "@/components/offline-manager";
 
 export default function Home() {
   const [locale, setLocale] = useState<Locale>('ru');
@@ -27,6 +29,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <TelegramBotBanner />
+
       {/* Hero Section */}
       <section className="pt-16 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,6 +119,22 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Offline Mode Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold mb-3">
+              Работает даже без интернета
+            </h2>
+            <p className="text-muted-foreground">
+              Специально для сельских школ с плохим интернетом (2G/3G)
+            </p>
+          </div>
+
+          <OfflineManager userId="demo" />
         </div>
       </section>
 

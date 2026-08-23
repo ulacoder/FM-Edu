@@ -7,6 +7,7 @@ import { BurnoutSupportWidget } from "@/components/burnout-support";
 import { ProactiveAIAgent } from "@/components/proactive-ai-agent";
 import { PomodoroTimer } from "@/components/pomodoro-timer";
 import { Header } from "@/components/header";
+import { ServiceWorkerRegistration } from "@/components/service-worker-registration";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ServiceWorkerRegistration />
         <Header />
         <Sidebar />
         {children}
