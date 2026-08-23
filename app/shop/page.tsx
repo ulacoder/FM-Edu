@@ -235,12 +235,12 @@ export default function ShopPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-4">
+                <div className="p-4 bg-card">
                   <h3 className="font-bold text-lg mb-1 text-foreground">{item.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{item.description}</p>
+                  <p className="text-sm text-foreground mb-3 line-clamp-2">{item.description}</p>
 
                   <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-1 text-purple-600 font-bold">
+                    <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 font-bold">
                       <Zap className="w-4 h-4" />
                       <span>{item.price}</span>
                     </div>
