@@ -1,71 +1,104 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { RegionalChatMessage, Region } from '@/types';
 
-// Мок данные для всех регионов (одни и те же сообщения)
-const MOCK_MESSAGES: RegionalChatMessage[] = [
+// Мок данные для региональных чатов с разнообразными участниками
+// Студенты из сел, обычных школ, НИШ, КТЛ - для всех регионов
+const createMockMessages = (region: Region): RegionalChatMessage[] => [
   {
     id: 'msg_1',
-    region: 'astana' as Region,
+    region,
     studentId: 'student_1',
-    studentName: 'Айдар',
-    message: 'Привет всем! Кто готовится к экзаменам по математике?',
+    studentName: 'Айгерим',
+    message: 'Привет всем! Я из села Шортанды, готовлюсь к ЕНТ по математике. Кто еще?',
     timestamp: new Date('2026-08-23T10:00:00Z')
   },
   {
     id: 'msg_2',
-    region: 'astana' as Region,
+    region,
     studentId: 'student_2',
-    studentName: 'Мадина',
-    message: 'Я! Решаю задачи на квадратные уравнения, очень помогает платформа',
+    studentName: 'Ержан',
+    message: 'Я из 25 школы в городе! Тоже готовлюсь к ЕНТ, решаю квадратные уравнения',
     timestamp: new Date('2026-08-23T10:05:00Z')
   },
   {
     id: 'msg_3',
-    region: 'astana' as Region,
+    region,
     studentId: 'student_3',
-    studentName: 'Данияр',
-    message: 'Есть кто из НИШ Астана? Давайте вместе готовиться к олимпиадам',
+    studentName: 'Мадина',
+    message: 'Привет! Я из НИШ ФМН. Давайте вместе готовиться, могу помочь с физикой',
     timestamp: new Date('2026-08-23T10:10:00Z')
   },
   {
     id: 'msg_4',
-    region: 'astana' as Region,
-    studentId: 'student_1',
-    studentName: 'Айдар',
-    message: 'Я из НИШ ФМН! Тоже готовлюсь к олимпиаде по физике',
+    region,
+    studentId: 'student_4',
+    studentName: 'Нурбол',
+    message: 'Салем! Я из аульной школы в Жамбылской области. Интернет не очень, но стараюсь учиться',
     timestamp: new Date('2026-08-23T10:15:00Z')
   },
   {
     id: 'msg_5',
-    region: 'astana' as Region,
-    studentId: 'student_4',
-    studentName: 'Арина',
-    message: 'Кто-нибудь проходил диагностический тест? Какие результаты?',
+    region,
+    studentId: 'student_5',
+    studentName: 'Алия',
+    message: 'Всем привет из гимназии №5! Кто-нибудь проходил диагностический тест?',
     timestamp: new Date('2026-08-23T10:20:00Z')
   },
   {
     id: 'msg_6',
-    region: 'astana' as Region,
+    region,
     studentId: 'student_2',
-    studentName: 'Мадина',
-    message: 'Я прошла, показало мой уровень и дало персональные рекомендации. Очень полезно!',
+    studentName: 'Ержан',
+    message: 'Я прошел, показало мой уровень и дало рекомендации. Очень помогает!',
     timestamp: new Date('2026-08-23T10:25:00Z')
   },
   {
     id: 'msg_7',
-    region: 'astana' as Region,
-    studentId: 'student_5',
-    studentName: 'Темирлан',
-    message: 'У кого-нибудь есть советы по подготовке к ЕНТ по информатике?',
+    region,
+    studentId: 'student_6',
+    studentName: 'Асель',
+    message: 'Я из обычной школы в районном центре. У кого-нибудь есть советы по информатике?',
     timestamp: new Date('2026-08-23T10:30:00Z')
   },
   {
     id: 'msg_8',
-    region: 'astana' as Region,
-    studentId: 'student_3',
-    studentName: 'Данияр',
-    message: 'Проходи все темы по порядку на платформе, там алгоритмы очень хорошо объясняют',
+    region,
+    studentId: 'student_7',
+    studentName: 'Дияр',
+    message: 'Я из КТЛ, могу помочь с программированием! Проходите темы на платформе по порядку',
     timestamp: new Date('2026-08-23T10:35:00Z')
+  },
+  {
+    id: 'msg_9',
+    region,
+    studentId: 'student_8',
+    studentName: 'Жанар',
+    message: 'Спасибо за платформу! Я из малокомплектной школы, у нас нет многих предметов. Здесь могу учиться!',
+    timestamp: new Date('2026-08-23T10:40:00Z')
+  },
+  {
+    id: 'msg_10',
+    region,
+    studentId: 'student_1',
+    studentName: 'Айгерим',
+    message: 'Да, платформа реально помогает! В селе учителя не всегда есть, а тут все доступно',
+    timestamp: new Date('2026-08-23T10:45:00Z')
+  },
+  {
+    id: 'msg_11',
+    region,
+    studentId: 'student_9',
+    studentName: 'Санжар',
+    message: 'Кто готовится к олимпиадам? Я из обычной школы, но хочу попробовать',
+    timestamp: new Date('2026-08-23T10:50:00Z')
+  },
+  {
+    id: 'msg_12',
+    region,
+    studentId: 'student_3',
+    studentName: 'Мадина',
+    message: 'Санжар, давай вместе! Я помогу подготовиться, в олимпиадах главное - практика',
+    timestamp: new Date('2026-08-23T10:55:00Z')
   }
 ];
 
@@ -82,10 +115,8 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Возвращаем те же мок сообщения для любого региона
-    const messages = MOCK_MESSAGES
-      .map(msg => ({ ...msg, region })) // Подставляем нужный регион
-      .slice(-limit);
+    // Создаем сообщения для конкретного региона
+    const messages = createMockMessages(region).slice(-limit);
 
     return NextResponse.json({ messages });
 
