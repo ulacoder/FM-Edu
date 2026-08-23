@@ -23,9 +23,9 @@ export function LanguageSwitcher() {
   };
 
   const languages = [
-    { code: 'ru' as Locale, label: 'Русский', flag: '🇷🇺' },
-    { code: 'kk' as Locale, label: 'Қазақша', flag: '🇰🇿' },
-    { code: 'en' as Locale, label: 'English', flag: '🇬🇧' },
+    { code: 'ru' as Locale, label: 'ru', flag: '🇷🇺' },
+    { code: 'kk' as Locale, label: 'kz', flag: '🇰🇿' },
+    { code: 'en' as Locale, label: 'en', flag: '🇬🇧' },
   ];
 
   const currentLang = languages.find(l => l.code === locale) || languages[0];
