@@ -53,8 +53,9 @@ export default function ProgressPage() {
   // Mock данные для аналитики
   const analytics = {
     overallAccuracy: 61,
-    readingWritingAvg: 58,
+    physicsAvg: 58,
     mathAvg: 63,
+    informaticsAvg: 72,
     percentile: 74,
     testsCompleted: 9,
     accuracyTrend: 7
@@ -62,23 +63,23 @@ export default function ProgressPage() {
 
   // Данные для радарного графика (сильные и слабые стороны)
   const topicStrengths = [
-    { topic: 'Квадратные уравнения', math: 85, verbal: 45 },
-    { topic: 'Тригонометрия', math: 72, verbal: 38 },
-    { topic: 'Геометрия', math: 90, verbal: 42 },
-    { topic: 'Алгебра', math: 78, verbal: 50 },
-    { topic: 'Логика', math: 65, verbal: 88 },
-    { topic: 'Анализ текста', math: 40, verbal: 92 },
-    { topic: 'Грамматика', math: 35, verbal: 85 },
+    { topic: 'Квадратные уравнения', math: 85, physics: 65 },
+    { topic: 'Механика', math: 60, physics: 88 },
+    { topic: 'Геометрия', math: 90, physics: 55 },
+    { topic: 'Алгебра', math: 78, physics: 62 },
+    { topic: 'Электричество', math: 55, physics: 82 },
+    { topic: 'Алгоритмы', math: 70, physics: 45 },
+    { topic: 'Тригонометрия', math: 72, physics: 50 },
   ];
 
   // Данные для линейного графика тренда
   const scoreTrend = [
-    { date: '16.08', verbal: 45, math: 30, avg: 38 },
-    { date: '19.08', verbal: 50, math: 40, avg: 45 },
-    { date: '20.08', verbal: 78, math: 48, avg: 63 },
-    { date: '21.08', verbal: 80, math: 75, avg: 78 },
-    { date: '22.08', verbal: 65, math: 80, avg: 73 },
-    { date: '23.08', verbal: 72, math: 85, avg: 79 },
+    { date: '16.08', physics: 45, math: 50, informatics: 55, avg: 50 },
+    { date: '19.08', physics: 50, math: 55, informatics: 60, avg: 55 },
+    { date: '20.08', physics: 58, math: 63, informatics: 68, avg: 63 },
+    { date: '21.08', physics: 62, math: 70, informatics: 75, avg: 69 },
+    { date: '22.08', physics: 65, math: 75, informatics: 78, avg: 73 },
+    { date: '23.08', physics: 68, math: 80, informatics: 82, avg: 77 },
   ];
 
   // Прогресс по предметам
@@ -139,10 +140,10 @@ export default function ProgressPage() {
     };
 
     const mathPoints = topicStrengths.map((t, i) => getPoint(i, t.math));
-    const verbalPoints = topicStrengths.map((t, i) => getPoint(i, t.verbal));
+    const physicsPoints = topicStrengths.map((t, i) => getPoint(i, t.physics));
 
     const mathPath = mathPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
-    const verbalPath = verbalPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
+    const physicsPath = physicsPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
 
     return (
       <svg width="300" height="300" className="mx-auto">
@@ -186,9 +187,9 @@ export default function ProgressPage() {
           strokeWidth="2"
         />
 
-        {/* Verbal polygon */}
+        {/* Physics polygon */}
         <path
-          d={verbalPath}
+          d={physicsPath}
           fill="#3b82f6"
           fillOpacity="0.3"
           stroke="#3b82f6"
@@ -243,18 +244,18 @@ export default function ProgressPage() {
             </div>
 
             <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
-              <div className="text-5xl font-bold text-cyan-500 mb-2">{analytics.readingWritingAvg}%</div>
-              <div className="text-sm text-muted-foreground">{t('readingWritingAvg')}</div>
+              <div className="text-5xl font-bold text-cyan-500 mb-2">{analytics.physicsAvg}%</div>
+              <div className="text-sm text-muted-foreground">{t('physics')}</div>
             </div>
 
             <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
               <div className="text-5xl font-bold text-green-500 mb-2">{analytics.mathAvg}%</div>
-              <div className="text-sm text-muted-foreground">{t('mathAvg')}</div>
+              <div className="text-sm text-muted-foreground">{t('mathematics')}</div>
             </div>
 
             <div className="bg-card border border-border/60 rounded-2xl p-6 hover:border-primary/40 transition-colors">
-              <div className="text-5xl font-bold text-purple-500 mb-2">{analytics.percentile}%</div>
-              <div className="text-sm text-muted-foreground">{t('percentile')}</div>
+              <div className="text-5xl font-bold text-purple-500 mb-2">{analytics.informaticsAvg}%</div>
+              <div className="text-sm text-muted-foreground">{t('informatics')}</div>
             </div>
           </div>
 
@@ -266,11 +267,15 @@ export default function ProgressPage() {
               <div className="flex items-center gap-4 mb-4 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>{t('verbal')}</span>
+                  <span>{t('physics')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>{t('math')}</span>
+                  <span>{t('mathematics')}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+                  <span>{t('informatics')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-orange-500"></div>
@@ -305,7 +310,7 @@ export default function ProgressPage() {
 
                   {/* Lines */}
                   <polyline
-                    points={scoreTrend.map((d, i) => `${i * 66 + 40},${200 - d.verbal * 2}`).join(' ')}
+                    points={scoreTrend.map((d, i) => `${i * 66 + 40},${200 - d.physics * 2}`).join(' ')}
                     fill="none"
                     stroke="#3b82f6"
                     strokeWidth="3"
@@ -314,6 +319,12 @@ export default function ProgressPage() {
                     points={scoreTrend.map((d, i) => `${i * 66 + 40},${200 - d.math * 2}`).join(' ')}
                     fill="none"
                     stroke="#10b981"
+                    strokeWidth="3"
+                  />
+                  <polyline
+                    points={scoreTrend.map((d, i) => `${i * 66 + 40},${200 - d.informatics * 2}`).join(' ')}
+                    fill="none"
+                    stroke="#a855f7"
                     strokeWidth="3"
                   />
                   <polyline
@@ -327,8 +338,9 @@ export default function ProgressPage() {
                   {/* Points */}
                   {scoreTrend.map((d, i) => (
                     <g key={i}>
-                      <circle cx={i * 66 + 40} cy={200 - d.verbal * 2} r="4" fill="#3b82f6" />
+                      <circle cx={i * 66 + 40} cy={200 - d.physics * 2} r="4" fill="#3b82f6" />
                       <circle cx={i * 66 + 40} cy={200 - d.math * 2} r="4" fill="#10b981" />
+                      <circle cx={i * 66 + 40} cy={200 - d.informatics * 2} r="4" fill="#a855f7" />
                     </g>
                   ))}
 
@@ -355,11 +367,11 @@ export default function ProgressPage() {
               <div className="flex items-center justify-center gap-6 mb-4 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>{t('verbal')}</span>
+                  <span>{t('physics')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span>{t('math')}</span>
+                  <span>{t('mathematics')}</span>
                 </div>
               </div>
 
