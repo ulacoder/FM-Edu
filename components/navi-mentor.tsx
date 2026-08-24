@@ -268,7 +268,7 @@ export function NaviMentor() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 bg-white dark:bg-gray-900 border-2 border-purple-600 dark:border-purple-500 rounded-lg shadow-2xl z-50 flex flex-col transition-all ${
+      className={`fixed bottom-6 right-6 bg-white dark:bg-gray-900 border-2 border-purple-600 dark:border-purple-500 rounded-2xl shadow-2xl z-50 flex flex-col transition-all ${
         isMinimized ? "w-80 h-16" : "w-96 h-[600px]"
       }`}
     >
