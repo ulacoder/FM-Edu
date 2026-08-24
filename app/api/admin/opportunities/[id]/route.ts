@@ -17,11 +17,12 @@ let opportunities = [
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await req.json();
-    const oppIndex = opportunities.findIndex(o => o.id === params.id);
+    const oppIndex = opportunities.findIndex(o => o.id === id);
 
     if (oppIndex === -1) {
       return NextResponse.json(
@@ -48,10 +49,11 @@ export async function PUT(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const oppIndex = opportunities.findIndex(o => o.id === params.id);
+    const { id } = await params;
+    const oppIndex = opportunities.findIndex(o => o.id === id);
 
     if (oppIndex === -1) {
       return NextResponse.json(
@@ -60,7 +62,7 @@ export async function DELETE(
       );
     }
 
-    opportunities = opportunities.filter(o => o.id !== params.id);
+    opportunities = opportunities.filter(o => o.id !== id);
 
     return NextResponse.json({ success: true });
   } catch (error) {

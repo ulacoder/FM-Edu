@@ -48,7 +48,7 @@
 
 ### Стек:
 - **Frontend/Backend**: Next.js 14 (TypeScript + Tailwind CSS)
-- **AI**: Qwen 3.5 Flash (Alibaba Cloud)
+- **AI**: Qwen 3.6 Flash (Alibaba Cloud)
 - **База данных**: JSON (легко мигрируется на PostgreSQL/Supabase)
 - **Авторизация**: JWT + bcrypt
 

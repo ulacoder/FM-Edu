@@ -32,11 +32,12 @@ let courses = [
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await req.json();
-    const courseIndex = courses.findIndex(c => c.id === params.id);
+    const courseIndex = courses.findIndex(c => c.id === id);
 
     if (courseIndex === -1) {
       return NextResponse.json(
@@ -63,10 +64,11 @@ export async function PUT(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const courseIndex = courses.findIndex(c => c.id === params.id);
+    const { id } = await params;
+    const courseIndex = courses.findIndex(c => c.id === id);
 
     if (courseIndex === -1) {
       return NextResponse.json(
@@ -75,7 +77,7 @@ export async function DELETE(
       );
     }
 
-    courses = courses.filter(c => c.id !== params.id);
+    courses = courses.filter(c => c.id !== id);
 
     return NextResponse.json({ success: true });
   } catch (error) {
