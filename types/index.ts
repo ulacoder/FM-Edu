@@ -107,6 +107,7 @@ export interface Student extends User {
 export interface Teacher extends User {
   role: 'teacher';
   subjects: Subject[];
+  pointsBalance?: number; // Баланс баллов для раздачи (по умолчанию 30000)
 }
 
 // Предметы по программе МОН РК
@@ -436,4 +437,39 @@ export interface Purchase {
     city: string;
     phone: string;
   };
+}
+
+// Классы учителя
+export interface TeacherClass {
+  id: string;
+  teacherId: string;
+  name: string; // "9 А — Математика"
+  description?: string;
+  studentIds: string[]; // ID студентов в классе
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// Транзакция баллов
+export interface PointsTransaction {
+  id: string;
+  teacherId: string;
+  studentId: string;
+  classId?: string;
+  amount: number; // положительное число
+  category: string; // "За активность на уроке", "За домашнее задание", etc.
+  description?: string;
+  createdAt: Date;
+}
+
+// Ревью от учителя
+export interface TeacherReview {
+  id: string;
+  teacherId: string;
+  teacherName: string;
+  studentId: string;
+  classId?: string;
+  text: string;
+  category?: 'homework' | 'behavior' | 'progress' | 'general';
+  createdAt: Date;
 }

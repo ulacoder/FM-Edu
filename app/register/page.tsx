@@ -61,6 +61,7 @@ export default function RegisterPage() {
         mbtiType: formData.role === 'student' ? formData.mbtiType : undefined,
         subjects: formData.role === 'teacher' ? formData.subjects : undefined,
         totalPoints: formData.role === 'student' ? 0 : undefined,
+        pointsBalance: formData.role === 'teacher' ? 30000 : undefined, // Начальный баланс учителя
         createdAt: new Date().toISOString(),
       };
 

@@ -213,15 +213,15 @@ export default function TeacherDashboard() {
         {/* Быстрые действия */}
         <div className="grid md:grid-cols-3 gap-6">
           <Link
-            href="/teacher/materials"
+            href="/dashboard/teacher/classes"
             className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
-            <div className="text-3xl mb-3">📚</div>
+            <div className="text-3xl mb-3">👥</div>
             <h3 className="font-semibold text-gray-900 mb-2">
-              Добавить материалы
+              Мои классы
             </h3>
             <p className="text-sm text-gray-600">
-              Загрузите новые материалы для учеников
+              Управление классами и начисление баллов
             </p>
           </Link>
 
@@ -239,15 +239,15 @@ export default function TeacherDashboard() {
           </Link>
 
           <Link
-            href="/teacher/analytics"
+            href="/teacher/materials"
             className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
           >
-            <div className="text-3xl mb-3">📊</div>
+            <div className="text-3xl mb-3">📚</div>
             <h3 className="font-semibold text-gray-900 mb-2">
-              Аналитика
+              Добавить материалы
             </h3>
             <p className="text-sm text-gray-600">
-              Подробная статистика по ученикам
+              Загрузите новые материалы для учеников
             </p>
           </Link>
         </div>
