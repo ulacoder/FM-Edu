@@ -87,7 +87,15 @@ export function Sidebar() {
     { icon: Settings, labelKey: "settings", href: "/settings", auth: true },
   ];
 
-  const handleItemClick = (item: any) => {
+  const handleItemClick = (item: any, e: React.MouseEvent) => {
+    // If auth required and user not authenticated, redirect to login
+    if (item.auth && !isAuthenticated) {
+      e.preventDefault();
+      router.push('/login');
+      setIsOpen(false);
+      return;
+    }
+
     if (item.action === "openNavi") {
       // Trigger Navi to open - we'll dispatch a custom event
       window.dispatchEvent(new CustomEvent('openNavi'));
@@ -151,9 +159,6 @@ export function Sidebar() {
           <nav className="flex-1 overflow-y-auto p-4">
             <ul className="space-y-1">
               {menuItems.map((item) => {
-                // Skip auth-required items if not authenticated
-                if (item.auth && !isAuthenticated) return null;
-
                 const Icon = item.icon;
                 const isActive = pathname === item.href;
 
@@ -161,7 +166,7 @@ export function Sidebar() {
                   <li key={item.labelKey}>
                     {item.action ? (
                       <button
-                        onClick={() => handleItemClick(item)}
+                        onClick={(e) => handleItemClick(item, e)}
                         className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
                           isActive
                             ? "bg-purple-600 text-white"
@@ -174,7 +179,7 @@ export function Sidebar() {
                     ) : (
                       <Link
                         href={item.href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={(e) => handleItemClick(item, e)}
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
                           isActive
                             ? "bg-purple-600 text-white"
@@ -183,6 +188,11 @@ export function Sidebar() {
                       >
                         <Icon className="w-4 h-4" />
                         <span className="text-sm font-medium">{t(item.labelKey)}</span>
+                        {item.auth && !isAuthenticated && (
+                          <span className="ml-auto text-xs bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-0.5 rounded">
+                            🔒
+                          </span>
+                        )}
                       </Link>
                     )}
                   </li>
