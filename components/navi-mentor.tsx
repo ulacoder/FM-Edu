@@ -271,7 +271,7 @@ export function NaviMentor() {
       className={`fixed bottom-2 right-2 sm:bottom-6 sm:right-6 bg-white dark:bg-gray-900 border-2 border-purple-600 dark:border-purple-500 rounded-3xl shadow-2xl z-50 flex flex-col transition-all ${
         isMinimized
           ? "w-64 sm:w-80 h-16"
-          : "w-[calc(100vw-1rem)] sm:w-96 h-[85vh] sm:h-[600px]"
+          : "w-[calc(100vw-1rem)] sm:w-96 h-[70vh] sm:h-[600px] max-h-[500px] sm:max-h-[600px]"
       }`}
     >
       {/* Header */}
@@ -427,7 +427,7 @@ export function NaviMentor() {
                   }
                 }}
                 placeholder="Напиши сообщение..."
-                className="flex-1 px-2 sm:px-4 py-2 text-xs sm:text-sm border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                className="flex-1 px-2 sm:px-4 py-2 text-base sm:text-sm border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 disabled={isLoading || isRecording}
               />
               <button
