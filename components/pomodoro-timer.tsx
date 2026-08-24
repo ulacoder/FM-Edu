@@ -202,8 +202,8 @@ export function PomodoroTimer() {
     return ((totalTime - timeLeft) / totalTime) * 100;
   };
 
-  // Dragging handlers
-  const handleMouseDown = (e: React.MouseEvent) => {
+  // Dragging handlers - поддержка touch для мобилы
+  const handlePointerDown = (e: React.PointerEvent) => {
     if ((e.target as HTMLElement).closest('.draggable-handle')) {
       setIsDragging(true);
       setWasDragged(false);
@@ -211,11 +211,12 @@ export function PomodoroTimer() {
         x: e.clientX - position.x,
         y: e.clientY - position.y
       });
+      (e.target as HTMLElement).setPointerCapture(e.pointerId);
     }
   };
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    const handlePointerMove = (e: PointerEvent) => {
       if (isDragging) {
         setWasDragged(true);
         setPosition({
@@ -225,18 +226,18 @@ export function PomodoroTimer() {
       }
     };
 
-    const handleMouseUp = () => {
+    const handlePointerUp = () => {
       setIsDragging(false);
     };
 
     if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseup', handleMouseUp);
+      document.addEventListener('pointermove', handlePointerMove);
+      document.addEventListener('pointerup', handlePointerUp);
     }
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('pointerup', handlePointerUp);
     };
   }, [isDragging, dragOffset]);
 
@@ -251,7 +252,7 @@ export function PomodoroTimer() {
           zIndex: 9999,
           cursor: isDragging ? 'grabbing' : 'grab'
         }}
-        onMouseDown={handleMouseDown}
+        onPointerDown={handlePointerDown}
         className="draggable-handle"
       >
         <button
@@ -295,7 +296,7 @@ export function PomodoroTimer() {
       {/* Header */}
       <div
         className="draggable-handle p-4 bg-gradient-to-r from-purple-50 to-blue-50 border-b border-gray-200 flex items-center justify-between cursor-grab active:cursor-grabbing"
-        onMouseDown={handleMouseDown}
+        onPointerDown={handlePointerDown}
       >
         <div className="flex items-center gap-2">
           <button
