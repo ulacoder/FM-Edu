@@ -224,7 +224,7 @@ export default function RegionalChatPage() {
           </div>
 
           {/* Input */}
-          <div className="px-4 sm:px-6 lg:px-8 py-4 border-t border-border/40 bg-background/80 flex-shrink-0">
+          <div className="px-4 sm:px-6 lg:px-8 py-4 pb-20 sm:pb-4 border-t border-border/40 bg-background/80 flex-shrink-0">
             <form onSubmit={sendMessage} className="flex gap-2">
               <input
                 type="text"
