@@ -21,6 +21,7 @@ import { subjectNames } from "@/types";
 import { ContentModeSwitcher, type ContentMode } from "@/components/content-mode-switcher";
 import { AudioPlayer } from "@/components/audio-player";
 import { InteractiveNotes } from "@/components/interactive-notes";
+import { ContentDownloadManager } from "@/components/content-download-manager";
 
 interface Topic {
   id: string;
@@ -615,6 +616,21 @@ export default function LessonPage() {
                   </div>
                 </div>
               )}
+
+              {/* Download Manager */}
+              <ContentDownloadManager
+                lessonId={topicId}
+                availableFormats={{
+                  text: true,
+                  audio: false,
+                  video: videoId ? true : false,
+                }}
+                sizes={{
+                  textKB: 15,
+                  audioMB: 3,
+                  videoMB: 48,
+                }}
+              />
 
               {/* Test Section */}
               <div className="bg-card border-2 border-border rounded-lg p-6">
