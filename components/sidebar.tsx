@@ -188,11 +188,6 @@ export function Sidebar() {
                       >
                         <Icon className="w-4 h-4" />
                         <span className="text-sm font-medium">{t(item.labelKey)}</span>
-                        {item.auth && !isAuthenticated && (
-                          <span className="ml-auto text-xs bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-0.5 rounded">
-                            🔒
-                          </span>
-                        )}
                       </Link>
                     )}
                   </li>
