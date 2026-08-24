@@ -10,7 +10,7 @@ export async function qwenChat(messages: Array<{ role: string; content: string }
     console.log('Calling Qwen API...');
 
     const requestBody = {
-      model: 'qwen3.5-flash',
+      model: 'qwen3.6-flash',
       messages: messages,
       temperature: 0.7,
       max_tokens: 4000,
@@ -58,7 +58,7 @@ export async function qwenChatStream(messages: Array<{ role: string; content: st
     }
 
     const requestBody = {
-      model: 'qwen3.5-flash',
+      model: 'qwen3.6-flash',
       messages: messages,
       temperature: 0.7,
       max_tokens: 4000,
