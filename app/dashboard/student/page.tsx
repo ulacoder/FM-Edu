@@ -13,16 +13,21 @@ import {
   Clock,
   Zap,
   CheckCircle2,
-  Brain
+  Brain,
+  Flame
 } from 'lucide-react';
 import { CountdownTimer } from '@/components/countdown-timer';
 import { getTranslation, type Locale } from '@/lib/i18n';
+import { getTodaySet, getStreak } from '@/lib/daily-questions';
+import { DailyQuestionSet, UserStreak } from '@/types/daily-questions';
 
 export default function StudentDashboard() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [locale, setLocale] = useState<Locale>('ru');
+  const [dailySet, setDailySet] = useState<DailyQuestionSet | null>(null);
+  const [streak, setStreak] = useState<UserStreak | null>(null);
 
   const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
@@ -45,6 +50,14 @@ export default function StudentDashboard() {
 
       // Загружаем актуальные баллы
       loadUserPoints(userData.id);
+
+      // Загружаем Daily Questions
+      const todaySet = getTodaySet(userData.id);
+      setDailySet(todaySet);
+
+      // Загружаем streak
+      const userStreak = getStreak(userData.id);
+      setStreak(userStreak);
     } catch (e) {
       console.error('Error parsing user data:', e);
       router.push('/login');
@@ -155,6 +168,75 @@ export default function StudentDashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-6 sm:space-y-8">
+              {/* Daily Questions Widget */}
+              <section>
+                <Link href="/daily-questions">
+                  <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg p-6 hover:from-purple-700 hover:to-pink-700 transition-all cursor-pointer border-2 border-purple-500/50">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                          <Target className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-white">Вопросы дня 📚</h3>
+                          <p className="text-sm text-white/80">Закрепи пробелы за 5 минут</p>
+                        </div>
+                      </div>
+                      {streak && streak.currentStreak > 0 && (
+                        <div className="flex items-center gap-2 px-4 py-2 bg-white/20 rounded-xl">
+                          <Flame className="w-6 h-6 text-orange-400" />
+                          <div className="text-center">
+                            <div className="text-2xl font-black text-white">{streak.currentStreak}</div>
+                            <div className="text-xs text-white/70">дней</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {dailySet ? (
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between text-white">
+                          <span className="text-sm font-medium">
+                            Пройдено {dailySet.completedQuestions.length} из {dailySet.questions.length}
+                          </span>
+                          <span className="text-sm font-medium">
+                            {Math.round((dailySet.completedQuestions.length / dailySet.questions.length) * 100)}%
+                          </span>
+                        </div>
+                        <div className="w-full h-3 bg-white/20 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-white transition-all duration-300"
+                            style={{
+                              width: `${(dailySet.completedQuestions.length / dailySet.questions.length) * 100}%`
+                            }}
+                          />
+                        </div>
+                        {dailySet.status === 'completed' ? (
+                          <div className="flex items-center gap-2 text-white font-semibold">
+                            <CheckCircle2 className="w-5 h-5" />
+                            <span>Завершено! +{dailySet.totalPoints} баллов</span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center gap-2 text-white font-semibold">
+                            <Zap className="w-5 h-5" />
+                            <span>
+                              {dailySet.completedQuestions.length === 0
+                                ? 'Начни сейчас'
+                                : 'Продолжить'}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-2 text-white font-semibold">
+                        <Zap className="w-5 h-5" />
+                        <span>Новые вопросы готовы!</span>
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              </section>
+
               {/* Recent Activity */}
               <section>
                 <div className="flex items-center justify-between mb-4">
