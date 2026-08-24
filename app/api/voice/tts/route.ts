@@ -26,6 +26,7 @@ export async function POST(req: NextRequest) {
       headers: {
         'Authorization': `Bearer ${FISH_AUDIO_API_KEY}`,
         'Content-Type': 'application/json',
+        'model': 's2.1-pro-free',
       },
       body: JSON.stringify({
         text: text,
