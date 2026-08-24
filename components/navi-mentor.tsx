@@ -275,7 +275,7 @@ export function NaviMentor() {
       }`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-2 sm:p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 rounded-t-3xl">
+      <div className="flex items-center justify-between p-2 sm:p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-t-3xl">
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="relative w-8 h-8 sm:w-12 sm:h-12">
             <img

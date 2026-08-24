@@ -19,7 +19,7 @@ export function TelegramBotBanner() {
   if (isDismissed) return null;
 
   return (
-    <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 border border-purple-200 dark:border-purple-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 relative">
+    <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 border border-purple-200 dark:border-gray-700 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 relative">
       <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
         {/* Telegram Icon */}
         <div className="relative flex-shrink-0 mx-auto sm:mx-0">
