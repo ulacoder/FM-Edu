@@ -73,6 +73,9 @@ export default function RegisterPage() {
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(newUser));
 
+      // Уведомляем Header об изменении
+      window.dispatchEvent(new Event('authChange'));
+
       // Редирект
       if (formData.role === 'student') {
         router.push('/dashboard/student');

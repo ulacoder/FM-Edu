@@ -37,6 +37,9 @@ export default function LoginPage() {
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
 
+      // Уведомляем Header об изменении
+      window.dispatchEvent(new Event('authChange'));
+
       // Редирект
       if (user.role === 'student') {
         router.push('/dashboard/student');

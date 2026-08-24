@@ -18,31 +18,51 @@ export function Header() {
   const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const userStr = localStorage.getItem('user');
-    const savedLocale = localStorage.getItem('locale') as Locale;
+    const checkAuth = () => {
+      const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
 
+      if (token && userStr) {
+        setIsAuthenticated(true);
+        try {
+          const user = JSON.parse(userStr);
+          setUserName(user.name || '');
+          setUserRole(user.role || null);
+        } catch (e) {
+          console.error('Error parsing user data:', e);
+        }
+      } else {
+        setIsAuthenticated(false);
+        setUserName('');
+        setUserRole(null);
+      }
+    };
+
+    // Check auth on mount
+    checkAuth();
+
+    const savedLocale = localStorage.getItem('locale') as Locale;
     if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
       setLocale(savedLocale);
     }
 
-    if (token && userStr) {
-      setIsAuthenticated(true);
-      try {
-        const user = JSON.parse(userStr);
-        setUserName(user.name || '');
-        setUserRole(user.role || null);
-      } catch (e) {
-        console.error('Error parsing user data:', e);
-      }
-    }
-
+    // Listen for locale changes
     const handleLocaleChange = (e: CustomEvent<Locale>) => {
       setLocale(e.detail);
     };
 
+    // Listen for auth changes (login/logout)
+    const handleAuthChange = () => {
+      checkAuth();
+    };
+
     window.addEventListener('localeChange', handleLocaleChange as EventListener);
-    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
+    window.addEventListener('authChange', handleAuthChange as EventListener);
+
+    return () => {
+      window.removeEventListener('localeChange', handleLocaleChange as EventListener);
+      window.removeEventListener('authChange', handleAuthChange as EventListener);
+    };
   }, []);
 
   const handleLogout = () => {
@@ -51,6 +71,10 @@ export function Header() {
     setIsAuthenticated(false);
     setUserName('');
     setUserRole(null);
+
+    // Уведомляем Header об изменении
+    window.dispatchEvent(new Event('authChange'));
+
     router.push('/');
   };
 
