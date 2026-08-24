@@ -39,11 +39,11 @@ export function TelegramBotBanner() {
             </span>
           </div>
 
-          <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">
+          <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
             Подключи Telegram бота 🚀
           </h3>
 
-          <p className="text-sm text-muted-foreground mb-4">
+          <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
             Получай мгновенные уведомления о новых возможностях, курсах и изменениях в рейтинге прямо в Telegram!
           </p>
 
@@ -53,21 +53,21 @@ export function TelegramBotBanner() {
               <div className="w-5 h-5 bg-purple-100 dark:bg-purple-900 rounded flex items-center justify-center flex-shrink-0">
                 <Check className="w-3 h-3 text-purple-600 dark:text-purple-400" />
               </div>
-              <span className="text-muted-foreground">Уведомления о дедлайнах</span>
+              <span className="text-gray-700 dark:text-gray-300">Уведомления о дедлайнах</span>
             </div>
 
             <div className="flex items-center gap-2 text-xs sm:text-sm">
               <div className="w-5 h-5 bg-purple-100 dark:bg-purple-900 rounded flex items-center justify-center flex-shrink-0">
                 <Check className="w-3 h-3 text-purple-600 dark:text-purple-400" />
               </div>
-              <span className="text-muted-foreground">Новые возможности</span>
+              <span className="text-gray-700 dark:text-gray-300">Новые возможности</span>
             </div>
 
             <div className="flex items-center gap-2 text-xs sm:text-sm">
               <div className="w-5 h-5 bg-purple-100 dark:bg-purple-900 rounded flex items-center justify-center flex-shrink-0">
                 <Check className="w-3 h-3 text-purple-600 dark:text-purple-400" />
               </div>
-              <span className="text-muted-foreground">Обновления рейтинга</span>
+              <span className="text-gray-700 dark:text-gray-300">Обновления рейтинга</span>
             </div>
           </div>
 
@@ -83,7 +83,7 @@ export function TelegramBotBanner() {
 
             <button
               onClick={handleDismiss}
-              className="w-full sm:w-auto px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="w-full sm:w-auto px-4 py-3 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               Больше не показывать
             </button>
