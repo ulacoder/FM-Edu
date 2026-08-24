@@ -1,17 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Send, Check } from 'lucide-react';
 
 export function TelegramBotBanner() {
   const [isDismissed, setIsDismissed] = useState(false);
-
-  useEffect(() => {
-    const dismissed = localStorage.getItem('telegram_banner_dismissed');
-    if (dismissed) {
-      setIsDismissed(true);
-    }
-  }, []);
 
   const handleConnect = () => {
     const userId = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')!).id : 'guest';
@@ -21,7 +14,6 @@ export function TelegramBotBanner() {
 
   const handleDismiss = () => {
     setIsDismissed(true);
-    localStorage.setItem('telegram_banner_dismissed', 'true');
   };
 
   if (isDismissed) return null;
