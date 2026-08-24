@@ -328,12 +328,12 @@ export function PomodoroTimer() {
               e.stopPropagation();
               setIsMinimized(true);
             }}
-            className="p-1 hover:bg-purple-100 rounded transition-colors"
+            className="p-1 hover:bg-purple-100 dark:hover:bg-purple-900/30 rounded transition-colors"
             title="Свернуть таймер"
           >
-            <Timer className="w-5 h-5 text-purple-600" />
+            <Timer className="w-5 h-5 text-purple-600 dark:text-purple-400" />
           </button>
-          <h3 className="font-bold text-gray-900">Pomodoro Timer</h3>
+          <h3 className="font-bold text-gray-900 dark:text-white">Pomodoro Timer</h3>
         </div>
       </div>
 
