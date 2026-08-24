@@ -15,41 +15,41 @@ export function NewFeatureBanner() {
             <span className="px-2 py-1 bg-purple-600 text-white text-xs font-bold rounded">
               ⚡ НОВИНКА
             </span>
-            <span className="text-xs text-muted-foreground">Специально для 2G/3G</span>
+            <span className="text-xs text-gray-600 dark:text-gray-400">Специально для 2G/3G</span>
           </div>
 
-          <h3 className="text-xl sm:text-2xl font-bold mb-2">
+          <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 dark:text-white">
             3 формата обучения на выбор
           </h3>
 
-          <p className="text-sm sm:text-base text-muted-foreground mb-4">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
             Теперь каждый урок доступен в текстовом, аудио и видео форматах. Выбирай удобный способ в зависимости от скорости интернета!
           </p>
 
           {/* Format Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-            <div className="bg-white dark:bg-gray-900 rounded-lg p-3 border border-purple-100 dark:border-purple-900">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-purple-100 dark:border-purple-800">
               <div className="flex items-center gap-2 mb-1">
                 <FileText className="w-4 h-4 text-green-600" />
-                <span className="font-semibold text-sm">📚 Текст</span>
+                <span className="font-semibold text-sm text-gray-900 dark:text-white">📚 Текст</span>
               </div>
-              <p className="text-xs text-muted-foreground">~15 КБ • Без трафика</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">~15 КБ • Без трафика</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-lg p-3 border border-purple-100 dark:border-purple-900">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-purple-100 dark:border-purple-800">
               <div className="flex items-center gap-2 mb-1">
                 <Headphones className="w-4 h-4 text-purple-600" />
-                <span className="font-semibold text-sm">🎧 Аудио</span>
+                <span className="font-semibold text-sm text-gray-900 dark:text-white">🎧 Аудио</span>
               </div>
-              <p className="text-xs text-muted-foreground">~3 МБ • Скоро</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">~3 МБ • Скоро</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-lg p-3 border border-purple-100 dark:border-purple-900">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-purple-100 dark:border-purple-800">
               <div className="flex items-center gap-2 mb-1">
                 <Video className="w-4 h-4 text-blue-600" />
-                <span className="font-semibold text-sm">🎥 Видео</span>
+                <span className="font-semibold text-sm text-gray-900 dark:text-white">🎥 Видео</span>
               </div>
-              <p className="text-xs text-muted-foreground">~50 МБ • HD</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">~50 МБ • HD</p>
             </div>
           </div>
 
