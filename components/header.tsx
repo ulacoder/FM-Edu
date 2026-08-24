@@ -95,7 +95,7 @@ export function Header() {
             <div className="w-6 h-6 sm:w-8 sm:h-8 gradient-primary rounded-lg flex items-center justify-center">
               <GraduationCap className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" />
             </div>
-            <Link href="/" className="text-sm sm:text-lg font-bold">
+            <Link href="/" className="text-sm sm:text-lg font-bold flex items-center">
               FM Edu
             </Link>
           </div>

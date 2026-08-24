@@ -94,6 +94,11 @@ export function PomodoroTimer() {
 
     if (context && gainNode) {
       if (brownNoiseEnabled) {
+        // Resume AudioContext if suspended (mobile fix)
+        if (context.state === 'suspended') {
+          context.resume();
+        }
+
         // Create and start brown noise source
         const bufferSize = 2 * context.sampleRate;
         const noiseBuffer = context.createBuffer(1, bufferSize, context.sampleRate);
