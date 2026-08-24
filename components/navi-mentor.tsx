@@ -268,14 +268,14 @@ export function NaviMentor() {
 
   return (
     <div
-      className={`fixed bottom-2 right-2 sm:bottom-6 sm:right-6 bg-white dark:bg-gray-900 border-2 border-purple-600 dark:border-purple-500 rounded-2xl shadow-2xl z-50 flex flex-col transition-all ${
+      className={`fixed bottom-2 right-2 sm:bottom-6 sm:right-6 bg-white dark:bg-gray-900 border-2 border-purple-600 dark:border-purple-500 rounded-3xl shadow-2xl z-50 flex flex-col transition-all ${
         isMinimized
           ? "w-64 sm:w-80 h-16"
           : "w-[calc(100vw-1rem)] sm:w-96 h-[85vh] sm:h-[600px]"
       }`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-2 sm:p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30">
+      <div className="flex items-center justify-between p-2 sm:p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 rounded-t-3xl">
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="relative w-8 h-8 sm:w-12 sm:h-12">
             <img
@@ -396,7 +396,7 @@ export function NaviMentor() {
           )}
 
           {/* Input */}
-          <div className="p-2 sm:p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+          <div className="p-2 sm:p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-b-3xl">
             <div className="flex gap-1 sm:gap-2">
               {/* Microphone Button (как в Isida AI) */}
               <button
