@@ -255,8 +255,8 @@ export function NaviMentor() {
 
           {/* Tip bubble */}
           <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            <div className="bg-white border-2 border-purple-600 rounded-lg p-3 shadow-xl max-w-xs">
-              <p className="text-sm font-medium text-gray-900">
+            <div className="bg-white dark:bg-gray-800 border-2 border-purple-600 dark:border-purple-500 rounded-lg p-3 shadow-xl max-w-xs">
+              <p className="text-sm font-medium text-gray-900 dark:text-white">
                 Кликни, чтобы поговорить со мной! 💬
               </p>
             </div>
@@ -268,12 +268,12 @@ export function NaviMentor() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 bg-white border-2 border-purple-600 rounded-lg shadow-2xl z-50 flex flex-col transition-all ${
+      className={`fixed bottom-6 right-6 bg-white dark:bg-gray-900 border-2 border-purple-600 dark:border-purple-500 rounded-lg shadow-2xl z-50 flex flex-col transition-all ${
         isMinimized ? "w-80 h-16" : "w-96 h-[600px]"
       }`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-blue-50">
+      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30">
         <div className="flex items-center gap-3">
           <div className="relative w-12 h-12">
             <img
@@ -281,11 +281,11 @@ export function NaviMentor() {
               alt="Navi"
               className="w-full h-full object-contain"
             />
-            <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+            <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse"></span>
           </div>
           <div>
-            <h3 className="font-bold text-gray-900">Navi</h3>
-            <p className="text-xs text-gray-600">
+            <h3 className="font-bold text-gray-900 dark:text-white">Navi</h3>
+            <p className="text-xs text-gray-600 dark:text-gray-400">
               AI-ментор • Онлайн
             </p>
           </div>
@@ -296,7 +296,7 @@ export function NaviMentor() {
           <button
             onClick={() => setIsVoiceMode(!isVoiceMode)}
             className={`p-2 rounded-lg transition-colors ${
-              isVoiceMode ? 'bg-purple-600 text-white' : 'hover:bg-gray-100 text-gray-600'
+              isVoiceMode ? 'bg-purple-600 text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400'
             }`}
             title={isVoiceMode ? 'Выключить голосовой режим' : 'Включить голосовой режим'}
           >
@@ -305,19 +305,19 @@ export function NaviMentor() {
 
           <button
             onClick={() => setIsMinimized(!isMinimized)}
-            className="hover:bg-gray-100 p-2 rounded transition-colors"
+            className="hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded transition-colors"
           >
             {isMinimized ? (
-              <Maximize2 className="w-4 h-4 text-gray-600" />
+              <Maximize2 className="w-4 h-4 text-gray-600 dark:text-gray-400" />
             ) : (
-              <Minimize2 className="w-4 h-4 text-gray-600" />
+              <Minimize2 className="w-4 h-4 text-gray-600 dark:text-gray-400" />
             )}
           </button>
           <button
             onClick={() => setIsOpen(false)}
-            className="hover:bg-gray-100 p-2 rounded transition-colors"
+            className="hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded transition-colors"
           >
-            <X className="w-4 h-4 text-gray-600" />
+            <X className="w-4 h-4 text-gray-600 dark:text-gray-400" />
           </button>
         </div>
       </div>
@@ -325,7 +325,7 @@ export function NaviMentor() {
       {!isMinimized && (
         <>
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-950">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
@@ -335,11 +335,11 @@ export function NaviMentor() {
                   className={`max-w-[80%] rounded-lg p-3 ${
                     msg.role === "user"
                       ? "bg-purple-600 text-white"
-                      : "bg-white border border-gray-200 text-gray-900"
+                      : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white"
                   }`}
                 >
                   <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
-                  <p className={`text-xs mt-1 ${msg.role === "user" ? "text-purple-200" : "text-gray-500"}`}>
+                  <p className={`text-xs mt-1 ${msg.role === "user" ? "text-purple-200" : "text-gray-500 dark:text-gray-400"}`}>
                     {msg.timestamp.toLocaleTimeString("ru-RU", {
                       hour: "2-digit",
                       minute: "2-digit"
@@ -350,9 +350,9 @@ export function NaviMentor() {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white border border-gray-200 rounded-lg p-3 flex items-center gap-2">
-                  <Loader2 className="w-4 h-4 animate-spin text-purple-600" />
-                  <span className="text-sm text-gray-600">Думаю...</span>
+                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 flex items-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin text-purple-600 dark:text-purple-400" />
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Думаю...</span>
                 </div>
               </div>
             )}
@@ -361,15 +361,15 @@ export function NaviMentor() {
 
           {/* Voice Transcription Box (как в Isida AI) */}
           {isEditing && transcribedText && (
-            <div className="px-4 py-2 bg-blue-50 border-t border-blue-200">
+            <div className="px-4 py-2 bg-blue-50 dark:bg-blue-950/30 border-t border-blue-200 dark:border-blue-800">
               <div className="flex items-start gap-2">
-                <Edit2 className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                <Edit2 className="w-4 h-4 text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
                 <div className="flex-1">
-                  <p className="text-xs text-blue-600 font-medium mb-1">Распознанный текст (редактируй если нужно):</p>
+                  <p className="text-xs text-blue-600 dark:text-blue-400 font-medium mb-1">Распознанный текст (редактируй если нужно):</p>
                   <textarea
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="w-full p-2 text-sm border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    className="w-full p-2 text-sm border border-blue-300 dark:border-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                     rows={2}
                   />
                 </div>
@@ -379,22 +379,22 @@ export function NaviMentor() {
 
           {/* Recording Indicator */}
           {isRecording && (
-            <div className="px-4 py-3 bg-red-50 border-t border-red-200 flex items-center justify-center gap-2">
+            <div className="px-4 py-3 bg-red-50 dark:bg-red-950/30 border-t border-red-200 dark:border-red-800 flex items-center justify-center gap-2">
               <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-              <span className="text-sm text-red-600 font-medium">Запись... Говори</span>
+              <span className="text-sm text-red-600 dark:text-red-400 font-medium">Запись... Говори</span>
             </div>
           )}
 
           {/* Transcribing Indicator */}
           {isTranscribing && !isRecording && (
-            <div className="px-4 py-3 bg-yellow-50 border-t border-yellow-200 flex items-center justify-center gap-2">
-              <Loader2 className="w-4 h-4 text-yellow-600 animate-spin" />
-              <span className="text-sm text-yellow-600 font-medium">Обрабатываю речь...</span>
+            <div className="px-4 py-3 bg-yellow-50 dark:bg-yellow-950/30 border-t border-yellow-200 dark:border-yellow-800 flex items-center justify-center gap-2">
+              <Loader2 className="w-4 h-4 text-yellow-600 dark:text-yellow-400 animate-spin" />
+              <span className="text-sm text-yellow-600 dark:text-yellow-400 font-medium">Обрабатываю речь...</span>
             </div>
           )}
 
           {/* Input */}
-          <div className="p-4 border-t border-gray-200 bg-white">
+          <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
             <div className="flex gap-2">
               {/* Microphone Button (как в Isida AI) */}
               <button
@@ -403,7 +403,7 @@ export function NaviMentor() {
                 className={`p-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                   isRecording
                     ? 'bg-red-500 text-white hover:bg-red-600'
-                    : 'bg-purple-100 text-purple-600 hover:bg-purple-200'
+                    : 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-200 dark:hover:bg-purple-900/50'
                 }`}
                 title={isRecording ? "Остановить запись" : "Голосовой ввод"}
               >
@@ -425,7 +425,7 @@ export function NaviMentor() {
                   }
                 }}
                 placeholder="Напиши сообщение или используй микрофон..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 disabled={isLoading || isRecording}
               />
               <button
