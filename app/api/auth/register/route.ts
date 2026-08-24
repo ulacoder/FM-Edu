@@ -6,7 +6,7 @@ import { User, Student, Teacher } from '@/types';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, password, name, role, grade, subjects, goals } = body;
+    const { email, password, name, role, grade, subjects, goals, region, mbtiType } = body;
 
     // Валидация
     if (!email || !password || !name || !role) {
@@ -48,6 +48,15 @@ export async function POST(request: NextRequest) {
         role: 'student',
         grade: grade || 7,
         goals: goals || [],
+        region: region || 'astana',
+        mbtiProfile: mbtiType ? {
+          type: mbtiType,
+          description: '',
+          learningStyle: '',
+          strengths: [],
+          challenges: [],
+          setAt: new Date()
+        } : undefined,
       };
       create('students', student);
     } else if (role === 'teacher') {
