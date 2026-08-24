@@ -96,12 +96,12 @@ export default function AdminDashboard() {
   };
 
   const StatCard = ({ icon: Icon, title, value, subtitle, color }: any) => (
-    <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm text-gray-600 mb-1">{title}</p>
-          <h3 className="text-3xl font-bold text-gray-900">{value}</h3>
-          {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{title}</p>
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{value}</h3>
+          {subtitle && <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{subtitle}</p>}
         </div>
         <div className={`p-3 rounded-lg ${color}`}>
           <Icon className="w-6 h-6 text-white" />
@@ -114,8 +114,8 @@ export default function AdminDashboard() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
-        <p className="text-gray-600">Общая статистика платформы FM Edu</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Dashboard</h1>
+        <p className="text-gray-600 dark:text-gray-400">Общая статистика платформы FM Edu</p>
       </div>
 
       {/* Stats Grid */}
@@ -167,8 +167,8 @@ export default function AdminDashboard() {
       {/* Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Top Subjects - Pie Chart */}
-        <div className="bg-white rounded-xl p-6 border border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Популярные предметы</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Популярные предметы</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -191,14 +191,14 @@ export default function AdminDashboard() {
         </div>
 
         {/* Weekly Activity - Line Chart */}
-        <div className="bg-white rounded-xl p-6 border border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Активность по дням</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Активность по дням</h2>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={stats.weeklyActivity}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="day" stroke="#9ca3af" />
-              <YAxis stroke="#9ca3af" />
-              <Tooltip />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" className="dark:stroke-gray-700" />
+              <XAxis dataKey="day" stroke="#9ca3af" className="dark:stroke-gray-500" />
+              <YAxis stroke="#9ca3af" className="dark:stroke-gray-500" />
+              <Tooltip contentStyle={{ backgroundColor: 'var(--tooltip-bg)', border: '1px solid var(--tooltip-border)' }} />
               <Line
                 type="monotone"
                 dataKey="students"
@@ -212,13 +212,13 @@ export default function AdminDashboard() {
       </div>
 
       {/* Skills Radar Chart */}
-      <div className="bg-white rounded-xl p-6 border border-gray-200">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Средние баллы по предметам (FIFA Radar)</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Средние баллы по предметам (FIFA Radar)</h2>
         <ResponsiveContainer width="100%" height={400}>
           <RadarChart cx="50%" cy="50%" outerRadius="80%" data={stats.skillsDistribution}>
-            <PolarGrid stroke="#e5e7eb" />
-            <PolarAngleAxis dataKey="subject" stroke="#6b7280" />
-            <PolarRadiusAxis angle={90} domain={[0, 100]} stroke="#9ca3af" />
+            <PolarGrid stroke="#e5e7eb" className="dark:stroke-gray-700" />
+            <PolarAngleAxis dataKey="subject" stroke="#6b7280" className="dark:stroke-gray-500" />
+            <PolarRadiusAxis angle={90} domain={[0, 100]} stroke="#9ca3af" className="dark:stroke-gray-600" />
             <Radar
               name="Средний балл"
               dataKey="avgScore"
@@ -226,15 +226,15 @@ export default function AdminDashboard() {
               fill="#8b5cf6"
               fillOpacity={0.6}
             />
-            <Tooltip />
+            <Tooltip contentStyle={{ backgroundColor: 'var(--tooltip-bg)', border: '1px solid var(--tooltip-border)' }} />
             <Legend />
           </RadarChart>
         </ResponsiveContainer>
       </div>
 
       {/* Subject Distribution - Bar Chart */}
-      <div className="bg-white rounded-xl p-6 border border-gray-200">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Распределение студентов по предметам</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Распределение студентов по предметам</h2>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={stats.topSubjects}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

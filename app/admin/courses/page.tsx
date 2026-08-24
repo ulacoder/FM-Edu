@@ -78,8 +78,8 @@ export default function CoursesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Управление курсами</h1>
-          <p className="text-gray-600 mt-1">Создание и редактирование учебных материалов</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Управление курсами</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Создание и редактирование учебных материалов</p>
         </div>
         <button
           onClick={() => {
@@ -94,7 +94,7 @@ export default function CoursesPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Search */}
           <div className="relative">
@@ -104,7 +104,7 @@ export default function CoursesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Поиск курсов..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
@@ -114,7 +114,7 @@ export default function CoursesPage() {
             <select
               value={filterSubject}
               onChange={(e) => setFilterSubject(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none"
             >
               <option value="all">Все предметы</option>
               {subjects.map(subj => (
@@ -127,7 +127,7 @@ export default function CoursesPage() {
           <select
             value={filterGrade}
             onChange={(e) => setFilterGrade(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Все классы</option>
             {[7, 8, 9, 10, 11, 12].map(grade => (
@@ -139,24 +139,24 @@ export default function CoursesPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Всего курсов</p>
-          <p className="text-2xl font-bold text-gray-900">{courses.length}</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Всего курсов</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{courses.length}</p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">С видео</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">С видео</p>
           <p className="text-2xl font-bold text-purple-600">
             {courses.filter(c => c.videoUrl).length}
           </p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">С аудио</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">С аудио</p>
           <p className="text-2xl font-bold text-pink-600">
             {courses.filter(c => c.audioUrl).length}
           </p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">С текстом</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">С текстом</p>
           <p className="text-2xl font-bold text-blue-600">
             {courses.filter(c => c.textContent).length}
           </p>
@@ -164,26 +164,26 @@ export default function CoursesPage() {
       </div>
 
       {/* Courses Table */}
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
         <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
+          <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Название
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Предмет
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Класс
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Форматы
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Длительность
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Действия
               </th>
             </tr>
@@ -191,27 +191,27 @@ export default function CoursesPage() {
           <tbody className="divide-y divide-gray-200">
             {loading ? (
               <tr>
-                <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
                   Загрузка...
                 </td>
               </tr>
             ) : filteredCourses.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
                   Курсы не найдены
                 </td>
               </tr>
             ) : (
               filteredCourses.map(course => (
-                <tr key={course.id} className="hover:bg-gray-50 transition-colors">
+                <tr key={course.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-900 transition-colors">
                   <td className="px-6 py-4">
-                    <div className="font-medium text-gray-900">{course.title}</div>
-                    <div className="text-sm text-gray-500 line-clamp-1">{course.description}</div>
+                    <div className="font-medium text-gray-900 dark:text-white">{course.title}</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 line-clamp-1">{course.description}</div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                  <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">
                     {subjectNames[course.subject]}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                  <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">
                     {course.grade} класс
                   </td>
                   <td className="px-6 py-4">
@@ -230,7 +230,7 @@ export default function CoursesPage() {
                       )}
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                  <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">
                     {course.duration ? `${course.duration} мин` : '—'}
                   </td>
                   <td className="px-6 py-4 text-right">
@@ -329,32 +329,32 @@ function CourseModal({ course, onClose, onSave }: { course: Course | null; onClo
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900">
+      <div className="bg-white dark:bg-gray-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             {course ? 'Редактировать курс' : 'Добавить курс'}
           </h2>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Название *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Название *</label>
             <input
               type="text"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               required
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Предмет *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Предмет *</label>
               <select
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 required
               >
                 {Object.entries(subjectNames).map(([key, name]) => (
@@ -364,11 +364,11 @@ function CourseModal({ course, onClose, onSave }: { course: Course | null; onClo
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Класс *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Класс *</label>
               <select
                 value={formData.grade}
                 onChange={(e) => setFormData({ ...formData, grade: parseInt(e.target.value) })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 required
               >
                 {[7, 8, 9, 10, 11, 12].map(grade => (
@@ -379,66 +379,66 @@ function CourseModal({ course, onClose, onSave }: { course: Course | null; onClo
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Описание</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Описание</label>
             <textarea
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">🎥 Видео URL</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">🎥 Видео URL</label>
             <input
               type="url"
               value={formData.videoUrl}
               onChange={(e) => setFormData({ ...formData, videoUrl: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="https://youtube.com/..."
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">🎧 Аудио URL</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">🎧 Аудио URL</label>
             <input
               type="url"
               value={formData.audioUrl}
               onChange={(e) => setFormData({ ...formData, audioUrl: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="https://..."
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">📄 Текстовый конспект</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">📄 Текстовый конспект</label>
             <textarea
               value={formData.textContent}
               onChange={(e) => setFormData({ ...formData, textContent: e.target.value })}
               rows={5}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="Текст урока в формате Markdown..."
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">📊 Инфографика URL</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">📊 Инфографика URL</label>
             <input
               type="url"
               value={formData.infographicUrl}
               onChange={(e) => setFormData({ ...formData, infographicUrl: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="https://..."
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">⏱️ Длительность (минуты)</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">⏱️ Длительность (минуты)</label>
             <input
               type="number"
               value={formData.duration}
               onChange={(e) => setFormData({ ...formData, duration: parseInt(e.target.value) })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               min="0"
             />
           </div>
@@ -447,7 +447,7 @@ function CourseModal({ course, onClose, onSave }: { course: Course | null; onClo
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-900 transition-colors"
             >
               Отмена
             </button>

@@ -156,8 +156,8 @@ export default function SubjectsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Предметы</h1>
-          <p className="text-gray-600 mt-1">Управление учебными предметами и темами</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Предметы</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Управление учебными предметами и темами</p>
         </div>
         <button className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors">
           <Plus className="w-5 h-5" />
@@ -166,7 +166,7 @@ export default function SubjectsPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -175,14 +175,14 @@ export default function SubjectsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Поиск по названию или описанию..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
           <select
             value={filterGrade}
             onChange={(e) => setFilterGrade(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Все классы</option>
             {[7, 8, 9, 10, 11, 12].map(grade => (
@@ -194,24 +194,24 @@ export default function SubjectsPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Всего предметов</p>
-          <p className="text-2xl font-bold text-gray-900">{subjects.length}</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Всего предметов</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{subjects.length}</p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Всего тем</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Всего тем</p>
           <p className="text-2xl font-bold text-purple-600">
             {subjects.reduce((acc, s) => acc + s.topics, 0)}
           </p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Всего уроков</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Всего уроков</p>
           <p className="text-2xl font-bold text-blue-600">
             {subjects.reduce((acc, s) => acc + s.lessons, 0)}
           </p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Видео материалов</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Видео материалов</p>
           <p className="text-2xl font-bold text-green-600">
             {subjects.reduce((acc, s) => acc + s.videoCount, 0)}
           </p>
@@ -236,44 +236,44 @@ export default function SubjectsPage() {
               </span>
             </div>
 
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{subject.name}</h3>
-            <p className="text-sm text-gray-600 mb-4 line-clamp-2">{subject.description}</p>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{subject.name}</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">{subject.description}</p>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                   <Book className="w-4 h-4" />
                   <span>Темы</span>
                 </div>
-                <span className="font-semibold text-gray-900">{subject.topics}</span>
+                <span className="font-semibold text-gray-900 dark:text-white">{subject.topics}</span>
               </div>
 
               <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                   <Video className="w-4 h-4" />
                   <span>Видео</span>
                 </div>
-                <span className="font-semibold text-gray-900">{subject.videoCount}</span>
+                <span className="font-semibold text-gray-900 dark:text-white">{subject.videoCount}</span>
               </div>
 
               <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                   <Headphones className="w-4 h-4" />
                   <span>Аудио</span>
                 </div>
-                <span className="font-semibold text-gray-900">{subject.audioCount}</span>
+                <span className="font-semibold text-gray-900 dark:text-white">{subject.audioCount}</span>
               </div>
 
               <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                   <FileText className="w-4 h-4" />
                   <span>Тесты</span>
                 </div>
-                <span className="font-semibold text-gray-900">{subject.testCount}</span>
+                <span className="font-semibold text-gray-900 dark:text-white">{subject.testCount}</span>
               </div>
             </div>
 
-            <button className="w-full mt-4 px-4 py-2 bg-white hover:bg-gray-50 border border-gray-300 rounded-lg font-medium text-gray-700 transition-colors">
+            <button className="w-full mt-4 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg font-medium text-gray-700 dark:text-gray-300 transition-colors">
               Управление темами
             </button>
           </div>
@@ -281,7 +281,7 @@ export default function SubjectsPage() {
       </div>
 
       {filteredSubjects.length === 0 && (
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
           <Book className="w-12 h-12 mx-auto mb-4 text-gray-400" />
           <p className="text-lg font-medium">Предметы не найдены</p>
           <p className="text-sm">Попробуйте изменить фильтры</p>

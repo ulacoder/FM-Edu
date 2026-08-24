@@ -54,12 +54,12 @@ export default function SettingsPage() {
   };
 
   const SettingSection = ({ icon: Icon, title, children }: any) => (
-    <div className="bg-white rounded-xl p-6 border border-gray-200">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-2 bg-purple-100 rounded-lg">
           <Icon className="w-5 h-5 text-purple-600" />
         </div>
-        <h2 className="text-xl font-bold text-gray-900">{title}</h2>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h2>
       </div>
       <div className="space-y-4">
         {children}
@@ -69,26 +69,26 @@ export default function SettingsPage() {
 
   const InputField = ({ label, name, type = 'text', value, onChange, placeholder = '' }: any) => (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{label}</label>
       <input
         type={type}
         name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
       />
     </div>
   );
 
   const SelectField = ({ label, name, value, onChange, options }: any) => (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{label}</label>
       <select
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
       >
         {options.map((opt: any) => (
           <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -100,8 +100,8 @@ export default function SettingsPage() {
   const ToggleField = ({ label, description, name, value, onChange }: any) => (
     <div className="flex items-start justify-between">
       <div className="flex-1">
-        <p className="text-sm font-medium text-gray-900">{label}</p>
-        {description && <p className="text-xs text-gray-500 mt-1">{description}</p>}
+        <p className="text-sm font-medium text-gray-900 dark:text-white">{label}</p>
+        {description && <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{description}</p>}
       </div>
       <button
         type="button"
@@ -111,7 +111,7 @@ export default function SettingsPage() {
         }`}
       >
         <span
-          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+          className={`inline-block h-4 w-4 transform rounded-full bg-white dark:bg-gray-800 transition-transform ${
             value ? 'translate-x-6' : 'translate-x-1'
           }`}
         />
@@ -132,8 +132,8 @@ export default function SettingsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Настройки</h1>
-          <p className="text-gray-600 mt-1">Конфигурация платформы FM Edu</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Настройки</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Конфигурация платформы FM Edu</p>
         </div>
         <button
           onClick={handleSave}
@@ -160,13 +160,13 @@ export default function SettingsPage() {
             onChange={handleChange}
           />
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Описание</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Описание</label>
             <textarea
               name="siteDescription"
               value={settings.siteDescription}
               onChange={handleChange}
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -218,8 +218,8 @@ export default function SettingsPage() {
             onChange={handleChange}
           />
 
-          <div className="pt-4 border-t border-gray-200">
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Пароли</h3>
+          <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Пароли</h3>
             <div className="grid grid-cols-2 gap-4">
               <InputField
                 label="Минимальная длина"
@@ -297,7 +297,7 @@ export default function SettingsPage() {
             onChange={handleChange}
           />
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Разрешенные типы файлов
             </label>
             <input
@@ -306,9 +306,9 @@ export default function SettingsPage() {
               value={settings.allowedFileTypes}
               onChange={handleChange}
               placeholder="pdf,doc,docx,jpg,png"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
-            <p className="text-xs text-gray-500 mt-1">Расширения через запятую</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Расширения через запятую</p>
           </div>
         </SettingSection>
 
@@ -316,59 +316,59 @@ export default function SettingsPage() {
         <SettingSection icon={Palette} title="Внешний вид">
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Основной цвет</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Основной цвет</label>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
                   name="primaryColor"
                   value={settings.primaryColor}
                   onChange={handleChange}
-                  className="w-12 h-10 rounded border border-gray-300"
+                  className="w-12 h-10 rounded border border-gray-300 dark:border-gray-600"
                 />
                 <input
                   type="text"
                   value={settings.primaryColor}
                   onChange={handleChange}
                   name="primaryColor"
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Вторичный цвет</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Вторичный цвет</label>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
                   name="secondaryColor"
                   value={settings.secondaryColor}
                   onChange={handleChange}
-                  className="w-12 h-10 rounded border border-gray-300"
+                  className="w-12 h-10 rounded border border-gray-300 dark:border-gray-600"
                 />
                 <input
                   type="text"
                   value={settings.secondaryColor}
                   onChange={handleChange}
                   name="secondaryColor"
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Акцентный цвет</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Акцентный цвет</label>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
                   name="accentColor"
                   value={settings.accentColor}
                   onChange={handleChange}
-                  className="w-12 h-10 rounded border border-gray-300"
+                  className="w-12 h-10 rounded border border-gray-300 dark:border-gray-600"
                 />
                 <input
                   type="text"
                   value={settings.accentColor}
                   onChange={handleChange}
                   name="accentColor"
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm"
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
                 />
               </div>
             </div>
@@ -443,22 +443,22 @@ export default function SettingsPage() {
             value={settings.sessionTimeout}
             onChange={handleChange}
           />
-          <div className="pt-4 border-t border-gray-200">
+          <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-900">Кэш</p>
-                <p className="text-xs text-gray-500 mt-1">Очистить кэш приложения</p>
+                <p className="text-sm font-medium text-gray-900 dark:text-white">Кэш</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Очистить кэш приложения</p>
               </div>
-              <button className="px-4 py-2 border border-gray-300 hover:bg-gray-50 text-gray-700 rounded-lg text-sm font-medium transition-colors">
+              <button className="px-4 py-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors">
                 Очистить
               </button>
             </div>
           </div>
-          <div className="pt-4 border-t border-gray-200">
+          <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-900">База данных</p>
-                <p className="text-xs text-gray-500 mt-1">Создать резервную копию</p>
+                <p className="text-sm font-medium text-gray-900 dark:text-white">База данных</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Создать резервную копию</p>
               </div>
               <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors">
                 Бэкап
@@ -469,7 +469,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Save Button Bottom */}
-      <div className="flex justify-end pt-6 border-t border-gray-200">
+      <div className="flex justify-end pt-6 border-t border-gray-200 dark:border-gray-700">
         <button
           onClick={handleSave}
           className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors"

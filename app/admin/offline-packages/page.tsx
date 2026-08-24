@@ -127,8 +127,8 @@ export default function OfflinePackagesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Офлайн-пакеты</h1>
-          <p className="text-gray-600 mt-1">Скачиваемые пакеты для обучения без интернета</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Офлайн-пакеты</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Скачиваемые пакеты для обучения без интернета</p>
         </div>
         <button className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors">
           <Plus className="w-5 h-5" />
@@ -138,31 +138,31 @@ export default function OfflinePackagesPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center gap-2 mb-1">
             <Package className="w-5 h-5 text-purple-600" />
-            <p className="text-sm text-gray-600">Всего пакетов</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Всего пакетов</p>
           </div>
-          <p className="text-2xl font-bold text-gray-900">{packages.length}</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{packages.length}</p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center gap-2 mb-1">
             <Download className="w-5 h-5 text-blue-600" />
-            <p className="text-sm text-gray-600">Скачиваний</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Скачиваний</p>
           </div>
           <p className="text-2xl font-bold text-blue-600">{totalDownloads.toLocaleString()}</p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center gap-2 mb-1">
             <HardDrive className="w-5 h-5 text-green-600" />
-            <p className="text-sm text-gray-600">Общий размер</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Общий размер</p>
           </div>
           <p className="text-2xl font-bold text-green-600">{totalSize.toFixed(1)} GB</p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center gap-2 mb-1">
             <CheckCircle className="w-5 h-5 text-amber-600" />
-            <p className="text-sm text-gray-600">Актуальных</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Актуальных</p>
           </div>
           <p className="text-2xl font-bold text-amber-600">
             {packages.filter(p => p.status === 'active').length}
@@ -171,7 +171,7 @@ export default function OfflinePackagesPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -180,14 +180,14 @@ export default function OfflinePackagesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Поиск по названию или предмету..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
           <select
             value={filterSubject}
             onChange={(e) => setFilterSubject(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Все предметы</option>
             <option value="Математика">Математика</option>
@@ -206,22 +206,22 @@ export default function OfflinePackagesPage() {
           return (
             <div
               key={pkg.id}
-              className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow"
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <FileArchive className="w-6 h-6 text-purple-600" />
-                    <h3 className="text-lg font-bold text-gray-900">{pkg.name}</h3>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{pkg.name}</h3>
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
+                  <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                     <span className="flex items-center gap-1">
                       <Package className="w-4 h-4" />
                       {pkg.subject}
                     </span>
                     <span>{pkg.grade} класс</span>
                     <span>{pkg.topics} тем</span>
-                    <span className="font-medium text-gray-900">{pkg.size}</span>
+                    <span className="font-medium text-gray-900 dark:text-white">{pkg.size}</span>
                   </div>
                 </div>
                 <span className={`px-3 py-1 text-xs font-semibold rounded-full ${statusInfo.color}`}>
@@ -233,24 +233,24 @@ export default function OfflinePackagesPage() {
                 {pkg.includes.map((item, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
+                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full"
                   >
                     {item}
                   </span>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                <div className="flex items-center gap-6 text-sm text-gray-600">
+              <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
                   <div className="flex items-center gap-2">
                     <Download className="w-4 h-4" />
                     <span>{pkg.downloads} скачиваний</span>
                   </div>
                   <div>
-                    Версия: <span className="font-medium text-gray-900">{pkg.version}</span>
+                    Версия: <span className="font-medium text-gray-900 dark:text-white">{pkg.version}</span>
                   </div>
                   <div>
-                    Обновлен: <span className="font-medium text-gray-900">
+                    Обновлен: <span className="font-medium text-gray-900 dark:text-white">
                       {new Date(pkg.lastUpdated).toLocaleDateString('ru-RU')}
                     </span>
                   </div>
@@ -268,11 +268,11 @@ export default function OfflinePackagesPage() {
                     </button>
                   )}
                   {pkg.status === 'building' && (
-                    <button className="px-4 py-2 bg-gray-300 text-gray-500 rounded-lg text-sm font-medium cursor-not-allowed">
+                    <button className="px-4 py-2 bg-gray-300 text-gray-500 dark:text-gray-400 rounded-lg text-sm font-medium cursor-not-allowed">
                       Сборка...
                     </button>
                   )}
-                  <button className="px-4 py-2 border border-gray-300 hover:bg-gray-50 text-gray-700 rounded-lg text-sm font-medium transition-colors">
+                  <button className="px-4 py-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors">
                     Редактировать
                   </button>
                 </div>
@@ -283,7 +283,7 @@ export default function OfflinePackagesPage() {
       </div>
 
       {filteredPackages.length === 0 && (
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
           <Package className="w-12 h-12 mx-auto mb-4 text-gray-400" />
           <p className="text-lg font-medium">Пакеты не найдены</p>
           <p className="text-sm">Попробуйте изменить фильтры</p>

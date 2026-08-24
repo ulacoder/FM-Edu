@@ -74,7 +74,7 @@ export default function AnalyticsPage() {
   });
 
   const MetricCard = ({ icon: Icon, title, value, subtitle, color, trend }: any) => (
-    <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
       <div className="flex items-start justify-between mb-4">
         <div className={`p-3 rounded-lg ${color}`}>
           <Icon className="w-6 h-6 text-white" />
@@ -88,9 +88,9 @@ export default function AnalyticsPage() {
           </div>
         )}
       </div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-1">{value}</h3>
-      <p className="text-sm text-gray-600 font-medium">{title}</p>
-      {subtitle && <p className="text-xs text-gray-500 mt-1">{subtitle}</p>}
+      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{value}</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{title}</p>
+      {subtitle && <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{subtitle}</p>}
     </div>
   );
 
@@ -98,8 +98,8 @@ export default function AnalyticsPage() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Аналитика платформы</h1>
-        <p className="text-gray-600">Детальная статистика по всем метрикам</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Аналитика платформы</h1>
+        <p className="text-gray-600 dark:text-gray-400">Детальная статистика по всем метрикам</p>
       </div>
 
       {/* Key Metrics */}
@@ -139,8 +139,8 @@ export default function AnalyticsPage() {
       </div>
 
       {/* User Growth */}
-      <div className="bg-white rounded-xl p-6 border border-gray-200">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Рост пользователей</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Рост пользователей</h2>
         <ResponsiveContainer width="100%" height={350}>
           <AreaChart data={data.userGrowth}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -173,8 +173,8 @@ export default function AnalyticsPage() {
       {/* Subject Engagement & Regional Distribution */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Subject Engagement */}
-        <div className="bg-white rounded-xl p-6 border border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Вовлеченность по предметам</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Вовлеченность по предметам</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data.subjectEngagement}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -189,8 +189,8 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Regional Distribution */}
-        <div className="bg-white rounded-xl p-6 border border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
             <Globe className="w-5 h-5 inline mr-2" />
             Региональное распределение
           </h2>
@@ -217,24 +217,24 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Subject Performance Table */}
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900">Детальная статистика по предметам</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white">Детальная статистика по предметам</h2>
         </div>
         <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
+          <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Предмет</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Часы обучения</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">% Завершенности</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Статус</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Предмет</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Часы обучения</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">% Завершенности</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Статус</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {data.subjectEngagement.map((subject, idx) => (
               <tr key={idx} className="hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium text-gray-900">{subject.subject}</td>
-                <td className="px-6 py-4 text-gray-600">{subject.hours.toLocaleString()} ч</td>
+                <td className="px-6 py-4 font-medium text-gray-900 dark:text-white">{subject.subject}</td>
+                <td className="px-6 py-4 text-gray-600 dark:text-gray-400">{subject.hours.toLocaleString()} ч</td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-2">
                     <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -243,7 +243,7 @@ export default function AnalyticsPage() {
                         style={{ width: `${subject.completion}%` }}
                       />
                     </div>
-                    <span className="text-sm text-gray-600">{subject.completion}%</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">{subject.completion}%</span>
                   </div>
                 </td>
                 <td className="px-6 py-4">

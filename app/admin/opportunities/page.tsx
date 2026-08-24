@@ -72,8 +72,8 @@ export default function OpportunitiesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Управление возможностями</h1>
-          <p className="text-gray-600 mt-1">Стипендии, конкурсы, стажировки и программы</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Управление возможностями</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Стипендии, конкурсы, стажировки и программы</p>
         </div>
         <button
           onClick={() => {
@@ -88,7 +88,7 @@ export default function OpportunitiesPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -97,14 +97,14 @@ export default function OpportunitiesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Поиск возможностей..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Все категории</option>
             {Object.entries(categoryNames).map(([key, name]) => (
@@ -117,8 +117,8 @@ export default function OpportunitiesPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {Object.entries(categoryNames).map(([key, name]) => (
-          <div key={key} className="bg-white rounded-lg p-4 border border-gray-200">
-            <p className="text-sm text-gray-600">{name}</p>
+          <div key={key} className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-600 dark:text-gray-400">{name}</p>
             <p className="text-2xl font-bold text-purple-600">
               {opportunities.filter(o => o.category === key).length}
             </p>
@@ -129,12 +129,12 @@ export default function OpportunitiesPage() {
       {/* Opportunities Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading ? (
-          <div className="col-span-3 text-center py-12 text-gray-500">Загрузка...</div>
+          <div className="col-span-3 text-center py-12 text-gray-500 dark:text-gray-400">Загрузка...</div>
         ) : filteredOpportunities.length === 0 ? (
-          <div className="col-span-3 text-center py-12 text-gray-500">Возможности не найдены</div>
+          <div className="col-span-3 text-center py-12 text-gray-500 dark:text-gray-400">Возможности не найдены</div>
         ) : (
           filteredOpportunities.map(opp => (
-            <div key={opp.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+            <div key={opp.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow">
               {opp.imageUrl && (
                 <img src={opp.imageUrl} alt={opp.title} className="w-full h-48 object-cover" />
               )}
@@ -162,11 +162,11 @@ export default function OpportunitiesPage() {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{opp.title}</h3>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-3">{opp.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{opp.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">{opp.description}</p>
 
                 {opp.deadline && (
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
                     📅 Дедлайн: {new Date(opp.deadline).toLocaleDateString('ru-RU')}
                   </p>
                 )}
@@ -174,12 +174,12 @@ export default function OpportunitiesPage() {
                 {opp.eligibility && opp.eligibility.length > 0 && (
                   <div className="flex flex-wrap gap-1 mb-3">
                     {opp.eligibility.slice(0, 3).map((item, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                      <span key={idx} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded">
                         {item}
                       </span>
                     ))}
                     {opp.eligibility.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded">
                         +{opp.eligibility.length - 3}
                       </span>
                     )}
@@ -274,31 +274,31 @@ function OpportunityModal({ opportunity, onClose, onSave }: { opportunity: Oppor
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900">
+      <div className="bg-white dark:bg-gray-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             {opportunity ? 'Редактировать возможность' : 'Добавить возможность'}
           </h2>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Название *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Название *</label>
             <input
               type="text"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Категория *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Категория *</label>
             <select
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value as any })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               required
             >
               {Object.entries(categoryNames).map(([key, name]) => (
@@ -308,57 +308,57 @@ function OpportunityModal({ opportunity, onClose, onSave }: { opportunity: Oppor
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Описание *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Описание *</label>
             <textarea
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Дедлайн</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Дедлайн</label>
             <input
               type="date"
               value={formData.deadline}
               onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Требования (через запятую)
             </label>
             <input
               type="text"
               value={formData.eligibility}
               onChange={(e) => setFormData({ ...formData, eligibility: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="10-12 класс, Английский B2, ..."
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Ссылка</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Ссылка</label>
             <input
               type="url"
               value={formData.link}
               onChange={(e) => setFormData({ ...formData, link: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="https://..."
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Изображение URL</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Изображение URL</label>
             <input
               type="url"
               value={formData.imageUrl}
               onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               placeholder="https://..."
             />
           </div>
@@ -367,7 +367,7 @@ function OpportunityModal({ opportunity, onClose, onSave }: { opportunity: Oppor
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-900 transition-colors"
             >
               Отмена
             </button>

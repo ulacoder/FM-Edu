@@ -69,12 +69,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-gray-200 fixed h-full">
+      <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 fixed h-full">
         <div className="p-6">
-          <h1 className="text-2xl font-bold text-purple-600">FM Edu Admin</h1>
-          <p className="text-sm text-gray-600 mt-1">{user.name}</p>
+          <h1 className="text-2xl font-bold text-purple-600 dark:text-purple-400">FM Edu Admin</h1>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{user.name}</p>
         </div>
 
         <nav className="px-4">
@@ -82,7 +82,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors text-gray-700 hover:text-purple-600 mb-1"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 mb-1"
             >
               <item.icon className="w-5 h-5" />
               <span className="font-medium">{item.label}</span>
@@ -90,10 +90,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           ))}
         </nav>
 
-        <div className="absolute bottom-0 w-64 p-4 border-t border-gray-200">
+        <div className="absolute bottom-0 w-64 p-4 border-t border-gray-200 dark:border-gray-700">
           <button
             onClick={handleLogout}
-            className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-red-50 transition-colors text-red-600 w-full"
+            className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors text-red-600 dark:text-red-400 w-full"
           >
             <LogOut className="w-5 h-5" />
             <span className="font-medium">Выйти</span>

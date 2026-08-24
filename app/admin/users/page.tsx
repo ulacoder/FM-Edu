@@ -79,12 +79,12 @@ export default function UsersPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Управление пользователями</h1>
-        <p className="text-gray-600 mt-1">Ученики и учителя платформы</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Управление пользователями</h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">Ученики и учителя платформы</p>
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -93,14 +93,14 @@ export default function UsersPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Поиск по имени или email..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
           <select
             value={filterRole}
             onChange={(e) => setFilterRole(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Все роли</option>
             <option value="student">Ученики</option>
@@ -110,7 +110,7 @@ export default function UsersPage() {
           <select
             value={filterGrade}
             onChange={(e) => setFilterGrade(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           >
             <option value="all">Все классы</option>
             {[7, 8, 9, 10, 11, 12].map(grade => (
@@ -122,24 +122,24 @@ export default function UsersPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Всего пользователей</p>
-          <p className="text-2xl font-bold text-gray-900">{users.length}</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Всего пользователей</p>
+          <p className="text-2xl font-bold text-gray-900 dark:text-white">{users.length}</p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Учеников</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Учеников</p>
           <p className="text-2xl font-bold text-purple-600">
             {users.filter(u => u.role === 'student').length}
           </p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Учителей</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Учителей</p>
           <p className="text-2xl font-bold text-pink-600">
             {users.filter(u => u.role === 'teacher').length}
           </p>
         </div>
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <p className="text-sm text-gray-600">Среднее время</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Среднее время</p>
           <p className="text-2xl font-bold text-blue-600">
             {Math.round(users.reduce((acc, u) => acc + u.totalTimeSpent, 0) / users.length || 0)} мин
           </p>
@@ -147,26 +147,26 @@ export default function UsersPage() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
         <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
+          <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Пользователь
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Роль
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Класс / Регион
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Активность
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Последний вход
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Действия
               </th>
             </tr>
@@ -174,22 +174,22 @@ export default function UsersPage() {
           <tbody className="divide-y divide-gray-200">
             {loading ? (
               <tr>
-                <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
                   Загрузка...
                 </td>
               </tr>
             ) : filteredUsers.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
                   Пользователи не найдены
                 </td>
               </tr>
             ) : (
               filteredUsers.map(user => (
-                <tr key={user.id} className="hover:bg-gray-50 transition-colors">
+                <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 dark:bg-gray-900 transition-colors">
                   <td className="px-6 py-4">
-                    <div className="font-medium text-gray-900">{user.name}</div>
-                    <div className="text-sm text-gray-500">{user.email}</div>
+                    <div className="font-medium text-gray-900 dark:text-white">{user.name}</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{user.email}</div>
                   </td>
                   <td className="px-6 py-4">
                     <span className={`px-2 py-1 text-xs font-semibold rounded ${
@@ -200,9 +200,9 @@ export default function UsersPage() {
                       {user.role === 'student' ? 'Ученик' : 'Учитель'}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">
+                  <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">
                     {user.grade ? `${user.grade} класс` : '—'}
-                    {user.region && <div className="text-xs text-gray-500">{user.region}</div>}
+                    {user.region && <div className="text-xs text-gray-500 dark:text-gray-400">{user.region}</div>}
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3 text-sm">
@@ -220,7 +220,7 @@ export default function UsersPage() {
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-500">
+                  <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
                     {new Date(user.lastActive).toLocaleDateString('ru-RU')}
                   </td>
                   <td className="px-6 py-4 text-right">
@@ -242,15 +242,15 @@ export default function UsersPage() {
       {/* User Detail Modal */}
       {selectedUser && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">{selectedUser.name}</h2>
-                <p className="text-gray-600">{selectedUser.email}</p>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{selectedUser.name}</h2>
+                <p className="text-gray-600 dark:text-gray-400">{selectedUser.email}</p>
               </div>
               <button
                 onClick={() => setSelectedUser(null)}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-gray-400 hover:text-gray-600 dark:text-gray-400"
               >
                 ✕
               </button>
@@ -264,8 +264,8 @@ export default function UsersPage() {
                     <Clock className="w-5 h-5 text-purple-600" />
                     <span className="text-sm text-purple-600 font-medium">Время на платформе</span>
                   </div>
-                  <p className="text-2xl font-bold text-gray-900">{selectedUser.totalTimeSpent} мин</p>
-                  <p className="text-sm text-gray-600">~{Math.round(selectedUser.totalTimeSpent / 60)} часов</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{selectedUser.totalTimeSpent} мин</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">~{Math.round(selectedUser.totalTimeSpent / 60)} часов</p>
                 </div>
 
                 <div className="bg-blue-50 rounded-lg p-4">
@@ -273,7 +273,7 @@ export default function UsersPage() {
                     <BookOpen className="w-5 h-5 text-blue-600" />
                     <span className="text-sm text-blue-600 font-medium">Курсы пройдено</span>
                   </div>
-                  <p className="text-2xl font-bold text-gray-900">{selectedUser.coursesCompleted}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{selectedUser.coursesCompleted}</p>
                 </div>
 
                 <div className="bg-green-50 rounded-lg p-4">
@@ -281,13 +281,13 @@ export default function UsersPage() {
                     <Trophy className="w-5 h-5 text-green-600" />
                     <span className="text-sm text-green-600 font-medium">Тесты сдано</span>
                   </div>
-                  <p className="text-2xl font-bold text-gray-900">{selectedUser.testsCompleted}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-white">{selectedUser.testsCompleted}</p>
                 </div>
               </div>
 
               {/* Skills Radar */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Навыки по предметам (FIFA Radar)</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Навыки по предметам (FIFA Radar)</h3>
                 <ResponsiveContainer width="100%" height={400}>
                   <RadarChart data={radarData}>
                     <PolarGrid stroke="#e5e7eb" />
@@ -308,30 +308,30 @@ export default function UsersPage() {
 
               {/* User Info */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-sm text-gray-600 mb-1">Роль</p>
-                  <p className="text-lg font-semibold text-gray-900">
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Роль</p>
+                  <p className="text-lg font-semibold text-gray-900 dark:text-white">
                     {selectedUser.role === 'student' ? 'Ученик' : 'Учитель'}
                   </p>
                 </div>
 
                 {selectedUser.grade && (
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-sm text-gray-600 mb-1">Класс</p>
-                    <p className="text-lg font-semibold text-gray-900">{selectedUser.grade} класс</p>
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Класс</p>
+                    <p className="text-lg font-semibold text-gray-900 dark:text-white">{selectedUser.grade} класс</p>
                   </div>
                 )}
 
                 {selectedUser.region && (
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-sm text-gray-600 mb-1">Регион</p>
-                    <p className="text-lg font-semibold text-gray-900">{selectedUser.region}</p>
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Регион</p>
+                    <p className="text-lg font-semibold text-gray-900 dark:text-white">{selectedUser.region}</p>
                   </div>
                 )}
 
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-sm text-gray-600 mb-1">Последний вход</p>
-                  <p className="text-lg font-semibold text-gray-900">
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Последний вход</p>
+                  <p className="text-lg font-semibold text-gray-900 dark:text-white">
                     {new Date(selectedUser.lastActive).toLocaleDateString('ru-RU', {
                       year: 'numeric',
                       month: 'long',

@@ -11,7 +11,7 @@ import { getTranslation, type Locale } from '@/lib/i18n';
 export function Header() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState('');
-  const [userRole, setUserRole] = useState<'student' | 'teacher' | null>(null);
+  const [userRole, setUserRole] = useState<'student' | 'teacher' | 'admin' | null>(null);
   const [locale, setLocale] = useState<Locale>('ru');
   const router = useRouter();
 
@@ -83,6 +83,7 @@ export function Header() {
   };
 
   const getDashboardLink = () => {
+    if (userRole === 'admin') return '/admin';
     if (userRole === 'teacher') return '/dashboard/teacher';
     return '/dashboard/student';
   };
