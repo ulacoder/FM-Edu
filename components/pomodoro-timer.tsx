@@ -340,7 +340,7 @@ export function PomodoroTimer() {
             className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               mode === '25/5'
                 ? 'bg-purple-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             25 / 5 мин
@@ -350,7 +350,7 @@ export function PomodoroTimer() {
             className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               mode === '50/10'
                 ? 'bg-purple-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
           >
             50 / 10 мин
@@ -360,11 +360,11 @@ export function PomodoroTimer() {
         {/* Timer Display */}
         <div className="relative">
           <div className="text-center py-6">
-            <div className="text-sm text-gray-600 mb-2">
+            <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
               {timerState === 'idle' ? 'Готов к старту' :
                timerState === 'work' ? '💼 Работа' : '☕ Перерыв'}
             </div>
-            <div className="text-5xl font-bold text-gray-900">
+            <div className="text-5xl font-bold text-gray-900 dark:text-white">
               {formatTime(timeLeft)}
             </div>
           </div>

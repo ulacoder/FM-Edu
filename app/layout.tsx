@@ -22,6 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "FM Edu - Персонализированное обучение с AI",
   description: "Адаптивная образовательная платформа для школьников 7-12 классов по программе NIS",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

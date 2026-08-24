@@ -89,25 +89,25 @@ export function Header() {
 
   return (
     <nav className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 sm:h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 gradient-primary rounded-lg flex items-center justify-center">
-              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-12 sm:h-16">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 gradient-primary rounded-lg flex items-center justify-center">
+              <GraduationCap className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" />
             </div>
-            <Link href="/" className="text-base sm:text-lg font-bold">
+            <Link href="/" className="text-sm sm:text-lg font-bold">
               FM Edu
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             {/* Pomodoro Timer Button - только на мобиле */}
             <button
               onClick={handleOpenPomodoroTimer}
-              className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+              className="md:hidden p-1.5 hover:bg-muted rounded-lg transition-colors"
               title="Pomodoro Timer"
             >
-              <Timer className="w-5 h-5 text-purple-600" />
+              <Timer className="w-4 h-4 text-purple-600" />
             </button>
 
             <LanguageSwitcher />
@@ -116,13 +116,13 @@ export function Header() {
               <>
                 <span className="text-xs sm:text-sm font-medium hidden md:inline">{userName}</span>
                 <Link href={getDashboardLink()}>
-                  <button className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 active:scale-[0.98] rounded-lg transition-all">
+                  <button className="px-2 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 active:scale-[0.98] rounded-lg transition-all">
                     {t('dashboard')}
                   </button>
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium hover:text-primary transition-colors hidden sm:inline-block"
+                  className="px-2 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium hover:text-primary transition-colors hidden sm:inline-block"
                 >
                   {t('logout')}
                 </button>
@@ -130,12 +130,12 @@ export function Header() {
             ) : (
               <>
                 <Link href="/login" className="hidden sm:inline-block">
-                  <button className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium hover:text-primary transition-colors">
+                  <button className="px-2 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium hover:text-primary transition-colors">
                     {t('login')}
                   </button>
                 </Link>
                 <Link href="/register">
-                  <button className="px-3 py-2 sm:px-4 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 active:scale-[0.98] rounded-lg transition-all">
+                  <button className="px-2 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 active:scale-[0.98] rounded-lg transition-all">
                     {t('start')}
                   </button>
                 </Link>
