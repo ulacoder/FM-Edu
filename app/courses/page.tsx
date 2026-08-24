@@ -16,6 +16,7 @@ import {
 import type { Subject } from "@/types";
 import { subjectNames } from "@/types";
 import { getTranslation, type Locale } from "@/lib/i18n";
+import { NewFeatureBanner } from "@/components/new-feature-banner";
 
 interface SubjectCard {
   subject: Subject;
@@ -120,6 +121,11 @@ export default function CoursesPage() {
               <div className="text-3xl font-bold">{user.totalPoints || 0}</div>
               <div className="text-sm text-muted-foreground">{t('yourPoints')}</div>
             </div>
+          </div>
+
+          {/* New Feature Banner */}
+          <div className="mb-12">
+            <NewFeatureBanner />
           </div>
 
           {/* Школьная программа РК */}

@@ -1,5 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+import { ContentModeSwitcher, type ContentMode } from "@/components/content-mode-switcher";
+import { InteractiveNotes } from "@/components/interactive-notes";
+import { Wifi, CheckCircle } from "lucide-react";
 
 function Quiz({ questions }: { questions: Array<{question: string, options: string[], correct: number}> }) {
   const [currentQ, setCurrentQ] = useState(0);
@@ -173,50 +176,137 @@ function Quiz({ questions }: { questions: Array<{question: string, options: stri
 }
 
 export default function Lesson_grade7_q1() {
+  const [contentMode, setContentMode] = useState<ContentMode>('text');
+  const [contentWatched, setContentWatched] = useState(false);
+
+  const notesContent = {
+    formulas: [
+      {
+        title: 'Модуль числа',
+        formula: '|a| = a, если a ≥ 0; |a| = -a, если a < 0',
+        example: '|-7| = 7, |3| = 3'
+      },
+      {
+        title: 'Сложение чисел с разными знаками',
+        formula: 'Из большего модуля вычитают меньший, ставят знак числа с большим модулем',
+        example: '-2,5 + 4,7 = 2,2'
+      },
+      {
+        title: 'Основное свойство дроби',
+        formula: 'a/b = a·k / b·k',
+        example: '24/36 = 2/3'
+      }
+    ],
+    tips: [
+      'Модуль числа всегда неотрицателен',
+      'Произведение/деление: одинаковые знаки → плюс, разные → минус'
+    ],
+    commonMistakes: [
+      {
+        wrong: '|-5| = -5',
+        correct: '|-5| = 5 (модуль всегда положительный)'
+      },
+      {
+        wrong: '-6 + (-9) = 3',
+        correct: '-6 + (-9) = -15'
+      }
+    ],
+    examples: [
+      {
+        question: 'Пример 1: Найдите |-7| + |3|',
+        solution: 'Решение: |-7| = 7, |3| = 3. Сумма: 7 + 3 = 10'
+      },
+      {
+        question: 'Пример 2: Вычислите -2,5 + 4,7',
+        solution: 'Решение: Знаки разные, модули 2,5 и 4,7. Из большего вычитаем меньший: 4,7 - 2,5 = 2,2. Знак у числа с большим модулем (+): ответ 2,2'
+      },
+      {
+        question: 'Пример 3: Вычислите (-3/4) · (-8/9)',
+        solution: 'Решение: Знаки одинаковые → результат положительный. (3·8)/(4·9) = 24/36 = 2/3'
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5">
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Рациональные числа. Модуль числа</h1>
-          <p className="text-muted-foreground">Математика • 7 класс • 1 четверть</p>
+      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">Рациональные числа. Модуль числа</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">Математика • 7 класс • 1 четверть</p>
         </div>
 
-        <div className="bg-card rounded-xl border border-border/60 p-8 mb-8">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold mt-6 mb-4">Определение</h2>
-            <p className="my-2">Рациональное число — число, которое можно записать в виде дроби a{'/'} b, где a — целое число, b — натуральное число (b≠0). Множество рациональных чисел обозначается Q и включает натуральные, целые и дробные числа (обыкновенные и десятичные, конечные и бесконечные периодические).</p>
-            <p className="my-2">Модуль числа a (|a|) — расстояние от точки a до нуля на числовой прямой; модуль всегда неотрицателен.</p>
-
-            <h2 className="text-2xl font-bold mt-6 mb-4">Ключевые формулы</h2>
-            <p className="my-2">|a| = a, если a ≥ 0; |a| = -a, если a &lt; 0</p>
-            <p className="my-2">Сложение чисел с разными знаками: из большего модуля вычитают меньший, ставят знак числа с большим модулем</p>
-            <p className="my-2">Умножение/деление: знак «плюс», если знаки чисел одинаковые; «минус» — если разные</p>
-            <p className="my-2">a{'/'} b = a·k {'/'} b·k (основное свойство дроби)</p>
-
-            <h2 className="text-2xl font-bold mt-6 mb-4">Примеры решения задач</h2>
-            <p className="font-bold mt-4">Пример 1. Найдите |-7| + |3|.</p>
-            <p className="ml-4 text-muted-foreground">Решение: |-7| = 7, |3| = 3. Сумма: 7 + 3 = 10.</p>
-
-            <p className="font-bold mt-4">Пример 2. Вычислите: -2,5 + 4,7.</p>
-            <p className="ml-4 text-muted-foreground">Решение: Знаки разные, модули 2,5 и 4,7. Из большего вычитаем меньший: 4,7 - 2,5 = 2,2. Знак у числа с большим модулем (+): ответ 2,2.</p>
-
-            <p className="font-bold mt-4">Пример 3. Вычислите: (-3/4) · (-8/9).</p>
-            <p className="ml-4 text-muted-foreground">Решение: Знаки одинаковые → результат положительный. (3·8)/(4·9) = 24/36 = 2/3.</p>
+        {/* Network Warning for Video Mode */}
+        {contentMode === 'video' && (
+          <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4 mb-6">
+            <div className="flex items-start gap-3">
+              <Wifi className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+              <div className="text-sm text-orange-900 dark:text-orange-300">
+                <p className="font-medium mb-1">Видео требует стабильного интернета</p>
+                <p>Рекомендуем использовать текстовый конспект на медленном соединении (2G/3G)</p>
+              </div>
+            </div>
           </div>
+        )}
+
+        {/* Content Mode Switcher */}
+        <div className="mb-6">
+          <ContentModeSwitcher
+            currentMode={contentMode}
+            onModeChange={setContentMode}
+            videoWatched={contentWatched}
+            audioAvailable={false}
+          />
         </div>
 
-        <div className="bg-card rounded-xl border border-border/60 p-8 mb-8">
-          <h2 className="text-2xl font-bold mb-4">Видео-урок</h2>
-          <div className="aspect-video">
-            <iframe
-              className="w-full h-full rounded-lg"
-              src="https://www.youtube.com/embed/YJ57Lp5MkIQ"
-              title="YouTube video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+        {/* Text Content */}
+        {contentMode === 'text' && (
+          <div className="bg-card rounded-xl border border-border/60 p-6 sm:p-8 mb-6 sm:mb-8">
+            <InteractiveNotes title="Рациональные числа и модуль" content={notesContent} />
+
+            {!contentWatched && (
+              <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg">
+                <button
+                  onClick={() => setContentWatched(true)}
+                  className="w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 active:scale-[0.98] transition-all font-medium flex items-center justify-center gap-2"
+                >
+                  <CheckCircle className="w-5 h-5" />
+                  Отметить как изученное
+                </button>
+              </div>
+            )}
           </div>
-        </div>
+        )}
+
+        {/* Audio Content */}
+        {contentMode === 'audio' && (
+          <div className="bg-card rounded-xl border border-border/60 p-6 sm:p-8 mb-6 sm:mb-8">
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+              <p className="text-sm text-yellow-900 dark:text-yellow-300">
+                <strong>🚧 Скоро доступно</strong><br />
+                Аудиолекции находятся в разработке. Пока используйте текстовый конспект или видео.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Video Content */}
+        {contentMode === 'video' && (
+          <div className="bg-card rounded-xl border border-border/60 p-6 sm:p-8 mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4">Видео-урок</h2>
+            <div className="aspect-video">
+              <iframe
+                className="w-full h-full rounded-lg"
+                src="https://www.youtube.com/embed/YJ57Lp5MkIQ"
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                onLoad={() => {
+                  setTimeout(() => setContentWatched(true), 5000);
+                }}
+              />
+            </div>
+          </div>
+        )}
 
         <div className="bg-card rounded-xl border border-border/60 p-8">
           <h2 className="text-2xl font-bold mb-6">Тест на понимание 📝</h2>
