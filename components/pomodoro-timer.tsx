@@ -37,6 +37,16 @@ export function PomodoroTimer() {
     }
   }, []);
 
+  // Listen for openPomodoroTimer event from Header
+  useEffect(() => {
+    const handleOpenPomodoro = () => {
+      setIsMinimized(false);
+    };
+
+    window.addEventListener('openPomodoroTimer', handleOpenPomodoro);
+    return () => window.removeEventListener('openPomodoroTimer', handleOpenPomodoro);
+  }, []);
+
   // Initialize brown noise generator with Web Audio API
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -241,7 +251,7 @@ export function PomodoroTimer() {
     };
   }, [isDragging, dragOffset]);
 
-  // Minimized circular button
+  // Minimized circular button - скрываем на мобиле
   if (isMinimized) {
     return (
       <div
@@ -253,7 +263,7 @@ export function PomodoroTimer() {
           cursor: isDragging ? 'grabbing' : 'grab'
         }}
         onPointerDown={handlePointerDown}
-        className="draggable-handle"
+        className="draggable-handle hidden md:block"
       >
         <button
           onClick={(e) => {
@@ -281,21 +291,30 @@ export function PomodoroTimer() {
     );
   }
 
-  // Expanded panel
+  // Expanded panel - десктоп (плавающий) или мобиль (центр экрана с оверлеем)
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: `${position.y}px`,
-        left: `${position.x}px`,
-        zIndex: 9999,
-        cursor: isDragging ? 'grabbing' : 'default'
-      }}
-      className="w-64 bg-white rounded-lg shadow-2xl border-2 border-purple-600"
-    >
+    <>
+      {/* Mobile Overlay */}
+      <div
+        className="fixed inset-0 bg-black/50 z-[9998] md:hidden"
+        onClick={() => setIsMinimized(true)}
+      />
+
+      {/* Timer Panel */}
+      <div
+        style={{
+          position: 'fixed',
+          top: typeof window !== 'undefined' && window.innerWidth < 768 ? '50%' : `${position.y}px`,
+          left: typeof window !== 'undefined' && window.innerWidth < 768 ? '50%' : `${position.x}px`,
+          transform: typeof window !== 'undefined' && window.innerWidth < 768 ? 'translate(-50%, -50%)' : 'none',
+          zIndex: 9999,
+          cursor: isDragging ? 'grabbing' : 'default'
+        }}
+        className="w-80 sm:w-64 bg-white dark:bg-gray-900 rounded-lg shadow-2xl border-2 border-purple-600 dark:border-purple-500"
+      >
       {/* Header */}
       <div
-        className="draggable-handle p-4 bg-gradient-to-r from-purple-50 to-blue-50 border-b border-gray-200 flex items-center justify-between cursor-grab active:cursor-grabbing"
+        className="p-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between cursor-grab active:cursor-grabbing md:cursor-grab"
         onPointerDown={handlePointerDown}
       >
         <div className="flex items-center gap-2">

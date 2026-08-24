@@ -123,7 +123,7 @@ export function Sidebar() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed top-4 left-4 z-[100] p-1.5 sm:p-2 bg-card border-2 border-purple-600 rounded-lg shadow-lg hover:bg-muted transition-colors"
+          className="fixed top-4 left-16 sm:left-4 z-[100] p-1.5 sm:p-2 bg-card border-2 border-purple-600 rounded-lg shadow-lg hover:bg-muted transition-colors"
           aria-label="Toggle menu"
         >
           <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />

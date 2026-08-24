@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Timer } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { getTranslation, type Locale } from '@/lib/i18n';
@@ -14,6 +14,10 @@ export function Header() {
   const [userRole, setUserRole] = useState<'student' | 'teacher' | null>(null);
   const [locale, setLocale] = useState<Locale>('ru');
   const router = useRouter();
+
+  const handleOpenPomodoroTimer = () => {
+    window.dispatchEvent(new CustomEvent('openPomodoroTimer'));
+  };
 
   const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
@@ -97,6 +101,15 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Pomodoro Timer Button - только на мобиле */}
+            <button
+              onClick={handleOpenPomodoroTimer}
+              className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+              title="Pomodoro Timer"
+            >
+              <Timer className="w-5 h-5 text-purple-600" />
+            </button>
+
             <LanguageSwitcher />
             <ThemeToggle />
             {isAuthenticated ? (
