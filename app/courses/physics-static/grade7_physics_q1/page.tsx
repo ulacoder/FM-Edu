@@ -95,7 +95,7 @@ function Quiz({ questions }: { questions: Array<{question: string, options: stri
 
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 mb-6">
           <h4 className="text-xl font-bold mb-3 flex items-center gap-2">
-            <span>🤖</span> AI Анализ твоих результатов
+            <NaviAvatarStatic size="sm" className="inline-block" /> AI Анализ твоих результатов
           </h4>
           <p className="text-gray-800 whitespace-pre-line">{finalAnalysis}</p>
         </div>
@@ -163,7 +163,7 @@ function Quiz({ questions }: { questions: Array<{question: string, options: stri
       {aiFeedback && (
         <div className={`p-4 rounded-lg ${selectedAnswer === shuffledQuestions[currentQ].correct ? 'bg-green-50 border border-green-200' : 'bg-yellow-50 border border-yellow-200'}`}>
           <p className="flex items-start gap-2">
-            <span className="text-xl">🤖</span>
+            <NaviAvatarStatic size="md" />
             <span className="text-sm">{aiFeedback}</span>
           </p>
         </div>

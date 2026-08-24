@@ -1,5 +1,7 @@
 ﻿'use client';
 
+import { NaviAvatarStatic } from '@/components/navi-avatar';
+
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -282,7 +284,7 @@ export default function DiagnosticPage() {
               <div className="bg-card border border-border rounded-lg p-6 mb-8 text-left shadow-sm">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-xl">🤖</span>
+                    <NaviAvatarStatic size="md" />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-2 text-foreground">Анализ от AI-преподавателя</h3>

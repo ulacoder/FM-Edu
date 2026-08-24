@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 
 function Quiz({ questions }: { questions: Array<{question: string, options: string[], correct: number}> }) {
@@ -72,7 +72,7 @@ function Quiz({ questions }: { questions: Array<{question: string, options: stri
           <div className="text-7xl mb-4">{percentage >= 80 ? "🎉" : percentage >= 60 ? "👍" : "📚"}</div>
         </div>
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 mb-6">
-          <h4 className="text-xl font-bold mb-3 flex items-center gap-2"><span>🤖</span> AI Анализ твоих результатов</h4>
+          <h4 className="text-xl font-bold mb-3 flex items-center gap-2"><NaviAvatarStatic size="sm" className="inline-block" /> AI Анализ твоих результатов</h4>
           <p className="text-gray-800 whitespace-pre-line">{finalAnalysis}</p>
         </div>
         {wrongAnswers.length > 0 && (
@@ -110,7 +110,7 @@ function Quiz({ questions }: { questions: Array<{question: string, options: stri
       </div>
       {aiFeedback && (
         <div className={`p-4 rounded-lg ${selectedAnswer === shuffledQuestions[currentQ].correct ? 'bg-green-50 border border-green-200' : 'bg-yellow-50 border border-yellow-200'}`}>
-          <p className="flex items-start gap-2"><span className="text-xl">🤖</span><span className="text-sm">{aiFeedback}</span></p>
+          <p className="flex items-start gap-2"><NaviAvatarStatic size="md" /><span className="text-sm">{aiFeedback}</span></p>
         </div>
       )}
     </div>
