@@ -413,19 +413,19 @@ export default function OpportunitiesPage() {
             {/* Golden Banner */}
             <div className="bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 dark:from-yellow-950/20 dark:via-amber-950/20 dark:to-orange-950/20 border-2 border-yellow-500 rounded-xl shadow-lg shadow-yellow-500/20 overflow-hidden">
               {/* Header */}
-              <div className="bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 p-4 text-black">
+              <div className="bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 p-4 text-white">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                    <GraduationCap className="w-6 h-6 text-black" />
+                    <GraduationCap className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-black">Гранты вузов</h3>
-                    <p className="text-xs text-black/80">Полное финансирование</p>
+                    <h3 className="text-lg font-bold text-white">Гранты вузов</h3>
+                    <p className="text-xs text-white/90">Полное финансирование</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 w-fit">
-                  <Award className="w-4 h-4 text-black" />
-                  <span className="text-sm font-semibold text-black">100% грант</span>
+                  <Award className="w-4 h-4 text-white" />
+                  <span className="text-sm font-semibold text-white">100% грант</span>
                 </div>
               </div>
 
@@ -445,10 +445,10 @@ export default function OpportunitiesPage() {
                         <GraduationCap className="w-6 h-6 text-yellow-600 dark:text-yellow-500" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-sm mb-1 group-hover:text-yellow-600 transition-colors line-clamp-2">
+                        <h4 className="font-semibold text-sm mb-1 text-gray-900 dark:text-white group-hover:text-yellow-600 transition-colors line-clamp-2">
                           {ad.university_name}
                         </h4>
-                        <p className="text-xs text-muted-foreground line-clamp-2">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
                           {ad.description}
                         </p>
                       </div>
