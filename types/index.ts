@@ -10,42 +10,50 @@ export interface User {
   createdAt: Date;
 }
 
-// Регионы Казахстана
+// Области Казахстана (14 областей + 3 города республиканского значения)
 export type Region =
   | 'astana'
-  | 'almaty'
+  | 'almaty_city'
   | 'shymkent'
+  | 'akmola'
   | 'aktobe'
+  | 'almaty'
   | 'atyrau'
+  | 'eastkazakhstan'
+  | 'jambyl'
+  | 'jetisu'
+  | 'westkazakhstan'
   | 'karaganda'
   | 'kostanay'
   | 'kyzylorda'
   | 'mangystau'
   | 'pavlodar'
-  | 'petropavl'
-  | 'taraz'
+  | 'northkazakhstan'
   | 'turkistan'
-  | 'uralsk'
-  | 'ustkamenogorsk'
-  | 'other';
+  | 'ulytau'
+  | 'abai';
 
 export const regionNames: Record<Region, string> = {
-  astana: 'Астана',
-  almaty: 'Алматы',
-  shymkent: 'Шымкент',
-  aktobe: 'Актобе',
-  atyrau: 'Атырау',
-  karaganda: 'Караганда',
-  kostanay: 'Костанай',
-  kyzylorda: 'Кызылорда',
-  mangystau: 'Мангистау (Актау)',
-  pavlodar: 'Павлодар',
-  petropavl: 'Петропавловск',
-  taraz: 'Тараз',
-  turkistan: 'Туркестан',
-  uralsk: 'Уральск',
-  ustkamenogorsk: 'Усть-Каменогорск',
-  other: 'Другой регион'
+  astana: 'г. Астана',
+  almaty_city: 'г. Алматы',
+  shymkent: 'г. Шымкент',
+  akmola: 'Акмолинская область',
+  aktobe: 'Актюбинская область',
+  almaty: 'Алматинская область',
+  atyrau: 'Атырауская область',
+  eastkazakhstan: 'Восточно-Казахстанская область',
+  jambyl: 'Жамбылская область',
+  jetisu: 'Жетісу (Алматинская область)',
+  westkazakhstan: 'Западно-Казахстанская область',
+  karaganda: 'Карагандинская область',
+  kostanay: 'Костанайская область',
+  kyzylorda: 'Кызылординская область',
+  mangystau: 'Мангистауская область',
+  pavlodar: 'Павлодарская область',
+  northkazakhstan: 'Северо-Казахстанская область',
+  turkistan: 'Туркестанская область',
+  ulytau: 'Ұлытау область',
+  abai: 'Абайская область'
 };
 
 // MBTI типы личности
