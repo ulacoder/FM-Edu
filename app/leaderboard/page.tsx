@@ -77,98 +77,147 @@ export default function LeaderboardPage() {
   const loadLeaderboard = async () => {
     // Расширенные мок-данные для лидерборда (минимум 5 студентов на регион)
     const mockLeaderboard: LeaderboardEntry[] = [
-      // Astana (6 студентов)
+      // г. Астана (6 студентов)
       { studentId: 's1', studentName: 'Айгерим Сатпаева', grade: 11, region: 'astana', totalPoints: 2450, rank: 1 },
-      { studentId: 's4', studentName: 'Даурен Бектемиров', grade: 11, region: 'astana', totalPoints: 2150, rank: 4 },
-      { studentId: 's16', studentName: 'Нурсултан Алиев', grade: 10, region: 'astana', totalPoints: 1850, rank: 16 },
-      { studentId: 's17', studentName: 'Айша Касымова', grade: 12, region: 'astana', totalPoints: 1780, rank: 17 },
-      { studentId: 's18', studentName: 'Бауыржан Ермеков', grade: 11, region: 'astana', totalPoints: 1690, rank: 18 },
-      { studentId: 's19', studentName: 'Сауле Нурланова', grade: 10, region: 'astana', totalPoints: 1620, rank: 19 },
+      { studentId: 's2', studentName: 'Даурен Бектемиров', grade: 11, region: 'astana', totalPoints: 2150, rank: 2 },
+      { studentId: 's3', studentName: 'Нурсултан Алиев', grade: 10, region: 'astana', totalPoints: 1850, rank: 3 },
+      { studentId: 's4', studentName: 'Айша Касымова', grade: 12, region: 'astana', totalPoints: 1780, rank: 4 },
+      { studentId: 's5', studentName: 'Бауыржан Ермеков', grade: 11, region: 'astana', totalPoints: 1690, rank: 5 },
+      { studentId: 's6', studentName: 'Сауле Нурланова', grade: 10, region: 'astana', totalPoints: 1620, rank: 6 },
 
-      // Almaty (6 студентов)
-      { studentId: 's2', studentName: 'Ержан Нурланов', grade: 10, region: 'almaty', totalPoints: 2380, rank: 2 },
-      { studentId: 's5', studentName: 'Алия Камалова', grade: 10, region: 'almaty', totalPoints: 2080, rank: 5 },
-      { studentId: 's20', studentName: 'Арман Сейдалиев', grade: 11, region: 'almaty', totalPoints: 1920, rank: 20 },
-      { studentId: 's21', studentName: 'Дильназ Токтарова', grade: 12, region: 'almaty', totalPoints: 1840, rank: 21 },
-      { studentId: 's22', studentName: 'Ерлан Кайратов', grade: 10, region: 'almaty', totalPoints: 1750, rank: 22 },
-      { studentId: 's23', studentName: 'Айнур Жумагулова', grade: 11, region: 'almaty', totalPoints: 1670, rank: 23 },
+      // г. Алматы (6 студентов)
+      { studentId: 's7', studentName: 'Ержан Нурланов', grade: 10, region: 'almaty_city', totalPoints: 2380, rank: 7 },
+      { studentId: 's8', studentName: 'Алия Камалова', grade: 10, region: 'almaty_city', totalPoints: 2080, rank: 8 },
+      { studentId: 's9', studentName: 'Арман Сейдалиев', grade: 11, region: 'almaty_city', totalPoints: 1920, rank: 9 },
+      { studentId: 's10', studentName: 'Дильназ Токтарова', grade: 12, region: 'almaty_city', totalPoints: 1840, rank: 10 },
+      { studentId: 's11', studentName: 'Ерлан Кайратов', grade: 10, region: 'almaty_city', totalPoints: 1750, rank: 11 },
+      { studentId: 's12', studentName: 'Айнур Жумагулова', grade: 11, region: 'almaty_city', totalPoints: 1670, rank: 12 },
 
-      // Shymkent (5 студентов)
-      { studentId: 's3', studentName: 'Мадина Жумабекова', grade: 12, region: 'shymkent', totalPoints: 2290, rank: 3 },
-      { studentId: 's24', studentName: 'Абай Сериков', grade: 11, region: 'shymkent', totalPoints: 1880, rank: 24 },
-      { studentId: 's25', studentName: 'Жанна Мукашева', grade: 10, region: 'shymkent', totalPoints: 1790, rank: 25 },
-      { studentId: 's26', studentName: 'Темирлан Оспанов', grade: 12, region: 'shymkent', totalPoints: 1710, rank: 26 },
-      { studentId: 's27', studentName: 'Карина Абдуллаева', grade: 11, region: 'shymkent', totalPoints: 1640, rank: 27 },
+      // г. Шымкент (5 студентов)
+      { studentId: 's13', studentName: 'Мадина Жумабекова', grade: 12, region: 'shymkent', totalPoints: 2290, rank: 13 },
+      { studentId: 's14', studentName: 'Абай Сериков', grade: 11, region: 'shymkent', totalPoints: 1880, rank: 14 },
+      { studentId: 's15', studentName: 'Жанна Мукашева', grade: 10, region: 'shymkent', totalPoints: 1790, rank: 15 },
+      { studentId: 's16', studentName: 'Темирлан Оспанов', grade: 12, region: 'shymkent', totalPoints: 1710, rank: 16 },
+      { studentId: 's17', studentName: 'Карина Абдуллаева', grade: 11, region: 'shymkent', totalPoints: 1640, rank: 17 },
 
-      // Karaganda (5 студентов)
-      { studentId: 's6', studentName: 'Нурбол Айтказинов', grade: 12, region: 'karaganda', totalPoints: 1950, rank: 6 },
-      { studentId: 's28', studentName: 'Алмас Бекмуратов', grade: 11, region: 'karaganda', totalPoints: 1820, rank: 28 },
-      { studentId: 's29', studentName: 'Гульнара Сейткалиева', grade: 10, region: 'karaganda', totalPoints: 1740, rank: 29 },
-      { studentId: 's30', studentName: 'Ерболат Нургалиев', grade: 12, region: 'karaganda', totalPoints: 1660, rank: 30 },
-      { studentId: 's31', studentName: 'Айгуль Мухтарова', grade: 11, region: 'karaganda', totalPoints: 1590, rank: 31 },
+      // Акмолинская область (5 студентов)
+      { studentId: 's18', studentName: 'Ержан Токтаров', grade: 11, region: 'akmola', totalPoints: 1980, rank: 18 },
+      { studentId: 's19', studentName: 'Алма Сериккалиева', grade: 10, region: 'akmola', totalPoints: 1860, rank: 19 },
+      { studentId: 's20', studentName: 'Нурболат Жаксылыков', grade: 12, region: 'akmola', totalPoints: 1770, rank: 20 },
+      { studentId: 's21', studentName: 'Гульнара Оразалиева', grade: 11, region: 'akmola', totalPoints: 1680, rank: 21 },
+      { studentId: 's22', studentName: 'Ердаулет Бекмуратов', grade: 10, region: 'akmola', totalPoints: 1600, rank: 22 },
 
-      // Aktobe (5 студентов)
-      { studentId: 's7', studentName: 'Асель Турсунова', grade: 11, region: 'aktobe', totalPoints: 1890, rank: 7 },
-      { studentId: 's32', studentName: 'Данияр Жақсылыков', grade: 10, region: 'aktobe', totalPoints: 1800, rank: 32 },
-      { studentId: 's33', studentName: 'Камила Ержанова', grade: 12, region: 'aktobe', totalPoints: 1720, rank: 33 },
-      { studentId: 's34', studentName: 'Нуржан Омаров', grade: 11, region: 'aktobe', totalPoints: 1650, rank: 34 },
-      { studentId: 's35', studentName: 'Айдана Сарсенова', grade: 10, region: 'aktobe', totalPoints: 1580, rank: 35 },
+      // Актюбинская область (5 студентов)
+      { studentId: 's23', studentName: 'Асель Турсунова', grade: 11, region: 'aktobe', totalPoints: 1890, rank: 23 },
+      { studentId: 's24', studentName: 'Данияр Жақсылыков', grade: 10, region: 'aktobe', totalPoints: 1800, rank: 24 },
+      { studentId: 's25', studentName: 'Камила Ержанова', grade: 12, region: 'aktobe', totalPoints: 1720, rank: 25 },
+      { studentId: 's26', studentName: 'Нуржан Омаров', grade: 11, region: 'aktobe', totalPoints: 1650, rank: 26 },
+      { studentId: 's27', studentName: 'Айдана Сарсенова', grade: 10, region: 'aktobe', totalPoints: 1580, rank: 27 },
 
-      // Kostanay (5 студентов)
-      { studentId: 's8', studentName: 'Дияр Мухамедов', grade: 10, region: 'kostanay', totalPoints: 1820, rank: 8 },
-      { studentId: 's36', studentName: 'Бекзат Курманов', grade: 11, region: 'kostanay', totalPoints: 1730, rank: 36 },
-      { studentId: 's37', studentName: 'Аружан Касенова', grade: 12, region: 'kostanay', totalPoints: 1680, rank: 37 },
-      { studentId: 's38', studentName: 'Ернар Сабитов', grade: 10, region: 'kostanay', totalPoints: 1610, rank: 38 },
-      { studentId: 's39', studentName: 'Динара Абылхасова', grade: 11, region: 'kostanay', totalPoints: 1540, rank: 39 },
+      // Алматинская область (5 студентов)
+      { studentId: 's28', studentName: 'Аружан Садыкова', grade: 11, region: 'almaty', totalPoints: 1940, rank: 28 },
+      { studentId: 's29', studentName: 'Бекзат Мухтаров', grade: 10, region: 'almaty', totalPoints: 1830, rank: 29 },
+      { studentId: 's30', studentName: 'Жанель Нурболатова', grade: 12, region: 'almaty', totalPoints: 1750, rank: 30 },
+      { studentId: 's31', studentName: 'Ернар Сабитов', grade: 11, region: 'almaty', totalPoints: 1660, rank: 31 },
+      { studentId: 's32', studentName: 'Динара Абылхасова', grade: 10, region: 'almaty', totalPoints: 1590, rank: 32 },
 
-      // Pavlodar (5 студентов)
-      { studentId: 's9', studentName: 'Жанар Ержанова', grade: 12, region: 'pavlodar', totalPoints: 1760, rank: 9 },
-      { studentId: 's40', studentName: 'Асхат Тулеуов', grade: 11, region: 'pavlodar', totalPoints: 1700, rank: 40 },
-      { studentId: 's41', studentName: 'Медина Утеулиева', grade: 10, region: 'pavlodar', totalPoints: 1630, rank: 41 },
-      { studentId: 's42', studentName: 'Нурлан Досымов', grade: 12, region: 'pavlodar', totalPoints: 1560, rank: 42 },
-      { studentId: 's43', studentName: 'Жансая Кенжебаева', grade: 11, region: 'pavlodar', totalPoints: 1500, rank: 43 },
+      // Атырауская область (5 студентов)
+      { studentId: 's33', studentName: 'Санжар Абдуллаев', grade: 11, region: 'atyrau', totalPoints: 1690, rank: 33 },
+      { studentId: 's34', studentName: 'Алихан Бекетов', grade: 10, region: 'atyrau', totalPoints: 1620, rank: 34 },
+      { studentId: 's35', studentName: 'Сабина Исмаилова', grade: 12, region: 'atyrau', totalPoints: 1570, rank: 35 },
+      { studentId: 's36', studentName: 'Ерасыл Мамытов', grade: 11, region: 'atyrau', totalPoints: 1510, rank: 36 },
+      { studentId: 's37', studentName: 'Айым Нурбекова', grade: 10, region: 'atyrau', totalPoints: 1450, rank: 37 },
 
-      // Atyrau (5 студентов)
-      { studentId: 's10', studentName: 'Санжар Абдуллаев', grade: 11, region: 'atyrau', totalPoints: 1690, rank: 10 },
-      { studentId: 's44', studentName: 'Алихан Бекетов', grade: 10, region: 'atyrau', totalPoints: 1620, rank: 44 },
-      { studentId: 's45', studentName: 'Сабина Исмаилова', grade: 12, region: 'atyrau', totalPoints: 1570, rank: 45 },
-      { studentId: 's46', studentName: 'Ерасыл Мамытов', grade: 11, region: 'atyrau', totalPoints: 1510, rank: 46 },
-      { studentId: 's47', studentName: 'Айым Нурбекова', grade: 10, region: 'atyrau', totalPoints: 1450, rank: 47 },
+      // Восточно-Казахстанская область (5 студентов)
+      { studentId: 's38', studentName: 'Камила Нурланова', grade: 12, region: 'eastkazakhstan', totalPoints: 1900, rank: 38 },
+      { studentId: 's39', studentName: 'Асан Турсынов', grade: 11, region: 'eastkazakhstan', totalPoints: 1810, rank: 39 },
+      { studentId: 's40', studentName: 'Динара Жумабаева', grade: 10, region: 'eastkazakhstan', totalPoints: 1730, rank: 40 },
+      { studentId: 's41', studentName: 'Ердос Аманжолов', grade: 12, region: 'eastkazakhstan', totalPoints: 1640, rank: 41 },
+      { studentId: 's42', studentName: 'Жазира Султанова', grade: 11, region: 'eastkazakhstan', totalPoints: 1560, rank: 42 },
 
-      // Jambyl (5 студентов)
-      { studentId: 's11', studentName: 'Аида Касымова', grade: 10, region: 'jambyl', totalPoints: 1620, rank: 11 },
-      { studentId: 's48', studentName: 'Бексултан Шакиров', grade: 11, region: 'jambyl', totalPoints: 1580, rank: 48 },
-      { studentId: 's49', studentName: 'Гулим Тулегенова', grade: 12, region: 'jambyl', totalPoints: 1530, rank: 49 },
-      { studentId: 's50', studentName: 'Еркебулан Жаксылыков', grade: 10, region: 'jambyl', totalPoints: 1470, rank: 50 },
-      { studentId: 's51', studentName: 'Жадыра Ахметова', grade: 11, region: 'jambyl', totalPoints: 1410, rank: 51 },
+      // Жамбылская область (5 студентов)
+      { studentId: 's43', studentName: 'Аида Касымова', grade: 10, region: 'jambyl', totalPoints: 1820, rank: 43 },
+      { studentId: 's44', studentName: 'Бексултан Шакиров', grade: 11, region: 'jambyl', totalPoints: 1760, rank: 44 },
+      { studentId: 's45', studentName: 'Гулим Тулегенова', grade: 12, region: 'jambyl', totalPoints: 1690, rank: 45 },
+      { studentId: 's46', studentName: 'Еркебулан Жаксылыков', grade: 10, region: 'jambyl', totalPoints: 1610, rank: 46 },
+      { studentId: 's47', studentName: 'Жадыра Ахметова', grade: 11, region: 'jambyl', totalPoints: 1540, rank: 47 },
 
-      // Mangystau (5 студентов)
-      { studentId: 's12', studentName: 'Ерлан Токаев', grade: 12, region: 'mangystau', totalPoints: 1580, rank: 12 },
-      { studentId: 's52', studentName: 'Айбек Нурланов', grade: 11, region: 'mangystau', totalPoints: 1550, rank: 52 },
-      { studentId: 's53', studentName: 'Дина Сагидуллина', grade: 10, region: 'mangystau', totalPoints: 1490, rank: 53 },
-      { studentId: 's54', studentName: 'Ерлан Байбосынов', grade: 12, region: 'mangystau', totalPoints: 1430, rank: 54 },
-      { studentId: 's55', studentName: 'Жанель Кайратова', grade: 11, region: 'mangystau', totalPoints: 1370, rank: 55 },
+      // Жетісу (5 студентов)
+      { studentId: 's48', studentName: 'Айгерим Тлеубаева', grade: 11, region: 'jetisu', totalPoints: 1870, rank: 48 },
+      { studentId: 's49', studentName: 'Бауыржан Сейдахметов', grade: 10, region: 'jetisu', totalPoints: 1780, rank: 49 },
+      { studentId: 's50', studentName: 'Жансая Кенжебаева', grade: 12, region: 'jetisu', totalPoints: 1700, rank: 50 },
+      { studentId: 's51', studentName: 'Ерлан Досымов', grade: 11, region: 'jetisu', totalPoints: 1630, rank: 51 },
+      { studentId: 's52', studentName: 'Медина Утеулиева', grade: 10, region: 'jetisu', totalPoints: 1550, rank: 52 },
 
-      // North Kazakhstan (5 студентов)
-      { studentId: 's13', studentName: 'Дина Омарова', grade: 11, region: 'northkazakhstan', totalPoints: 1520, rank: 13 },
-      { studentId: 's56', studentName: 'Азамат Ердаулетов', grade: 10, region: 'northkazakhstan', totalPoints: 1480, rank: 56 },
-      { studentId: 's57', studentName: 'Балжан Кумарова', grade: 12, region: 'northkazakhstan', totalPoints: 1440, rank: 57 },
-      { studentId: 's58', studentName: 'Ерсултан Кабдрахманов', grade: 11, region: 'northkazakhstan', totalPoints: 1390, rank: 58 },
-      { studentId: 's59', studentName: 'Жансая Толеубаева', grade: 10, region: 'northkazakhstan', totalPoints: 1330, rank: 59 },
+      // Западно-Казахстанская область (5 студентов)
+      { studentId: 's53', studentName: 'Алмас Жумабеков', grade: 11, region: 'westkazakhstan', totalPoints: 1840, rank: 53 },
+      { studentId: 's54', studentName: 'Гульнур Омарова', grade: 10, region: 'westkazakhstan', totalPoints: 1770, rank: 54 },
+      { studentId: 's55', studentName: 'Ерболат Нургалиев', grade: 12, region: 'westkazakhstan', totalPoints: 1680, rank: 55 },
+      { studentId: 's56', studentName: 'Айгуль Мухтарова', grade: 11, region: 'westkazakhstan', totalPoints: 1620, rank: 56 },
+      { studentId: 's57', studentName: 'Нурсултан Кабдрахманов', grade: 10, region: 'westkazakhstan', totalPoints: 1540, rank: 57 },
 
-      // Kyzylorda (5 студентов)
-      { studentId: 's14', studentName: 'Тимур Досаев', grade: 10, region: 'kyzylorda', totalPoints: 1460, rank: 14 },
-      { studentId: 's60', studentName: 'Алибек Сержанов', grade: 11, region: 'kyzylorda', totalPoints: 1420, rank: 60 },
-      { studentId: 's61', studentName: 'Галия Омарова', grade: 12, region: 'kyzylorda', totalPoints: 1380, rank: 61 },
-      { studentId: 's62', studentName: 'Ерназар Берикболов', grade: 10, region: 'kyzylorda', totalPoints: 1320, rank: 62 },
-      { studentId: 's63', studentName: 'Жанар Нурболатова', grade: 11, region: 'kyzylorda', totalPoints: 1260, rank: 63 },
+      // Карагандинская область (5 студентов)
+      { studentId: 's58', studentName: 'Нурбол Айтказинов', grade: 12, region: 'karaganda', totalPoints: 1950, rank: 58 },
+      { studentId: 's59', studentName: 'Алмас Бекмуратов', grade: 11, region: 'karaganda', totalPoints: 1820, rank: 59 },
+      { studentId: 's60', studentName: 'Гульнара Сейткалиева', grade: 10, region: 'karaganda', totalPoints: 1740, rank: 60 },
+      { studentId: 's61', studentName: 'Ерболат Досаев', grade: 12, region: 'karaganda', totalPoints: 1660, rank: 61 },
+      { studentId: 's62', studentName: 'Айнура Касенова', grade: 11, region: 'karaganda', totalPoints: 1590, rank: 62 },
 
-      // East Kazakhstan (5 студентов)
-      { studentId: 's15', studentName: 'Камила Нурланова', grade: 12, region: 'eastkazakhstan', totalPoints: 1400, rank: 15 },
-      { studentId: 's64', studentName: 'Асан Турсынов', grade: 11, region: 'eastkazakhstan', totalPoints: 1360, rank: 64 },
-      { studentId: 's65', studentName: 'Динара Жумабаева', grade: 10, region: 'eastkazakhstan', totalPoints: 1310, rank: 65 },
-      { studentId: 's66', studentName: 'Ердос Аманжолов', grade: 12, region: 'eastkazakhstan', totalPoints: 1250, rank: 66 },
-      { studentId: 's67', studentName: 'Жазира Султанова', grade: 11, region: 'eastkazakhstan', totalPoints: 1190, rank: 67 },
+      // Костанайская область (5 студентов)
+      { studentId: 's63', studentName: 'Дияр Мухамедов', grade: 10, region: 'kostanay', totalPoints: 1820, rank: 63 },
+      { studentId: 's64', studentName: 'Бекзат Курманов', grade: 11, region: 'kostanay', totalPoints: 1730, rank: 64 },
+      { studentId: 's65', studentName: 'Аружан Касенова', grade: 12, region: 'kostanay', totalPoints: 1680, rank: 65 },
+      { studentId: 's66', studentName: 'Ернар Сабитов', grade: 10, region: 'kostanay', totalPoints: 1610, rank: 66 },
+      { studentId: 's67', studentName: 'Динара Абылхасова', grade: 11, region: 'kostanay', totalPoints: 1540, rank: 67 },
+
+      // Кызылординская область (5 студентов)
+      { studentId: 's68', studentName: 'Тимур Досаев', grade: 10, region: 'kyzylorda', totalPoints: 1860, rank: 68 },
+      { studentId: 's69', studentName: 'Алибек Сержанов', grade: 11, region: 'kyzylorda', totalPoints: 1790, rank: 69 },
+      { studentId: 's70', studentName: 'Галия Омарова', grade: 12, region: 'kyzylorda', totalPoints: 1710, rank: 70 },
+      { studentId: 's71', studentName: 'Ерназар Берикболов', grade: 10, region: 'kyzylorda', totalPoints: 1630, rank: 71 },
+      { studentId: 's72', studentName: 'Жанар Нурболатова', grade: 11, region: 'kyzylorda', totalPoints: 1560, rank: 72 },
+
+      // Мангистауская область (5 студентов)
+      { studentId: 's73', studentName: 'Ерлан Токаев', grade: 12, region: 'mangystau', totalPoints: 1800, rank: 73 },
+      { studentId: 's74', studentName: 'Айбек Нурланов', grade: 11, region: 'mangystau', totalPoints: 1720, rank: 74 },
+      { studentId: 's75', studentName: 'Дина Сагидуллина', grade: 10, region: 'mangystau', totalPoints: 1650, rank: 75 },
+      { studentId: 's76', studentName: 'Ерлан Байбосынов', grade: 12, region: 'mangystau', totalPoints: 1580, rank: 76 },
+      { studentId: 's77', studentName: 'Жанель Кайратова', grade: 11, region: 'mangystau', totalPoints: 1510, rank: 77 },
+
+      // Павлодарская область (5 студентов)
+      { studentId: 's78', studentName: 'Жанар Ержанова', grade: 12, region: 'pavlodar', totalPoints: 1760, rank: 78 },
+      { studentId: 's79', studentName: 'Асхат Тулеуов', grade: 11, region: 'pavlodar', totalPoints: 1700, rank: 79 },
+      { studentId: 's80', studentName: 'Медина Утеулиева', grade: 10, region: 'pavlodar', totalPoints: 1630, rank: 80 },
+      { studentId: 's81', studentName: 'Нурлан Досымов', grade: 12, region: 'pavlodar', totalPoints: 1560, rank: 81 },
+      { studentId: 's82', studentName: 'Жансая Кенжебаева', grade: 11, region: 'pavlodar', totalPoints: 1500, rank: 82 },
+
+      // Северо-Казахстанская область (5 студентов)
+      { studentId: 's83', studentName: 'Дина Омарова', grade: 11, region: 'northkazakhstan', totalPoints: 1780, rank: 83 },
+      { studentId: 's84', studentName: 'Азамат Ердаулетов', grade: 10, region: 'northkazakhstan', totalPoints: 1710, rank: 84 },
+      { studentId: 's85', studentName: 'Балжан Кумарова', grade: 12, region: 'northkazakhstan', totalPoints: 1640, rank: 85 },
+      { studentId: 's86', studentName: 'Ерсултан Кабдрахманов', grade: 11, region: 'northkazakhstan', totalPoints: 1570, rank: 86 },
+      { studentId: 's87', studentName: 'Жансая Толеубаева', grade: 10, region: 'northkazakhstan', totalPoints: 1500, rank: 87 },
+
+      // Туркестанская область (5 студентов)
+      { studentId: 's88', studentName: 'Абылай Садыков', grade: 11, region: 'turkistan', totalPoints: 1850, rank: 88 },
+      { studentId: 's89', studentName: 'Гульжан Мухамедова', grade: 10, region: 'turkistan', totalPoints: 1770, rank: 89 },
+      { studentId: 's90', studentName: 'Ерлан Жакупов', grade: 12, region: 'turkistan', totalPoints: 1690, rank: 90 },
+      { studentId: 's91', studentName: 'Айгерим Сарсенова', grade: 11, region: 'turkistan', totalPoints: 1620, rank: 91 },
+      { studentId: 's92', studentName: 'Нурболат Кенжебеков', grade: 10, region: 'turkistan', totalPoints: 1550, rank: 92 },
+
+      // Ұлытау область (5 студентов)
+      { studentId: 's93', studentName: 'Алихан Токтаров', grade: 11, region: 'ulytau', totalPoints: 1830, rank: 93 },
+      { studentId: 's94', studentName: 'Балнур Ержанова', grade: 10, region: 'ulytau', totalPoints: 1760, rank: 94 },
+      { studentId: 's95', studentName: 'Ержан Нурмуханов', grade: 12, region: 'ulytau', totalPoints: 1680, rank: 95 },
+      { studentId: 's96', studentName: 'Жанара Касымова', grade: 11, region: 'ulytau', totalPoints: 1610, rank: 96 },
+      { studentId: 's97', studentName: 'Нурсултан Досаев', grade: 10, region: 'ulytau', totalPoints: 1540, rank: 97 },
+
+      // Абайская область (5 студентов)
+      { studentId: 's98', studentName: 'Айдос Мухамеджанов', grade: 11, region: 'abai', totalPoints: 1810, rank: 98 },
+      { studentId: 's99', studentName: 'Гульмира Оразалиева', grade: 10, region: 'abai', totalPoints: 1740, rank: 99 },
+      { studentId: 's100', studentName: 'Ерлан Серикбаев', grade: 12, region: 'abai', totalPoints: 1670, rank: 100 },
+      { studentId: 's101', studentName: 'Жанель Турсынова', grade: 11, region: 'abai', totalPoints: 1600, rank: 101 },
+      { studentId: 's102', studentName: 'Нурлан Бекмуратов', grade: 10, region: 'abai', totalPoints: 1530, rank: 102 },
     ];
 
     try {
