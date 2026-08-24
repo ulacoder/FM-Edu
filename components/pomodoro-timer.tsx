@@ -452,5 +452,6 @@ export function PomodoroTimer() {
         </div>
       </div>
     </div>
+    </>
   );
 }
