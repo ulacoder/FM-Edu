@@ -36,30 +36,51 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      // Проверяем существующих пользователей
+      const usersStr = localStorage.getItem('fm_edu_users');
+      const users = usersStr ? JSON.parse(usersStr) : [];
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.error || 'Ошибка регистрации');
+      // Проверка на дубликат email
+      if (users.find((u: any) => u.email === formData.email)) {
+        setError('Пользователь с таким email уже существует');
         setLoading(false);
         return;
       }
 
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      // Создаём нового пользователя
+      const userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      const newUser = {
+        id: userId,
+        email: formData.email,
+        password: formData.password, // В реальном проекте нужно хешировать
+        name: formData.name,
+        role: formData.role,
+        grade: formData.role === 'student' ? formData.grade : undefined,
+        goals: formData.role === 'student' ? formData.goals : undefined,
+        region: formData.role === 'student' ? formData.region : undefined,
+        mbtiType: formData.role === 'student' ? formData.mbtiType : undefined,
+        subjects: formData.role === 'teacher' ? formData.subjects : undefined,
+        totalPoints: formData.role === 'student' ? 0 : undefined,
+        createdAt: new Date().toISOString(),
+      };
 
-      if (data.user.role === 'student') {
+      // Сохраняем в localStorage
+      users.push(newUser);
+      localStorage.setItem('fm_edu_users', JSON.stringify(users));
+
+      // Логиним пользователя
+      const token = `token_${userId}`;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(newUser));
+
+      // Редирект
+      if (formData.role === 'student') {
         router.push('/dashboard/student');
       } else {
         router.push('/dashboard/teacher');
       }
     } catch (err) {
-      setError('Ошибка соединения');
+      setError('Ошибка регистрации');
       setLoading(false);
     }
   };
@@ -297,4 +318,3 @@ export default function RegisterPage() {
     </div>
   );
 }
-

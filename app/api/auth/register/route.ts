@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateId, create, findBy } from '@/lib/db';
-import { hashPassword, generateToken } from '@/lib/auth';
-import { User, Student, Teacher } from '@/types';
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,68 +13,41 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Проверка существующего пользователя
-    const existingUsers = findBy<User>('users', (u) => u.email === email);
-    if (existingUsers.length > 0) {
-      return NextResponse.json(
-        { error: 'Пользователь с таким email уже существует' },
-        { status: 400 }
-      );
-    }
+    // Создаём профиль
+    const userId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
-    // Хеширование пароля
-    const hashedPassword = await hashPassword(password);
-
-    // Создание пользователя
-    const userId = generateId();
-    const user: User = {
+    let fullProfile: any = {
       id: userId,
       email,
-      password: hashedPassword,
-      role,
       name,
-      createdAt: new Date(),
+      role,
+      createdAt: new Date().toISOString(),
     };
 
-    create('users', user);
-
-    // Создание профиля в зависимости от роли
-    let fullProfile;
     if (role === 'student') {
-      const student: Student = {
-        ...user,
-        role: 'student',
+      fullProfile = {
+        ...fullProfile,
         grade: grade || 7,
         goals: goals || [],
         region: region || 'astana',
-        mbtiProfile: mbtiType ? {
-          type: mbtiType,
-          description: '',
-          learningStyle: '',
-          strengths: [],
-          challenges: [],
-          setAt: new Date()
-        } : undefined,
+        mbtiType: mbtiType || null,
+        totalPoints: 0,
       };
-      create('students', student);
-      fullProfile = student;
     } else if (role === 'teacher') {
-      const teacher: Teacher = {
-        ...user,
-        role: 'teacher',
+      fullProfile = {
+        ...fullProfile,
         subjects: subjects || [],
       };
-      create('teachers', teacher);
-      fullProfile = teacher;
     }
 
-    // Генерация токена
-    const token = generateToken(userId, role);
+    // Простой токен
+    const token = `token_${userId}`;
 
     return NextResponse.json({
       success: true,
       token,
       user: fullProfile,
+      password, // Возвращаем пароль для localStorage
     });
   } catch (error) {
     console.error('Registration error:', error);

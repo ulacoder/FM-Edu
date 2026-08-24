@@ -19,30 +19,32 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      // Получаем пользователей из localStorage
+      const usersStr = localStorage.getItem('fm_edu_users');
+      const users = usersStr ? JSON.parse(usersStr) : [];
 
-      const data = await response.json();
+      // Ищем пользователя
+      const user = users.find((u: any) => u.email === formData.email && u.password === formData.password);
 
-      if (!response.ok) {
-        setError(data.error || 'Ошибка входа');
+      if (!user) {
+        setError('Неверный email или пароль');
         setLoading(false);
         return;
       }
 
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      // Логиним
+      const token = `token_${user.id}`;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
 
-      if (data.user.role === 'student') {
+      // Редирект
+      if (user.role === 'student') {
         router.push('/dashboard/student');
       } else {
         router.push('/dashboard/teacher');
       }
     } catch (err) {
-      setError('Ошибка соединения с сервером');
+      setError('Ошибка входа');
       setLoading(false);
     }
   };
@@ -98,7 +100,10 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 text-primary-foreground text-sm font-medium rounded-lg transition-all bg-primary hover:bg-primary/90 disabled:opacity-50"
+              className="w-full py-3 text-white text-sm font-medium rounded-lg transition-all"
+              style={{ backgroundColor: loading ? '#F5F3FF' : '#8B5CF6' }}
+              onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#A78BFA')}
+              onMouseLeave={(e) => !loading && (e.currentTarget.style.backgroundColor = '#8B5CF6')}
             >
               {loading ? 'Вход...' : 'Войти'}
             </button>
@@ -106,7 +111,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-muted-foreground">
             Нет аккаунта?{' '}
-            <Link href="/register" className="font-medium text-primary hover:underline">
+            <Link href="/register" className="font-medium text-foreground">
               Зарегистрироваться
             </Link>
           </p>
