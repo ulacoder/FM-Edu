@@ -19,12 +19,37 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      // Получаем пользователей из localStorage
+      // Предустановленные аккаунты (admin + teacher)
+      const defaultAccounts = [
+        {
+          id: 'admin_default',
+          email: 'admin@fmedu.kz',
+          password: 'admin2026',
+          name: 'Администратор FM Edu',
+          role: 'admin',
+          createdAt: '2026-01-01T00:00:00.000Z'
+        },
+        {
+          id: 'teacher_default',
+          email: 'teacher@fmedu.kz',
+          password: 'teacher2026',
+          name: 'Нурсултан Алиев',
+          role: 'teacher',
+          subjects: ['mathematics', 'physics'],
+          pointsBalance: 30000,
+          createdAt: '2026-01-01T00:00:00.000Z'
+        }
+      ];
+
+      // Получаем пользователей из localStorage (только ученики)
       const usersStr = localStorage.getItem('fm_edu_users');
       const users = usersStr ? JSON.parse(usersStr) : [];
 
+      // Объединяем предустановленные + кастомные
+      const allUsers = [...defaultAccounts, ...users];
+
       // Ищем пользователя
-      const user = users.find((u: any) => u.email === formData.email && u.password === formData.password);
+      const user = allUsers.find((u: any) => u.email === formData.email && u.password === formData.password);
 
       if (!user) {
         setError('Неверный email или пароль');
@@ -40,8 +65,10 @@ export default function LoginPage() {
       // Уведомляем Header об изменении
       window.dispatchEvent(new Event('authChange'));
 
-      // Редирект
-      if (user.role === 'student') {
+      // Редирект в зависимости от роли
+      if (user.role === 'admin') {
+        router.push('/admin');
+      } else if (user.role === 'student') {
         router.push('/dashboard/student');
       } else {
         router.push('/dashboard/teacher');
@@ -112,12 +139,33 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="text-center text-sm text-muted-foreground">
-            Нет аккаунта?{' '}
-            <Link href="/register" className="font-medium text-foreground">
-              Зарегистрироваться
-            </Link>
-          </p>
+          <div className="space-y-3">
+            <p className="text-center text-sm text-muted-foreground">
+              Нет аккаунта?{' '}
+              <Link href="/register" className="font-medium text-foreground">
+                Зарегистрироваться
+              </Link>
+            </p>
+
+            {/* Предустановленные аккаунты */}
+            <div className="pt-4 border-t border-border">
+              <p className="text-xs font-medium text-muted-foreground mb-2">Тестовые аккаунты:</p>
+              <div className="space-y-2 text-xs">
+                <div className="bg-purple-50 dark:bg-purple-950/30 p-2 rounded">
+                  <p className="font-medium text-purple-700 dark:text-purple-300">👑 Администратор</p>
+                  <p className="text-gray-600 dark:text-gray-400">admin@fmedu.kz / admin2026</p>
+                </div>
+                <div className="bg-blue-50 dark:bg-blue-950/30 p-2 rounded">
+                  <p className="font-medium text-blue-700 dark:text-blue-300">👨‍🏫 Учитель</p>
+                  <p className="text-gray-600 dark:text-gray-400">teacher@fmedu.kz / teacher2026</p>
+                </div>
+                <div className="bg-green-50 dark:bg-green-950/30 p-2 rounded">
+                  <p className="font-medium text-green-700 dark:text-green-300">👨‍🎓 Ученик</p>
+                  <p className="text-gray-600 dark:text-gray-400">Создайте через регистрацию (MBTI, регион, класс)</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
