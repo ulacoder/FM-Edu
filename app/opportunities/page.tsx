@@ -413,19 +413,19 @@ export default function OpportunitiesPage() {
             {/* Golden Banner */}
             <div className="bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 dark:from-yellow-950/20 dark:via-amber-950/20 dark:to-orange-950/20 border-2 border-yellow-500 rounded-xl shadow-lg shadow-yellow-500/20 overflow-hidden">
               {/* Header */}
-              <div className="bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 p-4 text-white">
+              <div className="bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-500 p-4 text-black">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                    <GraduationCap className="w-6 h-6" />
+                    <GraduationCap className="w-6 h-6 text-black" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold">Гранты вузов</h3>
-                    <p className="text-xs text-white/90">Полное финансирование</p>
+                    <h3 className="text-lg font-bold text-black">Гранты вузов</h3>
+                    <p className="text-xs text-black/80">Полное финансирование</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 w-fit">
-                  <Award className="w-4 h-4" />
-                  <span className="text-sm font-semibold">100% грант</span>
+                  <Award className="w-4 h-4 text-black" />
+                  <span className="text-sm font-semibold text-black">100% грант</span>
                 </div>
               </div>
 
