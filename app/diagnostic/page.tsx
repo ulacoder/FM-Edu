@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { GraduationCap } from 'lucide-react';
@@ -16,6 +16,14 @@ export default function DiagnosticPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
+
+  useEffect(() => {
+    // Check authentication
+    const token = localStorage.getItem('token');
+    if (!token) {
+      router.push('/login');
+    }
+  }, [router]);
 
   const handleStartTest = async () => {
     setLoading(true);

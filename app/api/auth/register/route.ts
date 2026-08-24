@@ -42,6 +42,7 @@ export async function POST(request: NextRequest) {
     create('users', user);
 
     // Создание профиля в зависимости от роли
+    let fullProfile;
     if (role === 'student') {
       const student: Student = {
         ...user,
@@ -59,6 +60,7 @@ export async function POST(request: NextRequest) {
         } : undefined,
       };
       create('students', student);
+      fullProfile = student;
     } else if (role === 'teacher') {
       const teacher: Teacher = {
         ...user,
@@ -66,6 +68,7 @@ export async function POST(request: NextRequest) {
         subjects: subjects || [],
       };
       create('teachers', teacher);
+      fullProfile = teacher;
     }
 
     // Генерация токена
@@ -74,12 +77,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       token,
-      user: {
-        id: userId,
-        email,
-        name,
-        role,
-      },
+      user: fullProfile,
     });
   } catch (error) {
     console.error('Registration error:', error);

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { findBy } from '@/lib/db';
 import { comparePassword, generateToken } from '@/lib/auth';
-import { User } from '@/types';
+import { User, Student, Teacher } from '@/types';
 
 export async function POST(request: NextRequest) {
   try {
@@ -39,15 +39,22 @@ export async function POST(request: NextRequest) {
     // Генерация токена
     const token = generateToken(user.id, user.role);
 
+    // Получаем полный профиль в зависимости от роли
+    let fullProfile;
+    if (user.role === 'student') {
+      const students = findBy<Student>('students', (s) => s.id === user.id);
+      fullProfile = students.length > 0 ? students[0] : user;
+    } else if (user.role === 'teacher') {
+      const teachers = findBy<Teacher>('teachers', (t) => t.id === user.id);
+      fullProfile = teachers.length > 0 ? teachers[0] : user;
+    } else {
+      fullProfile = user;
+    }
+
     return NextResponse.json({
       success: true,
       token,
-      user: {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        role: user.role,
-      },
+      user: fullProfile,
     });
   } catch (error) {
     console.error('Login error:', error);
