@@ -69,96 +69,84 @@ export default function TeacherDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-card shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              EduAI.kz
-            </Link>
-            <span className="text-gray-400">|</span>
-            <span className="text-foreground">Панель учителя</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-foreground">{teacher?.name}</span>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2 text-gray-600 hover:text-gray-900"
-            >
-              Выйти
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div className="container mx-auto px-4 py-8">
-        {/* Приветствие */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+    <div className="flex flex-col min-h-screen">
+      {/* Main Content */}
+      <div className="flex-1 bg-muted/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        {/* Welcome Header */}
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2">
             Добро пожаловать, {teacher?.name}! 👨‍🏫
           </h1>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Предметы: {teacher?.subjects?.join(', ') || 'Не указаны'}
           </p>
         </div>
 
         {/* Статистика */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-card rounded-lg shadow-sm p-6">
-            <div className="text-3xl mb-2">👥</div>
-            <div className="text-3xl font-bold text-gray-900">{students.length}</div>
-            <div className="text-gray-600">Всего учеников</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-3xl">👥</span>
+              <span className="text-2xl sm:text-3xl font-bold">{students.length}</span>
+            </div>
+            <p className="text-sm text-muted-foreground">Всего учеников</p>
           </div>
 
-          <div className="bg-card rounded-lg shadow-sm p-6">
-            <div className="text-3xl mb-2">✅</div>
-            <div className="text-3xl font-bold text-gray-900">
-              {progress.reduce((acc, p) => acc + p.completedAssignments.length, 0)}
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-3xl">✅</span>
+              <span className="text-2xl sm:text-3xl font-bold">
+                {progress.reduce((acc, p) => acc + p.completedAssignments.length, 0)}
+              </span>
             </div>
-            <div className="text-gray-600">Выполнено заданий</div>
+            <p className="text-sm text-muted-foreground">Выполнено заданий</p>
           </div>
 
-          <div className="bg-card rounded-lg shadow-sm p-6">
-            <div className="text-3xl mb-2">📊</div>
-            <div className="text-3xl font-bold text-gray-900">
-              {progress.length > 0
-                ? Math.round(
-                    progress.reduce((acc, p) => {
-                      const avgScore = p.scores.reduce((sum, s) => sum + (s.score / s.maxScore) * 100, 0) / (p.scores.length || 1);
-                      return acc + avgScore;
-                    }, 0) / progress.length
-                  )
-                : 0}%
+          <div className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-3xl">📊</span>
+              <span className="text-2xl sm:text-3xl font-bold">
+                {progress.length > 0
+                  ? Math.round(
+                      progress.reduce((acc, p) => {
+                        const avgScore = p.scores.reduce((sum, s) => sum + (s.score / s.maxScore) * 100, 0) / (p.scores.length || 1);
+                        return acc + avgScore;
+                      }, 0) / progress.length
+                    )
+                  : 0}%
+              </span>
             </div>
-            <div className="text-gray-600">Средний результат</div>
+            <p className="text-sm text-muted-foreground">Средний результат</p>
           </div>
         </div>
 
         {/* Список учеников */}
-        <div className="bg-card rounded-lg shadow-sm p-6 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ученики</h2>
+        <div className="bg-card border border-border/60 rounded-lg mb-6 sm:mb-8">
+          <div className="p-4 sm:p-6 border-b border-border">
+            <h2 className="text-lg sm:text-xl font-bold">Ученики</h2>
+          </div>
 
           {students.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
-              <p className="mb-4">Пока нет учеников</p>
-              <p className="text-sm">Ученики появятся после регистрации на платформе</p>
+            <div className="text-center py-12 px-4">
+              <p className="text-muted-foreground mb-4">Пока нет учеников</p>
+              <p className="text-sm text-muted-foreground">Ученики появятся после регистрации на платформе</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-muted/50">
                   <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Имя</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Класс</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">MBTI</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Уровень</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Заданий</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Средний балл</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Активность</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Имя</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Класс</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">MBTI</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Уровень</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Заданий</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Средний балл</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Активность</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-border">
                   {students.map((student) => {
                     const studentProgress = progress.filter(p => p.studentId === student.id);
                     const totalAssignments = studentProgress.reduce((acc, p) => acc + p.completedAssignments.length, 0);
@@ -175,32 +163,32 @@ export default function TeacherDashboard() {
                       : 'Нет активности';
 
                     return (
-                      <tr key={student.id} className="hover:bg-muted">
-                        <td className="px-4 py-3 text-sm text-gray-900">{student.name}</td>
-                        <td className="px-4 py-3 text-sm text-gray-600">{student.grade} класс</td>
+                      <tr key={student.id} className="hover:bg-muted/30">
+                        <td className="px-4 py-3 text-sm font-medium">{student.name}</td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground">{student.grade} класс</td>
                         <td className="px-4 py-3 text-sm">
                           {student.mbtiProfile ? (
-                            <span className="px-2 py-1 rounded text-xs bg-purple-100 text-purple-700 font-medium" title={student.mbtiProfile.learningStyle}>
+                            <span className="px-2 py-1 rounded text-xs bg-primary/10 text-primary font-medium" title={student.mbtiProfile.learningStyle}>
                               {student.mbtiProfile.type}
                             </span>
                           ) : (
-                            <span className="text-gray-400 text-xs">Не установлен</span>
+                            <span className="text-xs text-muted-foreground">Не установлен</span>
                           )}
                         </td>
                         <td className="px-4 py-3 text-sm">
                           <span className={`px-2 py-1 rounded text-xs ${
                             student.level === 'advanced' ? 'bg-green-100 text-green-700' :
                             student.level === 'intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                            'bg-gray-100 text-foreground'
+                            'bg-muted text-foreground'
                           }`}>
                             {student.level === 'advanced' ? 'Продвинутый' :
                              student.level === 'intermediate' ? 'Средний' :
                              student.level === 'beginner' ? 'Начальный' : 'Не определён'}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-600">{totalAssignments}</td>
-                        <td className="px-4 py-3 text-sm text-gray-600">{avgScore}%</td>
-                        <td className="px-4 py-3 text-sm text-gray-600">{lastActivity}</td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground">{totalAssignments}</td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground">{avgScore}%</td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground">{lastActivity}</td>
                       </tr>
                     );
                   })}
@@ -211,48 +199,56 @@ export default function TeacherDashboard() {
         </div>
 
         {/* Быстрые действия */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           <Link
             href="/dashboard/teacher/classes"
-            className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
+            className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors"
           >
             <div className="text-3xl mb-3">👥</div>
-            <h3 className="font-semibold text-gray-900 mb-2">
+            <h3 className="font-semibold mb-2">
               Мои классы
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               Управление классами и начисление баллов
             </p>
           </Link>
 
           <Link
             href="/teacher/assignments"
-            className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
+            className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors"
           >
             <div className="text-3xl mb-3">✍️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">
+            <h3 className="font-semibold mb-2">
               Создать задание
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               Создайте новое задание для класса
             </p>
           </Link>
 
           <Link
             href="/teacher/materials"
-            className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow"
+            className="bg-card border border-border/60 rounded-lg p-4 sm:p-6 hover:border-primary/40 transition-colors"
           >
             <div className="text-3xl mb-3">📚</div>
-            <h3 className="font-semibold text-gray-900 mb-2">
+            <h3 className="font-semibold mb-2">
               Добавить материалы
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               Загрузите новые материалы для учеников
             </p>
           </Link>
         </div>
       </div>
     </div>
+
+    {/* Footer */}
+    <footer className="border-t border-border/40 py-8 mt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-muted-foreground">
+        <p>© 2026 FM Edu. Все права защищены.</p>
+      </div>
+    </footer>
+  </div>
   );
 }
 
