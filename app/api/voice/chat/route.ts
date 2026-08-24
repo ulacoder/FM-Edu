@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     ];
 
     const requestBody = {
-      model: 'qwen3.5-flash',
+      model: 'qwen3.6-flash',
       messages: apiMessages,
       temperature: 0.9,
       max_tokens: 500, // Короче для голоса

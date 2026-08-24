@@ -263,7 +263,7 @@ async function generateInterventionMessage(
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'qwen3.5-flash',
+        model: 'qwen3.6-flash',
         messages: [
           {
             role: 'system',
