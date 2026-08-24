@@ -99,7 +99,7 @@ export default function TeacherDashboard() {
             Добро пожаловать, {teacher?.name}! 👨‍🏫
           </h1>
           <p className="text-gray-600">
-            Предметы: {teacher?.subjects.join(', ') || 'Не указаны'}
+            Предметы: {teacher?.subjects?.join(', ') || 'Не указаны'}
           </p>
         </div>
 
