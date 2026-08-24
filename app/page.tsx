@@ -29,8 +29,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <TelegramBotBanner />
-
       {/* Hero Section */}
       <section className="pt-12 pb-16 sm:pt-16 sm:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,6 +117,13 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Telegram Bot Banner */}
+      <section className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <TelegramBotBanner />
         </div>
       </section>
 
