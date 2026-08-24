@@ -13,10 +13,14 @@ import {
   Clock,
   BookOpen,
   AlertCircle,
-  ChevronRight
+  ChevronRight,
+  Wifi
 } from "lucide-react";
 import type { Subject } from "@/types";
 import { subjectNames } from "@/types";
+import { ContentModeSwitcher, type ContentMode } from "@/components/content-mode-switcher";
+import { AudioPlayer } from "@/components/audio-player";
+import { InteractiveNotes } from "@/components/interactive-notes";
 
 interface Topic {
   id: string;
@@ -74,6 +78,7 @@ export default function LessonPage() {
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [videoId, setVideoId] = useState<string | null>(null);
   const [videoWatched, setVideoWatched] = useState(false);
+  const [contentMode, setContentMode] = useState<ContentMode>('text');
   const [showTest, setShowTest] = useState(false);
   const [showContent, setShowContent] = useState(true);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -146,6 +151,7 @@ export default function LessonPage() {
 
   const handleVideoEnd = () => {
     setVideoWatched(true);
+    setContentMode('text');
     saveProgress({ videoWatched: true });
 
     // Track video with AI automation
@@ -165,9 +171,14 @@ export default function LessonPage() {
     }).catch(err => console.error('Failed to track video:', err));
   };
 
+  const handleAudioComplete = () => {
+    setVideoWatched(true);
+    saveProgress({ videoWatched: true });
+  };
+
   const startTest = async () => {
     if (!videoWatched) {
-      alert('Сначала просмотрите видео-урок!');
+      alert('Сначала изучите материал урока!');
       return;
     }
 
@@ -361,6 +372,59 @@ export default function LessonPage() {
 
   const currentQuestion = questions[currentQuestionIndex];
 
+  // Mock data for interactive notes
+  const notesContent = {
+    formulas: [
+      {
+        title: '1. Квадрат суммы',
+        formula: '(a + b)² = a² + 2ab + b²',
+        example: '(x + 3)² = x² + 6x + 9'
+      },
+      {
+        title: '2. Квадрат разности',
+        formula: '(a - b)² = a² - 2ab + b²',
+        example: '(x - 5)² = x² - 10x + 25'
+      },
+      {
+        title: '3. Разность квадратов',
+        formula: '(a - b)(a + b) = a² - b²',
+        example: '(x - 2)(x + 2) = x² - 4'
+      }
+    ],
+    tips: [
+      'Квадрат суммы: "Первый в квадрате + удвоенное произведение + второй в квадрате"',
+      'Разность квадратов: "Если скобки (a-b) и (a+b) рядом — ответ a² - b²"'
+    ],
+    commonMistakes: [
+      {
+        wrong: '(a + b)² = a² + b² — НЕВЕРНО! Забыли 2ab',
+        correct: '(a + b)² = a² + 2ab + b²'
+      },
+      {
+        wrong: '(x - 3)² = x² - 9 — НЕВЕРНО! Забыли средний член',
+        correct: '(x - 3)² = x² - 6x + 9'
+      }
+    ],
+    examples: [
+      {
+        question: 'Пример 1: Вычисли 99²',
+        solution: 'Решение: 99² = (100-1)² = 100² - 2·100·1 + 1² = 10000 - 200 + 1 = 9801'
+      },
+      {
+        question: 'Пример 2: Упрости (x+2)²',
+        solution: 'Решение: (x+2)² = x² + 2·x·2 + 2² = x² + 4x + 4'
+      },
+      {
+        question: 'Пример 3: Разложи x² - 16',
+        solution: 'Решение: x² - 16 = x² - 4² = (x-4)(x+4)'
+      },
+      {
+        question: 'Пример 4: Вычисли 103·97',
+        solution: 'Решение: 103·97 = (100+3)(100-3) = 100² - 3² = 10000 - 9 = 9991'
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="flex-1">
@@ -402,112 +466,120 @@ export default function LessonPage() {
           {/* Main Content */}
           {!showTest && !testResult && (
             <div className="space-y-6">
-              {/* Tabs */}
-              <div className="flex gap-2 border-b border-border">
-                <button
-                  onClick={() => setShowContent(true)}
-                  className={`px-6 py-3 font-medium transition-colors ${
-                    showContent
-                      ? 'text-primary border-b-2 border-primary'
-                      : 'text-muted-foreground hover:text-primary'
-                  }`}
-                >
-                  📚 Конспект урока
-                </button>
-                <button
-                  onClick={() => setShowContent(false)}
-                  className={`px-6 py-3 font-medium transition-colors ${
-                    !showContent
-                      ? 'text-primary border-b-2 border-primary'
-                      : 'text-muted-foreground hover:text-primary'
-                  }`}
-                >
-                  🎥 Видео-урок
-                </button>
-              </div>
-
-              {/* Lesson Content */}
-              {showContent && (
-                <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 border-b">
-                    <div className="flex items-center gap-3">
-                      <BookOpen className="w-8 h-8 text-blue-600" />
-                      <div>
-                        <h2 className="text-2xl font-bold">Конспект урока</h2>
-                        <p className="text-sm text-muted-foreground">Изучите материал перед просмотром видео</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-8">
-                    <div className="lesson-content prose prose-lg max-w-none">
-                      <h1 className="text-3xl font-bold mb-6">{topic.title}</h1>
-
-                      <h2 className="text-2xl font-bold mt-6 mb-3 text-primary">Основные формулы</h2>
-
-                      <h3 className="text-xl font-semibold mt-4 mb-2">1. Квадрат суммы</h3>
-                      <p className="mb-3 font-bold">(a + b)² = a² + 2ab + b²</p>
-                      <p className="mb-3">Пример: (x + 3)² = x² + 6x + 9</p>
-
-                      <h3 className="text-xl font-semibold mt-4 mb-2">2. Квадрат разности</h3>
-                      <p className="mb-3 font-bold">(a - b)² = a² - 2ab + b²</p>
-                      <p className="mb-3">Пример: (x - 5)² = x² - 10x + 25</p>
-
-                      <h3 className="text-xl font-semibold mt-4 mb-2">3. Разность квадратов</h3>
-                      <p className="mb-3 font-bold">(a - b)(a + b) = a² - b²</p>
-                      <p className="mb-3">Пример: (x - 2)(x + 2) = x² - 4</p>
-
-                      <h2 className="text-2xl font-bold mt-6 mb-3 text-primary">Как запомнить?</h2>
-                      <p className="mb-3"><strong>Квадрат суммы:</strong> "Первый в квадрате + удвоенное произведение + второй в квадрате"</p>
-                      <p className="mb-3"><strong>Разность квадратов:</strong> "Если скобки (a-b) и (a+b) рядом — ответ a² - b²"</p>
-
-                      <h2 className="text-2xl font-bold mt-6 mb-3 text-primary">Типичные ошибки ⚠️</h2>
-                      <p className="mb-3">❌ (a + b)² = a² + b² — НЕВЕРНО! Забыли 2ab</p>
-                      <p className="mb-3">✅ (a + b)² = a² + 2ab + b²</p>
-
-                      <p className="mb-3">❌ (x - 3)² = x² - 9 — НЕВЕРНО! Забыли средний член</p>
-                      <p className="mb-3">✅ (x - 3)² = x² - 6x + 9</p>
-
-                      <h2 className="text-2xl font-bold mt-6 mb-3 text-primary">Примеры с решениями</h2>
-
-                      <p className="mb-3"><strong>Пример 1:</strong> Вычисли 99²</p>
-                      <p className="mb-3">Решение: 99² = (100-1)² = 100² - 2·100·1 + 1² = 10000 - 200 + 1 = 9801</p>
-
-                      <p className="mb-3"><strong>Пример 2:</strong> Упрости (x+2)²</p>
-                      <p className="mb-3">Решение: (x+2)² = x² + 2·x·2 + 2² = x² + 4x + 4</p>
-
-                      <p className="mb-3"><strong>Пример 3:</strong> Разложи x² - 16</p>
-                      <p className="mb-3">Решение: x² - 16 = x² - 4² = (x-4)(x+4)</p>
-
-                      <p className="mb-3"><strong>Пример 4:</strong> Вычисли 103·97</p>
-                      <p className="mb-3">Решение: 103·97 = (100+3)(100-3) = 100² - 3² = 10000 - 9 = 9991</p>
+              {/* Network Warning for Video Mode */}
+              {contentMode === 'video' && (
+                <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Wifi className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                    <div className="text-sm text-orange-900 dark:text-orange-300">
+                      <p className="font-medium mb-1">Видео требует стабильного интернета</p>
+                      <p>Рекомендуем использовать текстовый конспект или аудио на медленном соединении (2G/3G)</p>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Video Section */}
-              {!showContent && (
+              {/* Content Mode Switcher */}
+              <ContentModeSwitcher
+                currentMode={contentMode}
+                onModeChange={setContentMode}
+                videoWatched={videoWatched}
+                audioAvailable={false}
+              />
+
+              {/* Text Content */}
+              {contentMode === 'text' && (
                 <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 border-b">
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 p-4 sm:p-6 border-b">
+                    <div className="flex items-center gap-3">
+                      <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                      <div>
+                        <h2 className="text-xl sm:text-2xl font-bold">Интерактивный конспект</h2>
+                        <p className="text-xs sm:text-sm text-muted-foreground">
+                          Легкий формат • Работает без интернета
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 sm:p-6 lg:p-8">
+                    <InteractiveNotes title={topic.title} content={notesContent} />
+
+                    {!videoWatched && (
+                      <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg">
+                        <button
+                          onClick={() => {
+                            setVideoWatched(true);
+                            saveProgress({ videoWatched: true });
+                          }}
+                          className="w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 active:scale-[0.98] transition-all font-medium flex items-center justify-center gap-2"
+                        >
+                          <CheckCircle className="w-5 h-5" />
+                          Отметить как изученное
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Audio Content */}
+              {contentMode === 'audio' && (
+                <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 p-4 sm:p-6 border-b">
+                    <div className="flex items-center gap-3">
+                      <div className="text-3xl">🎧</div>
+                      <div>
+                        <h2 className="text-xl sm:text-2xl font-bold">Аудиолекция</h2>
+                        <p className="text-xs sm:text-sm text-muted-foreground">
+                          Сжатый формат • ~3 МБ • Слушай в дороге
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 sm:p-6">
+                    <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-4">
+                      <p className="text-sm text-yellow-900 dark:text-yellow-300">
+                        <strong>🚧 Скоро доступно</strong><br />
+                        Аудиолекции находятся в разработке. Пока используйте текстовый конспект или видео.
+                      </p>
+                    </div>
+
+                    {/* Placeholder for future audio player */}
+                    {/* <AudioPlayer
+                      audioUrl="/audio/lessons/math-formulas.mp3"
+                      title={topic.title}
+                      onComplete={handleAudioComplete}
+                    /> */}
+                  </div>
+                </div>
+              )}
+
+              {/* Video Content */}
+              {contentMode === 'video' && (
+                <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 p-4 sm:p-6 border-b">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <PlayCircle className="w-8 h-8 text-blue-600" />
+                        <PlayCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
                         <div>
-                          <h2 className="text-2xl font-bold">Видео-урок</h2>
-                          <p className="text-sm text-muted-foreground">Просмотрите урок перед тестом</p>
+                          <h2 className="text-xl sm:text-2xl font-bold">Видео-урок</h2>
+                          <p className="text-xs sm:text-sm text-muted-foreground">
+                            HD качество • ~50 МБ
+                          </p>
                         </div>
                       </div>
                       {videoWatched && (
-                        <div className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full">
-                          <CheckCircle className="w-5 h-5" />
-                          <span className="font-medium">Просмотрено</span>
+                        <div className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">
+                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                          <span className="font-medium text-xs sm:text-sm">Просмотрено</span>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="p-6">
+                  <div className="p-4 sm:p-6">
                     {videoId ? (
                       <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
                         <iframe
@@ -519,22 +591,21 @@ export default function LessonPage() {
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                           onLoad={() => {
-                            // Track video end
                             setTimeout(() => {
                               setVideoWatched(true);
                               saveProgress({ videoWatched: true });
-                            }, 5000); // Auto mark after 5 seconds for testing
+                            }, 5000);
                           }}
                         />
                       </div>
                     ) : (
-                      <div className="aspect-video bg-gray-900 rounded-lg mb-4 flex items-center justify-center">
+                      <div className="aspect-video bg-gray-900 rounded-lg flex items-center justify-center">
                         <div className="text-center text-white">
-                          <PlayCircle className="w-20 h-20 mx-auto mb-4 opacity-50" />
-                          <p className="text-lg mb-2">Загрузка видео...</p>
+                          <PlayCircle className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 opacity-50" />
+                          <p className="text-base sm:text-lg mb-2">Загрузка видео...</p>
                           <button
                             onClick={handleVideoEnd}
-                            className="px-6 py-2 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors"
+                            className="px-4 py-2 sm:px-6 bg-white text-gray-900 rounded-lg hover:bg-gray-100 active:scale-95 transition-all text-sm sm:text-base"
                           >
                             Отметить как просмотренное
                           </button>
@@ -560,12 +631,12 @@ export default function LessonPage() {
                 </div>
 
                 {!videoWatched && (
-                  <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-4">
+                  <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4 mb-4">
                     <div className="flex items-start gap-3">
                       <AlertCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
-                      <div className="text-sm text-orange-900">
-                        <p className="font-medium mb-1">Сначала просмотрите видео-урок</p>
-                        <p>Тест станет доступен после просмотра видео</p>
+                      <div className="text-sm text-orange-900 dark:text-orange-300">
+                        <p className="font-medium mb-1">Сначала изучите материал урока</p>
+                        <p>Тест станет доступен после изучения материала</p>
                       </div>
                     </div>
                   </div>
