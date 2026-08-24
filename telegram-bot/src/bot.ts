@@ -199,12 +199,7 @@ bot.on('callback_query:data', async (ctx) => {
 
     // Страйк
     if (data === 'streak') {
-      const longestStreakResult = await pool.query(
-        'SELECT MAX(current_streak) as longest FROM bot_users WHERE telegram_id = $1',
-        [telegramId]
-      );
-
-      const longestStreak = longestStreakResult.rows[0]?.longest || user.current_streak;
+      const longestStreak = user.current_streak;
 
       await ctx.editMessageText(
         messages.streakInfo(user.current_streak, longestStreak),
