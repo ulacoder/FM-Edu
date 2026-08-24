@@ -1,5 +1,6 @@
 ﻿
 "use client";
+import { NaviAvatarStatic } from '@/components/navi-avatar';
 import { useState, useEffect } from "react";
 
 function Quiz({ questions }: { questions: Array<{question: string, options: string[], correct: number}> }) {

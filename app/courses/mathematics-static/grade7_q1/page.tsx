@@ -1,5 +1,6 @@
 ﻿"use client";
 import { useState, useEffect } from "react";
+import { NaviAvatarStatic } from '@/components/navi-avatar';
 import { ContentModeSwitcher, type ContentMode } from "@/components/content-mode-switcher";
 import { InteractiveNotes } from "@/components/interactive-notes";
 import { Wifi, CheckCircle } from "lucide-react";
