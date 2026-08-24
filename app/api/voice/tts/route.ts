@@ -7,14 +7,25 @@ export async function POST(req: NextRequest) {
   try {
     const { text } = await req.json();
 
-    console.log('Fish Audio TTS Request:', { text });
+    console.log('Fish Audio TTS Request:', {
+      text,
+      hasApiKey: !!FISH_AUDIO_API_KEY,
+      hasVoiceId: !!FISH_AUDIO_VOICE_ID
+    });
+
+    if (!FISH_AUDIO_API_KEY || !FISH_AUDIO_VOICE_ID) {
+      console.error('Missing Fish Audio credentials');
+      return NextResponse.json(
+        { error: 'Fish Audio credentials not configured' },
+        { status: 500 }
+      );
+    }
 
     const response = await fetch('https://api.fish.audio/v1/tts', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${FISH_AUDIO_API_KEY}`,
         'Content-Type': 'application/json',
-        'model': 's2.1-pro-free',
       },
       body: JSON.stringify({
         text: text,
@@ -26,8 +37,15 @@ export async function POST(req: NextRequest) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Fish Audio API error:', response.status, errorText);
-      throw new Error(`Fish Audio API error: ${response.status}`);
+      console.error('Fish Audio API error:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorText
+      });
+      return NextResponse.json(
+        { error: `Fish Audio API error: ${response.status} - ${errorText}` },
+        { status: 500 }
+      );
     }
 
     const audioBuffer = await response.arrayBuffer();
@@ -42,7 +60,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error('Fish Audio TTS error:', error);
     return NextResponse.json(
-      { error: 'Ошибка генерации голоса' },
+      { error: `Ошибка генерации голоса: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     );
   }
