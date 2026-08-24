@@ -10,7 +10,9 @@ export async function POST(req: NextRequest) {
     console.log('Fish Audio TTS Request:', {
       text,
       hasApiKey: !!FISH_AUDIO_API_KEY,
-      hasVoiceId: !!FISH_AUDIO_VOICE_ID
+      hasVoiceId: !!FISH_AUDIO_VOICE_ID,
+      apiKeyPrefix: FISH_AUDIO_API_KEY?.substring(0, 10),
+      voiceIdPrefix: FISH_AUDIO_VOICE_ID?.substring(0, 10)
     });
 
     if (!FISH_AUDIO_API_KEY || !FISH_AUDIO_VOICE_ID) {
