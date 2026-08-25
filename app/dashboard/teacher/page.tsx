@@ -31,9 +31,18 @@ export default function TeacherDashboard() {
     loadMockData(user.id);
   }, [router]);
 
-  const loadMockData = (teacherId: string) => {
+  const recreateMockData = () => {
+    if (teacher) {
+      localStorage.removeItem('fm_edu_classes');
+      localStorage.removeItem('fm_edu_transactions');
+      localStorage.removeItem('fm_edu_reviews');
+      loadMockData(teacher.id, true);
+    }
+  };
+
+  const loadMockData = (teacherId: string, force = false) => {
     const classesStr = localStorage.getItem('fm_edu_classes');
-    if (!classesStr) {
+    if (!classesStr || force) {
       const mockClass = {
         id: `class_mock_${Date.now()}`,
         teacherId: teacherId,
@@ -229,12 +238,24 @@ export default function TeacherDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
 
         <div className="mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">
-            Привет, {teacher?.name}
-          </h1>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            Предметы: {teacher?.subjects?.join(', ') || 'Не указаны'}
-          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold mb-2">
+                Привет, {teacher?.name}
+              </h1>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                Предметы: {teacher?.subjects?.join(', ') || 'Не указаны'}
+              </p>
+            </div>
+            {classes.length === 0 && (
+              <button
+                onClick={recreateMockData}
+                className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+              >
+                Создать мок-класс
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
