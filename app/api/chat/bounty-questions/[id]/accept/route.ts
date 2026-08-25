@@ -3,12 +3,13 @@ import { bountyQuestions } from '../route';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const { helperId, helperName } = await request.json();
 
-    const questionIndex = bountyQuestions.findIndex(q => q.id === params.id);
+    const questionIndex = bountyQuestions.findIndex(q => q.id === id);
 
     if (questionIndex === -1) {
       return NextResponse.json({ error: 'Question not found' }, { status: 404 });
