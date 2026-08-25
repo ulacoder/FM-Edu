@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: fm-edu-telegram-bot
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: FM_EDU_URL
+        value: https://fm-edu-snowy.vercel.app
+      - key: DATABASE_URL
+        sync: false
+      - key: NODE_VERSION
+        value: 18.17.0

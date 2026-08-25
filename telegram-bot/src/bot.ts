@@ -4,6 +4,7 @@ import { initDatabase, getUser, upsertUser, updateActivity, pool } from './datab
 import { messages } from './messages';
 import { keyboards } from './keyboards';
 import { setupCronJobs } from './cron';
+import http from 'http';
 
 const bot = new Bot(config.botToken);
 
@@ -347,6 +348,17 @@ async function start() {
     await bot.start();
 
     console.log('✅ Bot is running!');
+
+    // Запуск HTTP сервера для Render (чтобы видел что сервис живой)
+    const server = http.createServer((req, res) => {
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('FM Edu Telegram Bot is running! 🤖');
+    });
+
+    const PORT = config.port || 3000;
+    server.listen(PORT, () => {
+      console.log(`✅ HTTP server listening on port ${PORT}`);
+    });
   } catch (error) {
     console.error('❌ Failed to start bot:', error);
     process.exit(1);

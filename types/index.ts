@@ -473,3 +473,31 @@ export interface TeacherReview {
   category?: 'homework' | 'behavior' | 'progress' | 'general';
   createdAt: Date;
 }
+
+// Платные вопросы с наградой
+export type BountyQuestionStatus = 'open' | 'in_progress' | 'resolved' | 'cancelled';
+
+export interface BountyQuestion {
+  id: string;
+  authorId: string;
+  authorName: string;
+  region: Region;
+  questionText: string;
+  bountyAmount: 100 | 200 | 300; // Только эти значения
+  status: BountyQuestionStatus;
+  helperId?: string; // ID студента, который взялся помогать
+  helperName?: string;
+  createdAt: Date;
+  acceptedAt?: Date; // Когда кто-то принял вопрос
+  resolvedAt?: Date; // Когда автор подтвердил решение
+}
+
+// Сообщения в приватном треде
+export interface BountyThreadMessage {
+  id: string;
+  bountyQuestionId: string;
+  senderId: string;
+  senderName: string;
+  message: string;
+  timestamp: Date;
+}

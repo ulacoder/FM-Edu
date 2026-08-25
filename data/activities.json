@@ -2568,5 +2568,25 @@
     "metadata": {
       "pathname": "/mbti-profile"
     }
+  },
+  {
+    "id": "activity_1787614239224_rw2ckl6p8",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "test_attempt",
+    "duration": 5814,
+    "timestamp": "2026-08-24T23:30:39.225Z",
+    "metadata": {
+      "pathname": "/diagnostic"
+    }
+  },
+  {
+    "id": "activity_1787614242922_3xvk70qd8",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "test_attempt",
+    "duration": 3440,
+    "timestamp": "2026-08-24T23:30:42.922Z",
+    "metadata": {
+      "pathname": "/diagnostic"
+    }
   }
 ]
