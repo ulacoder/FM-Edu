@@ -74,6 +74,10 @@ export default function DiagnosticPage() {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
+
+      // Debug logging
+      console.log('Submitting diagnostic, token:', token);
+
       const response = await fetch('/api/diagnostic/submit', {
         method: 'POST',
         headers: {
@@ -83,16 +87,22 @@ export default function DiagnosticPage() {
         body: JSON.stringify({ testId: test?.id, answers }),
       });
 
+      console.log('Response status:', response.status);
+
       if (!response.ok) {
-        alert('Ошибка отправки результатов');
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Error response:', errorData);
+        alert(`Ошибка отправки результатов: ${errorData.error || 'Неизвестная ошибка'}`);
         setLoading(false);
         return;
       }
 
       const data = await response.json();
+      console.log('Success response:', data);
       setResult(data);
       setStep('result');
     } catch (error) {
+      console.error('Submit error:', error);
       alert('Ошибка соединения');
     }
     setLoading(false);

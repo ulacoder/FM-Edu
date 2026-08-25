@@ -7,16 +7,29 @@ export async function POST(request: NextRequest) {
   try {
     const token = request.headers.get('Authorization');
 
-    // Simple token validation - check if it's a valid token format
-    if (!token || !token.startsWith('Bearer token_')) {
+    // Simple token validation - check if token exists
+    if (!token || !token.startsWith('Bearer ')) {
+      console.error('No token or invalid format:', token);
       return NextResponse.json(
-        { error: 'Unauthorized' },
+        { error: 'Unauthorized - No valid token' },
         { status: 401 }
       );
     }
 
-    // Extract user ID from simple token format: token_user_...
-    const userId = token.replace('Bearer token_', '');
+    // Extract token (remove "Bearer " prefix)
+    const actualToken = token.replace('Bearer ', '');
+
+    // Validate token format (should start with "token_")
+    if (!actualToken.startsWith('token_')) {
+      console.error('Token does not start with token_:', actualToken);
+      return NextResponse.json(
+        { error: 'Unauthorized - Invalid token format' },
+        { status: 401 }
+      );
+    }
+
+    // Extract user ID from token
+    const userId = actualToken.replace('token_', '');
 
     const body = await request.json();
     const { testId, answers } = body as { testId: string; answers: number[] };
