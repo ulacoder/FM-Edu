@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { GraduationCap, Timer } from 'lucide-react';
+import { GraduationCap, Timer, MessageCircle } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { getTranslation, type Locale } from '@/lib/i18n';
@@ -116,6 +116,13 @@ export function Header() {
             {isAuthenticated ? (
               <>
                 <span className="text-xs sm:text-sm font-medium hidden md:inline">{userName}</span>
+                {userRole === 'student' && (
+                  <Link href="/chat">
+                    <button className="p-1.5 sm:p-2 hover:bg-muted rounded-lg transition-colors" title="Региональный чат">
+                      <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    </button>
+                  </Link>
+                )}
                 <Link href={getDashboardLink()}>
                   <button className="px-2 py-1 sm:px-4 sm:py-2 text-[10px] sm:text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 active:scale-[0.98] rounded-lg transition-all">
                     {t('dashboard')}
