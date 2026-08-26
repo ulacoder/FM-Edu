@@ -11,7 +11,10 @@ import {
   TrendingUp,
   Clock,
   Award,
-  Brain
+  Brain,
+  Sparkles,
+  ArrowRight,
+  Target
 } from "lucide-react";
 import type { Subject } from "@/types";
 import { subjectNames } from "@/types";
@@ -43,6 +46,8 @@ export default function CoursesPage() {
   const [user, setUser] = useState<any>(null);
   const [topicsCount, setTopicsCount] = useState<Record<string, number>>({});
   const [locale, setLocale] = useState<Locale>('ru');
+  const [recommendations, setRecommendations] = useState<any[]>([]);
+  const [loadingRecommendations, setLoadingRecommendations] = useState(true);
 
   const t = (key: keyof typeof import('@/lib/i18n').translations.ru) => getTranslation(locale, key);
 
@@ -52,8 +57,10 @@ export default function CoursesPage() {
       router.push('/login');
       return;
     }
-    setUser(JSON.parse(userStr));
+    const userData = JSON.parse(userStr);
+    setUser(userData);
     loadTopicsCount();
+    loadRecommendations(userData.id);
 
     const savedLocale = localStorage.getItem('locale') as Locale;
     if (savedLocale && ['ru', 'kk', 'en'].includes(savedLocale)) {
@@ -77,6 +84,22 @@ export default function CoursesPage() {
       }
     } catch (error) {
       console.error('Error loading topics count:', error);
+    }
+  };
+
+  const loadRecommendations = async (userId: string) => {
+    setLoadingRecommendations(true);
+    try {
+      const response = await fetch(`/api/recommendations?userId=${userId}`);
+      const data = await response.json();
+
+      if (data.hasRecommendations && data.recommendations) {
+        setRecommendations(data.recommendations.slice(0, 2)); // Показываем топ-2
+      }
+    } catch (error) {
+      console.error('Error loading recommendations:', error);
+    } finally {
+      setLoadingRecommendations(false);
     }
   };
 
@@ -127,6 +150,72 @@ export default function CoursesPage() {
           <div className="mb-12">
             <NewFeatureBanner />
           </div>
+
+          {/* AI Recommendations Block - "Для тебя" */}
+          {!loadingRecommendations && recommendations.length > 0 && (
+            <div className="mb-12">
+              <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white shadow-2xl">
+                <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                      <Sparkles className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold">Для тебя</h2>
+                      <p className="text-white/90 text-sm">AI-подобранные курсы специально под твой уровень</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => router.push('/recommendations')}
+                    className="flex items-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors font-medium"
+                  >
+                    Смотреть все
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {recommendations.map((rec, index) => (
+                    <div
+                      key={rec.courseId}
+                      className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-all cursor-pointer"
+                      onClick={() => router.push(`/learn/${rec.courseId}`)}
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
+                            index === 0 ? 'bg-yellow-400 text-yellow-900' : 'bg-purple-400 text-purple-900'
+                          }`}>
+                            #{rec.priority}
+                          </div>
+                          <h3 className="font-bold text-lg">{rec.title}</h3>
+                        </div>
+                        <div className="flex items-center gap-1 text-xs bg-white/20 px-2 py-1 rounded-full">
+                          <Target className="w-3 h-3" />
+                          {rec.matchScore}%
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-white/90 mb-3 line-clamp-2">
+                        {rec.reasoning}
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-sm">
+                          <Brain className="w-4 h-4" />
+                          <span className="text-white/80">Персонализация</span>
+                        </div>
+                        <div className="flex items-center gap-1 text-sm font-medium">
+                          Начать
+                          <ChevronRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Школьная программа РК */}
           <div className="mb-12">
