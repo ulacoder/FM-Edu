@@ -1,84 +1,107 @@
-// Страница Networking с интегрированным Matchmaking
+'use client';
 
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 import NetworkingClient from '@/components/matchmaking/networking-client';
 
-export const metadata = {
-  title: 'Networking | FM Edu',
-  description: 'Региональный чат и поиск команды',
-};
+export default function NetworkingPage() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
+  const [profile, setProfile] = useState<any>(null);
+  const [projectRequests, setProjectRequests] = useState<any[]>([]);
+  const [userTeams, setUserTeams] = useState<any[]>([]);
 
-export default async function NetworkingPage() {
-  const cookieStore = await cookies();
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      global: {
-        headers: {
-          cookie: cookieStore.toString(),
-        },
-      },
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const userStr = localStorage.getItem('user');
+
+    if (!token || !userStr) {
+      router.push('/login');
+      return;
     }
-  );
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    try {
+      const userData = JSON.parse(userStr);
+      loadData(userData.id);
+    } catch (e) {
+      console.error('Error parsing user data:', e);
+      router.push('/login');
+    }
+  }, [router]);
 
-  if (!session) {
-    redirect('/login');
-  }
+  const loadData = async (userId: string) => {
+    setIsLoading(true);
 
-  // Получаем профиль пользователя
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('id, name, avatar_url, personality_type, region')
-    .eq('id', session.user.id)
-    .single();
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
 
-  // Получаем активные заявки на поиск команды
-  const { data: projectRequests } = await supabase
-    .from('project_requests')
-    .select(`
-      *,
-      author:profiles!project_requests_author_id_fkey(
-        id,
-        name,
-        avatar_url,
-        personality_type
-      )
-    `)
-    .eq('status', 'open')
-    .order('created_at', { ascending: false })
-    .limit(20);
+    // Получаем профиль пользователя
+    const { data: profileData } = await supabase
+      .from('profiles')
+      .select('id, name, avatar_url, personality_type, region')
+      .eq('id', userId)
+      .single();
 
-  // Получаем команды пользователя
-  const { data: userTeams } = await supabase
-    .from('team_room_members')
-    .select(`
-      team_room_id,
-      role,
-      team_rooms(
-        id,
-        name,
-        description,
-        project_request_id,
-        project_requests(
-          current_members_count,
-          max_members
+    // Получаем активные заявки на поиск команды
+    const { data: requests } = await supabase
+      .from('project_requests')
+      .select(`
+        *,
+        author:profiles!project_requests_author_id_fkey(
+          id,
+          name,
+          avatar_url,
+          personality_type
         )
-      )
-    `)
-    .eq('user_id', session.user.id);
+      `)
+      .eq('status', 'open')
+      .order('created_at', { ascending: false })
+      .limit(20);
+
+    // Получаем команды пользователя
+    const { data: teams } = await supabase
+      .from('team_room_members')
+      .select(`
+        team_room_id,
+        role,
+        team_rooms(
+          id,
+          name,
+          description,
+          project_request_id,
+          project_requests(
+            current_members_count,
+            max_members
+          )
+        )
+      `)
+      .eq('user_id', userId);
+
+    setProfile(profileData || null);
+    setProjectRequests(requests || []);
+    setUserTeams(teams || []);
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center space-y-2">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto" />
+          <p className="text-sm text-muted-foreground">Загрузка...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <NetworkingClient
-      profile={profile || null}
-      projectRequests={projectRequests || []}
-      userTeams={userTeams || []}
+      profile={profile}
+      projectRequests={projectRequests}
+      userTeams={userTeams}
     />
   );
 }
