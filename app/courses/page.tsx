@@ -98,6 +98,8 @@ export default function CoursesPage() {
       }
     } catch (error) {
       console.error('Error loading recommendations:', error);
+      // Временно скрываем блок если API недоступен
+      setRecommendations([]);
     } finally {
       setLoadingRecommendations(false);
     }
