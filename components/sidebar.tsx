@@ -24,7 +24,8 @@ import {
   Calendar,
   ShoppingBag,
   Lightbulb,
-  Download
+  Download,
+  Users
 } from "lucide-react";
 import { getTranslation, type Locale } from "@/lib/i18n";
 
@@ -92,6 +93,7 @@ export function Sidebar() {
     { icon: Calendar, labelKey: "calendar", href: "/calendar", auth: true },
     { icon: ShoppingBag, labelKey: "shop", href: "/shop", auth: true },
     { icon: Trophy, labelKey: "leaderboard", href: "/leaderboard", auth: true },
+    { icon: Users, labelKey: "networking", href: "/dashboard/networking", auth: true },
     { icon: MessageCircle, labelKey: "regionalChat", href: "/regional-chat", auth: true },
     { icon: Brain, labelKey: "mbtiProfile", href: "/mbti-profile", auth: true },
     { icon: TrendingUp, labelKey: "progress", href: "/progress", auth: true },
