@@ -84,7 +84,11 @@ export default function RecommendationsPage() {
       }
     } catch (error) {
       console.error('Error loading recommendations:', error);
-      toast.error('Не удалось загрузить рекомендации');
+      // Показываем заглушку вместо ошибки
+      setData({
+        hasRecommendations: false,
+        message: 'Рекомендации временно недоступны. Настройте Supabase подключение.'
+      });
     } finally {
       setIsLoading(false);
     }
