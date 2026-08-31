@@ -1,6 +1,6 @@
 // API Route: Вступление в команду
 
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { checkMBTICompatibility } from '@/lib/mbti-matcher';
@@ -8,7 +8,18 @@ import type { JoinTeamPayload } from '@/types/matchmaking';
 
 export async function POST(request: Request) {
   try {
-    const supabase = createRouteHandlerClient({ cookies });
+    const cookieStore = await cookies();
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        global: {
+          headers: {
+            cookie: cookieStore.toString(),
+          },
+        },
+      }
+    );
 
     // Проверяем аутентификацию
     const {

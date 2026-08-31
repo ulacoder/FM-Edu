@@ -1,6 +1,6 @@
 // Страница Networking с интегрированным Matchmaking
 
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import NetworkingClient from '@/components/matchmaking/networking-client';
@@ -11,7 +11,18 @@ export const metadata = {
 };
 
 export default async function NetworkingPage() {
-  const supabase = createServerComponentClient({ cookies });
+  const cookieStore = await cookies();
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      global: {
+        headers: {
+          cookie: cookieStore.toString(),
+        },
+      },
+    }
+  );
 
   const {
     data: { session },
