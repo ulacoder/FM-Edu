@@ -13,7 +13,7 @@ import {
   Briefcase,
   Award,
   TrendingUp,
-  Linkedin,
+  Link as LinkIcon,
   Globe,
   Users,
   BookOpen,
@@ -214,7 +214,7 @@ export default function StudentProfilePage() {
                 {profile.linkedin && (
                   <Button variant="outline" size="sm" asChild>
                     <a href={`https://linkedin.com/in/${profile.linkedin}`} target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="w-4 h-4 mr-2" />
+                      <LinkIcon className="w-4 h-4 mr-2" />
                       LinkedIn
                       <ExternalLink className="w-3 h-3 ml-1" />
                     </a>
