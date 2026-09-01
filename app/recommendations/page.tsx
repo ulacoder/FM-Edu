@@ -58,6 +58,25 @@ export default function RecommendationsPage() {
     try {
       const userData = JSON.parse(userStr);
       setUserId(userData.id);
+
+      // Загружаем кэшированные рекомендации мгновенно
+      const cachedRecs = localStorage.getItem('recommendations_cache');
+      if (cachedRecs) {
+        try {
+          const cache = JSON.parse(cachedRecs);
+          const cacheAge = Date.now() - cache.timestamp;
+
+          // Используем кэш если ему меньше 5 минут
+          if (cacheAge < 300000) {
+            setData(cache.data);
+            setIsLoading(false);
+          }
+        } catch (e) {
+          console.error('Cache parse error:', e);
+        }
+      }
+
+      // Загружаем свежие данные в фоне
       loadRecommendations(userData.id);
     } catch (e) {
       console.error('Error parsing user data:', e);
@@ -77,6 +96,16 @@ export default function RecommendationsPage() {
       }
 
       setData(result);
+
+      // Кэшируем данные
+      try {
+        localStorage.setItem('recommendations_cache', JSON.stringify({
+          timestamp: Date.now(),
+          data: result,
+        }));
+      } catch (e) {
+        console.error('Cache save error:', e);
+      }
 
       // Если рекомендаций нет, генерируем автоматически
       if (!result.hasRecommendations) {
@@ -116,6 +145,21 @@ export default function RecommendationsPage() {
         reasoning: result.overallReasoning,
         generatedAt: result.generatedAt
       });
+
+      // Кэшируем новые рекомендации
+      try {
+        localStorage.setItem('recommendations_cache', JSON.stringify({
+          timestamp: Date.now(),
+          data: {
+            hasRecommendations: true,
+            recommendations: result.recommendations,
+            reasoning: result.overallReasoning,
+            generatedAt: result.generatedAt
+          },
+        }));
+      } catch (e) {
+        console.error('Cache save error:', e);
+      }
 
       toast.success('Рекомендации обновлены!');
     } catch (error) {

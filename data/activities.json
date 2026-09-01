@@ -2588,5 +2588,35 @@
     "metadata": {
       "pathname": "/diagnostic"
     }
+  },
+  {
+    "id": "activity_1788201115990_f2wf1zow2",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 109002,
+    "timestamp": "2026-08-31T18:31:55.990Z",
+    "metadata": {
+      "pathname": "/recommendations"
+    }
+  },
+  {
+    "id": "activity_1788201602754_xfe9j47iu",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 486367,
+    "timestamp": "2026-08-31T18:40:02.754Z",
+    "metadata": {
+      "pathname": "/recommendations"
+    }
+  },
+  {
+    "id": "activity_1788201710083_kxnekksjq",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 76366,
+    "timestamp": "2026-08-31T18:41:50.083Z",
+    "metadata": {
+      "pathname": "/recommendations"
+    }
   }
 ]
