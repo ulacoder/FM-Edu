@@ -26,7 +26,7 @@ import {
 interface Profile {
   id: string;
   name: string;
-  avatar_url?: string;
+  avatar_url?: string | null;
   personality_type?: string;
   region?: string;
   grade?: number;
