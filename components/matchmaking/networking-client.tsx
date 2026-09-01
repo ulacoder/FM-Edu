@@ -151,7 +151,8 @@ export default function NetworkingClient({
                   project={project}
                   currentUserMBTI={profile?.personality_type}
                   currentUserSkills={[]} // TODO: добавить навыки из профиля
-                  onJoinSuccess={() => router.refresh()}
+                  onJoinSuccess={() => useMockData ? window.location.reload() : router.refresh()}
+                  useMockData={useMockData}
                 />
               ))}
             </div>

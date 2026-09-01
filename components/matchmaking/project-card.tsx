@@ -35,6 +35,7 @@ interface ProjectCardProps {
   currentUserMBTI?: string;
   currentUserSkills?: string[];
   onJoinSuccess?: () => void;
+  useMockData?: boolean;
 }
 
 export default function ProjectCard({
@@ -42,6 +43,7 @@ export default function ProjectCard({
   currentUserMBTI,
   currentUserSkills = [],
   onJoinSuccess,
+  useMockData = false,
 }: ProjectCardProps) {
   const router = useRouter();
   const [isJoining, setIsJoining] = useState(false);
@@ -79,6 +81,30 @@ export default function ProjectCard({
     setShowConfirmDialog(false);
 
     try {
+      if (useMockData) {
+        // Mock режим - симулируем вступление
+        const { joinMockTeam } = await import('@/lib/mock-networking-data');
+
+        await new Promise(resolve => setTimeout(resolve, 800)); // Имитация загрузки
+
+        const success = joinMockTeam(project.id);
+
+        if (!success) {
+          throw new Error('Команда заполнена или вы уже в ней');
+        }
+
+        toast.success('✅ Вы вступили в команду! (демо режим)');
+
+        // Переходим в командный чат (mock)
+        router.push(`/dashboard/networking/team/${project.id}`);
+
+        if (onJoinSuccess) {
+          onJoinSuccess();
+        }
+
+        return;
+      }
+
       const response = await fetch('/api/matchmaking/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

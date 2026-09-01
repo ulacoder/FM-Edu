@@ -301,11 +301,16 @@ export default function CoursesPage() {
               return (
                 <button
                   key={subjectCard.subject}
-                  onClick={() => !isDisabled && router.push(`/courses/${subjectCard.subject}`)}
-                  disabled={isDisabled}
+                  onClick={() => {
+                    if (isDisabled) {
+                      router.push(`/courses/coming-soon?course=${subjectCard.subject}`);
+                    } else {
+                      router.push(`/courses/${subjectCard.subject}`);
+                    }
+                  }}
                   className={`group relative bg-card border-2 rounded-xl p-6 transition-all ${
                     isDisabled
-                      ? 'opacity-50 cursor-not-allowed'
+                      ? 'opacity-75 cursor-pointer hover:scale-105 hover:shadow-lg border-dashed'
                       : isDev
                       ? 'hover:scale-105 hover:shadow-xl border-border hover:border-yellow-400'
                       : 'hover:scale-105 hover:shadow-xl border-border hover:border-primary'
@@ -355,8 +360,8 @@ export default function CoursesPage() {
                     </div>
                   )}
                   {isDisabled && (
-                    <div className="text-sm text-muted-foreground text-center">
-                      {t('contentInProgress')}
+                    <div className="text-sm font-medium text-center text-purple-600 dark:text-purple-400">
+                      Узнать больше →
                     </div>
                   )}
                   {isDev && (
@@ -379,7 +384,10 @@ export default function CoursesPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* SAT Math */}
-              <div className="group relative bg-card border-2 border-dashed border-border/60 rounded-xl p-6 opacity-60">
+              <button
+                onClick={() => router.push('/courses/coming-soon?course=sat-math')}
+                className="group relative bg-card border-2 border-dashed border-border/60 rounded-xl p-6 opacity-75 hover:opacity-100 hover:scale-105 hover:shadow-lg transition-all cursor-pointer"
+              >
                 <div className="text-6xl mb-4">🧮</div>
                 <h3 className="text-xl font-bold mb-3">{t('satMath')}</h3>
                 <div className="space-y-2 mb-4">
@@ -392,10 +400,16 @@ export default function CoursesPage() {
                     <span>{t('inDevelopment')}</span>
                   </div>
                 </div>
-              </div>
+                <div className="text-sm font-medium text-center text-purple-600 dark:text-purple-400">
+                  Узнать больше →
+                </div>
+              </button>
 
               {/* SAT English */}
-              <div className="group relative bg-card border-2 border-dashed border-border/60 rounded-xl p-6 opacity-60">
+              <button
+                onClick={() => router.push('/courses/coming-soon?course=sat-english')}
+                className="group relative bg-card border-2 border-dashed border-border/60 rounded-xl p-6 opacity-75 hover:opacity-100 hover:scale-105 hover:shadow-lg transition-all cursor-pointer"
+              >
                 <div className="text-6xl mb-4">📝</div>
                 <h3 className="text-xl font-bold mb-3">{t('satEnglish')}</h3>
                 <div className="space-y-2 mb-4">
@@ -408,7 +422,10 @@ export default function CoursesPage() {
                     <span>{t('inDevelopment')}</span>
                   </div>
                 </div>
-              </div>
+                <div className="text-sm font-medium text-center text-purple-600 dark:text-purple-400">
+                  Узнать больше →
+                </div>
+              </button>
             </div>
           </div>
 
