@@ -154,8 +154,17 @@ export default function CoursesPage() {
           </div>
 
           {/* AI Recommendations Block - "Для тебя" */}
-          {!loadingRecommendations && recommendations.length > 0 && (
-            <div className="mb-12">
+          <div className="mb-12">
+            {loadingRecommendations ? (
+              // Loading state
+              <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white shadow-2xl">
+                <div className="flex items-center justify-center gap-3 py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white" />
+                  <p className="text-lg font-medium">AI анализирует твой профиль...</p>
+                </div>
+              </div>
+            ) : recommendations.length > 0 ? (
+              // Recommendations loaded
               <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white shadow-2xl">
                 <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
                   <div className="flex items-center gap-3">
@@ -163,7 +172,7 @@ export default function CoursesPage() {
                       <Sparkles className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold">Для тебя</h2>
+                      <h2 className="text-2xl font-bold">✨ Для тебя</h2>
                       <p className="text-white/90 text-sm">AI-подобранные курсы специально под твой уровень</p>
                     </div>
                   </div>
@@ -216,8 +225,59 @@ export default function CoursesPage() {
                   ))}
                 </div>
               </div>
-            </div>
-          )}
+            ) : (
+              // No recommendations - show CTA
+              <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white shadow-2xl">
+                <div className="flex flex-col items-center text-center gap-6 py-4">
+                  <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <Sparkles className="w-10 h-10" />
+                  </div>
+
+                  <div>
+                    <h2 className="text-3xl font-bold mb-3">✨ Персональные рекомендации</h2>
+                    <p className="text-white/90 text-lg max-w-2xl mx-auto mb-2">
+                      AI проанализирует твой профиль, диагностику и прогресс, чтобы подобрать идеальные курсы специально для тебя
+                    </p>
+                    <p className="text-white/70 text-sm">
+                      Учитывается твой MBTI, цели, слабые места и успеваемость
+                    </p>
+                  </div>
+
+                  <div className="flex gap-4 flex-wrap justify-center">
+                    <button
+                      onClick={() => router.push('/recommendations')}
+                      className="flex items-center gap-2 px-8 py-4 bg-white text-purple-600 hover:bg-white/90 rounded-xl transition-colors font-bold text-lg shadow-xl"
+                    >
+                      <Sparkles className="w-5 h-5" />
+                      Получить рекомендации
+                    </button>
+                    <button
+                      onClick={() => router.push('/diagnostic')}
+                      className="flex items-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 rounded-xl transition-colors font-medium text-lg border-2 border-white/30"
+                    >
+                      <Target className="w-5 h-5" />
+                      Пройти диагностику
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 w-full max-w-3xl">
+                    <div className="bg-white/10 rounded-lg p-4 text-center border border-white/20">
+                      <Brain className="w-6 h-6 mx-auto mb-2" />
+                      <p className="text-sm font-medium">Анализ MBTI</p>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-4 text-center border border-white/20">
+                      <TrendingUp className="w-6 h-6 mx-auto mb-2" />
+                      <p className="text-sm font-medium">Учет прогресса</p>
+                    </div>
+                    <div className="bg-white/10 rounded-lg p-4 text-center border border-white/20">
+                      <Target className="w-6 h-6 mx-auto mb-2" />
+                      <p className="text-sm font-medium">Под твои цели</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* Школьная программа РК */}
           <div className="mb-12">
