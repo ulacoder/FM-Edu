@@ -14,8 +14,6 @@ import {
   Award,
   TrendingUp,
   Linkedin,
-  Github,
-  Instagram,
   Globe,
   Users,
   BookOpen,
@@ -225,7 +223,7 @@ export default function StudentProfilePage() {
                 {profile.github && (
                   <Button variant="outline" size="sm" asChild>
                     <a href={`https://github.com/${profile.github}`} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
+                      <Globe className="w-4 h-4 mr-2" />
                       GitHub
                       <ExternalLink className="w-3 h-3 ml-1" />
                     </a>
@@ -234,7 +232,7 @@ export default function StudentProfilePage() {
                 {profile.instagram && (
                   <Button variant="outline" size="sm" asChild>
                     <a href={`https://instagram.com/${profile.instagram}`} target="_blank" rel="noopener noreferrer">
-                      <Instagram className="w-4 h-4 mr-2" />
+                      <Globe className="w-4 h-4 mr-2" />
                       Instagram
                       <ExternalLink className="w-3 h-3 ml-1" />
                     </a>
