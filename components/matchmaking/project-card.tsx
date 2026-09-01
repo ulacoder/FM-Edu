@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
@@ -49,11 +49,21 @@ export default function ProjectCard({
   const router = useRouter();
   const [isJoining, setIsJoining] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [isUserMember, setIsUserMember] = useState(false);
   const [compatibilityResult, setCompatibilityResult] = useState<{
     isMatch: boolean;
     matchScore: number;
     message?: string;
   } | null>(null);
+
+  // Проверяем состояние участия при загрузке
+  useEffect(() => {
+    if (useMockData) {
+      const { isUserInTeam } = require('@/lib/mock-networking-data');
+      setIsUserMember(isUserInTeam(project.id));
+    }
+  }, [project.id, useMockData]);
 
   // Проверка совместимости MBTI
   const compatibility = checkMBTICompatibility(
@@ -94,10 +104,9 @@ export default function ProjectCard({
           throw new Error('Команда заполнена или вы уже в ней');
         }
 
+        setIsUserMember(true);
+        setShowSuccessDialog(true);
         toast.success('✅ Вы вступили в команду! (демо режим)');
-
-        // Переходим в командный чат (mock)
-        router.push(`/dashboard/networking/team/${project.id}`);
 
         if (onJoinSuccess) {
           onJoinSuccess();
@@ -134,6 +143,8 @@ export default function ProjectCard({
         throw new Error(data.error || 'Не удалось вступить в команду');
       }
 
+      setIsUserMember(true);
+      setShowSuccessDialog(true);
       toast.success('Вы успешно присоединились к команде!');
 
       // Переходим в командный чат
@@ -300,13 +311,18 @@ export default function ProjectCard({
         {/* Кнопка вступления */}
         {!isAuthor && (
           <Button
-            onClick={handleJoinClick}
-            disabled={isJoining || isFull || project.status !== 'open'}
-            className="w-full bg-green-600 hover:bg-green-700"
+            onClick={isUserMember ? () => router.push(`/dashboard/networking/team/${project.id}`) : handleJoinClick}
+            disabled={isJoining || (isFull && !isUserMember) || (project.status !== 'open' && !isUserMember)}
+            className={`w-full ${isUserMember ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'}`}
             size="lg"
           >
             {isJoining ? (
               'Вступление...'
+            ) : isUserMember ? (
+              <>
+                <CheckCircle2 className="mr-2 h-5 w-5" />
+                Вы участвуете - Перейти в чат
+              </>
             ) : isFull ? (
               <>
                 <CheckCircle2 className="mr-2 h-5 w-5" />
@@ -355,6 +371,70 @@ export default function ProjectCard({
             </Button>
             <Button onClick={() => handleJoin(true)} disabled={isJoining}>
               {isJoining ? 'Отправка...' : 'Всё равно вступить'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Диалог успешного вступления */}
+      <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/20">
+              <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-400" />
+            </div>
+            <DialogTitle className="text-center text-2xl">Поздравляем! 🎉</DialogTitle>
+            <DialogDescription className="text-center">
+              Вы успешно вступили в команду проекта
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 py-4">
+            <div className="rounded-lg bg-muted p-4 text-center">
+              <h3 className="font-bold text-lg mb-1">{project.title}</h3>
+              <p className="text-sm text-muted-foreground">
+                Автор: {project.author.name}
+              </p>
+            </div>
+
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Участников в команде:</span>
+                <span className="font-semibold">{project.current_members_count}/{project.max_members}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-muted-foreground">Ваш статус:</span>
+                <Badge variant="secondary">Участник</Badge>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+              <p className="text-sm text-blue-800 dark:text-blue-200">
+                💡 Теперь вы можете перейти в командный чат и начать общение с участниками проекта!
+              </p>
+            </div>
+          </div>
+
+          <DialogFooter className="flex-col sm:flex-row gap-2">
+            <Button
+              variant="outline"
+              onClick={() => {
+                setShowSuccessDialog(false);
+                if (onJoinSuccess) onJoinSuccess();
+              }}
+              className="w-full sm:w-auto"
+            >
+              Остаться на странице
+            </Button>
+            <Button
+              onClick={() => {
+                setShowSuccessDialog(false);
+                router.push(`/dashboard/networking/team/${project.id}`);
+              }}
+              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700"
+            >
+              <MessageSquare className="mr-2 h-4 w-4" />
+              Перейти в чат
             </Button>
           </DialogFooter>
         </DialogContent>

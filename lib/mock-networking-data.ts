@@ -311,7 +311,7 @@ export function joinMockTeam(projectId: string) {
     project.current_members_count += 1;
 
     // Add to user's teams
-    MOCK_USER_TEAMS.push({
+    const newTeam = {
       team_room_id: `team-${projectId}`,
       role: 'member',
       team_rooms: {
@@ -324,11 +324,34 @@ export function joinMockTeam(projectId: string) {
           max_members: project.max_members
         }
       }
-    });
+    };
+
+    MOCK_USER_TEAMS.push(newTeam);
+
+    // Сохраняем в sessionStorage для сохранения во время сессии браузера
+    try {
+      const joinedTeams = JSON.parse(sessionStorage.getItem('joined_teams') || '[]');
+      if (!joinedTeams.includes(projectId)) {
+        joinedTeams.push(projectId);
+        sessionStorage.setItem('joined_teams', JSON.stringify(joinedTeams));
+      }
+    } catch (e) {
+      console.error('Failed to save to sessionStorage:', e);
+    }
 
     return true;
   }
   return false;
+}
+
+export function isUserInTeam(projectId: string): boolean {
+  // Проверяем sessionStorage
+  try {
+    const joinedTeams = JSON.parse(sessionStorage.getItem('joined_teams') || '[]');
+    return joinedTeams.includes(projectId);
+  } catch (e) {
+    return false;
+  }
 }
 
 export function leaveMockTeam(teamId: string) {
