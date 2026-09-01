@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
 import NetworkingClient from '@/components/matchmaking/networking-client';
+import { getMockData } from '@/lib/mock-networking-data';
 
 export default function NetworkingPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<any>(null);
   const [projectRequests, setProjectRequests] = useState<any[]>([]);
   const [userTeams, setUserTeams] = useState<any[]>([]);
+  const [useMockData, setUseMockData] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -25,6 +26,20 @@ export default function NetworkingPage() {
     try {
       const userData = JSON.parse(userStr);
 
+      // Проверяем настройку использования мок-данных
+      const shouldUseMock = localStorage.getItem('use_mock_networking') === 'true';
+
+      if (shouldUseMock) {
+        // Используем мок-данные сразу
+        const mockData = getMockData();
+        setProfile(mockData.profile);
+        setProjectRequests(mockData.projectRequests);
+        setUserTeams(mockData.userTeams);
+        setUseMockData(true);
+        setIsLoading(false);
+        return;
+      }
+
       // Мгновенная загрузка из кэша
       const cachedData = localStorage.getItem('networking_cache');
       if (cachedData) {
@@ -32,7 +47,7 @@ export default function NetworkingPage() {
           const cache = JSON.parse(cachedData);
           const cacheAge = Date.now() - cache.timestamp;
 
-          if (cacheAge < 120000) { // 2 минуты
+          if (cacheAge < 120000) {
             setProfile(cache.profile);
             setProjectRequests(cache.projectRequests);
             setUserTeams(cache.userTeams);
@@ -49,7 +64,7 @@ export default function NetworkingPage() {
       console.error('Error parsing user data:', e);
       router.push('/login');
     }
-  }, []); // Убрал router из зависимостей - грузим ОДИН РАЗ
+  }, []);
 
   const loadData = async (userId: string) => {
     try {
@@ -60,14 +75,27 @@ export default function NetworkingPage() {
 
       // Параллельная загрузка
       const [
-        { data: profileData },
-        { data: requests },
-        { data: teams }
+        { data: profileData, error: profileError },
+        { data: requests, error: requestsError },
+        { data: teams, error: teamsError }
       ] = await Promise.all([
         supabase.from('profiles').select('id, name, avatar_url, personality_type, region').eq('id', userId).single(),
         supabase.from('project_requests').select('*, author:profiles!project_requests_author_id_fkey(id, name, avatar_url, personality_type)').eq('status', 'open').order('created_at', { ascending: false }).limit(20),
         supabase.from('team_room_members').select('team_room_id, role, team_rooms(id, name, description, project_request_id, project_requests(current_members_count, max_members))').eq('user_id', userId)
       ]);
+
+      // Если таблицы не существуют, переключаемся на мок-данные
+      if (profileError?.code === 'PGRST116' || requestsError?.code === '42P01' || profileError?.code === '42P01') {
+        console.log('Supabase tables not found, using mock data');
+        localStorage.setItem('use_mock_networking', 'true');
+        const mockData = getMockData();
+        setProfile(mockData.profile);
+        setProjectRequests(mockData.projectRequests);
+        setUserTeams(mockData.userTeams);
+        setUseMockData(true);
+        setIsLoading(false);
+        return;
+      }
 
       setProfile(profileData || null);
       setProjectRequests(requests || []);
@@ -82,7 +110,15 @@ export default function NetworkingPage() {
       }));
     } catch (error) {
       console.error('Error loading networking data:', error);
-      setError('Не удалось загрузить данные. Проверьте подключение.');
+
+      // Fallback на мок-данные при ошибке
+      console.log('Error connecting to Supabase, using mock data');
+      localStorage.setItem('use_mock_networking', 'true');
+      const mockData = getMockData();
+      setProfile(mockData.profile);
+      setProjectRequests(mockData.projectRequests);
+      setUserTeams(mockData.userTeams);
+      setUseMockData(true);
     } finally {
       setIsLoading(false);
     }
@@ -99,29 +135,30 @@ export default function NetworkingPage() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <div className="text-center space-y-4 max-w-md">
-          <div className="text-red-500 text-5xl">⚠️</div>
-          <h2 className="text-xl font-semibold">Ошибка подключения</h2>
-          <p className="text-muted-foreground">{error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Обновить страницу
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <NetworkingClient
-      profile={profile}
-      projectRequests={projectRequests}
-      userTeams={userTeams}
-    />
+    <>
+      {useMockData && (
+        <div className="bg-yellow-50 dark:bg-yellow-900/20 border-b border-yellow-200 dark:border-yellow-800 px-4 py-2 text-center">
+          <p className="text-sm text-yellow-800 dark:text-yellow-200">
+            📝 Режим демонстрации: используются тестовые данные.
+            <button
+              onClick={() => {
+                localStorage.removeItem('use_mock_networking');
+                window.location.reload();
+              }}
+              className="ml-2 underline hover:no-underline"
+            >
+              Попробовать подключиться к базе
+            </button>
+          </p>
+        </div>
+      )}
+      <NetworkingClient
+        profile={profile}
+        projectRequests={projectRequests}
+        userTeams={userTeams}
+        useMockData={useMockData}
+      />
+    </>
   );
 }

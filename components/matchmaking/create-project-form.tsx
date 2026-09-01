@@ -43,12 +43,14 @@ interface CreateProjectFormProps {
   userMBTI?: string;
   onSuccess?: () => void;
   onCancel?: () => void;
+  useMockData?: boolean;
 }
 
 export default function CreateProjectForm({
   userMBTI,
   onSuccess,
   onCancel,
+  useMockData = false,
 }: CreateProjectFormProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -109,10 +111,14 @@ export default function CreateProjectForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/matchmaking/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      if (useMockData) {
+        // Режим мок-данных - симулируем создание
+        const { addMockProject } = await import('@/lib/mock-networking-data');
+
+        await new Promise(resolve => setTimeout(resolve, 500)); // Имитация загрузки
+
+        addMockProject({
+          author_id: 'current-user',
           domain,
           title,
           description,
@@ -121,16 +127,34 @@ export default function CreateProjectForm({
           max_members: maxMembers,
           target_mbti_filter: mbtiMatchMode === 'any' ? null : targetMBTI,
           mbti_match_mode: mbtiMatchMode,
-        }),
-      });
+        });
 
-      const data = await response.json();
+        toast.success('✅ Проект создан! (демо режим)');
+      } else {
+        // Реальный API запрос
+        const response = await fetch('/api/matchmaking/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            domain,
+            title,
+            description,
+            user_skills: userSkills,
+            looking_for_skills: lookingForSkills,
+            max_members: maxMembers,
+            target_mbti_filter: mbtiMatchMode === 'any' ? null : targetMBTI,
+            mbti_match_mode: mbtiMatchMode,
+          }),
+        });
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Не удалось создать заявку');
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Не удалось создать заявку');
+        }
+
+        toast.success('Заявка успешно создана!');
       }
-
-      toast.success('Заявка успешно создана!');
 
       if (onSuccess) {
         onSuccess();

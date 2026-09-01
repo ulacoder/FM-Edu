@@ -29,12 +29,14 @@ interface NetworkingClientProps {
   } | null;
   projectRequests: ProjectRequestWithAuthor[];
   userTeams: any[];
+  useMockData?: boolean;
 }
 
 export default function NetworkingClient({
   profile,
   projectRequests,
   userTeams,
+  useMockData = false,
 }: NetworkingClientProps) {
   const router = useRouter();
   const [showCreateDialog, setShowCreateDialog] = useState(false);
@@ -42,7 +44,12 @@ export default function NetworkingClient({
 
   const handleCreateSuccess = () => {
     setShowCreateDialog(false);
-    router.refresh();
+    if (useMockData) {
+      // В режиме мока просто обновляем страницу
+      window.location.reload();
+    } else {
+      router.refresh();
+    }
   };
 
   return (
@@ -228,6 +235,7 @@ export default function NetworkingClient({
             userMBTI={profile?.personality_type}
             onSuccess={handleCreateSuccess}
             onCancel={() => setShowCreateDialog(false)}
+            useMockData={useMockData}
           />
         </DialogContent>
       </Dialog>
