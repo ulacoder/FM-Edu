@@ -12,8 +12,11 @@ import {
   Bell,
   CheckCircle
 } from "lucide-react";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { toast } from "sonner";
+
+// Отключаем prerendering для этой страницы
+export const dynamic = 'force-dynamic';
 
 const COURSE_INFO: Record<string, { title: string; icon: string; description: string; eta: string }> = {
   'geography': {
@@ -60,7 +63,7 @@ const COURSE_INFO: Record<string, { title: string; icon: string; description: st
   }
 };
 
-export default function ComingSoonPage() {
+function ComingSoonContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const courseId = searchParams.get('course') || 'unknown';
@@ -215,5 +218,17 @@ export default function ComingSoonPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ComingSoonPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+      </div>
+    }>
+      <ComingSoonContent />
+    </Suspense>
   );
 }
