@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -162,12 +163,14 @@ export default function ProjectCard({
       <Card className="p-4 space-y-4 hover:shadow-lg transition-shadow">
         {/* Заголовок с автором */}
         <div className="flex items-start gap-3">
-          <Avatar className="h-12 w-12">
-            <AvatarImage src={project.author.avatar_url} />
-            <AvatarFallback>
-              {project.author.name?.charAt(0).toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
+          <Link href={`/dashboard/networking/profile/${project.author.id}`}>
+            <Avatar className="h-12 w-12 cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+              <AvatarImage src={project.author.avatar_url} />
+              <AvatarFallback>
+                {project.author.name?.charAt(0).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
+          </Link>
 
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
@@ -180,9 +183,12 @@ export default function ProjectCard({
                 </Badge>
               )}
             </div>
-            <p className="text-sm text-muted-foreground">
+            <Link
+              href={`/dashboard/networking/profile/${project.author.id}`}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               {project.author.name}
-            </p>
+            </Link>
           </div>
 
           <Badge

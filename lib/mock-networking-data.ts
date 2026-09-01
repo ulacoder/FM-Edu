@@ -11,7 +11,25 @@ export const MOCK_PROFILES = [
     grade: 11,
     gpa: 3.9,
     skills: ['Python', 'Machine Learning', 'React'],
-    interests: ['AI', 'Robotics', 'Web Dev']
+    interests: ['AI', 'Robotics', 'Web Dev'],
+    bio: 'Занимаюсь AI и machine learning. Участвовал в хакатоне Stardance 2025, занял 2 место. Сейчас разрабатываю чат-бота для помощи школьникам с домашкой.',
+    linkedin: 'aibek-nurmukhanov',
+    github: 'aibeknur',
+    achievements: [
+      { title: 'Stardance 2025 - 2 место', icon: '🥈', date: '2025-11' },
+      { title: 'Olympiad Informatics Regional Winner', icon: '🏆', date: '2025-03' },
+      { title: '100 день streak на FM Edu', icon: '🔥', date: '2026-08' }
+    ],
+    projects: [
+      { name: 'AI-ассистент для школьников', status: 'in_progress', members: 2 },
+      { name: 'Telegram бот для расписания НИШ', status: 'completed', members: 1 }
+    ],
+    stats: {
+      totalPoints: 8450,
+      completedCourses: 12,
+      streak: 45,
+      rank: 'Gold'
+    }
   },
   {
     id: 'user-2',
@@ -22,7 +40,24 @@ export const MOCK_PROFILES = [
     grade: 12,
     gpa: 3.7,
     skills: ['UI/UX Design', 'Figma', 'Illustrator'],
-    interests: ['Design', 'Art', 'Psychology']
+    interests: ['Design', 'Art', 'Psychology'],
+    bio: 'UI/UX дизайнер и иллюстратор. Люблю создавать красивые интерфейсы и помогать людям решать их задачи через дизайн. Мечтаю работать в международной продуктовой компании.',
+    linkedin: 'asel-toktarova',
+    behance: 'aseltoktarova',
+    achievements: [
+      { title: 'Best Design Award - NIS Hackathon', icon: '🎨', date: '2026-05' },
+      { title: 'Portfolio на Behance: 5k просмотров', icon: '👁️', date: '2026-07' },
+      { title: 'Figma Community Plugin Published', icon: '🔌', date: '2026-06' }
+    ],
+    projects: [
+      { name: 'Редизайн мобильного приложения для НИШ', status: 'in_progress', members: 1 }
+    ],
+    stats: {
+      totalPoints: 6320,
+      completedCourses: 8,
+      streak: 28,
+      rank: 'Silver'
+    }
   },
   {
     id: 'user-3',
@@ -33,7 +68,24 @@ export const MOCK_PROFILES = [
     grade: 10,
     gpa: 3.8,
     skills: ['Java', 'SQL', 'Backend'],
-    interests: ['Programming', 'Math', 'Physics']
+    interests: ['Programming', 'Math', 'Physics'],
+    bio: 'Backend разработчик на Java. Интересуюсь алгоритмами и структурами данных. Готовлюсь к олимпиадам по информатике и хочу поступить в KAIST.',
+    linkedin: 'dauren-seitov',
+    github: 'daurseit',
+    achievements: [
+      { title: 'IEO Regional Qualifier', icon: '💻', date: '2026-04' },
+      { title: 'Codeforces Expert (1600+)', icon: '⚡', date: '2026-08' },
+      { title: 'Contributed to Open Source', icon: '🌐', date: '2026-07' }
+    ],
+    projects: [
+      { name: 'Онлайн-платформа для олимпиад', status: 'in_progress', members: 3 }
+    ],
+    stats: {
+      totalPoints: 9120,
+      completedCourses: 15,
+      streak: 67,
+      rank: 'Gold'
+    }
   },
   {
     id: 'user-4',
@@ -44,7 +96,22 @@ export const MOCK_PROFILES = [
     grade: 11,
     gpa: 3.6,
     skills: ['Marketing', 'SMM', 'Content Writing'],
-    interests: ['Business', 'Psychology', 'Languages']
+    interests: ['Business', 'Psychology', 'Languages'],
+    bio: 'Занимаюсь маркетингом и SMM. Веду блог о саморазвитии для школьников. Хочу открыть свой EdTech стартап после университета.',
+    linkedin: 'zhanar-altynbekova',
+    instagram: '@zhanar.study',
+    achievements: [
+      { title: 'Instagram 10k followers', icon: '📱', date: '2026-06' },
+      { title: 'NIS Debate Champion', icon: '🎤', date: '2026-03' },
+      { title: 'Volunteering 100+ hours', icon: '🤝', date: '2026-08' }
+    ],
+    projects: [],
+    stats: {
+      totalPoints: 5200,
+      completedCourses: 6,
+      streak: 21,
+      rank: 'Silver'
+    }
   },
   {
     id: 'user-5',
@@ -55,7 +122,24 @@ export const MOCK_PROFILES = [
     grade: 12,
     gpa: 4.0,
     skills: ['iOS Development', 'Swift', 'Flutter'],
-    interests: ['Mobile Dev', 'Startups', 'Tech']
+    interests: ['Mobile Dev', 'Startups', 'Tech'],
+    bio: 'iOS разработчик и предприниматель. Запустил 2 приложения в App Store с 50k+ загрузок. Сейчас работаю над стартапом в сфере EdTech.',
+    linkedin: 'yerzhan-bekbosynov',
+    github: 'yerzhanbek',
+    achievements: [
+      { title: 'App Store: 50k downloads', icon: '📲', date: '2026-05' },
+      { title: 'Startup Weekend Winner', icon: '🚀', date: '2026-02' },
+      { title: 'Apple WWDC Scholar 2026', icon: '🍎', date: '2026-06' }
+    ],
+    projects: [
+      { name: 'Платформа для обмена учебниками', status: 'in_progress', members: 2 }
+    ],
+    stats: {
+      totalPoints: 11200,
+      completedCourses: 18,
+      streak: 89,
+      rank: 'Platinum'
+    }
   }
 ];
 
@@ -176,7 +260,24 @@ export const MOCK_CURRENT_USER = {
   grade: 12,
   gpa: 3.95,
   skills: ['Full-Stack', 'AI', 'Product Design'],
-  interests: ['Startups', 'AI', 'Education Tech']
+  interests: ['Startups', 'AI', 'Education Tech'],
+  bio: 'Full-stack разработчик и энтузиаст AI. Создаю образовательные продукты и работаю над проектами в сфере EdTech. Интересуюсь стартапами и инновациями в образовании.',
+  linkedin: 'nurtas-ulagat',
+  github: 'ulacoder',
+  achievements: [
+    { title: 'FM Edu Platform Creator', icon: '🚀', date: '2026-08' },
+    { title: 'NASA Space Apps Hackathon', icon: '🛰️', date: '2025-10' },
+    { title: 'FM Edu 150+ day streak', icon: '🔥', date: '2026-09' }
+  ],
+  projects: [
+    { name: 'FM Edu - AI Platform', status: 'in_progress', members: 1 }
+  ],
+  stats: {
+    totalPoints: 12500,
+    completedCourses: 20,
+    streak: 152,
+    rank: 'Platinum'
+  }
 };
 
 export function getMockData() {
@@ -237,4 +338,15 @@ export function leaveMockTeam(teamId: string) {
     return true;
   }
   return false;
+}
+
+export function getMockProfile(userId: string) {
+  if (userId === 'current-user') {
+    return MOCK_CURRENT_USER;
+  }
+  return MOCK_PROFILES.find(p => p.id === userId) || null;
+}
+
+export function getAllMockProfiles() {
+  return [...MOCK_PROFILES, MOCK_CURRENT_USER];
 }
