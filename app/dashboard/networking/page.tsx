@@ -26,40 +26,13 @@ export default function NetworkingPage() {
     try {
       const userData = JSON.parse(userStr);
 
-      // Проверяем настройку использования мок-данных
-      const shouldUseMock = localStorage.getItem('use_mock_networking') === 'true';
-
-      if (shouldUseMock) {
-        // Используем мок-данные сразу
-        const mockData = getMockData();
-        setProfile(mockData.profile);
-        setProjectRequests(mockData.projectRequests);
-        setUserTeams(mockData.userTeams);
-        setUseMockData(true);
-        setIsLoading(false);
-        return;
-      }
-
-      // Мгновенная загрузка из кэша
-      const cachedData = localStorage.getItem('networking_cache');
-      if (cachedData) {
-        try {
-          const cache = JSON.parse(cachedData);
-          const cacheAge = Date.now() - cache.timestamp;
-
-          if (cacheAge < 120000) {
-            setProfile(cache.profile);
-            setProjectRequests(cache.projectRequests);
-            setUserTeams(cache.userTeams);
-            setIsLoading(false);
-          }
-        } catch (e) {
-          console.error('Cache parse error:', e);
-        }
-      }
-
-      // Загружаем свежие данные в фоне
-      loadData(userData.id);
+      // ВСЕГДА используем мок-данные
+      const mockData = getMockData();
+      setProfile(mockData.profile);
+      setProjectRequests(mockData.projectRequests);
+      setUserTeams(mockData.userTeams);
+      setUseMockData(true);
+      setIsLoading(false);
     } catch (e) {
       console.error('Error parsing user data:', e);
       router.push('/login');
