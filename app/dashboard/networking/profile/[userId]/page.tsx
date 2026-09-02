@@ -73,7 +73,8 @@ export default function StudentProfilePage() {
 
     try {
       // Проверяем режим мок-данных
-      const shouldUseMock = localStorage.getItem('use_mock_networking') === 'true';
+      const shouldUseMock = localStorage.getItem('use_mock_networking') === 'true' ||
+                           process.env.USE_MOCK_DATA === 'true';
 
       if (shouldUseMock) {
         // Загружаем из mock-данных
@@ -85,24 +86,66 @@ export default function StudentProfilePage() {
           setUseMockData(true);
         }
       } else {
-        // TODO: Реальный API запрос к Supabase
-        // const response = await fetch(`/api/profiles/${userId}`);
-        // const data = await response.json();
-        // setProfile(data);
+        // Реальный запрос к Supabase
+        const response = await fetch(`/api/matchmaking/profile/${userId}`);
 
-        // Fallback на mock если API недоступен
-        const { getMockProfile } = await import('@/lib/mock-networking-data');
-        const mockProfile = getMockProfile(userId);
-        if (mockProfile) {
-          setProfile(mockProfile);
-          setUseMockData(true);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.profile) {
+            // Преобразуем данные Supabase в формат профиля
+            const supabaseProfile = {
+              id: data.profile.id,
+              name: data.profile.name || 'Без имени',
+              avatar_url: data.profile.avatar_url,
+              personality_type: data.profile.personality_type,
+              region: data.profile.region,
+              grade: data.profile.grade,
+              gpa: data.profile.gpa,
+              skills: data.profile.skills || [],
+              interests: data.profile.interests || [],
+              bio: data.profile.bio || 'Пользователь еще не добавил информацию о себе',
+              linkedin: data.profile.linkedin,
+              github: data.profile.github,
+              instagram: data.profile.instagram,
+              behance: data.profile.behance,
+              achievements: data.profile.achievements || [],
+              projects: data.projects || [],
+              stats: {
+                totalPoints: data.profile.points || 0,
+                completedCourses: data.profile.completed_courses || 0,
+                streak: data.profile.streak || 0,
+                rank: getRankFromPoints(data.profile.points || 0)
+              }
+            };
+            setProfile(supabaseProfile);
+            setUseMockData(false);
+          } else {
+            throw new Error('Profile not found');
+          }
+        } else {
+          // Если ошибка API, переключаемся на mock
+          throw new Error('API request failed');
         }
       }
     } catch (error) {
       console.error('Error loading profile:', error);
+      // Fallback на mock-данные
+      const { getMockProfile } = await import('@/lib/mock-networking-data');
+      const mockProfile = getMockProfile(userId);
+      if (mockProfile) {
+        setProfile(mockProfile);
+        setUseMockData(true);
+      }
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const getRankFromPoints = (points: number): string => {
+    if (points >= 10000) return 'Platinum';
+    if (points >= 5000) return 'Gold';
+    if (points >= 2000) return 'Silver';
+    return 'Bronze';
   };
 
   if (isLoading) {
@@ -135,14 +178,6 @@ export default function StudentProfilePage() {
 
   return (
     <div className="min-h-screen bg-muted/20">
-      {/* Banner */}
-      {useMockData && (
-        <div className="bg-yellow-50 dark:bg-yellow-900/20 border-b border-yellow-200 dark:border-yellow-800 px-4 py-2 text-center">
-          <p className="text-sm text-yellow-800 dark:text-yellow-200">
-            📝 Режим демонстрации: отображаются тестовые данные профиля
-          </p>
-        </div>
-      )}
 
       <div className="max-w-6xl mx-auto px-4 py-6">
         {/* Back Button */}

@@ -2940,5 +2940,23 @@
       }
     ],
     "interventions": []
+  },
+  {
+    "id": "session_1788377971428_mxgaac646",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "startTime": "2026-09-02T19:39:31.429Z",
+    "activities": [
+      {
+        "id": "activity_1788377971412_apg0tww90",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 14698,
+        "timestamp": "2026-09-02T19:39:31.412Z",
+        "metadata": {
+          "pathname": "/"
+        }
+      }
+    ],
+    "interventions": []
   }
 ]
