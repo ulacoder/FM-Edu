@@ -2965,8 +2965,37 @@
         "metadata": {
           "pathname": "/dashboard/networking"
         }
+      },
+      {
+        "id": "activity_1788378797791_7cx58g66x",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 313,
+        "timestamp": "2026-09-02T19:53:17.791Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
+      },
+      {
+        "id": "activity_1788379494602_cqkng9hco",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 696083,
+        "timestamp": "2026-09-02T20:04:54.602Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
       }
     ],
-    "interventions": []
+    "interventions": [
+      {
+        "id": "intervention_1788378797798_uvg2nfg4k",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "motivation",
+        "reason": "Низкая активность за последние 10 минут",
+        "message": "Вижу, что ты немного притих, но помни: ты уже преодолел столько сложного и совсем рядом с важными целями! 🚀 Давай добавим энергии новой увлекательной темой или мини-квизом — твой прогресс точно стоит ярких побед! ✨💫",
+        "timestamp": "2026-09-02T19:53:29.068Z"
+      }
+    ]
   }
 ]

@@ -74,15 +74,8 @@ export default function ProjectCard({
   const isAuthor = false; // Это нужно получить из session
 
   const handleJoinClick = () => {
-    // Если MBTI не совпадает, но близко (2+ совпадения), показываем диалог подтверждения
-    if (!compatibility.isMatch && compatibility.matchScore >= 2) {
-      setCompatibilityResult(compatibility);
-      setShowConfirmDialog(true);
-    } else if (!compatibility.isMatch) {
-      toast.error(compatibility.message || 'Несовместимость по MBTI');
-    } else {
-      handleJoin();
-    }
+    // Для хакатона - сразу запускаем вступление
+    handleJoin();
   };
 
   const handleJoin = async (force = false) => {
@@ -193,10 +186,10 @@ export default function ProjectCard({
               )}
             </div>
             <Link
-              href={`/dashboard/networking/profile/${project.author.id}`}
+              href={`/dashboard/networking/profile/${project.author?.id || 'demo-user'}`}
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              {project.author.name}
+              {project.author?.name || 'Неизвестный автор'}
             </Link>
           </div>
 

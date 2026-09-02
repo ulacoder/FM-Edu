@@ -2638,5 +2638,45 @@
     "metadata": {
       "pathname": "/dashboard/networking"
     }
+  },
+  {
+    "id": "activity_1788378795002_ospd0u004",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 395553,
+    "timestamp": "2026-09-02T19:53:15.002Z",
+    "metadata": {
+      "pathname": "/dashboard/networking"
+    }
+  },
+  {
+    "id": "activity_1788378797102_8f7j1fpxr",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 1749,
+    "timestamp": "2026-09-02T19:53:17.102Z",
+    "metadata": {
+      "pathname": "/dashboard/networking"
+    }
+  },
+  {
+    "id": "activity_1788378797791_7cx58g66x",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 313,
+    "timestamp": "2026-09-02T19:53:17.791Z",
+    "metadata": {
+      "pathname": "/dashboard/networking"
+    }
+  },
+  {
+    "id": "activity_1788379494602_cqkng9hco",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 696083,
+    "timestamp": "2026-09-02T20:04:54.602Z",
+    "metadata": {
+      "pathname": "/dashboard/networking"
+    }
   }
 ]

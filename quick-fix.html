@@ -1,0 +1,24 @@
+<script>
+// Быстрый фикс для кнопки "Вступить в команду"
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    const joinButtons = document.querySelectorAll('button');
+    joinButtons.forEach(btn => {
+      if (btn.textContent.includes('Принять участие')) {
+        btn.onclick = function() {
+          // Показать попап
+          alert('🎉 Вы успешно вступили в команду!\n\nЭто демо для хакатона - в реальной версии вы были бы перенаправлены в командный чат и начали работу с проектом.');
+
+          // Изменить кнопку
+          btn.innerHTML = '<svg class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Вы участвуете - Перейти в чат';
+          btn.classList.remove('bg-green-600', 'hover:bg-green-700');
+          btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+          btn.onclick = function() {
+            alert('🏆 Переход в командный чат проекта!\n\nЗдесь вы могли бы общаться с участниками, делиться файлами и координировать работу над проектом.');
+          };
+        };
+      }
+    });
+  }, 1000);
+});
+</script>
