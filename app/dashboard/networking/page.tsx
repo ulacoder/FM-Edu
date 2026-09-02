@@ -136,29 +136,11 @@ export default function NetworkingPage() {
   }
 
   return (
-    <>
-      {useMockData && (
-        <div className="bg-yellow-50 dark:bg-yellow-900/20 border-b border-yellow-200 dark:border-yellow-800 px-4 py-2 text-center">
-          <p className="text-sm text-yellow-800 dark:text-yellow-200">
-            📝 Режим демонстрации: используются тестовые данные.
-            <button
-              onClick={() => {
-                localStorage.removeItem('use_mock_networking');
-                window.location.reload();
-              }}
-              className="ml-2 underline hover:no-underline"
-            >
-              Попробовать подключиться к базе
-            </button>
-          </p>
-        </div>
-      )}
-      <NetworkingClient
-        profile={profile}
-        projectRequests={projectRequests}
-        userTeams={userTeams}
-        useMockData={useMockData}
-      />
-    </>
+    <NetworkingClient
+      profile={profile}
+      projectRequests={projectRequests}
+      userTeams={userTeams}
+      useMockData={useMockData}
+    />
   );
 }
