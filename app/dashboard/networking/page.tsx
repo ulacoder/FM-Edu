@@ -68,6 +68,19 @@ export default function NetworkingPage() {
 
   const loadData = async (userId: string) => {
     try {
+      // Проверяем наличие переменных окружения
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        console.log('Supabase credentials not found, using mock data');
+        localStorage.setItem('use_mock_networking', 'true');
+        const mockData = getMockData();
+        setProfile(mockData.profile);
+        setProjectRequests(mockData.projectRequests);
+        setUserTeams(mockData.userTeams);
+        setUseMockData(true);
+        setIsLoading(false);
+        return;
+      }
+
       const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
