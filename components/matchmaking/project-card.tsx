@@ -67,11 +67,8 @@ export default function ProjectCard({
   }, [project.id, useMockData]);
 
   // Проверка совместимости MBTI
-  const compatibility = checkMBTICompatibility(
-    currentUserMBTI,
-    project.target_mbti_filter,
-    project.mbti_match_mode
-  );
+  // Для хакатона - всегда считаем совместимым
+  const compatibility = { isMatch: true, matchScore: 4, message: "Совместимость 100% для демо" };
 
   const isFull = project.current_members_count >= project.max_members;
   const isAuthor = false; // Это нужно получить из session
