@@ -2678,5 +2678,25 @@
     "metadata": {
       "pathname": "/dashboard/networking"
     }
+  },
+  {
+    "id": "activity_1788379997710_dmavv5eg7",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 502645,
+    "timestamp": "2026-09-02T20:13:17.710Z",
+    "metadata": {
+      "pathname": "/courses"
+    }
+  },
+  {
+    "id": "activity_1788381110447_c42gaenl1",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "type": "material_view",
+    "duration": 1112261,
+    "timestamp": "2026-09-02T20:31:50.447Z",
+    "metadata": {
+      "pathname": "/dashboard/networking"
+    }
   }
 ]
