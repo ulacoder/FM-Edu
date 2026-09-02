@@ -76,10 +76,10 @@ export default function RecommendationsPage() {
 
           if (matches >= 3) {
             score += 40;
-            reasons.push(`🎯 MBTI совпадение ${matches}/4 букв`);
+            reasons.push(`MBTI совпадение ${matches}/4 букв`);
           } else if (matches >= 2) {
             score += 20;
-            reasons.push(`✨ MBTI совпадение ${matches}/4 букв`);
+            reasons.push(`MBTI совпадение ${matches}/4 букв`);
           }
         }
 
@@ -91,14 +91,14 @@ export default function RecommendationsPage() {
           project.title.toLowerCase().includes(interest.toLowerCase())
         )) {
           score += 30;
-          reasons.push('💡 Совпадает с вашими интересами');
+          reasons.push('Совпадает с вашими интересами');
         }
 
         // Свободные места
         const spotsLeft = project.max_members - project.current_members_count;
         if (spotsLeft > 0) {
           score += 20;
-          reasons.push(`🎫 ${spotsLeft} ${spotsLeft === 1 ? 'место' : 'мест'} свободно`);
+          reasons.push(`${spotsLeft} ${spotsLeft === 1 ? 'место' : 'мест'} свободно`);
         }
 
         // Навыки
@@ -108,7 +108,7 @@ export default function RecommendationsPage() {
           )
         )) {
           score += 10;
-          reasons.push('🛠️ Ищут ваши навыки');
+          reasons.push('Ищут ваши навыки');
         }
 
         if (score > 30) {
@@ -138,9 +138,9 @@ export default function RecommendationsPage() {
           description: 'Углубленный курс по ML и нейронным сетям для опытных разработчиков',
           matchScore: 85,
           reasons: [
-            '🎯 Соответствует вашим навыкам: AI, Python',
-            '💡 Продолжение изученных тем',
-            '⚡ Подходит для вашего уровня (Platinum)'
+            'Соответствует вашим навыкам: AI, Python',
+            'Продолжение изученных тем',
+            'Подходит для вашего уровня (Platinum)'
           ],
           icon: Brain,
           action: {
@@ -155,9 +155,9 @@ export default function RecommendationsPage() {
           description: 'Как создать и масштабировать EdTech стартап от идеи до инвестиций',
           matchScore: 75,
           reasons: [
-            '💡 Совпадает с интересами: Startups, Education Tech',
-            '🚀 Полезно для FM Edu проекта',
-            '🎯 Развитие Product Design навыков'
+            'Совпадает с интересами: Startups, Education Tech',
+            'Полезно для FM Edu проекта',
+            'Развитие Product Design навыков'
           ],
           icon: Target,
           action: {
@@ -172,11 +172,11 @@ export default function RecommendationsPage() {
           description: 'Профессиональная разработка на React с использованием Next.js 15',
           matchScore: 70,
           reasons: [
-            '🛠️ Усиление навыка Full-Stack',
-            '⚡ Актуально для FM Edu',
-            '🎯 Следующий шаг после основ'
+            'Усиление навыка Full-Stack',
+            'Актуально для FM Edu',
+            'Следующий шаг после основ'
           ],
-          icon: Zap,
+          icon: Lightning,
           action: {
             label: 'Начать курс',
             href: '/courses?subject=informatics'
@@ -195,9 +195,9 @@ export default function RecommendationsPage() {
           description: 'Освойте продвинутые паттерны TypeScript для масштабируемых приложений',
           matchScore: 80,
           reasons: [
-            '🎯 Дополнит Full-Stack навыки',
-            '💼 Востребовано в индустрии',
-            '⚡ Повысит качество кода FM Edu'
+            'Дополнит Full-Stack навыки',
+            'Востребовано в индустрии',
+            'Повысит качество кода FM Edu'
           ],
           icon: Award,
           action: {
@@ -212,9 +212,9 @@ export default function RecommendationsPage() {
           description: 'Создание консистентных дизайн-систем для продуктов',
           matchScore: 65,
           reasons: [
-            '🎨 Улучшит Product Design',
-            '💡 Полезно для стартапов',
-            '🚀 Новый навык для портфолио'
+            'Улучшит Product Design',
+            'Полезно для стартапов',
+            'Новый навык для портфолио'
           ],
           icon: Sparkles,
           action: {
@@ -235,9 +235,9 @@ export default function RecommendationsPage() {
           description: 'Летняя стажировка в open-source проектах Google с оплатой',
           matchScore: 90,
           reasons: [
-            '🎯 Идеально для Full-Stack разработчиков',
-            '🌟 Platinum ранг — высокие шансы',
-            '💼 152 дня streak показывает мотивацию'
+            'Идеально для Full-Stack разработчиков',
+            'Platinum ранг - высокие шансы',
+            '152 дня streak показывает мотивацию'
           ],
           icon: TrendingUp,
           action: {
@@ -252,9 +252,9 @@ export default function RecommendationsPage() {
           description: 'Бесплатный онлайн-курс от YC о создании стартапов',
           matchScore: 85,
           reasons: [
-            '🚀 Интерес к стартапам',
-            '💡 FM Edu — активный проект',
-            '🎓 Подготовка к будущему запуску'
+            'Интерес к стартапам',
+            'FM Edu - активный проект',
+            'Подготовка к будущему запуску'
           ],
           icon: Briefcase,
           action: {
