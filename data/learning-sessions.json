@@ -3034,5 +3034,63 @@
         "timestamp": "2026-09-02T20:31:59.867Z"
       }
     ]
+  },
+  {
+    "id": "session_1788382014500_1ghv0ezby",
+    "studentId": "user_1787612597209_gxpcp8606",
+    "startTime": "2026-09-02T20:46:54.500Z",
+    "activities": [
+      {
+        "id": "activity_1788382014492_mv2oyk547",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 59208,
+        "timestamp": "2026-09-02T20:46:54.492Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
+      },
+      {
+        "id": "activity_1788382056840_p4rcfhbo4",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 41900,
+        "timestamp": "2026-09-02T20:47:36.840Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
+      },
+      {
+        "id": "activity_1788382067997_mjqujqzb3",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 10778,
+        "timestamp": "2026-09-02T20:47:47.997Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
+      },
+      {
+        "id": "activity_1788382184244_0y22102ku",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 116041,
+        "timestamp": "2026-09-02T20:49:44.244Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
+      },
+      {
+        "id": "activity_1788382291579_dth5xgr4t",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 64456,
+        "timestamp": "2026-09-02T20:51:31.579Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
+      }
+    ],
+    "interventions": []
   }
 ]

@@ -245,7 +245,7 @@ export default function CoursesPage() {
 
                   <div className="flex gap-4 flex-wrap justify-center">
                     <button
-                      onClick={() => router.push('/recommendations')}
+                      onClick={() => router.push('/dashboard/recommendations')}
                       className="flex items-center gap-2 px-8 py-4 bg-white text-purple-600 hover:bg-white/90 rounded-xl transition-colors font-bold text-lg shadow-xl"
                     >
                       <Sparkles className="w-5 h-5" />
