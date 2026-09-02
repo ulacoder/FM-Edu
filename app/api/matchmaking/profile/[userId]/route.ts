@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { userId: string } }
+  { params }: { params: Promise<{ userId: string }> }
 ) {
   try {
-    const userId = params.userId;
+    const { userId } = await params;
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -54,7 +54,7 @@ export async function GET(
     }
 
     // 3. Получаем достижения пользователя (из таблицы achievements если существует)
-    let achievements = [];
+    let achievements: Array<{ title: string; icon: string; date: string }> = [];
     try {
       const { data: achievementsData } = await supabase
         .from('achievements')

@@ -2955,6 +2955,16 @@
         "metadata": {
           "pathname": "/"
         }
+      },
+      {
+        "id": "activity_1788378399013_8ffbk432t",
+        "studentId": "user_1787612597209_gxpcp8606",
+        "type": "material_view",
+        "duration": 427241,
+        "timestamp": "2026-09-02T19:46:39.013Z",
+        "metadata": {
+          "pathname": "/dashboard/networking"
+        }
       }
     ],
     "interventions": []
