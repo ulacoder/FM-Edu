@@ -176,7 +176,7 @@ export default function RecommendationsPage() {
             'Актуально для FM Edu',
             'Следующий шаг после основ'
           ],
-          icon: Lightning,
+          icon: Zap,
           action: {
             label: 'Начать курс',
             href: '/courses?subject=informatics'
