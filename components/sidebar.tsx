@@ -88,6 +88,7 @@ export function Sidebar() {
     { icon: BookOpen, labelKey: "courses", href: "/courses", auth: false },
     { icon: Lightbulb, labelKey: "personalizedRecommendations", href: "/dashboard/recommendations", auth: true },
     { icon: Download, labelKey: "offlineBank", href: "/offline-bank", auth: false },
+    { icon: Trophy, labelKey: "opportunities", href: "/opportunities", auth: false },
     { icon: Gamepad2, labelKey: "games", href: "/games", auth: false },
     { icon: Target, labelKey: "roadmap", href: "/roadmap", auth: true },
     { icon: Calendar, labelKey: "calendar", href: "/calendar", auth: true },
